@@ -104,11 +104,11 @@
         #role-list { transition: transform 0.7s cubic-bezier(0.23, 1, 0.32, 1); }
         .role-item { height: 1.1em; display: flex; align-items: center; }
 
-        /* --- REFINED MOBILE LOGIC --- */
+        /* --- REFINED MOBILE TIGHT-LOCK --- */
         @media (max-width: 768px) {
             .hero-container {
                 padding: 0;
-                justify-content: space-between;
+                justify-content: flex-start; /* Stop spreading content to edges */
                 height: 100vh;
             }
 
@@ -117,30 +117,30 @@
                 height: 56.25vw !important;
                 min-height: 0 !important;
                 min-width: 0 !important;
-                top: 30% !important; /* BACK TO UPPER ANCHOR */
+                top: 30% !important; 
                 transform: translate(-50%, -50%) !important;
             }
 
             nav { 
-                height: 15vh; /* Adjusted for better framing */
+                height: 12vh; 
                 padding: 0 1.5rem !important;
                 display: flex;
                 align-items: center;
             }
 
             .bottom-info-group {
-                padding: 0 1.5rem 3rem 1.5rem; /* Pushes content up slightly from the very bottom */
+                /* MATH: Video center (30vh) + half video height (28vw) + small gap */
+                margin-top: calc(8vh + 28vw); 
+                padding: 1.5rem;
                 width: 100%;
             }
 
-            /* LOCKED-IN REFINED TYPOGRAPHY */
             .alexander { font-size: 9.5vw; }
             .vietmeier { font-size: 9vw; }
             
             .nav-link { font-size: 10px; }
             .nav-pipe { display: none; }
             
-            /* Smaller scroller to avoid competition with name */
             .director-group { font-size: 1.1rem !important; opacity: 0.9; }
             .subhead-junior { font-size: 0.65rem !important; margin-top: 4px; opacity: 0.5; }
         }
