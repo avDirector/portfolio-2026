@@ -30,32 +30,6 @@
             height: 100vh;
         }
 
-        /* --- NAVIGATION --- */
-        .nav-link {
-            position: relative;
-            display: inline-flex;
-            flex-direction: column;
-            align-items: center;
-            text-decoration: none;
-            opacity: 0.5;
-        }
-
-        .nav-link::after {
-            content: '';
-            position: absolute;
-            width: 100%; height: 1px; bottom: -3px;
-            background-color: #fff;
-            left: 50%;
-            transform: translate(-53%, 0) scaleX(0); 
-            transform-origin: center;
-            transition: transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
-        }
-
-        @media (min-width: 1025px) {
-            .nav-link:hover { opacity: 1; transform: translateY(-1px); }
-            .nav-link:hover::after { transform: translate(-53%, 0) scaleX(1); }
-        }
-
         /* --- HERO & VIDEO --- */
         .hero-container {
             position: relative;
@@ -66,7 +40,6 @@
             flex-direction: column;
             padding: 3rem; 
             box-sizing: border-box;
-            justify-content: space-between;
         }
 
         .video-background {
@@ -104,12 +77,11 @@
         #role-list { transition: transform 0.7s cubic-bezier(0.23, 1, 0.32, 1); }
         .role-item { height: 1.1em; display: flex; align-items: center; }
 
-        /* --- REFINED MOBILE TIGHT-LOCK --- */
+        /* --- MOBILE LAYOUT REPAIR --- */
         @media (max-width: 768px) {
             .hero-container {
-                padding: 0;
-                justify-content: flex-start; /* Stop spreading content to edges */
-                height: 100vh;
+                padding: 1.5rem;
+                justify-content: flex-start;
             }
 
             .video-background iframe {
@@ -121,28 +93,31 @@
                 transform: translate(-50%, -50%) !important;
             }
 
-            nav { 
-                height: 12vh; 
-                padding: 0 1.5rem !important;
-                display: flex;
-                align-items: center;
+            /* This pushes the text block exactly below the video area */
+            .mobile-spacer {
+                flex-grow: 0;
+                height: 35vh; 
             }
 
             .bottom-info-group {
-                /* MATH: Video center (30vh) + half video height (28vw) + small gap */
-                margin-top: calc(8vh + 28vw); 
-                padding: 1.5rem;
                 width: 100%;
+                margin-top: 1rem;
             }
 
             .alexander { font-size: 9.5vw; }
             .vietmeier { font-size: 9vw; }
-            
-            .nav-link { font-size: 10px; }
+            .nav-link { font-size: 10px; opacity: 0.5; text-decoration: none; }
             .nav-pipe { display: none; }
-            
-            .director-group { font-size: 1.1rem !important; opacity: 0.9; }
-            .subhead-junior { font-size: 0.65rem !important; margin-top: 4px; opacity: 0.5; }
+            .director-group { font-size: 1.1rem !important; opacity: 0.9; font-family: 'Knockout-Full'; }
+            .subhead-junior { font-size: 0.65rem !important; margin-top: 4px; opacity: 0.5; font-family: 'Knockout-Junior'; }
+        }
+
+        /* --- DESKTOP NAV TWEAK --- */
+        @media (min-width: 769px) {
+            .hero-container { justify-content: space-between; }
+            .mobile-spacer { display: none; }
+            .nav-link { opacity: 0.5; transition: opacity 0.3s; }
+            .nav-link:hover { opacity: 1; }
         }
     </style>
 </head>
@@ -174,6 +149,8 @@
                 <a href="mailto:alex@yourdomain.com" class="nav-link">Contact</a>
             </div>
         </nav>
+
+        <div class="mobile-spacer"></div>
 
         <div class="w-full bottom-info-group">
             <h1 class="flex flex-wrap items-baseline gap-[0.3em] tracking-tighter mb-1">
