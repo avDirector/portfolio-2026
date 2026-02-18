@@ -93,6 +93,11 @@
             align-items: baseline;
         }
 
+        .pipe-spacer {
+            margin: 0 0.35em;
+            opacity: 0.4;
+        }
+
         .role-window {
             font-family: 'Knockout-Junior', sans-serif;
             font-size: 0.96em;
@@ -101,7 +106,6 @@
             display: inline-flex;
             flex-direction: column;
             transform: translateY(-0.03em); 
-            margin-left: 0.25em; /* Precisely adjusted gap */
         }
 
         #role-list {
@@ -157,7 +161,8 @@
             
             <div class="flex flex-col md:flex-row justify-between border-t border-white/40 pt-2 gap-6 items-baseline">
                 <div class="director-group subhead-full text-2xl md:text-4xl tracking-tight text-white">
-                    <span>Director <span class="opacity-40">|</span></span>
+                    <span>Director</span>
+                    <span class="pipe-spacer">|</span>
                     <div class="role-window">
                         <div id="role-list">
                             <span class="role-item">Variety</span>
