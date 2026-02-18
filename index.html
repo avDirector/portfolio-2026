@@ -29,48 +29,49 @@
             -webkit-font-smoothing: antialiased;
         }
 
-        /* NAVIGATION - PRECISION SYMMETRY */
+        /* NAVIGATION - THE ULTIMATE CENTER FIX */
         .nav-link {
             position: relative;
-            display: inline-block;
+            display: inline-flex; /* Shrink-wraps to text only */
+            flex-direction: column;
+            align-items: center; /* Forces the underline to respect the text center */
             transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
             text-decoration: none;
             opacity: 0.5;
-            padding-bottom: 4px; /* Creates a consistent floor for the underline */
         }
 
-        /* The underline now grows from the center using scaleX for perfect symmetry */
+        /* Underline now anchored to the center of the flex-column */
         .nav-link::after {
             content: '';
             position: absolute;
             width: 100%;
             height: 1px;
-            bottom: -2px;
-            left: 0;
+            bottom: -3px;
             background-color: #fff;
             transition: transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
-            transform: scaleX(0); /* Hidden by default */
-            transform-origin: center; /* Forces growth from dead center */
-            box-shadow: 0 0 8px rgba(255,255,255,0.4);
+            transform: scaleX(0); 
+            transform-origin: center;
+            box-shadow: 0 0 10px rgba(255,255,255,0.5);
         }
 
         .nav-link:hover {
             opacity: 1;
-            transform: scale(1.03);
+            transform: translateY(-1px); /* Subtler than scale, feels more "pro" */
         }
 
         .nav-link:hover::after {
-            transform: scaleX(1); /* Expands to full width symmetrically */
+            transform: scaleX(1);
         }
 
         .nav-pipe {
-            opacity: 0.4; /* Increased from 0.2 */
+            opacity: 0.6; /* More visible as requested */
             font-weight: 300;
             pointer-events: none;
             user-select: none;
-            margin-bottom: 2px; /* Optical baseline adjustment */
+            padding-bottom: 2px;
         }
 
+        /* HERO LAYOUT */
         .hero-container {
             position: relative;
             height: 100vh;
@@ -165,7 +166,7 @@
             <span class="logo-v">V</span>
         </a>
 
-        <div class="flex items-center gap-4 md:gap-6 text-[10px] md:text-[11px] tracking-[0.25em] font-bold subhead-junior">
+        <div class="flex items-center gap-4 md:gap-8 text-[10px] md:text-[11px] tracking-[0.25em] font-bold subhead-junior">
             <a href="portfolio.html" class="nav-link">Portfolio</a>
             <span class="nav-pipe">|</span>
             <a href="credits.html" class="nav-link">Credits</a>
