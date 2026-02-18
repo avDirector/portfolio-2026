@@ -29,11 +29,13 @@
             -webkit-font-smoothing: antialiased;
         }
 
-        /* NAVIGATION ANIMATIONS */
+        /* NAVIGATION ANIMATIONS - NO LAYOUT SHIFT */
         .nav-link {
             position: relative;
-            transition: letter-spacing 0.4s cubic-bezier(0.165, 0.84, 0.44, 1), opacity 0.3s ease;
+            display: inline-block;
+            transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
             text-decoration: none;
+            opacity: 0.6;
         }
 
         .nav-link::after {
@@ -41,22 +43,21 @@
             position: absolute;
             width: 0;
             height: 1px;
-            bottom: -4px;
+            bottom: -6px;
             left: 50%;
             background-color: #fff;
             transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
             transform: translateX(-50%);
-            opacity: 0;
+            box-shadow: 0 0 8px rgba(255,255,255,0.5); /* Subtle glow */
         }
 
         .nav-link:hover {
-            letter-spacing: 0.35em !important; /* Slight expansion */
             opacity: 1;
+            transform: scale(1.05); /* Grows slightly without pushing neighbors */
         }
 
         .nav-link:hover::after {
             width: 100%;
-            opacity: 0.6;
         }
 
         .hero-container {
@@ -147,12 +148,12 @@
 <body>
 
     <nav class="absolute top-0 left-0 w-full p-8 md:p-12 px-[3rem] flex justify-between items-center z-50">
-        <a href="index.html" class="text-4xl tracking-tighter flex items-baseline hover:opacity-70 transition duration-500">
+        <a href="index.html" class="text-4xl tracking-tighter flex items-baseline hover:opacity-100 transition duration-500 opacity-80">
             <span class="logo-a">A</span>
             <span class="logo-v">V</span>
         </a>
 
-        <div class="flex items-center gap-6 md:gap-10 text-[10px] md:text-[11px] tracking-[0.25em] font-bold subhead-junior text-white/70">
+        <div class="flex items-center gap-8 md:gap-12 text-[10px] md:text-[11px] tracking-[0.25em] font-bold subhead-junior">
             <a href="portfolio.html" class="nav-link">Portfolio</a>
             <a href="credits.html" class="nav-link">Credits</a>
             <a href="about.html" class="nav-link">About</a>
