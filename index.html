@@ -29,42 +29,46 @@
             -webkit-font-smoothing: antialiased;
         }
 
-        /* NAVIGATION - SYMMETRICAL ANIMATION */
+        /* NAVIGATION - PRECISION SYMMETRY */
         .nav-link {
             position: relative;
             display: inline-block;
             transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
             text-decoration: none;
-            opacity: 0.5; /* Dimmer default for higher contrast on hover */
+            opacity: 0.5;
+            padding-bottom: 4px; /* Creates a consistent floor for the underline */
         }
 
+        /* The underline now grows from the center using scaleX for perfect symmetry */
         .nav-link::after {
             content: '';
             position: absolute;
-            width: 0;
+            width: 100%;
             height: 1px;
-            bottom: -5px;
-            left: 50%; /* Start in middle */
+            bottom: -2px;
+            left: 0;
             background-color: #fff;
-            transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
-            transform: translateX(-50%); /* Pull back by half its width to stay centered */
-            box-shadow: 0 0 8px rgba(255,255,255,0.3);
+            transition: transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+            transform: scaleX(0); /* Hidden by default */
+            transform-origin: center; /* Forces growth from dead center */
+            box-shadow: 0 0 8px rgba(255,255,255,0.4);
         }
 
         .nav-link:hover {
             opacity: 1;
-            transform: scale(1.03); /* Slightly reduced scale for more subtlety */
+            transform: scale(1.03);
         }
 
         .nav-link:hover::after {
-            width: 100%;
+            transform: scaleX(1); /* Expands to full width symmetrically */
         }
 
         .nav-pipe {
-            opacity: 0.2;
+            opacity: 0.4; /* Increased from 0.2 */
             font-weight: 300;
-            pointer-events: none; /* Mouse ignores them */
+            pointer-events: none;
             user-select: none;
+            margin-bottom: 2px; /* Optical baseline adjustment */
         }
 
         .hero-container {
@@ -149,7 +153,7 @@
             .vietmeier { font-size: 13.4vw; }
             .name-container { gap: 0.2em; margin-bottom: 0.25rem; margin-left: -0.02em; }
             nav { padding-left: 1.5rem !important; padding-right: 1.5rem !important; }
-            .nav-pipe { display: none; } /* Hide pipes on mobile to save space */
+            .nav-pipe { display: none; } 
         }
     </style>
 </head>
