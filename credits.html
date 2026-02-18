@@ -5,15 +5,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Credits | Alexander Vietmeier</title>
     
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22 fill=%22white%22 font-family=%22sans-serif%22 font-weight=%22bold%22>AV</text></svg>">
+
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         @font-face { 
             font-family: 'Knockout-Full'; 
             src: url('./fonts/Knockout-HTF70-FullWelterwt.otf') format('opentype'); 
+            font-display: swap;
         }
         @font-face { 
             font-family: 'Knockout-Junior'; 
             src: url('./fonts/Knockout-HTF30-JuniorWelterwt.otf') format('opentype'); 
+            font-display: swap;
         }
 
         body {
@@ -21,94 +25,115 @@
             color: #fff;
             text-transform: uppercase;
             font-family: 'Knockout-Junior', sans-serif;
-            margin: 0;
-            padding: 0;
+            -webkit-font-smoothing: antialiased;
+            min-height: 100vh;
         }
 
-        .kn-brand { font-family: 'Knockout-Full', sans-serif; letter-spacing: -0.03em; }
-
-        /* --- THE MASTER STACK --- */
-        .header-container {
-            position: relative;
-            /* Height matches the Credits text plus breathing room */
-            height: 120px; 
-            margin-bottom: 4rem;
-            display: flex;
-            align-items: flex-end;
+        .page-bg {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            z-index: -1;
+            background: radial-gradient(circle at 50% -10%, #161616 0%, #000 60%);
         }
 
-        .credits-layer {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            color: #ffffff;
-            z-index: 10;
-            line-height: 0.75; /* Tightens the box to the white ink */
-            margin-left: 1.5rem;
+        .kn-brand { 
+            font-family: 'Knockout-Full', sans-serif; 
+            letter-spacing: -0.03em; 
         }
 
-        .name-layer {
-            position: absolute;
-            /* This pixel value moves the name relative to the bottom of the container */
-            /* Adjusted to rest the name on the mid-line of 'CREDITS' */
-            bottom: 0px; 
-            left: 0;
-            color: rgba(110, 110, 110, 0.8);
-            z-index: 20;
-            line-height: 1;
-            white-space: nowrap;
+        .kn-credit {
+            font-family: 'Knockout-Full', sans-serif;
+            letter-spacing: 0.02em;
         }
 
-        @media (min-width: 768px) {
-            .header-container { height: 180px; }
-            .credits-layer { margin-left: 4rem; }
-            /* Desktop adjustment to hit the same T-intersection at a larger scale */
-            .name-layer { bottom: 82px; } 
+        .table-header-text {
+            font-family: 'Knockout-Junior', sans-serif;
+            font-size: 13px;
+            letter-spacing: 0.25em;
+            color: rgba(255, 255, 255, 0.4);
         }
 
-        /* Nav & Table Styles */
-        nav { position: relative; z-index: 100; padding: 3rem 0; }
-        .credit-row { border-bottom: 1px solid rgba(255,255,255,0.1); padding: 2rem 0; }
+        .credit-row {
+            border-bottom: 1px solid rgba(255,255,255,0.08);
+            transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+        }
+
+        @media (min-width: 769px) {
+            .credit-row:hover {
+                background: rgba(255,255,255,0.03);
+                padding-left: 1.5rem; 
+                border-bottom-color: rgba(255,255,255,0.2);
+            }
+        }
+
+        .emmy-blue {
+            color: #38bdf8;
+            text-shadow: 0 0 15px rgba(56, 189, 248, 0.2);
+        }
     </style>
 </head>
-<body class="px-6 md:px-12">
+<body class="p-6 md:p-12">
 
-    <nav class="flex justify-between items-center">
-        <div class="text-3xl kn-brand">AV</div>
-        <div class="flex gap-8 text-[12px] tracking-widest opacity-50">
-            <span>Portfolio</span>
-            <span class="opacity-100 text-white">Credits</span>
-            <span>About</span>
-            <span>Contact</span>
+    <div class="page-bg"></div>
+
+    <nav class="w-full flex justify-between items-center mb-16 md:mb-32 relative z-50">
+        <a href="index.html" class="tracking-tighter flex items-baseline opacity-80 kn-brand text-3xl md:text-5xl">
+            <span>A</span><span style="font-family: 'Knockout-Junior', sans-serif; margin-left: -2px;">V</span>
+        </a>
+        <div class="flex items-center gap-6 md:gap-12 font-bold text-[10px] md:text-[13px] tracking-[0.35em]">
+            <a href="portfolio.html" class="opacity-50 hover:opacity-100 transition-opacity">Portfolio</a>
+            <span class="opacity-20 hidden md:inline">|</span>
+            <a href="credits.html" class="opacity-100 border-b border-white pb-1">Credits</a>
+            <span class="opacity-20 hidden md:inline">|</span>
+            <a href="about.html" class="opacity-50 hover:opacity-100 transition-opacity">About</a>
+            <span class="opacity-20 hidden md:inline">|</span>
+            <a href="mailto:alex@yourdomain.com" class="opacity-50 hover:opacity-100 transition-opacity">Contact</a>
         </div>
     </nav>
 
-    <main class="max-w-7xl mx-auto pt-12">
+    <main class="max-w-7xl mx-auto">
         
-        <div class="header-container">
-            <div class="name-layer">
-                <h2 class="text-4xl md:text-6xl kn-brand">
-                    ALEXANDER <span style="font-family: 'Knockout-Junior', sans-serif; margin-left: 2px;">VIETMEIER</span>
-                </h2>
-            </div>
-
-            <div class="credits-layer">
-                <h1 class="text-7xl md:text-9xl kn-brand">Credits</h1>
-            </div>
-        </div>
-
-        <div class="mt-12">
-            <div class="credit-row flex justify-between items-baseline">
-                <span class="text-2xl md:text-4xl kn-brand">Late Night with Seth Meyers</span>
-                <span class="text-xl opacity-60">Director</span>
-            </div>
-            <div class="credit-row flex justify-between items-baseline">
-                <span class="text-2xl md:text-4xl kn-brand">Macy's Thanksgiving Parade</span>
-                <span class="text-xl opacity-60">Segment Director</span>
-            </div>
+        <div class="flex flex-col md:flex-row md:items-end justify-between border-b border-white/20 pb-12 mb-20">
+            <h1 class="kn-brand text-8xl md:text-[12rem] leading-none text-white">Credits</h1>
+            <a href="Alexander_Vietmeier_Resume.pdf" target="_blank" class="pb-1 text-[10px] md:text-[13px] tracking-[0.4em] opacity-40 uppercase mt-8 md:mt-0 border-b border-white/10 hover:border-white hover:opacity-100 transition-all">
+                Download PDF Resume
+            </a>
         </div>
         
+        <div class="hidden md:grid grid-cols-12 gap-4 pb-6 px-2 border-b border-white/5">
+            <div class="col-span-5 table-header-text">Project / Title</div>
+            <div class="col-span-3 table-header-text text-center">Network / Client</div>
+            <div class="col-span-1 table-header-text text-center">Year</div>
+            <div class="col-span-3 table-header-text text-right">Role</div>
+        </div>
+
+        <div class="flex flex-col">
+            
+            <div class="credit-row py-8 md:py-14 flex flex-col md:grid md:grid-cols-12 gap-4 items-baseline px-2">
+                <div class="w-full md:col-span-5">
+                    <div class="text-3xl md:text-5xl lg:text-6xl kn-credit uppercase leading-none">Late Night with Seth Meyers</div>
+                </div>
+                <div class="w-full md:col-span-3 md:text-center text-xl md:text-2xl text-white/70">NBC</div>
+                <div class="col-span-1 text-center text-xl text-white/40 font-mono tracking-tighter">2014—2026</div>
+                <div class="w-full md:col-span-3 md:text-right">
+                    <div class="text-2xl md:text-3xl text-white/90 kn-credit leading-none">Director</div>
+                    <div class="text-[11px] emmy-blue tracking-[0.25em] mt-4 font-bold uppercase">2x Emmy Nominee: Directing</div>
+                </div>
+            </div>
+
+            <div class="credit-row py-8 md:py-14 flex flex-col md:grid md:grid-cols-12 gap-4 items-baseline px-2">
+                <div class="w-full md:col-span-5">
+                    <div class="text-3xl md:text-5xl lg:text-6xl kn-credit uppercase leading-none">Macy's Thanksgiving Day Parade</div>
+                </div>
+                <div class="w-full md:col-span-3 md:text-center text-xl md:text-2xl text-white/70">NBC</div>
+                <div class="col-span-1 text-center text-xl text-white/40 font-mono tracking-tighter">2019—2023</div>
+                <div class="w-full md:col-span-3 md:text-right text-2xl md:text-3xl text-white/90 kn-credit leading-none">Segment Director</div>
+            </div>
+
+        </div>
     </main>
+
+    <footer class="h-64"></footer>
 
 </body>
 </html>
