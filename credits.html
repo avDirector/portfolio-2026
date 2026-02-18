@@ -36,16 +36,22 @@
             background: radial-gradient(circle at 50% -10%, #161616 0%, #000 60%);
         }
 
-        /* Tight tracking for branding elements */
         .kn-brand { 
             font-family: 'Knockout-Full', sans-serif; 
             letter-spacing: -0.03em; 
         }
 
-        /* Legible tracking for credit rows */
         .kn-credit {
             font-family: 'Knockout-Full', sans-serif;
             letter-spacing: 0.02em;
+        }
+
+        /* --- THE MAGIC OVERLAP --- */
+        .name-watermark {
+            color: #d1d5db; /* A solid light gray (Tailwind gray-300) */
+            mix-blend-mode: difference;
+            position: relative;
+            z-index: 30;
         }
 
         .table-header-text {
@@ -96,8 +102,8 @@
     <main class="max-w-7xl mx-auto">
         
         <div class="relative mb-20">
-            <div class="relative z-20 pointer-events-none">
-                <h2 class="text-4xl md:text-6xl kn-brand text-white opacity-20 leading-none">
+            <div class="name-watermark">
+                <h2 class="text-4xl md:text-6xl kn-brand leading-none">
                     ALEXANDER <span style="font-family: 'Knockout-Junior', sans-serif; margin-left: 2px; letter-spacing: -0.02em;">VIETMEIER</span>
                 </h2>
             </div>
