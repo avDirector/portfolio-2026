@@ -36,27 +36,38 @@
             background: radial-gradient(circle at 50% -10%, #161616 0%, #000 60%);
         }
 
-        /* Branding: Tight tracking to match home page */
         .kn-brand { 
             font-family: 'Knockout-Full', sans-serif; 
             letter-spacing: -0.03em; 
         }
 
-        /* Credits: Slightly more readable tracking */
         .kn-credit {
             font-family: 'Knockout-Full', sans-serif;
             letter-spacing: 0.02em;
         }
 
-        /* MASTHEAD OVERLAP LOGIC */
+        /* --- THE PIXEL-LOCK LOGIC --- */
+        .masthead-container {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
         .name-overlay {
-            color: rgba(102, 102, 102, 0.8); /* Refined gray with subtle bleed */
-            position: absolute;
-            bottom: 46%; /* Precise hit for the T-intersection */
-            left: -2px; 
+            color: rgba(119, 119, 119, 0.75); /* Visible Medium Gray */
             z-index: 20;
-            pointer-events: none;
-            line-height: 1;
+            position: relative;
+            line-height: 0.8; /* Pulls the bounding box tight to the letters */
+        }
+
+        .credits-title {
+            color: white;
+            z-index: 10;
+            position: relative;
+            /* Negative margin pulls the title UP into the name */
+            /* This value stays consistent across screen sizes */
+            margin-top: -0.45em; 
+            margin-left: 1.5rem; /* The horizontal offset */
         }
 
         .table-header-text {
@@ -77,6 +88,7 @@
                 padding-left: 1.5rem; 
                 border-bottom-color: rgba(255,255,255,0.2);
             }
+            .credits-title { margin-left: 4rem; } /* Deeper shift on desktop */
         }
 
         .emmy-blue {
@@ -106,16 +118,16 @@
 
     <main class="max-w-7xl mx-auto">
         
-        <div class="relative mb-24 flex flex-col items-start">
+        <div class="masthead-container mb-20 md:mb-32">
             
             <div class="name-overlay">
-                <h2 class="text-4xl md:text-6xl kn-brand leading-none">
+                <h2 class="text-4xl md:text-6xl kn-brand">
                     ALEXANDER <span style="font-family: 'Knockout-Junior', sans-serif; margin-left: 2px; letter-spacing: -0.02em;">VIETMEIER</span>
                 </h2>
             </div>
 
-            <div class="w-full flex flex-col md:flex-row md:items-end justify-between border-b border-white/20 pb-8 ml-4 md:ml-16 relative z-10">
-                <h1 class="kn-brand text-7xl md:text-9xl leading-none text-white">Credits</h1>
+            <div class="credits-title w-full flex flex-col md:flex-row md:items-end justify-between border-b border-white/20 pb-8">
+                <h1 class="kn-brand text-7xl md:text-9xl leading-none">Credits</h1>
                 <a href="Alexander_Vietmeier_Resume.pdf" target="_blank" class="pb-1 text-[10px] md:text-[12px] tracking-[0.3em] opacity-40 uppercase mt-6 md:mt-0 border-b border-white/10 hover:border-white hover:opacity-100 transition-all">
                     Download PDF Resume
                 </a>
@@ -130,7 +142,6 @@
         </div>
 
         <div class="flex flex-col">
-            
             <div class="credit-row py-8 md:py-12 flex flex-col md:grid md:grid-cols-12 gap-4 items-baseline px-2">
                 <div class="w-full md:col-span-5">
                     <div class="text-2xl md:text-3xl lg:text-4xl kn-credit uppercase leading-none">Late Night with Seth Meyers</div>
@@ -151,7 +162,6 @@
                 <div class="col-span-1 text-center text-lg text-white/40 font-mono tracking-tighter">2019—2023</div>
                 <div class="w-full md:col-span-3 md:text-right text-xl md:text-2xl text-white/90 kn-credit leading-none">Segment Director</div>
             </div>
-
         </div>
     </main>
 
