@@ -25,9 +25,10 @@
             background-color: #000;
             color: #fff;
             text-transform: uppercase;
-            overflow-x: hidden;
+            overflow: hidden;
             -webkit-font-smoothing: antialiased;
             height: 100vh;
+            width: 100vw;
         }
 
         /* NAVIGATION */
@@ -70,7 +71,7 @@
             width: 100vw;
             display: flex;
             flex-direction: column;
-            justify-content: flex-end;
+            justify-content: center; /* Center everything as a group on mobile */
             padding: 3rem; 
             z-index: 10;
         }
@@ -80,12 +81,21 @@
             top: 0; left: 0;
             width: 100%; height: 100%;
             z-index: -2;
-            pointer-events: none;
-            overflow: hidden;
             display: flex;
             align-items: center;
             justify-content: center;
             background: #000;
+        }
+
+        /* VIDEO SCALING */
+        .video-background iframe {
+            position: absolute;
+            top: 50%; left: 50%;
+            width: 100vw;
+            height: 56.25vw;
+            min-height: 100vh;
+            min-width: 177.77vh;
+            transform: translate(-50%,-50%);
         }
 
         .video-overlay {
@@ -96,25 +106,17 @@
             z-index: -1;
         }
 
-        /* VIDEO SCALING LOGIC */
-        .video-background iframe {
-            position: absolute;
-            top: 50%; left: 50%;
-            width: 100vw;
-            height: 56.25vw; /* 16:9 ratio */
-            min-height: 100vh;
-            min-width: 177.77vh;
-            transform: translate(-50%,-50%);
+        /* UI CONTENT WRAPPER - This holds Name and Nav together on mobile */
+        .ui-wrapper {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            height: 100%;
+            width: 100%;
         }
 
         .logo-a { font-family: 'Knockout-Full', sans-serif; line-height: 1; }
-        .logo-v {
-            font-family: 'Knockout-Junior', sans-serif;
-            font-size: 0.995em;
-            margin-left: -0.05em;
-            display: inline-block;
-            line-height: 1;
-        }
+        .logo-v { font-family: 'Knockout-Junior', sans-serif; font-size: 0.995em; margin-left: -0.05em; display: inline-block; line-height: 1; }
 
         .name-container {
             display: flex; flex-wrap: wrap; align-items: baseline; 
@@ -143,52 +145,46 @@
         @media (max-width: 1024px) {
             .alexander { font-size: 11vw; }
             .vietmeier { font-size: 10.5vw; }
-            .hero-container { padding: 2.5rem; }
         }
 
         @media (max-width: 768px) {
-            .hero-container { padding: 2rem 1.5rem; }
-            .name-container { gap: 0.2em; margin-bottom: 1rem; }
+            .hero-container { padding: 0; } /* Remove padding to let UI wrapper control it */
+            
+            /* Constrain UI elements to the height of the video box */
+            .ui-wrapper {
+                height: 56.25vw; /* Same as video height */
+                justify-content: space-between;
+                padding: 10px 1.5rem;
+            }
+
+            .name-container { gap: 0.2em; margin-bottom: 0.5rem; }
             .alexander { font-size: 15vw; }
             .vietmeier { font-size: 14.4vw; }
             .nav-pipe { display: none; } 
-            nav { padding: 2rem 1.5rem !important; }
-            .nav-link { opacity: 0.8; font-size: 12px; }
-            .subhead-junior { font-size: 1rem; line-height: 1.2; }
-            .director-group { font-size: 1.5rem; }
+            
+            nav { 
+                position: relative !important; 
+                padding: 0 !important; 
+                width: 100%;
+            }
 
-            /* PORTRAIT LETTERBOX FIX */
+            .nav-link { opacity: 0.8; font-size: 11px; }
+            .subhead-junior { font-size: 0.9rem; line-height: 1.1; }
+            .director-group { font-size: 1.4rem; }
+
             .video-background iframe {
                 width: 100vw !important;
                 height: 56.25vw !important;
                 min-height: 0 !important;
                 min-width: 0 !important;
                 position: relative !important;
-                top: auto !important;
-                left: auto !important;
+                top: auto !important; left: auto !important;
                 transform: none !important;
             }
         }
     </style>
 </head>
 <body>
-
-    <nav class="absolute top-0 left-0 w-full flex justify-between items-center z-50 p-8 md:p-12 px-[3rem]">
-        <a href="index.html" class="text-3xl md:text-4xl tracking-tighter flex items-baseline hover:opacity-100 transition duration-500 opacity-80">
-            <span class="logo-a">A</span>
-            <span class="logo-v">V</span>
-        </a>
-
-        <div class="flex items-center gap-4 md:gap-8 text-[10px] md:text-[11px] tracking-[0.25em] font-bold subhead-junior">
-            <a href="portfolio.html" class="nav-link">Portfolio</a>
-            <span class="nav-pipe">|</span>
-            <a href="credits.html" class="nav-link">Credits</a>
-            <span class="nav-pipe">|</span>
-            <a href="about.html" class="nav-link">About</a>
-            <span class="nav-pipe">|</span>
-            <a href="mailto:alex@yourdomain.com" class="nav-link">Contact</a>
-        </div>
-    </nav>
 
     <section class="hero-container">
         <div class="video-background">
@@ -200,29 +196,49 @@
 
         <div class="video-overlay"></div>
 
-        <div class="relative z-10 w-full">
-            <h1 class="name-container tracking-tighter">
-                <span class="alexander">Alexander</span>
-                <span class="vietmeier">Vietmeier</span>
-            </h1>
+        <div class="ui-wrapper relative z-20">
             
-            <div class="flex flex-col md:flex-row justify-between border-t border-white/40 pt-4 md:pt-2 gap-6 items-baseline">
-                <div class="director-group subhead-full text-2xl md:text-4xl tracking-tight text-white">
-                    <span>Director</span>
-                    <span class="pipe-spacer">|</span>
-                    <div class="role-window">
-                        <div id="role-list">
-                            <span class="role-item">Variety</span>
-                            <span class="role-item">Multi-Cam</span>
-                            <span class="role-item">Music</span>
-                            <span class="role-item">Comedy</span>
-                            <span class="role-item">Variety</span>
+            <nav class="md:absolute top-0 left-0 w-full flex justify-between items-center py-4 md:p-12 md:px-[3rem]">
+                <a href="index.html" class="text-3xl md:text-4xl tracking-tighter flex items-baseline hover:opacity-100 transition duration-500 opacity-80">
+                    <span class="logo-a">A</span>
+                    <span class="logo-v">V</span>
+                </a>
+
+                <div class="flex items-center gap-4 md:gap-8 text-[10px] md:text-[11px] tracking-[0.25em] font-bold subhead-junior">
+                    <a href="portfolio.html" class="nav-link">Portfolio</a>
+                    <span class="nav-pipe">|</span>
+                    <a href="credits.html" class="nav-link">Credits</a>
+                    <span class="nav-pipe">|</span>
+                    <a href="about.html" class="nav-link">About</a>
+                    <span class="nav-pipe">|</span>
+                    <a href="mailto:alex@yourdomain.com" class="nav-link">Contact</a>
+                </div>
+            </nav>
+
+            <div class="w-full">
+                <h1 class="name-container tracking-tighter">
+                    <span class="alexander">Alexander</span>
+                    <span class="vietmeier">Vietmeier</span>
+                </h1>
+                
+                <div class="flex flex-col md:flex-row justify-between border-t border-white/40 pt-2 md:pt-2 gap-4 md:gap-6 items-baseline">
+                    <div class="director-group subhead-full text-xl md:text-4xl tracking-tight text-white">
+                        <span>Director</span>
+                        <span class="pipe-spacer">|</span>
+                        <div class="role-window">
+                            <div id="role-list">
+                                <span class="role-item">Variety</span>
+                                <span class="role-item">Multi-Cam</span>
+                                <span class="role-item">Music</span>
+                                <span class="role-item">Comedy</span>
+                                <span class="role-item">Variety</span>
+                            </div>
                         </div>
                     </div>
-                </div>
-                
-                <div class="subhead-junior text-lg md:text-2xl tracking-tight text-white/60">
-                    2<span class="lowercase-x">x</span> Emmy<sup class="text-[0.6em] ml-0.5">®</sup> Nominee: Best Directing For A Variety Series
+                    
+                    <div class="subhead-junior text-[10px] md:text-2xl tracking-tight text-white/60">
+                        2<span class="lowercase-x">x</span> Emmy<sup class="text-[0.6em] ml-0.5">®</sup> Nominee
+                    </div>
                 </div>
             </div>
         </div>
