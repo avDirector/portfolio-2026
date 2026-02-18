@@ -48,6 +48,7 @@
             overflow: hidden;
         }
 
+        /* Desktop Video Styling (Edge-to-Edge) */
         .video-background iframe {
             position: absolute;
             top: 50%; left: 50%;
@@ -76,31 +77,31 @@
         #role-list { transition: transform 0.7s cubic-bezier(0.23, 1, 0.32, 1); }
         .role-item { height: 1.1em; display: flex; align-items: center; }
 
-        /* --- MOBILE RECOVERY (Locking 27% Spacing) --- */
+        /* --- MOBILE LAYOUT (With Vertical Video Logic) --- */
         @media (max-width: 768px) {
             .hero-container {
                 padding: 1rem 1.5rem;
                 justify-content: flex-start;
             }
 
+            /* Adjusts for a Vertical Video Framing */
             .video-background iframe {
                 width: 100vw !important;
-                height: 56.25vw !important;
+                height: 177.77vw !important; /* 9:16 Aspect Ratio */
                 min-height: 0 !important;
                 min-width: 0 !important;
-                top: 27% !important; 
+                top: 35% !important; /* Slightly lower to center a vertical reel */
                 transform: translate(-50%, -50%) !important;
             }
 
             .bottom-info-group {
                 width: 100%;
-                margin-top: calc(27vh + 28vw); 
+                margin-top: calc(27vh + 32vw); 
             }
 
-            /* Mobile Fonts */
             .alexander { font-size: 9.5vw; }
             .vietmeier { font-size: 9vw; }
-            .brand-logo { font-size: 1.875rem; } /* text-3xl equivalent */
+            .brand-logo { font-size: 1.875rem; }
             .nav-link { font-size: 10px; opacity: 0.5; letter-spacing: 0.25em; }
             .nav-pipe { display: none; }
             .nav-container { gap: 1rem; }
@@ -109,22 +110,14 @@
             .subhead-junior { font-size: 0.65rem !important; margin-top: 2px; font-family: 'Knockout-Junior'; }
         }
 
-        /* --- DESKTOP ENHANCEMENTS (Edge-to-Edge & Large Nav) --- */
+        /* --- DESKTOP REVISIONS --- */
         @media (min-width: 769px) {
-            .hero-container { 
-                padding: 3rem; 
-                justify-content: space-between; 
-            }
+            .hero-container { padding: 3rem; justify-content: space-between; }
             .alexander { font-size: 8.5vw; }
             .vietmeier { font-size: 8.1vw; }
             .brand-logo { font-size: 2.75rem; } 
             .nav-container { gap: 3rem; }
-            .nav-link { 
-                font-size: 13px; 
-                opacity: 0.5; 
-                letter-spacing: 0.35em;
-                transition: opacity 0.3s; 
-            }
+            .nav-link { font-size: 13px; opacity: 0.5; letter-spacing: 0.35em; transition: opacity 0.3s; }
             .nav-link:hover { opacity: 1; }
         }
     </style>
@@ -132,12 +125,8 @@
 <body>
 
     <section class="hero-container">
-        
         <div class="video-background">
-            <iframe 
-                src="https://player.vimeo.com/video/1166002140?background=1&autoplay=1&loop=1&byline=0&title=0&muted=1" 
-                frameborder="0" allow="autoplay; fullscreen">
-            </iframe>
+            <iframe id="hero-video" src="" frameborder="0" allow="autoplay; fullscreen"></iframe>
         </div>
 
         <div class="video-overlay"></div>
@@ -146,7 +135,6 @@
             <a href="index.html" class="brand-logo tracking-tighter flex items-baseline opacity-80" style="font-family: 'Knockout-Full', sans-serif;">
                 <span>A</span><span style="font-family: 'Knockout-Junior', sans-serif; margin-left: -2px;">V</span>
             </a>
-
             <div class="nav-container flex items-center font-bold" style="font-family: 'Knockout-Junior', sans-serif;">
                 <a href="portfolio.html" class="nav-link">Portfolio</a>
                 <span class="nav-pipe opacity-40">|</span>
@@ -163,7 +151,6 @@
                 <span class="alexander">Alexander</span>
                 <span class="vietmeier">Vietmeier</span>
             </h1>
-            
             <div class="flex flex-col md:flex-row justify-between border-t border-white/40 pt-1 md:pt-2 gap-2 md:gap-6 items-baseline">
                 <div class="director-group flex items-baseline text-2xl md:text-4xl tracking-tight text-white" style="font-family: 'Knockout-Full', sans-serif;">
                     <span>Director</span>
@@ -178,7 +165,6 @@
                         </div>
                     </div>
                 </div>
-                
                 <div class="subhead-junior text-sm md:text-2xl tracking-tight text-white/60" style="font-family: 'Knockout-Junior', sans-serif;">
                     2x Emmy Nominee: Best Directing For A Variety Series
                 </div>
@@ -187,6 +173,18 @@
     </section>
 
     <script>
+        // --- SMART VIDEO LOADER ---
+        const videoElement = document.getElementById('hero-video');
+        const desktopID = "1166002140"; // Your wide-screen reel
+        const mobileID = "YOUR_VERTICAL_VIDEO_ID"; // Put your vertical reel ID here
+
+        const isMobile = window.innerWidth <= 768;
+        const selectedID = isMobile ? mobileID : desktopID;
+        
+        // Construct the Vimeo Background URL
+        videoElement.src = `https://player.vimeo.com/video/${selectedID}?background=1&autoplay=1&loop=1&byline=0&title=0&muted=1`;
+
+        // --- SCROLLER LOGIC ---
         const roleList = document.getElementById("role-list");
         const rolesCount = 4;
         let currentIndex = 0;
@@ -196,7 +194,6 @@
             const items = roleList.querySelectorAll('.role-item');
             if (items.length === 0) return;
             const itemHeight = items[0].offsetHeight;
-            
             roleList.style.transition = "transform 0.7s cubic-bezier(0.23, 1, 0.32, 1)";
             roleList.style.transform = `translateY(-${currentIndex * itemHeight}px)`;
 
@@ -210,6 +207,5 @@
         }
         setInterval(scrollRole, 2000);
     </script>
-
 </body>
 </html>
