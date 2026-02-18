@@ -46,13 +46,14 @@
             letter-spacing: 0.02em;
         }
 
-        /* --- REFINED GRAY IDENTITY --- */
+        /* --- THE LAYERED IDENTITY --- */
         .name-overlay {
-            color: #555555; /* Lighter charcoal for better visibility */
+            /* Light charcoal with 85% opacity for subtle bleed-through */
+            color: rgba(85, 85, 85, 0.85); 
             position: absolute;
-            /* Precise vertical alignment to hit the 'T' intersection */
-            bottom: 24%; 
-            left: 0;
+            /* Adjusted to hit the T-bar intersection precisely */
+            bottom: 35%; 
+            left: -2px; 
             z-index: 20;
             pointer-events: none;
         }
