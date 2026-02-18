@@ -4,10 +4,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Credits | Alexander Vietmeier</title>
+    
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22 fill=%22white%22 font-family=%22sans-serif%22 font-weight=%22bold%22>AV</text></svg>">
+
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        @font-face { font-family: 'Knockout-Full'; src: url('./fonts/Knockout-HTF70-FullWelterwt.otf'); }
-        @font-face { font-family: 'Knockout-Junior'; src: url('./fonts/Knockout-HTF30-JuniorWelterwt.otf'); }
+        @font-face { 
+            font-family: 'Knockout-Full'; 
+            src: url('./fonts/Knockout-HTF70-FullWelterwt.otf') format('opentype'); 
+            font-display: swap;
+        }
+        @font-face { 
+            font-family: 'Knockout-Junior'; 
+            src: url('./fonts/Knockout-HTF30-JuniorWelterwt.otf') format('opentype'); 
+            font-display: swap;
+        }
 
         body {
             background-color: #000;
@@ -15,6 +26,7 @@
             text-transform: uppercase;
             font-family: 'Knockout-Junior', sans-serif;
             -webkit-font-smoothing: antialiased;
+            min-height: 100vh;
         }
 
         .page-bg {
@@ -26,10 +38,10 @@
 
         .kn-full { 
             font-family: 'Knockout-Full', sans-serif; 
-            letter-spacing: 0.04em; /* Slightly more air for CREDITS */
+            letter-spacing: 0.04em; 
         }
 
-        /* --- RESTORED HOVER & SLIDE --- */
+        /* --- HOVER & SLIDE ANIMATION --- */
         .credit-row {
             border-bottom: 1px solid rgba(255,255,255,0.08);
             transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
@@ -37,10 +49,12 @@
             left: 0;
         }
 
-        .credit-row:hover {
-            background: rgba(255,255,255,0.03);
-            padding-left: 1.5rem; /* The slide effect */
-            border-bottom-color: rgba(255,255,255,0.2);
+        @media (min-width: 769px) {
+            .credit-row:hover {
+                background: rgba(255,255,255,0.03);
+                padding-left: 1.5rem; 
+                border-bottom-color: rgba(255,255,255,0.2);
+            }
         }
 
         .label-style {
@@ -59,31 +73,40 @@
             border-bottom-color: rgba(255,255,255,1);
             opacity: 1;
         }
+
+        /* Nav Link Hover */
+        .nav-link {
+            opacity: 0.5;
+            transition: opacity 0.3s;
+        }
+        .nav-link:hover {
+            opacity: 1;
+        }
     </style>
 </head>
 <body class="p-6 md:p-12">
 
     <div class="page-bg"></div>
 
-    <nav class="w-full flex justify-between items-center mb-16 md:mb-24">
+    <nav class="w-full flex justify-between items-center mb-16 md:mb-24 relative z-50">
         <a href="index.html" class="tracking-tighter flex items-baseline opacity-80 kn-full text-3xl md:text-5xl">
             <span>A</span><span style="font-family: 'Knockout-Junior', sans-serif; margin-left: -2px;">V</span>
         </a>
         <div class="flex items-center gap-6 md:gap-12 font-bold text-[10px] md:text-[13px] tracking-[0.35em]">
-            <a href="portfolio.html" class="opacity-50 hover:opacity-100 transition-opacity">Portfolio</a>
-            <span class="opacity-20">|</span>
+            <a href="portfolio.html" class="nav-link">Portfolio</a>
+            <span class="opacity-20 hidden md:inline">|</span>
             <a href="credits.html" class="opacity-100">Credits</a>
-            <span class="opacity-20">|</span>
-            <a href="about.html" class="opacity-50 hover:opacity-100 transition-opacity">About</a>
-            <span class="opacity-20">|</span>
-            <a href="mailto:alex@yourdomain.com" class="opacity-50 hover:opacity-100 transition-opacity">Contact</a>
+            <span class="opacity-20 hidden md:inline">|</span>
+            <a href="about.html" class="nav-link">About</a>
+            <span class="opacity-20 hidden md:inline">|</span>
+            <a href="mailto:alex@yourdomain.com" class="nav-link">Contact</a>
         </div>
     </nav>
 
-    <main class="max-w-7xl mx-auto px-4 md:px-0">
+    <main class="max-w-7xl mx-auto">
         <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 md:mb-16 border-b border-white/20 pb-8">
-            <h2 class="kn-full text-7xl md:text-9xl tracking-normal leading-none">Credits</h2>
-            <a href="Alexander_Vietmeier_Resume.pdf" class="pdf-link pb-1 text-[10px] md:text-[12px] tracking-[0.3em] opacity-50 uppercase mt-6 md:mt-0">
+            <h1 class="kn-full text-7xl md:text-9xl tracking-normal leading-none">Credits</h1>
+            <a href="Alexander_Vietmeier_Resume.pdf" target="_blank" class="pdf-link pb-1 text-[10px] md:text-[12px] tracking-[0.3em] opacity-50 uppercase mt-6 md:mt-0">
                 Download Full Resume (PDF)
             </a>
         </div>
@@ -97,71 +120,100 @@
 
         <div class="flex flex-col">
             
-            <div class="credit-row py-6 md:py-8 flex flex-col md:grid md:grid-cols-12 gap-4 items-baseline px-2">
+            <div class="credit-row py-6 md:py-10 flex flex-col md:grid md:grid-cols-12 gap-4 items-baseline px-2">
                 <div class="w-full md:col-span-5">
                     <div class="md:hidden label-style">Project</div>
                     <div class="text-2xl md:text-3xl lg:text-4xl kn-full uppercase leading-none whitespace-nowrap">Late Night with Seth Meyers</div>
                 </div>
-
-                <div class="w-full md:col-span-3">
-                    <div class="md:hidden label-style">Network</div>
-                    <div class="text-lg md:text-xl text-white/70">NBC Universal</div>
-                </div>
-
-                <div class="w-full md:col-span-1">
-                    <div class="md:hidden label-style">Year</div>
-                    <div class="text-lg md:text-lg text-white/40 font-mono">2024—2026</div>
-                </div>
-
-                <div class="w-full md:col-span-3 md:text-right">
-                    <div class="md:hidden label-style">Role</div>
-                    <div class="text-xl md:text-2xl text-white/90 kn-full">Director</div>
-                </div>
-            </div>
-
-            <div class="credit-row py-6 md:py-8 flex flex-col md:grid md:grid-cols-12 gap-4 items-baseline px-2">
-                <div class="w-full md:col-span-5">
-                    <div class="md:hidden label-style">Project</div>
-                    <div class="text-2xl md:text-3xl lg:text-4xl kn-full uppercase leading-none whitespace-nowrap">The 75th Annual Tony Awards</div>
-                </div>
-
-                <div class="w-full md:col-span-3">
-                    <div class="md:hidden label-style">Network</div>
-                    <div class="text-lg md:text-xl text-white/70">CBS</div>
-                </div>
-
-                <div class="w-full md:col-span-1">
-                    <div class="md:hidden label-style">Year</div>
-                    <div class="text-lg md:text-lg text-white/40 font-mono">2023</div>
-                </div>
-
-                <div class="w-full md:col-span-3 md:text-right">
-                    <div class="md:hidden label-style">Role</div>
-                    <div class="text-xl md:text-2xl text-white/90 kn-full">Assoc. Director</div>
-                    <div class="text-[9px] text-amber-500/80 tracking-[0.2em] mt-2">Emmy Nominee: Directing</div>
-                </div>
-            </div>
-
-            <div class="credit-row py-6 md:py-8 flex flex-col md:grid md:grid-cols-12 gap-4 items-baseline px-2">
-                <div class="w-full md:col-span-5">
-                    <div class="md:hidden label-style">Project</div>
-                    <div class="text-2xl md:text-3xl lg:text-4xl kn-full uppercase leading-none whitespace-nowrap">Saturday Night Live</div>
-                </div>
-
                 <div class="w-full md:col-span-3">
                     <div class="md:hidden label-style">Network</div>
                     <div class="text-lg md:text-xl text-white/70">NBC</div>
                 </div>
-
                 <div class="w-full md:col-span-1">
                     <div class="md:hidden label-style">Year</div>
-                    <div class="text-lg md:text-lg text-white/40 font-mono">2022</div>
+                    <div class="text-lg md:text-lg text-white/40 font-mono tracking-tighter">2014—2026</div>
                 </div>
-
                 <div class="w-full md:col-span-3 md:text-right">
                     <div class="md:hidden label-style">Role</div>
-                    <div class="text-xl md:text-2xl text-white/90 kn-full">Director</div>
+                    <div class="text-xl md:text-2xl text-white/90 kn-full leading-none">Director</div>
+                    <div class="text-[9px] text-amber-500/80 tracking-[0.2em] mt-2">2x Emmy Nominee: Outstanding Directing</div>
+                </div>
+            </div>
+
+            <div class="credit-row py-6 md:py-10 flex flex-col md:grid md:grid-cols-12 gap-4 items-baseline px-2">
+                <div class="w-full md:col-span-5">
+                    <div class="md:hidden label-style">Project</div>
+                    <div class="text-2xl md:text-3xl lg:text-4xl kn-full uppercase leading-none whitespace-nowrap">Macy's Thanksgiving Day Parade</div>
+                </div>
+                <div class="w-full md:col-span-3">
+                    <div class="md:hidden label-style">Network</div>
+                    <div class="text-lg md:text-xl text-white/70">NBC</div>
+                </div>
+                <div class="w-full md:col-span-1">
+                    <div class="md:hidden label-style">Year</div>
+                    <div class="text-lg md:text-lg text-white/40 font-mono tracking-tighter">2019—2023</div>
+                </div>
+                <div class="w-full md:col-span-3 md:text-right">
+                    <div class="md:hidden label-style">Role</div>
+                    <div class="text-xl md:text-2xl text-white/90 kn-full leading-none">Segment Director</div>
+                </div>
+            </div>
+
+            <div class="credit-row py-6 md:py-10 flex flex-col md:grid md:grid-cols-12 gap-4 items-baseline px-2">
+                <div class="w-full md:col-span-5">
+                    <div class="md:hidden label-style">Project</div>
+                    <div class="text-2xl md:text-3xl lg:text-4xl kn-full uppercase leading-none whitespace-nowrap">75th Annual Tony Awards</div>
+                </div>
+                <div class="w-full md:col-span-3">
+                    <div class="md:hidden label-style">Network</div>
+                    <div class="text-lg md:text-xl text-white/70">CBS / Paramount+</div>
+                </div>
+                <div class="w-full md:col-span-1">
+                    <div class="md:hidden label-style">Year</div>
+                    <div class="text-lg md:text-lg text-white/40 font-mono tracking-tighter">2022</div>
+                </div>
+                <div class="w-full md:col-span-3 md:text-right">
+                    <div class="md:hidden label-style">Role</div>
+                    <div class="text-xl md:text-2xl text-white/90 kn-full leading-none whitespace-nowrap">Associate Director</div>
+                </div>
+            </div>
+
+            <div class="credit-row py-6 md:py-10 flex flex-col md:grid md:grid-cols-12 gap-4 items-baseline px-2">
+                <div class="w-full md:col-span-5">
+                    <div class="md:hidden label-style">Project</div>
+                    <div class="text-2xl md:text-3xl lg:text-4xl kn-full uppercase leading-none whitespace-nowrap">Saturday Night Live</div>
+                </div>
+                <div class="w-full md:col-span-3">
+                    <div class="md:hidden label-style">Network</div>
+                    <div class="text-lg md:text-xl text-white/70">NBC</div>
+                </div>
+                <div class="w-full md:col-span-1">
+                    <div class="md:hidden label-style">Year</div>
+                    <div class="text-lg md:text-lg text-white/40 font-mono tracking-tighter">2021—2022</div>
+                </div>
+                <div class="w-full md:col-span-3 md:text-right">
+                    <div class="md:hidden label-style">Role</div>
+                    <div class="text-xl md:text-2xl text-white/90 kn-full leading-none whitespace-nowrap">Associate Director</div>
                     <div class="text-[9px] text-white/30 tracking-[0.2em] mt-2">Film Unit</div>
+                </div>
+            </div>
+
+            <div class="credit-row py-6 md:py-10 flex flex-col md:grid md:grid-cols-12 gap-4 items-baseline px-2">
+                <div class="w-full md:col-span-5">
+                    <div class="md:hidden label-style">Project</div>
+                    <div class="text-2xl md:text-3xl lg:text-4xl kn-full uppercase leading-none whitespace-nowrap">New Year's Eve with Carson Daly</div>
+                </div>
+                <div class="w-full md:col-span-3">
+                    <div class="md:hidden label-style">Network</div>
+                    <div class="text-lg md:text-xl text-white/70">NBC</div>
+                </div>
+                <div class="w-full md:col-span-1">
+                    <div class="md:hidden label-style">Year</div>
+                    <div class="text-lg md:text-lg text-white/40 font-mono tracking-tighter">2020</div>
+                </div>
+                <div class="w-full md:col-span-3 md:text-right">
+                    <div class="md:hidden label-style">Role</div>
+                    <div class="text-xl md:text-2xl text-white/90 kn-full leading-none whitespace-nowrap">Associate Director</div>
                 </div>
             </div>
 
