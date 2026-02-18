@@ -4,150 +4,196 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Alexander Vietmeier | Director</title>
+    
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22 fill=%22white%22 font-family=%22sans-serif%22 font-weight=%22bold%22>AV</text></svg>">
+
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        @font-face { 
-            font-family: 'Knockout-Full'; 
-            src: url('./fonts/Knockout-HTF70-FullWelterwt.otf') format('opentype'); 
-        }
-        @font-face { 
-            font-family: 'Knockout-Junior'; 
-            src: url('./fonts/Knockout-HTF30-JuniorWelterwt.otf') format('opentype'); 
+        @font-face {
+            font-family: 'Knockout-Full';
+            src: url('./fonts/Knockout-HTF70-FullWelterwt.otf') format('opentype');
+            font-weight: normal; font-style: normal; font-display: swap;
         }
 
-        body { 
-            background-color: #000; 
-            color: #ffffff; 
-            margin: 0; 
-            padding: 0; 
-            overflow: hidden; 
+        @font-face {
+            font-family: 'Knockout-Junior';
+            src: url('./fonts/Knockout-HTF30-JuniorWelterwt.otf') format('opentype');
+            font-weight: normal; font-style: normal; font-display: swap;
+        }
+
+        body {
+            background-color: #000;
+            color: #fff;
+            text-transform: uppercase;
+            overflow: hidden;
             -webkit-font-smoothing: antialiased;
+            height: 100vh;
         }
 
-        /* --- VIDEO & OVERLAY --- */
-        .video-container {
+        /* --- NAVIGATION --- */
+        .nav-link {
+            position: relative;
+            display: inline-flex;
+            flex-direction: column;
+            align-items: center;
+            text-decoration: none;
+            opacity: 0.5;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 100%; height: 1px; bottom: -3px;
+            background-color: #fff;
+            left: 50%;
+            transform: translate(-53%, 0) scaleX(0); 
+            transform-origin: center;
+            transition: transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+        }
+
+        @media (min-width: 1025px) {
+            .nav-link:hover { opacity: 1; transform: translateY(-1px); }
+            .nav-link:hover::after { transform: translate(-53%, 0) scaleX(1); }
+        }
+
+        /* --- HERO & VIDEO --- */
+        .hero-container {
+            position: relative;
+            height: 100vh;
+            height: -webkit-fill-available;
+            width: 100vw;
+            display: flex;
+            flex-direction: column;
+            padding: 3rem; 
+            box-sizing: border-box;
+            justify-content: space-between;
+        }
+
+        .video-background {
             position: absolute;
             top: 0; left: 0; width: 100%; height: 100%;
-            z-index: -2; overflow: hidden; background: #000;
+            z-index: -2; background: #000;
+            display: flex; align-items: center; justify-content: center;
+            overflow: hidden;
         }
 
-        .video-container iframe {
+        .video-background iframe {
             position: absolute;
             top: 50%; left: 50%;
             width: 100vw; height: 56.25vw;
             min-height: 100vh; min-width: 177.77vh;
-            transform: translate(-50%, -50%);
-            pointer-events: none;
+            transform: translate(-50%,-50%);
         }
 
         .video-overlay {
             position: absolute;
             top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0, 0, 0, 0.6); /* Aesthetic Consistency Kept */
             z-index: -1;
-            /* Aesthetic Blend: Clear in middle, dark on edges */
-            background: linear-gradient(to bottom, 
-                rgba(0,0,0,0.9) 0%, 
-                rgba(0,0,0,0.5) 20%, 
-                rgba(0,0,0,0.5) 80%, 
-                rgba(0,0,0,0.9) 100%);
         }
 
-        /* --- UI LAYOUT --- */
-        .hero-wrap {
-            position: relative;
-            height: 100vh; height: -webkit-fill-available;
-            width: 100vw;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            padding: 3.5rem;
-            z-index: 10;
+        /* --- TYPOGRAPHY --- */
+        .alexander { font-family: 'Knockout-Full', sans-serif; font-size: 8.5vw; line-height: 0.9; }
+        .vietmeier { font-family: 'Knockout-Junior', sans-serif; font-size: 8.1vw; line-height: 0.9; }
+
+        .role-window {
+            font-family: 'Knockout-Junior', sans-serif; font-size: 0.96em; height: 1.1em;
+            overflow: hidden; display: inline-flex; flex-direction: column; transform: translateY(-0.03em); 
         }
 
-        /* --- FONT CLASSES --- */
-        .f-full { font-family: 'Knockout-Full', sans-serif; text-transform: uppercase; }
-        .f-jr { font-family: 'Knockout-Junior', sans-serif; text-transform: uppercase; }
+        #role-list { transition: transform 0.7s cubic-bezier(0.23, 1, 0.32, 1); }
+        .role-item { height: 1.1em; display: flex; align-items: center; }
 
-        .alexander { font-size: 8.5vw; line-height: 0.9; }
-        .vietmeier { font-size: 8.1vw; line-height: 0.9; }
-        
-        .nav-link { font-size: 11px; letter-spacing: 0.25em; opacity: 0.5; transition: opacity 0.3s; }
-        .nav-link:hover { opacity: 1; }
-
-        /* --- MOBILE PORTRAIT FIXES --- */
+        /* --- THE FINAL MOBILE PORTRAIT TWEAK --- */
         @media (max-width: 768px) {
-            .hero-wrap { padding: 2rem 1.5rem; justify-content: space-between; }
-            
-            .video-container iframe {
+            .hero-container {
+                padding: 0;
+                justify-content: flex-start;
+            }
+
+            .video-background iframe {
                 width: 100vw !important;
                 height: 56.25vw !important;
                 min-height: 0 !important;
                 min-width: 0 !important;
-                top: 35% !important; /* Move to upper 3rd */
+                top: 30% !important; /* Video in Upper 3rd */
+                transform: translate(-50%, -50%) !important;
             }
 
-            /* The "Integration" lines */
-            .video-container::after {
-                content: ''; position: absolute; top: 35%; left: 0; width: 100%; height: 56.25vw;
-                transform: translateY(-50%);
-                border-top: 1px solid rgba(255,255,255,0.15);
-                border-bottom: 1px solid rgba(255,255,255,0.15);
-                pointer-events: none;
+            nav { 
+                height: 18vh; 
+                padding: 0 1.5rem !important;
+                display: flex;
+                align-items: center;
             }
 
-            .alexander { font-size: 15vw; }
-            .vietmeier { font-size: 14.4vw; }
+            .bottom-info-group {
+                /* Pulls the name up so it sits comfortably under the upper-3rd video */
+                margin-top: calc(10vh + 35vw); 
+                padding: 1.5rem;
+                width: 100%;
+            }
+
+            .alexander { font-size: 14vw; }
+            .vietmeier { font-size: 13.4vw; }
             .nav-link { font-size: 10px; }
             .nav-pipe { display: none; }
-            .subhead-text { font-size: 0.85rem; margin-top: 4px; opacity: 0.7; }
+            .director-group { font-size: 1.5rem !important; }
+            .subhead-junior { font-size: 0.75rem !important; margin-top: 8px; opacity: 0.6; }
         }
     </style>
 </head>
 <body>
 
-    <div class="video-container">
-        <iframe src="https://player.vimeo.com/video/1166002140?background=1&autoplay=1&loop=1&byline=0&title=0&muted=1" frameborder="0"></iframe>
-    </div>
-    <div class="video-overlay"></div>
+    <section class="hero-container">
+        
+        <div class="video-background">
+            <iframe 
+                src="https://player.vimeo.com/video/1166002140?background=1&autoplay=1&loop=1&byline=0&title=0&muted=1" 
+                frameborder="0" allow="autoplay; fullscreen">
+            </iframe>
+        </div>
 
-    <section class="hero-wrap">
-        <nav class="w-full flex justify-between items-center">
-            <a href="index.html" class="text-3xl md:text-4xl tracking-tighter flex items-baseline f-full">
-                <span>A</span><span class="f-jr" style="margin-left: -2px;">V</span>
+        <div class="video-overlay"></div>
+
+        <nav class="w-full flex justify-between items-center relative z-50">
+            <a href="index.html" class="text-3xl md:text-4xl tracking-tighter flex items-baseline opacity-80" style="font-family: 'Knockout-Full', sans-serif;">
+                <span>A</span><span style="font-family: 'Knockout-Junior', sans-serif; margin-left: -2px;">V</span>
             </a>
-            <div class="flex items-center gap-4 md:gap-8 f-jr font-bold">
+
+            <div class="flex items-center gap-4 md:gap-8 text-[10px] md:text-[11px] tracking-[0.25em] font-bold" style="font-family: 'Knockout-Junior', sans-serif;">
                 <a href="portfolio.html" class="nav-link">Portfolio</a>
-                <span class="nav-pipe opacity-30">|</span>
+                <span class="nav-pipe opacity-40">|</span>
                 <a href="credits.html" class="nav-link">Credits</a>
-                <span class="nav-pipe opacity-30">|</span>
+                <span class="nav-pipe opacity-40">|</span>
                 <a href="about.html" class="nav-link">About</a>
-                <span class="nav-pipe opacity-30">|</span>
+                <span class="nav-pipe opacity-40">|</span>
                 <a href="mailto:alex@yourdomain.com" class="nav-link">Contact</a>
             </div>
         </nav>
 
-        <div class="w-full">
+        <div class="w-full bottom-info-group">
             <h1 class="flex flex-wrap items-baseline gap-[0.3em] tracking-tighter mb-1">
-                <span class="alexander f-full">Alexander</span>
-                <span class="vietmeier f-jr">Vietmeier</span>
+                <span class="alexander">Alexander</span>
+                <span class="vietmeier">Vietmeier</span>
             </h1>
             
-            <div class="flex flex-col md:flex-row justify-between border-t border-white/40 pt-4 md:pt-2 gap-2 md:gap-6 items-baseline">
-                <div class="flex items-baseline text-2xl md:text-4xl tracking-tight f-full">
+            <div class="flex flex-col md:flex-row justify-between border-t border-white/40 pt-3 md:pt-2 gap-2 md:gap-6 items-baseline">
+                <div class="director-group flex items-baseline text-2xl md:text-4xl tracking-tight text-white" style="font-family: 'Knockout-Full', sans-serif;">
                     <span>Director</span>
                     <span class="mx-[0.35em] opacity-40">|</span>
-                    <div class="f-jr" style="font-size: 0.96em; height: 1.1em; overflow: hidden; display: inline-flex; flex-direction: column; transform: translateY(-0.03em);">
-                        <div id="role-list" style="transition: transform 0.7s cubic-bezier(0.23, 1, 0.32, 1);">
-                            <span style="height: 1.1em; display: flex; align-items: center;">Variety</span>
-                            <span style="height: 1.1em; display: flex; align-items: center;">Multi-Cam</span>
-                            <span style="height: 1.1em; display: flex; align-items: center;">Music</span>
-                            <span style="height: 1.1em; display: flex; align-items: center;">Comedy</span>
-                            <span style="height: 1.1em; display: flex; align-items: center;">Variety</span>
+                    <div class="role-window">
+                        <div id="role-list">
+                            <span class="role-item">Variety</span>
+                            <span class="role-item">Multi-Cam</span>
+                            <span class="role-item">Music</span>
+                            <span class="role-item">Comedy</span>
+                            <span class="role-item">Variety</span>
                         </div>
                     </div>
                 </div>
                 
-                <div class="subhead-text f-jr text-sm md:text-2xl tracking-tight text-white/60">
+                <div class="subhead-junior text-sm md:text-2xl tracking-tight text-white/60" style="font-family: 'Knockout-Junior', sans-serif;">
                     2x Emmy Nominee: Best Directing For A Variety Series
                 </div>
             </div>
@@ -156,13 +202,19 @@
 
     <script>
         const roleList = document.getElementById("role-list");
+        const rolesCount = 4;
         let currentIndex = 0;
+
         function scrollRole() {
             currentIndex++;
-            const itemHeight = roleList.children[0].offsetHeight;
+            const items = roleList.querySelectorAll('.role-item');
+            if (items.length === 0) return;
+            const itemHeight = items[0].offsetHeight;
+            
             roleList.style.transition = "transform 0.7s cubic-bezier(0.23, 1, 0.32, 1)";
             roleList.style.transform = `translateY(-${currentIndex * itemHeight}px)`;
-            if (currentIndex === 4) {
+
+            if (currentIndex === rolesCount) {
                 setTimeout(() => {
                     roleList.style.transition = "none";
                     roleList.style.transform = "translateY(0)";
@@ -172,5 +224,6 @@
         }
         setInterval(scrollRole, 2000);
     </script>
+
 </body>
 </html>
