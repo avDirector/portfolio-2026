@@ -55,6 +55,16 @@
             z-index: -1;
         }
 
+        /* LOGO STYLING */
+        .logo-a {
+            font-family: 'Knockout-Full', sans-serif;
+        }
+        .logo-v {
+            font-family: 'Knockout-Junior', sans-serif;
+            font-size: 0.9em; /* Scaled down slightly to match cap-height of 'A' */
+            margin-left: -0.05em; /* Tighter kerning between A and V */
+        }
+
         .name-container {
             display: flex;
             flex-wrap: wrap;
@@ -62,10 +72,6 @@
             gap: 0.4em;
             margin-bottom: 0.25rem; 
         }
-
-        /* Standardized Knockout classes for consistency */
-        .knockout-full { font-family: 'Knockout-Full', sans-serif; }
-        .knockout-junior { font-family: 'Knockout-Junior', sans-serif; }
 
         .alexander {
             font-family: 'Knockout-Full', sans-serif;
@@ -114,7 +120,10 @@
 <body>
 
     <nav class="absolute top-0 left-0 w-full p-12 flex justify-between items-center z-50">
-        <div class="knockout-full text-4xl tracking-tighter">AV</div>
+        <div class="text-4xl tracking-tighter flex items-baseline">
+            <span class="logo-a">A</span>
+            <span class="logo-v">V</span>
+        </div>
         <div class="flex gap-10 text-[11px] tracking-[0.25em] font-bold">
             <a href="https://www.imdb.com/name/nm3653860/" target="_blank" class="hover:opacity-50 transition">IMDb</a>
             <a href="https://www.linkedin.com/in/alexvietmeier/" target="_blank" class="hover:opacity-50 transition">LinkedIn</a>
@@ -152,7 +161,7 @@
                     </div>
                 </div>
                 
-                <div class="subhead text-xl md:text-2xl tracking-tight text-white/60">
+                <div class="subhead text-xl md:text-2xl tracking-tight text-white/60 uppercase">
                     2x Emmy® Nominee: Best Directing For A Variety Series
                 </div>
             </div>
