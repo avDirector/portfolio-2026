@@ -91,7 +91,6 @@
         .director-group {
             display: flex;
             align-items: baseline;
-            gap: 0.5em; /* Increased gap for the pipe divider */
         }
 
         .role-window {
@@ -102,6 +101,7 @@
             display: inline-flex;
             flex-direction: column;
             transform: translateY(-0.03em); 
+            margin-left: 0.25em; /* Precisely adjusted gap */
         }
 
         #role-list {
@@ -157,7 +157,7 @@
             
             <div class="flex flex-col md:flex-row justify-between border-t border-white/40 pt-2 gap-6 items-baseline">
                 <div class="director-group subhead-full text-2xl md:text-4xl tracking-tight text-white">
-                    <span>Director <span class="mx-1 opacity-50">|</span></span>
+                    <span>Director <span class="opacity-40">|</span></span>
                     <div class="role-window">
                         <div id="role-list">
                             <span class="role-item">Variety</span>
