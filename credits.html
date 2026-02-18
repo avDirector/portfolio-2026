@@ -41,29 +41,13 @@
             letter-spacing: 0.04em; 
         }
 
-        /* --- THE LAYERED BACKGROUND NAME --- */
-        .bg-name-container {
-            position: fixed;
-            top: 15%;
-            left: 50%;
-            transform: translateX(-50%);
-            z-index: 0;
-            pointer-events: none;
-            width: 100%;
-            text-align: center;
-            opacity: 0.06; /* Very light layering */
+        /* --- THE INTEGRATED NAME HEADER --- */
+        .masthead-name {
+            font-size: 8vw; /* Large but fits within page bounds */
+            line-height: 0.85;
+            opacity: 0.15; /* Increased slightly for legibility as a header */
+            margin-bottom: -1vw; /* Tucks the 'Credits' title up close */
             white-space: nowrap;
-        }
-
-        .bg-name-text {
-            font-size: 15vw; /* Massive responsive size */
-            line-height: 0.8;
-        }
-
-        /* --- CONTENT STYLING --- */
-        main {
-            position: relative;
-            z-index: 10; /* Sits above the background name */
         }
 
         .table-header-text {
@@ -97,13 +81,6 @@
 
     <div class="page-bg"></div>
 
-    <div class="bg-name-container kn-full">
-        <div class="bg-name-text">
-            <span>ALEXANDER</span> 
-            <span style="font-family: 'Knockout-Junior', sans-serif; margin-left: -0.05em;">VIETMEIER</span>
-        </div>
-    </div>
-
     <nav class="w-full flex justify-between items-center mb-16 md:mb-24 relative z-50">
         <a href="index.html" class="tracking-tighter flex items-baseline opacity-80 kn-full text-3xl md:text-5xl">
             <span>A</span><span style="font-family: 'Knockout-Junior', sans-serif; margin-left: -2px;">V</span>
@@ -121,11 +98,18 @@
 
     <main class="max-w-7xl mx-auto">
         
-        <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 md:mb-16 border-b border-white/20 pb-8">
-            <h1 class="kn-full text-7xl md:text-9xl tracking-normal leading-none">Credits</h1>
-            <a href="Alexander_Vietmeier_Resume.pdf" target="_blank" class="pb-1 text-[10px] md:text-[12px] tracking-[0.3em] opacity-50 uppercase mt-6 md:mt-0 border-b border-white/20 hover:border-white hover:opacity-100 transition-all">
-                Download PDF Resume
-            </a>
+        <div class="flex flex-col mb-12 md:mb-20">
+            <div class="masthead-name kn-full">
+                <span>ALEXANDER</span> 
+                <span style="font-family: 'Knockout-Junior', sans-serif; margin-left: -0.05em;">VIETMEIER</span>
+            </div>
+            
+            <div class="flex flex-col md:flex-row md:items-end justify-between border-b border-white/20 pb-8">
+                <h1 class="kn-full text-7xl md:text-9xl tracking-normal leading-none">Credits</h1>
+                <a href="Alexander_Vietmeier_Resume.pdf" target="_blank" class="pb-1 text-[10px] md:text-[12px] tracking-[0.3em] opacity-50 uppercase mt-6 md:mt-0 border-b border-white/20 hover:border-white hover:opacity-100 transition-all">
+                    Download PDF Resume
+                </a>
+            </div>
         </div>
         
         <div class="hidden md:grid grid-cols-12 gap-4 pb-6 px-2 border-b border-white/5">
@@ -162,10 +146,10 @@
 
             <div class="credit-row py-6 md:py-10 flex flex-col md:grid md:grid-cols-12 gap-4 items-baseline px-2">
                 <div class="w-full md:col-span-5">
-                    <div class="text-2xl md:text-3xl lg:text-4xl kn-full uppercase leading-none whitespace-nowrap">Saturday Night Live</div>
+                    <div class="text-2xl md:text-3xl lg:text-4xl kn-full uppercase leading-none whitespace-nowrap">75th Annual Tony Awards</div>
                 </div>
-                <div class="w-full md:col-span-3 md:text-center text-lg md:text-xl text-white/70">NBC</div>
-                <div class="col-span-1 text-center text-lg text-white/40 font-mono">2021—2022</div>
+                <div class="w-full md:col-span-3 md:text-center text-lg md:text-xl text-white/70">CBS / Paramount+</div>
+                <div class="col-span-1 text-center text-lg text-white/40 font-mono">2022</div>
                 <div class="w-full md:col-span-3 md:text-right text-xl md:text-2xl text-white/90 kn-full leading-none">
                     Associate Director
                 </div>
