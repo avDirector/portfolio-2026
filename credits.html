@@ -36,10 +36,16 @@
             background: radial-gradient(circle at 50% -10%, #161616 0%, #000 60%);
         }
 
-        /* Tightened tracking to match Homepage density */
-        .kn-full { 
+        /* Tight tracking for the BRANDING only */
+        .kn-brand { 
             font-family: 'Knockout-Full', sans-serif; 
-            letter-spacing: -0.02em; 
+            letter-spacing: -0.03em; 
+        }
+
+        /* Relaxed tracking for the CREDITS for readability */
+        .kn-credit {
+            font-family: 'Knockout-Full', sans-serif;
+            letter-spacing: 0.02em;
         }
 
         .table-header-text {
@@ -47,13 +53,11 @@
             font-size: 13px;
             letter-spacing: 0.25em;
             color: rgba(255, 255, 255, 0.4);
-            transition: opacity 0.4s ease;
         }
 
         .credit-row {
             border-bottom: 1px solid rgba(255,255,255,0.08);
             transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
-            position: relative;
         }
 
         @media (min-width: 769px) {
@@ -61,9 +65,6 @@
                 background: rgba(255,255,255,0.03);
                 padding-left: 1.5rem; 
                 border-bottom-color: rgba(255,255,255,0.2);
-            }
-            .credits-group:hover .table-header-text {
-                opacity: 0.2;
             }
         }
 
@@ -77,8 +78,8 @@
 
     <div class="page-bg"></div>
 
-    <nav class="w-full flex justify-between items-center mb-16 md:mb-24 relative z-50">
-        <a href="index.html" class="tracking-tighter flex items-baseline opacity-80 kn-full text-3xl md:text-5xl">
+    <nav class="max-w-7xl mx-auto w-full flex justify-between items-center mb-16 md:mb-24 relative z-50">
+        <a href="index.html" class="tracking-tighter flex items-baseline opacity-80 kn-brand text-3xl md:text-5xl">
             <span>A</span><span style="font-family: 'Knockout-Junior', sans-serif; margin-left: -2px;">V</span>
         </a>
         <div class="flex items-center gap-6 md:gap-12 font-bold text-[10px] md:text-[13px] tracking-[0.35em]">
@@ -92,18 +93,18 @@
         </div>
     </nav>
 
-    <main class="max-w-7xl mx-auto credits-group">
+    <main class="max-w-7xl mx-auto">
         
         <div class="mb-0">
-            <h2 class="text-2xl md:text-3xl kn-full text-white/30 tracking-tight">
-                ALEXANDER <span style="font-family: 'Knockout-Junior', sans-serif; margin-left: 1px; letter-spacing: -0.05em;">VIETMEIER</span>
+            <h2 class="text-3xl md:text-5xl kn-brand text-white/20">
+                ALEXANDER <span style="font-family: 'Knockout-Junior', sans-serif; margin-left: 2px; letter-spacing: -0.02em;">VIETMEIER</span>
             </h2>
         </div>
 
-        <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 md:mb-16 border-b border-white/20 pb-8 -mt-2">
-            <h1 class="kn-full text-7xl md:text-9xl tracking-tighter leading-none">Credits</h1>
+        <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 md:mb-16 border-b border-white/20 pb-8 -mt-4 md:-mt-6">
+            <h1 class="kn-brand text-7xl md:text-9xl leading-none">Credits</h1>
             <a href="Alexander_Vietmeier_Resume.pdf" target="_blank" class="pb-1 text-[10px] md:text-[12px] tracking-[0.3em] opacity-50 uppercase mt-6 md:mt-0 border-b border-white/20 hover:border-white hover:opacity-100 transition-all">
-                Download Full Resume (PDF)
+                Download PDF Resume
             </a>
         </div>
         
@@ -116,9 +117,9 @@
 
         <div class="flex flex-col">
             
-            <div class="credit-row py-6 md:py-10 flex flex-col md:grid md:grid-cols-12 gap-4 items-baseline px-2">
+            <div class="credit-row py-8 md:py-12 flex flex-col md:grid md:grid-cols-12 gap-4 items-baseline px-2">
                 <div class="w-full md:col-span-5">
-                    <div class="text-2xl md:text-3xl lg:text-4xl kn-full uppercase leading-none whitespace-nowrap">Late Night with Seth Meyers</div>
+                    <div class="text-2xl md:text-3xl lg:text-4xl kn-credit uppercase leading-none whitespace-nowrap">Late Night with Seth Meyers</div>
                 </div>
                 <div class="w-full md:col-span-3 md:text-center">
                     <div class="text-lg md:text-xl text-white/70">NBC</div>
@@ -127,14 +128,14 @@
                     <div class="text-lg text-white/40 font-mono tracking-tighter">2014—2026</div>
                 </div>
                 <div class="w-full md:col-span-3 md:text-right">
-                    <div class="text-xl md:text-2xl text-white/90 kn-full leading-none">Director</div>
-                    <div class="text-[9px] emmy-blue tracking-[0.2em] mt-2 font-bold uppercase">2x Emmy Nominee: Outstanding Directing</div>
+                    <div class="text-xl md:text-2xl text-white/90 kn-credit leading-none">Director</div>
+                    <div class="text-[10px] emmy-blue tracking-[0.2em] mt-3 font-bold uppercase">2x Emmy Nominee: Directing</div>
                 </div>
             </div>
 
-            <div class="credit-row py-6 md:py-10 flex flex-col md:grid md:grid-cols-12 gap-4 items-baseline px-2">
+            <div class="credit-row py-8 md:py-12 flex flex-col md:grid md:grid-cols-12 gap-4 items-baseline px-2">
                 <div class="w-full md:col-span-5">
-                    <div class="text-2xl md:text-3xl lg:text-4xl kn-full uppercase leading-none whitespace-nowrap">Macy's Thanksgiving Day Parade</div>
+                    <div class="text-2xl md:text-3xl lg:text-4xl kn-credit uppercase leading-none whitespace-nowrap">Macy's Thanksgiving Day Parade</div>
                 </div>
                 <div class="w-full md:col-span-3 md:text-center">
                     <div class="text-lg md:text-xl text-white/70">NBC</div>
@@ -143,14 +144,14 @@
                     <div class="text-lg text-white/40 font-mono tracking-tighter">2019—2023</div>
                 </div>
                 <div class="w-full md:col-span-3 md:text-right">
-                    <div class="text-xl md:text-2xl text-white/90 kn-full leading-none">Segment Director</div>
+                    <div class="text-xl md:text-2xl text-white/90 kn-credit leading-none">Segment Director</div>
                 </div>
             </div>
 
         </div>
     </main>
 
-    <footer class="h-32"></footer>
+    <footer class="h-64"></footer>
 
 </body>
 </html>
