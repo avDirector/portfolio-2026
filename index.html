@@ -88,22 +88,20 @@
         .subhead-full { font-family: 'Knockout-Full', sans-serif; }
         .subhead-junior { font-family: 'Knockout-Junior', sans-serif; }
 
-        /* REVISED SCROLL ALIGNMENT */
         .director-group {
             display: flex;
-            align-items: center; /* Center them vertically relative to each other */
+            align-items: center;
             gap: 0.3em;
         }
 
         .role-window {
             font-family: 'Knockout-Junior', sans-serif;
-            font-size: 0.94em; /* Slightly smaller to match optical cap-height */
+            font-size: 0.95em;
             height: 1.2em;
             overflow: hidden;
             display: flex;
             flex-direction: column;
-            /* Optical adjustment to pull it back down into the "Director:" line */
-            transform: translateY(0.12em); 
+            transform: translateY(0.05em); 
         }
 
         #role-list {
@@ -158,7 +156,6 @@
             </h1>
             
             <div class="flex flex-col md:flex-row justify-between border-t border-white/40 pt-2 gap-6 items-baseline">
-                
                 <div class="director-group subhead-full text-2xl md:text-4xl tracking-tight text-white">
                     <span>Director:</span>
                     <div class="role-window">
