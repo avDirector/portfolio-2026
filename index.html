@@ -57,28 +57,29 @@
             flex-wrap: wrap;
             align-items: baseline; 
             gap: 0.4em;
-            /* Lessened space below the name */
-            margin-bottom: 1rem; 
+            /* Minimal space between name and line */
+            margin-bottom: 0.25rem; 
         }
 
         .alexander {
             font-family: 'Knockout-Full', sans-serif;
             font-size: 8.5vw; 
-            line-height: 1;
+            line-height: 0.9;
         }
 
         .vietmeier {
             font-family: 'Knockout-Junior', sans-serif;
             font-size: 8.1vw; 
-            line-height: 1;
+            line-height: 0.9;
         }
 
         .subhead {
             font-family: 'Knockout-Junior', sans-serif;
+            line-height: 1;
         }
 
         .role-window {
-            height: 1.2em;
+            height: 1.1em;
             overflow: hidden;
             display: inline-block;
             vertical-align: bottom;
@@ -91,7 +92,7 @@
         }
 
         .role-item {
-            height: 1.2em;
+            height: 1.1em;
             display: flex;
             align-items: center;
         }
@@ -100,7 +101,7 @@
             .alexander { font-size: 14vw; }
             .vietmeier { font-size: 13.4vw; }
             .hero-container { padding: 2rem; }
-            .name-container { gap: 0.2em; margin-bottom: 0.5rem; }
+            .name-container { gap: 0.2em; margin-bottom: 0.25rem; }
         }
     </style>
 </head>
@@ -131,7 +132,7 @@
                 <span class="vietmeier">Vietmeier</span>
             </h1>
             
-            <div class="flex flex-col md:flex-row justify-between border-t border-white/40 pt-4 gap-6">
+            <div class="flex flex-col md:flex-row justify-between border-t border-white/40 pt-2 gap-6 items-baseline">
                 <div class="subhead text-2xl md:text-4xl tracking-tight">
                     Director: 
                     <div class="role-window">
@@ -144,8 +145,9 @@
                         </div>
                     </div>
                 </div>
-                <div class="subhead text-2xl md:text-4xl tracking-tight text-white/50 italic">
-                    2x Emmy® Nominee
+                
+                <div class="subhead text-xl md:text-2xl tracking-tight text-white/60">
+                    2x Emmy® Nominee: Best Directing For A Variety Series
                 </div>
             </div>
         </div>
