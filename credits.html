@@ -6,14 +6,8 @@
     <title>Credits | Alexander Vietmeier</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        @font-face {
-            font-family: 'Knockout-Full';
-            src: url('./fonts/Knockout-HTF70-FullWelterwt.otf') format('opentype');
-        }
-        @font-face {
-            font-family: 'Knockout-Junior';
-            src: url('./fonts/Knockout-HTF30-JuniorWelterwt.otf') format('opentype');
-        }
+        @font-face { font-family: 'Knockout-Full'; src: url('./fonts/Knockout-HTF70-FullWelterwt.otf'); }
+        @font-face { font-family: 'Knockout-Junior'; src: url('./fonts/Knockout-HTF30-JuniorWelterwt.otf'); }
 
         body {
             background-color: #000;
@@ -23,36 +17,42 @@
             -webkit-font-smoothing: antialiased;
         }
 
-        /* Keep the background consistent with Home */
+        /* Ambient background - subtle hint of the video aesthetic */
         .page-bg {
             position: fixed;
             top: 0; left: 0; width: 100%; height: 100%;
             z-index: -1;
-            background: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.9));
+            background: radial-gradient(circle at 50% -20%, #1a1a1a 0%, #000 70%);
+        }
+
+        .kn-full { 
+            font-family: 'Knockout-Full', sans-serif; 
+            letter-spacing: 0.02em; /* Fixes the crashing letters */
         }
 
         .credit-row {
             border-bottom: 1px solid rgba(255,255,255,0.1);
-            transition: background 0.3s ease;
+            transition: all 0.3s ease;
         }
 
         .credit-row:hover {
             background: rgba(255,255,255,0.03);
+            padding-left: 10px; /* Subtle slide effect on hover */
         }
 
-        .kn-full { font-family: 'Knockout-Full', sans-serif; }
-        
-        /* Custom scrollbar for that clean look */
-        ::-webkit-scrollbar { width: 4px; }
-        ::-webkit-scrollbar-track { background: #000; }
-        ::-webkit-scrollbar-thumb { background: #333; }
+        .label-style {
+            font-size: 0.7rem;
+            letter-spacing: 0.2em;
+            opacity: 0.4;
+            margin-bottom: 4px;
+        }
     </style>
 </head>
 <body class="p-6 md:p-12">
 
     <div class="page-bg"></div>
 
-    <nav class="w-full flex justify-between items-center mb-12 md:mb-20">
+    <nav class="w-full flex justify-between items-center mb-16 md:mb-24">
         <a href="index.html" class="tracking-tighter flex items-baseline opacity-80 kn-full text-3xl md:text-5xl">
             <span>A</span><span style="font-family: 'Knockout-Junior', sans-serif; margin-left: -2px;">V</span>
         </a>
@@ -67,44 +67,62 @@
         </div>
     </nav>
 
-    <main class="max-w-6xl mx-auto">
-        <h2 class="kn-full text-5xl md:text-8xl mb-8 md:mb-12 tracking-tighter">Credits</h2>
-        
-        <div class="hidden md:flex kn-full text-white/40 text-xl border-b border-white/20 pb-2 mb-4">
-            <div class="w-1/2">Project / Title</div>
-            <div class="w-1/4">Network / Client</div>
-            <div class="w-1/4 text-right">Role</div>
+    <main class="max-w-7xl mx-auto">
+        <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 md:mb-20">
+            <h2 class="kn-full text-6xl md:text-9xl tracking-normal">Credits</h2>
+            <p class="text-white/40 text-xs tracking-widest mb-2 md:mb-4">Selected Directing Work • 2018—2026</p>
         </div>
-
+        
         <div class="flex flex-col">
-            <div class="credit-row py-4 md:py-6 flex flex-col md:flex-row md:items-baseline">
-                <div class="w-full md:w-1/2 text-2xl md:text-4xl kn-full tracking-tight mb-1 md:mb-0">Late Night with Seth Meyers</div>
-                <div class="w-full md:w-1/4 text-lg md:text-xl text-white/60 mb-1 md:mb-0">NBC</div>
-                <div class="w-full md:w-1/4 text-lg md:text-xl md:text-right text-white/40 italic">Director</div>
-            </div>
-
-            <div class="credit-row py-4 md:py-6 flex flex-col md:flex-row md:items-baseline">
-                <div class="w-full md:w-1/2 text-2xl md:text-4xl kn-full tracking-tight mb-1 md:mb-0">Saturday Night Live (Film Unit)</div>
-                <div class="w-full md:w-1/4 text-lg md:text-xl text-white/60 mb-1 md:mb-0">NBC</div>
-                <div class="w-full md:w-1/4 text-lg md:text-xl md:text-right text-white/40 italic">Director</div>
-            </div>
-
-            <div class="credit-row py-4 md:py-6 flex flex-col md:flex-row md:items-baseline">
-                <div class="w-full md:w-1/2 text-2xl md:text-4xl kn-full tracking-tight mb-1 md:mb-0">The 75th Annual Tony Awards</div>
-                <div class="w-full md:w-1/4 text-lg md:text-xl text-white/60 mb-1 md:mb-0">CBS</div>
-                <div class="w-full md:w-1/4 text-lg md:text-xl md:text-right text-white/40 italic">Associate Director</div>
-            </div>
-
-            <div class="credit-row py-4 md:py-6 flex flex-col md:flex-row md:items-baseline">
-                <div class="w-full md:w-1/2 text-2xl md:text-4xl kn-full tracking-tight mb-1 md:mb-0">VMA's: MTV Video Music Awards</div>
-                <div class="w-full md:w-1/4 text-lg md:text-xl text-white/60 mb-1 md:mb-0">MTV / Paramount</div>
-                <div class="w-full md:w-1/4 text-lg md:text-xl md:text-right text-white/40 italic">Segment Director</div>
-            </div>
             
+            <div class="credit-row py-6 md:py-8 flex flex-col md:grid md:grid-cols-12 gap-4 items-center">
+                <div class="w-full md:col-span-1 text-white/30 text-sm">2024</div>
+                
+                <div class="w-full md:col-span-5">
+                    <div class="md:hidden label-style">Project</div>
+                    <div class="text-2xl md:text-4xl kn-full uppercase leading-none">Late Night with Seth Meyers</div>
+                </div>
+
+                <div class="w-full md:col-span-3">
+                    <div class="md:hidden label-style">Network</div>
+                    <div class="text-lg md:text-xl text-white/60">NBC Universal</div>
+                </div>
+
+                <div class="w-full md:col-span-3 md:text-right">
+                    <div class="md:hidden label-style">Role</div>
+                    <div class="text-lg md:text-xl text-white/80">Director</div>
+                    <div class="text-[10px] text-white/40 tracking-widest mt-1">Multi-Cam / Variety</div>
+                </div>
+            </div>
+
+            <div class="credit-row py-6 md:py-8 flex flex-col md:grid md:grid-cols-12 gap-4 items-center">
+                <div class="w-full md:col-span-1 text-white/30 text-sm">2023</div>
+                
+                <div class="w-full md:col-span-5">
+                    <div class="md:hidden label-style">Project</div>
+                    <div class="text-2xl md:text-4xl kn-full uppercase leading-none">The 75th Annual Tony Awards</div>
+                </div>
+
+                <div class="w-full md:col-span-3">
+                    <div class="md:hidden label-style">Network</div>
+                    <div class="text-lg md:text-xl text-white/60">CBS</div>
+                </div>
+
+                <div class="w-full md:col-span-3 md:text-right">
+                    <div class="md:hidden label-style">Role</div>
+                    <div class="text-lg md:text-xl text-white/80 italic">Associate Director</div>
+                    <div class="text-[10px] text-amber-500/80 tracking-widest mt-1">Emmy Nominated</div>
+                </div>
+            </div>
+
             </div>
     </main>
 
-    <footer class="h-20"></footer>
+    <footer class="mt-20 py-12 border-t border-white/10 text-center">
+        <a href="path/to/resume.pdf" class="text-[11px] tracking-[0.4em] text-white/40 hover:text-white transition-colors">
+            Download Full Commercial & TV Resume (PDF)
+        </a>
+    </footer>
 
 </body>
 </html>
