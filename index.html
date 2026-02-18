@@ -9,82 +9,118 @@
         @font-face { font-family: 'Knockout-Full'; src: url('./fonts/Knockout-HTF70-FullWelterwt.otf'); }
         @font-face { font-family: 'Knockout-Junior'; src: url('./fonts/Knockout-HTF30-JuniorWelterwt.otf'); }
 
-        body { background-color: #000; color: #fff; text-transform: uppercase; overflow: hidden; -webkit-font-smoothing: antialiased; height: 100vh; width: 100vw; }
-
-        /* --- DESKTOP VIDEO (Edge-to-Edge) --- */
-        .video-background { position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: -2; background: #000; display: flex; align-items: center; justify-content: center; overflow: hidden; }
-        
-        .video-background iframe { 
-            position: absolute; top: 50%; left: 50%; width: 100vw; height: 56.25vw; 
-            min-height: 100vh; min-width: 177.77vh; transform: translate(-50%,-50%); 
+        body, html { 
+            background-color: #000; 
+            margin: 0; padding: 0; 
+            width: 100%; height: 100%; 
+            overflow: hidden;
+            -webkit-font-smoothing: antialiased;
         }
 
-        /* --- THE VIGNETTE (Stronger for Integration) --- */
+        /* --- DESKTOP STYLES (Default) --- */
+        .hero-container {
+            position: relative;
+            height: 100vh;
+            width: 100vw;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            padding: 3.5rem;
+            z-index: 10;
+        }
+
+        .video-background {
+            position: absolute;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            z-index: -2;
+            overflow: hidden;
+        }
+
+        .video-background iframe {
+            position: absolute;
+            top: 50%; left: 50%;
+            width: 100vw;
+            height: 56.25vw; /* 16:9 ratio */
+            min-height: 100vh;
+            min-width: 177.77vh;
+            transform: translate(-50%, -50%);
+            pointer-events: none;
+        }
+
         .video-overlay {
-            position: absolute; top: 0; left: 0; width: 100%; height: 100%;
-            background: linear-gradient(to bottom, 
-                rgba(0,0,0,0.95) 0%, 
-                rgba(0,0,0,0.5) 25%, 
-                rgba(0,0,0,0.5) 75%, 
-                rgba(0,0,0,0.95) 100%);
+            position: absolute;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background: rgba(0, 0, 0, 0.6);
             z-index: -1;
+            /* Desktop Vignette */
+            box-shadow: inset 0 0 150px rgba(0,0,0,0.9);
         }
 
         /* --- TYPOGRAPHY --- */
-        .alexander { font-family: 'Knockout-Full', sans-serif; font-size: 8.5vw; line-height: 0.9; }
-        .vietmeier { font-family: 'Knockout-Junior', sans-serif; font-size: 8.1vw; line-height: 0.9; }
-        .role-window { font-family: 'Knockout-Junior', sans-serif; font-size: 0.96em; height: 1.1em; overflow: hidden; display: inline-flex; flex-direction: column; transform: translateY(-0.03em); }
-        #role-list { transition: transform 0.7s cubic-bezier(0.23, 1, 0.32, 1); }
-        .role-item { height: 1.1em; display: flex; align-items: center; }
+        .alexander { font-family: 'Knockout-Full', sans-serif; font-size: 8.5vw; line-height: 0.9; text-transform: uppercase; }
+        .vietmeier { font-family: 'Knockout-Junior', sans-serif; font-size: 8.1vw; line-height: 0.9; text-transform: uppercase; }
+        .nav-link { font-family: 'Knockout-Junior', sans-serif; letter-spacing: 0.2em; opacity: 0.6; transition: opacity 0.3s; text-transform: uppercase; }
+        .nav-link:hover { opacity: 1; }
 
-        .nav-link { position: relative; display: inline-flex; flex-direction: column; align-items: center; text-decoration: none; opacity: 0.5; transition: opacity 0.4s; }
-        @media (min-width: 1025px) { .nav-link:hover { opacity: 1; } }
-
-        /* --- MOBILE RE-ENGINEERING --- */
+        /* --- MOBILE PORTRAIT OVERRIDES --- */
         @media (max-width: 768px) {
-            .hero-container { padding: 2rem 1.5rem; display: flex; flex-direction: column; height: 100vh; height: -webkit-fill-available; justify-content: space-between; }
-            
-            /* Anchor Video to Upper 3rd without breaking iframe logic */
+            .hero-container {
+                padding: 1.5rem;
+                justify-content: space-between; /* Keeps Nav top, Name bottom */
+            }
+
             .video-background iframe {
                 width: 100vw !important;
                 height: 56.25vw !important;
                 min-height: 0 !important;
                 min-width: 0 !important;
-                top: 35% !important; /* Adjusted for better phone clearance */
+                top: 35% !important; /* Positioned in upper 3rd */
+                transform: translate(-50%, -50%) !important;
             }
 
-            /* Visible Keyline Border */
+            /* The Mobile Vignette & Border */
+            .video-overlay {
+                background: rgba(0, 0, 0, 0.4);
+                /* Heavy top/bottom shadow to blend with letterbox */
+                box-shadow: inset 0 100px 100px -50px #000, inset 0 -100px 100px -50px #000;
+            }
+
             .video-background::after {
-                content: ''; position: absolute; top: 35%; left: 0; width: 100%; height: 56.25vw;
+                content: '';
+                position: absolute;
+                top: 35%; left: 0;
+                width: 100%; height: 56.25vw;
                 transform: translateY(-50%);
-                border-top: 1px solid rgba(255,255,255,0.15);
-                border-bottom: 1px solid rgba(255,255,255,0.15);
+                border-top: 1px solid rgba(255,255,255,0.2);
+                border-bottom: 1px solid rgba(255,255,255,0.2);
                 pointer-events: none;
             }
 
             .alexander { font-size: 15vw; }
             .vietmeier { font-size: 14.4vw; }
-            .nav-pipe { display: none; }
             .nav-link { font-size: 10px; }
+            .nav-pipe { display: none; }
             
-            /* Pulling info group up to the video bottom */
-            .bottom-info-group { margin-bottom: 5vh; }
+            .director-group { font-size: 1.6rem !important; font-family: 'Knockout-Full'; }
+            .subhead-junior { font-size: 0.8rem !important; font-family: 'Knockout-Junior'; margin-top: 4px; }
         }
     </style>
 </head>
 <body>
 
-    <section class="hero-container relative z-10 p-8 md:p-12 md:px-[3rem]">
+    <section class="hero-container">
         <div class="video-background">
             <iframe src="https://player.vimeo.com/video/1166002140?background=1&autoplay=1&loop=1&byline=0&title=0&muted=1" frameborder="0"></iframe>
         </div>
         <div class="video-overlay"></div>
 
-        <nav class="w-full flex justify-between items-center">
-            <a href="index.html" class="text-3xl md:text-4xl tracking-tighter flex items-baseline opacity-80" style="font-family: 'Knockout-Full', sans-serif;">
+        <nav class="w-full flex justify-between items-center relative z-50">
+            <a href="index.html" class="text-3xl md:text-4xl tracking-tighter flex items-baseline" style="font-family: 'Knockout-Full', sans-serif;">
                 <span>A</span><span style="font-family: 'Knockout-Junior', sans-serif; margin-left: -2px;">V</span>
             </a>
-            <div class="flex items-center gap-4 md:gap-8 text-[10px] md:text-[11px] tracking-[0.25em] font-bold" style="font-family: 'Knockout-Junior', sans-serif;">
+            <div class="flex items-center gap-4 md:gap-8 text-[10px] md:text-[11px] font-bold">
                 <a href="portfolio.html" class="nav-link">Portfolio</a>
                 <span class="nav-pipe opacity-40">|</span>
                 <a href="credits.html" class="nav-link">Credits</a>
@@ -95,26 +131,26 @@
             </div>
         </nav>
 
-        <div class="w-full bottom-info-group">
+        <div class="w-full relative z-50">
             <h1 class="flex flex-wrap items-baseline gap-[0.3em] tracking-tighter mb-1">
                 <span class="alexander">Alexander</span>
                 <span class="vietmeier">Vietmeier</span>
             </h1>
             <div class="flex flex-col md:flex-row justify-between border-t border-white/40 pt-3 md:pt-2 gap-2 md:gap-6 items-baseline">
-                <div class="director-group flex items-baseline text-2xl md:text-4xl tracking-tight text-white" style="font-family: 'Knockout-Full', sans-serif;">
+                <div class="director-group flex items-baseline text-2xl md:text-4xl tracking-tight text-white">
                     <span>Director</span>
                     <span class="mx-[0.35em] opacity-40">|</span>
-                    <div class="role-window">
-                        <div id="role-list">
-                            <span class="role-item">Variety</span>
-                            <span class="role-item">Multi-Cam</span>
-                            <span class="role-item">Music</span>
-                            <span class="role-item">Comedy</span>
-                            <span class="role-item">Variety</span>
+                    <div style="font-family: 'Knockout-Junior'; font-size: 0.96em; height: 1.1em; overflow: hidden; display: inline-flex; flex-direction: column; transform: translateY(-0.03em);">
+                        <div id="role-list" style="transition: transform 0.7s cubic-bezier(0.23, 1, 0.32, 1);">
+                            <span style="height: 1.1em; display: flex; align-items: center;">Variety</span>
+                            <span style="height: 1.1em; display: flex; align-items: center;">Multi-Cam</span>
+                            <span style="height: 1.1em; display: flex; align-items: center;">Music</span>
+                            <span style="height: 1.1em; display: flex; align-items: center;">Comedy</span>
+                            <span style="height: 1.1em; display: flex; align-items: center;">Variety</span>
                         </div>
                     </div>
                 </div>
-                <div class="subhead-junior text-sm md:text-2xl tracking-tight text-white/60" style="font-family: 'Knockout-Junior', sans-serif;">
+                <div class="subhead-junior text-sm md:text-2xl tracking-tight text-white/60">
                     2x Emmy Nominee: Best Directing For A Variety Series
                 </div>
             </div>
@@ -126,9 +162,7 @@
         let currentIndex = 0;
         function scrollRole() {
             currentIndex++;
-            const items = roleList.querySelectorAll('.role-item');
-            if (items.length === 0) return;
-            const itemHeight = items[0].offsetHeight;
+            const itemHeight = roleList.children[0].offsetHeight;
             roleList.style.transition = "transform 0.7s cubic-bezier(0.23, 1, 0.32, 1)";
             roleList.style.transform = `translateY(-${currentIndex * itemHeight}px)`;
             if (currentIndex === 4) {
