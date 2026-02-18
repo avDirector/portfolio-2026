@@ -27,7 +27,7 @@
             text-transform: uppercase;
             overflow-x: hidden;
             -webkit-font-smoothing: antialiased;
-            height: 100%;
+            height: 100vh;
         }
 
         /* NAVIGATION */
@@ -60,12 +60,7 @@
             .nav-link:hover::after { transform: translate(-53%, 0) scaleX(1); }
         }
 
-        .nav-pipe {
-            opacity: 0.6;
-            font-weight: 300;
-            pointer-events: none;
-            user-select: none;
-        }
+        .nav-pipe { opacity: 0.6; font-weight: 300; pointer-events: none; user-select: none; }
 
         /* HERO LAYOUT */
         .hero-container {
@@ -77,6 +72,7 @@
             flex-direction: column;
             justify-content: flex-end;
             padding: 3rem; 
+            z-index: 10;
         }
 
         .video-background {
@@ -86,14 +82,29 @@
             z-index: -2;
             pointer-events: none;
             overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #000;
         }
 
         .video-overlay {
             position: absolute;
             top: 0; left: 0;
             width: 100%; height: 100%;
-            background: rgba(0, 0, 0, 0.65);
+            background: rgba(0, 0, 0, 0.6);
             z-index: -1;
+        }
+
+        /* VIDEO SCALING LOGIC */
+        .video-background iframe {
+            position: absolute;
+            top: 50%; left: 50%;
+            width: 100vw;
+            height: 56.25vw; /* 16:9 ratio */
+            min-height: 100vh;
+            min-width: 177.77vh;
+            transform: translate(-50%,-50%);
         }
 
         .logo-a { font-family: 'Knockout-Full', sans-serif; line-height: 1; }
@@ -106,25 +117,12 @@
         }
 
         .name-container {
-            display: flex;
-            flex-wrap: wrap;
-            align-items: baseline; 
-            gap: 0.4em;
-            margin-bottom: 0.25rem;
-            margin-left: -0.04em; 
+            display: flex; flex-wrap: wrap; align-items: baseline; 
+            gap: 0.4em; margin-bottom: 0.25rem; margin-left: -0.04em; 
         }
 
-        .alexander {
-            font-family: 'Knockout-Full', sans-serif;
-            font-size: 8.5vw; 
-            line-height: 0.9;
-        }
-
-        .vietmeier {
-            font-family: 'Knockout-Junior', sans-serif;
-            font-size: 8.1vw; 
-            line-height: 0.9;
-        }
+        .alexander { font-family: 'Knockout-Full', sans-serif; font-size: 8.5vw; line-height: 0.9; }
+        .vietmeier { font-family: 'Knockout-Junior', sans-serif; font-size: 8.1vw; line-height: 0.9; }
 
         .subhead-full { font-family: 'Knockout-Full', sans-serif; }
         .subhead-junior { font-family: 'Knockout-Junior', sans-serif; }
@@ -133,13 +131,8 @@
         .pipe-spacer { margin: 0 0.35em; opacity: 0.4; }
 
         .role-window {
-            font-family: 'Knockout-Junior', sans-serif;
-            font-size: 0.96em;
-            height: 1.1em;
-            overflow: hidden;
-            display: inline-flex;
-            flex-direction: column;
-            transform: translateY(-0.03em); 
+            font-family: 'Knockout-Junior', sans-serif; font-size: 0.96em; height: 1.1em;
+            overflow: hidden; display: inline-flex; flex-direction: column; transform: translateY(-0.03em); 
         }
 
         #role-list { transition: transform 0.7s cubic-bezier(0.23, 1, 0.32, 1); }
@@ -163,6 +156,18 @@
             .nav-link { opacity: 0.8; font-size: 12px; }
             .subhead-junior { font-size: 1rem; line-height: 1.2; }
             .director-group { font-size: 1.5rem; }
+
+            /* PORTRAIT LETTERBOX FIX */
+            .video-background iframe {
+                width: 100vw !important;
+                height: 56.25vw !important;
+                min-height: 0 !important;
+                min-width: 0 !important;
+                position: relative !important;
+                top: auto !important;
+                left: auto !important;
+                transform: none !important;
+            }
         }
     </style>
 </head>
@@ -189,7 +194,6 @@
         <div class="video-background">
             <iframe 
                 src="https://player.vimeo.com/video/1166002140?background=1&autoplay=1&loop=1&byline=0&title=0&muted=1" 
-                style="position:absolute;top:50%;left:50%;width:100vw;height:56.25vw;min-height:100vh;min-width:177.77vh;transform:translate(-50%,-50%);" 
                 frameborder="0" allow="autoplay; fullscreen">
             </iframe>
         </div>
