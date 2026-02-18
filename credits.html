@@ -36,37 +36,35 @@
             background: radial-gradient(circle at 50% -10%, #161616 0%, #000 60%);
         }
 
-        .kn-brand { 
-            font-family: 'Knockout-Full', sans-serif; 
-            letter-spacing: -0.03em; 
-        }
+        .kn-brand { font-family: 'Knockout-Full', sans-serif; letter-spacing: -0.03em; }
+        .kn-credit { font-family: 'Knockout-Full', sans-serif; letter-spacing: 0.02em; }
 
-        .kn-credit {
-            font-family: 'Knockout-Full', sans-serif;
-            letter-spacing: 0.02em;
-        }
-
-        /* --- THE PIXEL-LOCK --- */
+        /* --- THE TRANSFORM ENGINE --- */
         .masthead-container {
             display: flex;
             flex-direction: column;
             align-items: flex-start;
+            padding-top: 4rem; /* Added padding to prevent the name from going off-screen */
         }
 
         .name-overlay {
-            color: rgba(110, 110, 110, 0.85); 
+            color: rgba(120, 120, 120, 0.85); 
             z-index: 20;
             position: relative;
-            line-height: 0.8;
+            /* This will physically force the name UP regardless of other elements */
+            transform: translateY(85%); 
+            line-height: 1;
         }
 
         .credits-title {
             color: white;
             z-index: 10;
             position: relative;
-            /* Jumped from -0.58em to -0.85em to pull the name much higher */
-            margin-top: -0.85em; 
             margin-left: 1.5rem;
+        }
+
+        @media (min-width: 769px) {
+            .credits-title { margin-left: 4rem; }
         }
 
         .table-header-text {
@@ -79,20 +77,6 @@
         .credit-row {
             border-bottom: 1px solid rgba(255,255,255,0.08);
             transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
-        }
-
-        @media (min-width: 769px) {
-            .credit-row:hover {
-                background: rgba(255,255,255,0.03);
-                padding-left: 1.5rem; 
-                border-bottom-color: rgba(255,255,255,0.2);
-            }
-            .credits-title { margin-left: 4rem; }
-        }
-
-        .emmy-blue {
-            color: #38bdf8;
-            text-shadow: 0 0 15px rgba(56, 189, 248, 0.2);
         }
     </style>
 </head>
@@ -116,9 +100,7 @@
     </nav>
 
     <main class="max-w-7xl mx-auto">
-        
         <div class="masthead-container mb-20 md:mb-32">
-            
             <div class="name-overlay">
                 <h2 class="text-4xl md:text-6xl kn-brand">
                     ALEXANDER <span style="font-family: 'Knockout-Junior', sans-serif; margin-left: 2px; letter-spacing: -0.02em;">VIETMEIER</span>
@@ -149,22 +131,9 @@
                 <div class="col-span-1 text-center text-lg text-white/40 font-mono tracking-tighter">2014—2026</div>
                 <div class="w-full md:col-span-3 md:text-right">
                     <div class="text-xl md:text-2xl text-white/90 kn-credit leading-none">Director</div>
-                    <div class="text-[10px] emmy-blue tracking-[0.2em] mt-3 font-bold uppercase">2x Emmy Nominee: Directing</div>
                 </div>
-            </div>
-
-            <div class="credit-row py-8 md:py-12 flex flex-col md:grid md:grid-cols-12 gap-4 items-baseline px-2">
-                <div class="w-full md:col-span-5">
-                    <div class="text-2xl md:text-3xl lg:text-4xl kn-credit uppercase leading-none">Macy's Thanksgiving Day Parade</div>
-                </div>
-                <div class="w-full md:col-span-3 md:text-center text-lg md:text-xl text-white/70">NBC</div>
-                <div class="col-span-1 text-center text-lg text-white/40 font-mono tracking-tighter">2019—2023</div>
-                <div class="w-full md:col-span-3 md:text-right text-xl md:text-2xl text-white/90 kn-credit leading-none">Segment Director</div>
             </div>
         </div>
     </main>
-
-    <footer class="h-64"></footer>
-
 </body>
 </html>
