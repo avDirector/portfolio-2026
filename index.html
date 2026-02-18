@@ -28,6 +28,7 @@
             overflow: hidden;
             -webkit-font-smoothing: antialiased;
             height: 100vh;
+            width: 100vw;
         }
 
         /* --- NAVIGATION --- */
@@ -50,7 +51,6 @@
             transform: translate(-53%, 0) scaleX(0); 
             transform-origin: center;
             transition: transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
-            box-shadow: 0 0 10px rgba(255,255,255,0.5);
         }
 
         @media (min-width: 1025px) {
@@ -58,18 +58,17 @@
             .nav-link:hover::after { transform: translate(-53%, 0) scaleX(1); }
         }
 
-        .nav-pipe { opacity: 0.6; font-weight: 300; pointer-events: none; }
-
         /* --- HERO & VIDEO --- */
         .hero-container {
             position: relative;
             height: 100vh;
+            height: -webkit-fill-available; /* Vital for Safari Mobile */
             width: 100vw;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
             padding: 3rem; 
-            z-index: 10;
+            box-sizing: border-box;
         }
 
         .video-background {
@@ -96,19 +95,8 @@
         }
 
         /* --- TYPOGRAPHY --- */
-        .logo-a { font-family: 'Knockout-Full', sans-serif; line-height: 1; }
-        .logo-v { font-family: 'Knockout-Junior', sans-serif; font-size: 0.995em; margin-left: -0.05em; display: inline-block; }
-
-        .name-container {
-            display: flex; flex-wrap: wrap; align-items: baseline; 
-            gap: 0.4em; margin-bottom: 0.25rem;
-        }
-
         .alexander { font-family: 'Knockout-Full', sans-serif; font-size: 8.5vw; line-height: 0.9; }
         .vietmeier { font-family: 'Knockout-Junior', sans-serif; font-size: 8.1vw; line-height: 0.9; }
-
-        .director-group { display: flex; align-items: baseline; }
-        .pipe-spacer { margin: 0 0.35em; opacity: 0.4; }
 
         .role-window {
             font-family: 'Knockout-Junior', sans-serif; font-size: 0.96em; height: 1.1em;
@@ -116,7 +104,7 @@
         }
 
         #role-list { transition: transform 0.7s cubic-bezier(0.23, 1, 0.32, 1); }
-        .role-item { height: 1.1em; display: flex; align-items: center; white-space: nowrap; }
+        .role-item { height: 1.1em; display: flex; align-items: center; }
 
         /* --- RESPONSIVE FIXES --- */
         @media (max-width: 1024px) {
@@ -126,7 +114,10 @@
         }
 
         @media (max-width: 768px) {
-            /* Fix the Video scaling for Mobile Portrait only */
+            .hero-container {
+                padding: 12% 1.5rem 8% 1.5rem; /* Percentages adapt better than fixed VH */
+            }
+
             .video-background iframe {
                 width: 100vw !important;
                 height: 56.25vw !important;
@@ -134,20 +125,15 @@
                 min-width: 0 !important;
             }
 
-            /* Adjust spacing so UI elements "breathe" but stay near the video */
-            .hero-container {
-                padding: 15vh 1.5rem 10vh 1.5rem; /* Pushes content toward the center */
-            }
-
             .alexander { font-size: 15vw; }
             .vietmeier { font-size: 14.4vw; }
+            
+            nav { margin-bottom: 0; }
+            .nav-link { font-size: 10px; opacity: 0.8; }
             .nav-pipe { display: none; }
-            
-            nav { padding: 0 !important; margin-bottom: 2rem; }
-            .nav-link { font-size: 11px; opacity: 0.8; }
-            
-            .director-group { font-size: 1.5rem; }
-            .subhead-junior { font-size: 0.85rem; margin-top: 0.5rem; opacity: 0.7; }
+
+            .director-group { font-size: 1.6rem !important; }
+            .subhead-junior { font-size: 0.8rem !important; margin-top: 4px; }
         }
     </style>
 </head>
@@ -165,32 +151,31 @@
         <div class="video-overlay"></div>
 
         <nav class="w-full flex justify-between items-center relative z-50">
-            <a href="index.html" class="text-3xl md:text-4xl tracking-tighter flex items-baseline hover:opacity-100 transition duration-500 opacity-80">
-                <span class="logo-a">A</span>
-                <span class="logo-v">V</span>
+            <a href="index.html" class="text-3xl md:text-4xl tracking-tighter flex items-baseline opacity-80" style="font-family: 'Knockout-Full', sans-serif;">
+                <span>A</span><span style="font-family: 'Knockout-Junior', sans-serif; margin-left: -2px;">V</span>
             </a>
 
-            <div class="flex items-center gap-4 md:gap-8 text-[10px] md:text-[11px] tracking-[0.25em] font-bold">
+            <div class="flex items-center gap-4 md:gap-8 text-[10px] md:text-[11px] tracking-[0.25em] font-bold" style="font-family: 'Knockout-Junior', sans-serif;">
                 <a href="portfolio.html" class="nav-link">Portfolio</a>
-                <span class="nav-pipe">|</span>
+                <span class="nav-pipe opacity-40">|</span>
                 <a href="credits.html" class="nav-link">Credits</a>
-                <span class="nav-pipe">|</span>
+                <span class="nav-pipe opacity-40">|</span>
                 <a href="about.html" class="nav-link">About</a>
-                <span class="nav-pipe">|</span>
+                <span class="nav-pipe opacity-40">|</span>
                 <a href="mailto:alex@yourdomain.com" class="nav-link">Contact</a>
             </div>
         </nav>
 
         <div class="w-full">
-            <h1 class="name-container tracking-tighter">
-                <span class="alexander" style="font-family: 'Knockout-Full', sans-serif;">Alexander</span>
-                <span class="vietmeier" style="font-family: 'Knockout-Junior', sans-serif;">Vietmeier</span>
+            <h1 class="flex flex-wrap items-baseline gap-[0.4em] tracking-tighter mb-1">
+                <span class="alexander">Alexander</span>
+                <span class="vietmeier">Vietmeier</span>
             </h1>
             
-            <div class="flex flex-col md:flex-row justify-between border-t border-white/40 pt-4 gap-4 items-baseline">
-                <div class="director-group text-2xl md:text-4xl tracking-tight text-white" style="font-family: 'Knockout-Full', sans-serif;">
+            <div class="flex flex-col md:flex-row justify-between border-t border-white/40 pt-3 md:pt-2 gap-2 md:gap-6 items-baseline">
+                <div class="director-group flex items-baseline text-2xl md:text-4xl tracking-tight text-white" style="font-family: 'Knockout-Full', sans-serif;">
                     <span>Director</span>
-                    <span class="pipe-spacer">|</span>
+                    <span class="mx-[0.35em] opacity-40">|</span>
                     <div class="role-window">
                         <div id="role-list">
                             <span class="role-item">Variety</span>
