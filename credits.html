@@ -38,16 +38,27 @@
 
         .kn-full { 
             font-family: 'Knockout-Full', sans-serif; 
-            letter-spacing: 0.04em; 
+            letter-spacing: -0.02em; /* Tighter spacing like homepage */
         }
 
-        /* --- THE INTEGRATED NAME HEADER --- */
+        /* --- THE OVERLAPPING HEADER --- */
+        .masthead-container {
+            position: relative;
+            margin-bottom: 4rem;
+        }
+
         .masthead-name {
-            font-size: 8vw; /* Large but fits within page bounds */
-            line-height: 0.85;
-            opacity: 0.15; /* Increased slightly for legibility as a header */
-            margin-bottom: -1vw; /* Tucks the 'Credits' title up close */
+            font-size: 9.5vw; 
+            line-height: 0.8;
+            opacity: 0.12; 
             white-space: nowrap;
+            margin-left: -0.03em; /* Aligns visually with the logo edge */
+        }
+
+        .credits-title-wrapper {
+            margin-top: -4.5vw; /* This creates the vertical overlap */
+            position: relative;
+            z-index: 2;
         }
 
         .table-header-text {
@@ -60,7 +71,6 @@
         .credit-row {
             border-bottom: 1px solid rgba(255,255,255,0.08);
             transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
-            background: transparent;
         }
 
         @media (min-width: 769px) {
@@ -75,38 +85,44 @@
             color: #38bdf8;
             text-shadow: 0 0 15px rgba(56, 189, 248, 0.1);
         }
+
+        .nav-link {
+            opacity: 0.5;
+            transition: opacity 0.3s;
+        }
+        .nav-link:hover { opacity: 1; }
     </style>
 </head>
 <body class="p-6 md:p-12">
 
     <div class="page-bg"></div>
 
-    <nav class="w-full flex justify-between items-center mb-16 md:mb-24 relative z-50">
+    <nav class="max-w-7xl mx-auto flex justify-between items-center mb-16 md:mb-24 relative z-50">
         <a href="index.html" class="tracking-tighter flex items-baseline opacity-80 kn-full text-3xl md:text-5xl">
             <span>A</span><span style="font-family: 'Knockout-Junior', sans-serif; margin-left: -2px;">V</span>
         </a>
         <div class="flex items-center gap-6 md:gap-12 font-bold text-[10px] md:text-[13px] tracking-[0.35em]">
-            <a href="portfolio.html" class="opacity-50 hover:opacity-100 transition-opacity">Portfolio</a>
+            <a href="portfolio.html" class="nav-link">Portfolio</a>
             <span class="opacity-20 hidden md:inline">|</span>
             <a href="credits.html" class="opacity-100">Credits</a>
             <span class="opacity-20 hidden md:inline">|</span>
-            <a href="about.html" class="opacity-50 hover:opacity-100 transition-opacity">About</a>
+            <a href="about.html" class="nav-link">About</a>
             <span class="opacity-20 hidden md:inline">|</span>
-            <a href="mailto:alex@yourdomain.com" class="opacity-50 hover:opacity-100 transition-opacity">Contact</a>
+            <a href="mailto:alex@yourdomain.com" class="nav-link">Contact</a>
         </div>
     </nav>
 
     <main class="max-w-7xl mx-auto">
         
-        <div class="flex flex-col mb-12 md:mb-20">
+        <div class="masthead-container">
             <div class="masthead-name kn-full">
                 <span>ALEXANDER</span> 
-                <span style="font-family: 'Knockout-Junior', sans-serif; margin-left: -0.05em;">VIETMEIER</span>
+                <span style="font-family: 'Knockout-Junior', sans-serif; margin-left: -0.02em; letter-spacing: -0.05em;">VIETMEIER</span>
             </div>
             
-            <div class="flex flex-col md:flex-row md:items-end justify-between border-b border-white/20 pb-8">
-                <h1 class="kn-full text-7xl md:text-9xl tracking-normal leading-none">Credits</h1>
-                <a href="Alexander_Vietmeier_Resume.pdf" target="_blank" class="pb-1 text-[10px] md:text-[12px] tracking-[0.3em] opacity-50 uppercase mt-6 md:mt-0 border-b border-white/20 hover:border-white hover:opacity-100 transition-all">
+            <div class="credits-title-wrapper flex flex-col md:flex-row md:items-end justify-between border-b border-white/20 pb-8">
+                <h1 class="kn-full text-7xl md:text-9xl tracking-tighter leading-none">Credits</h1>
+                <a href="Alexander_Vietmeier_Resume.pdf" target="_blank" class="pb-1 text-[10px] md:text-[12px] tracking-[0.3em] opacity-50 uppercase mt-6 md:mt-0 border-b border-white/10 hover:border-white hover:opacity-100 transition-all">
                     Download PDF Resume
                 </a>
             </div>
@@ -141,17 +157,6 @@
                 <div class="col-span-1 text-center text-lg text-white/40 font-mono">2019—2023</div>
                 <div class="w-full md:col-span-3 md:text-right text-xl md:text-2xl text-white/90 kn-full leading-none">
                     Segment Director
-                </div>
-            </div>
-
-            <div class="credit-row py-6 md:py-10 flex flex-col md:grid md:grid-cols-12 gap-4 items-baseline px-2">
-                <div class="w-full md:col-span-5">
-                    <div class="text-2xl md:text-3xl lg:text-4xl kn-full uppercase leading-none whitespace-nowrap">75th Annual Tony Awards</div>
-                </div>
-                <div class="w-full md:col-span-3 md:text-center text-lg md:text-xl text-white/70">CBS / Paramount+</div>
-                <div class="col-span-1 text-center text-lg text-white/40 font-mono">2022</div>
-                <div class="w-full md:col-span-3 md:text-right text-xl md:text-2xl text-white/90 kn-full leading-none">
-                    Associate Director
                 </div>
             </div>
 
