@@ -46,7 +46,7 @@
             letter-spacing: 0.02em;
         }
 
-        /* --- THE PIXEL-LOCK LOGIC --- */
+        /* --- REFINED PIXEL-LOCK --- */
         .masthead-container {
             display: flex;
             flex-direction: column;
@@ -54,20 +54,19 @@
         }
 
         .name-overlay {
-            color: rgba(119, 119, 119, 0.75); /* Visible Medium Gray */
+            color: rgba(130, 130, 130, 0.85); /* Slightly brighter gray for overlap clarity */
             z-index: 20;
             position: relative;
-            line-height: 0.8; /* Pulls the bounding box tight to the letters */
+            line-height: 0.8;
         }
 
         .credits-title {
             color: white;
             z-index: 10;
             position: relative;
-            /* Negative margin pulls the title UP into the name */
-            /* This value stays consistent across screen sizes */
-            margin-top: -0.45em; 
-            margin-left: 1.5rem; /* The horizontal offset */
+            /* Dropped down from -0.45em to -0.32em to fix the "too high" issue */
+            margin-top: -0.32em; 
+            margin-left: 1.5rem;
         }
 
         .table-header-text {
@@ -88,7 +87,7 @@
                 padding-left: 1.5rem; 
                 border-bottom-color: rgba(255,255,255,0.2);
             }
-            .credits-title { margin-left: 4rem; } /* Deeper shift on desktop */
+            .credits-title { margin-left: 4rem; }
         }
 
         .emmy-blue {
