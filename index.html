@@ -89,14 +89,14 @@
                 height: 56.25vw !important;
                 min-height: 0 !important;
                 min-width: 0 !important;
-                top: 25% !important; /* REQUESTED: 25% */
+                top: 27% !important; /* FIXED AT 27% */
                 transform: translate(-50%, -50%) !important;
             }
 
             .bottom-info-group {
                 width: 100%;
-                /* 25vh (top) + 28vw (half video height) + extra breathing room */
-                margin-top: calc(25vh + 32vw); 
+                /* Calculation adjusted for 27% anchor to prevent overlap */
+                margin-top: calc(27vh + 34vw); 
             }
 
             .alexander { font-size: 9.5vw; }
