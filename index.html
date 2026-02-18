@@ -36,7 +36,8 @@
             display: flex;
             flex-direction: column;
             justify-content: flex-end;
-            padding: 4rem;
+            /* Synchronized padding-left: 3rem */
+            padding: 3rem; 
         }
 
         .video-background {
@@ -55,14 +56,10 @@
             z-index: -1;
         }
 
-        /* LOGO STYLING - THE "SCAN LINE" FIX */
-        .logo-a {
-            font-family: 'Knockout-Full', sans-serif;
-            line-height: 1;
-        }
+        .logo-a { font-family: 'Knockout-Full', sans-serif; line-height: 1; }
         .logo-v {
             font-family: 'Knockout-Junior', sans-serif;
-            font-size: 0.995em; /* Dropped just below 1.0 to account for condensed overshoot */
+            font-size: 0.995em;
             margin-left: -0.05em;
             display: inline-block;
             line-height: 1;
@@ -74,7 +71,9 @@
             flex-wrap: wrap;
             align-items: baseline; 
             gap: 0.4em;
-            margin-bottom: 0.25rem; 
+            margin-bottom: 0.25rem;
+            /* Nudge left to align the vertical stem of the 'A' with the logo 'A' */
+            margin-left: -0.04em; 
         }
 
         .alexander {
@@ -114,16 +113,16 @@
         }
 
         @media (max-width: 768px) {
+            .hero-container { padding: 1.5rem; }
             .alexander { font-size: 14vw; }
             .vietmeier { font-size: 13.4vw; }
-            .hero-container { padding: 2rem; }
-            .name-container { gap: 0.2em; margin-bottom: 0.25rem; }
+            .name-container { gap: 0.2em; margin-bottom: 0.25rem; margin-left: -0.02em; }
         }
     </style>
 </head>
 <body>
 
-    <nav class="absolute top-0 left-0 w-full p-12 flex justify-between items-center z-50">
+    <nav class="absolute top-0 left-0 w-full p-12 px-[3rem] flex justify-between items-center z-50">
         <div class="text-4xl tracking-tighter flex items-baseline">
             <span class="logo-a">A</span>
             <span class="logo-v">V</span>
@@ -145,7 +144,7 @@
 
         <div class="video-overlay"></div>
 
-        <div class="relative z-10 w-full max-w-[95vw]">
+        <div class="relative z-10 w-full">
             <h1 class="name-container tracking-tighter">
                 <span class="alexander">Alexander</span>
                 <span class="vietmeier">Vietmeier</span>
@@ -190,3 +189,11 @@
                     roleList.style.transform = "translateY(0)";
                     currentIndex = 0;
                 }, 700);
+            }
+        }
+
+        setInterval(scrollRole, 2000);
+    </script>
+
+</body>
+</html>
