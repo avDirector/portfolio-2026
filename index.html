@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Alexander Vietmeier | Director</title>
     
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22 fill=%22white%22 font-family=%22sans-serif%22 font-weight=%22bold%22>AV</text></svg>">
@@ -27,9 +27,10 @@
             text-transform: uppercase;
             overflow-x: hidden;
             -webkit-font-smoothing: antialiased;
+            height: 100%;
         }
 
-        /* NAVIGATION - THE -53% OPTICAL NUDGE */
+        /* NAVIGATION */
         .nav-link {
             position: relative;
             display: inline-flex;
@@ -48,20 +49,15 @@
             bottom: -3px;
             background-color: #fff;
             left: 50%;
-            /* Nudging to -53% to perfectly center against the font's right-side gap */
             transform: translate(-53%, 0) scaleX(0); 
             transform-origin: center;
             transition: transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
             box-shadow: 0 0 10px rgba(255,255,255,0.5);
         }
 
-        .nav-link:hover {
-            opacity: 1;
-            transform: translateY(-1px);
-        }
-
-        .nav-link:hover::after {
-            transform: translate(-53%, 0) scaleX(1);
+        @media (min-width: 1025px) {
+            .nav-link:hover { opacity: 1; transform: translateY(-1px); }
+            .nav-link:hover::after { transform: translate(-53%, 0) scaleX(1); }
         }
 
         .nav-pipe {
@@ -69,13 +65,13 @@
             font-weight: 300;
             pointer-events: none;
             user-select: none;
-            padding-bottom: 2px;
         }
 
         /* HERO LAYOUT */
         .hero-container {
             position: relative;
             height: 100vh;
+            height: -webkit-fill-available;
             width: 100vw;
             display: flex;
             flex-direction: column;
@@ -89,6 +85,7 @@
             width: 100%; height: 100%;
             z-index: -2;
             pointer-events: none;
+            overflow: hidden;
         }
 
         .video-overlay {
@@ -149,20 +146,30 @@
         .role-item { height: 1.1em; display: flex; align-items: center; white-space: nowrap; }
         .lowercase-x { text-transform: lowercase; }
 
+        /* RESPONSIVE BREAKPOINTS */
+        @media (max-width: 1024px) {
+            .alexander { font-size: 11vw; }
+            .vietmeier { font-size: 10.5vw; }
+            .hero-container { padding: 2.5rem; }
+        }
+
         @media (max-width: 768px) {
-            .hero-container { padding: 1.5rem; }
-            .alexander { font-size: 14vw; }
-            .vietmeier { font-size: 13.4vw; }
-            .name-container { gap: 0.2em; margin-bottom: 0.25rem; margin-left: -0.02em; }
-            nav { padding-left: 1.5rem !important; padding-right: 1.5rem !important; }
+            .hero-container { padding: 2rem 1.5rem; }
+            .name-container { gap: 0.2em; margin-bottom: 1rem; }
+            .alexander { font-size: 15vw; }
+            .vietmeier { font-size: 14.4vw; }
             .nav-pipe { display: none; } 
+            nav { padding: 2rem 1.5rem !important; }
+            .nav-link { opacity: 0.8; font-size: 12px; }
+            .subhead-junior { font-size: 1rem; line-height: 1.2; }
+            .director-group { font-size: 1.5rem; }
         }
     </style>
 </head>
 <body>
 
-    <nav class="absolute top-0 left-0 w-full p-8 md:p-12 px-[3rem] flex justify-between items-center z-50">
-        <a href="index.html" class="text-4xl tracking-tighter flex items-baseline hover:opacity-100 transition duration-500 opacity-80">
+    <nav class="absolute top-0 left-0 w-full flex justify-between items-center z-50 p-8 md:p-12 px-[3rem]">
+        <a href="index.html" class="text-3xl md:text-4xl tracking-tighter flex items-baseline hover:opacity-100 transition duration-500 opacity-80">
             <span class="logo-a">A</span>
             <span class="logo-v">V</span>
         </a>
@@ -195,7 +202,7 @@
                 <span class="vietmeier">Vietmeier</span>
             </h1>
             
-            <div class="flex flex-col md:flex-row justify-between border-t border-white/40 pt-2 gap-6 items-baseline">
+            <div class="flex flex-col md:flex-row justify-between border-t border-white/40 pt-4 md:pt-2 gap-6 items-baseline">
                 <div class="director-group subhead-full text-2xl md:text-4xl tracking-tight text-white">
                     <span>Director</span>
                     <span class="pipe-spacer">|</span>
@@ -210,7 +217,7 @@
                     </div>
                 </div>
                 
-                <div class="subhead-junior text-xl md:text-2xl tracking-tight text-white/60">
+                <div class="subhead-junior text-lg md:text-2xl tracking-tight text-white/60">
                     2<span class="lowercase-x">x</span> Emmy<sup class="text-[0.6em] ml-0.5">®</sup> Nominee: Best Directing For A Variety Series
                 </div>
             </div>
@@ -224,7 +231,9 @@
 
         function scrollRole() {
             currentIndex++;
-            const itemHeight = roleList.querySelector('.role-item').offsetHeight;
+            const items = roleList.querySelectorAll('.role-item');
+            if (items.length === 0) return;
+            const itemHeight = items[0].offsetHeight;
             
             roleList.style.transition = "transform 0.7s cubic-bezier(0.23, 1, 0.32, 1)";
             roleList.style.transform = `translateY(-${currentIndex * itemHeight}px)`;
