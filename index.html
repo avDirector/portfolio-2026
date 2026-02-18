@@ -38,7 +38,6 @@
             display: flex;
             flex-direction: column;
             box-sizing: border-box;
-            padding: 3rem; 
         }
 
         .video-background {
@@ -65,9 +64,9 @@
             z-index: -1;
         }
 
-        /* --- TYPOGRAPHY --- */
-        .alexander { font-family: 'Knockout-Full', sans-serif; font-size: 8.5vw; line-height: 0.9; }
-        .vietmeier { font-family: 'Knockout-Junior', sans-serif; font-size: 8.1vw; line-height: 0.9; }
+        /* --- TYPOGRAPHY BASE --- */
+        .alexander { font-family: 'Knockout-Full', sans-serif; line-height: 0.9; }
+        .vietmeier { font-family: 'Knockout-Junior', sans-serif; line-height: 0.9; }
 
         .role-window {
             font-family: 'Knockout-Junior', sans-serif; font-size: 0.96em; height: 1.1em;
@@ -77,7 +76,7 @@
         #role-list { transition: transform 0.7s cubic-bezier(0.23, 1, 0.32, 1); }
         .role-item { height: 1.1em; display: flex; align-items: center; }
 
-        /* --- MOBILE LAYOUT (Upper Anchor) --- */
+        /* --- MOBILE RECOVERY (Locking 27% Spacing) --- */
         @media (max-width: 768px) {
             .hero-container {
                 padding: 1rem 1.5rem;
@@ -98,26 +97,35 @@
                 margin-top: calc(27vh + 28vw); 
             }
 
+            /* Mobile Fonts */
             .alexander { font-size: 9.5vw; }
             .vietmeier { font-size: 9vw; }
-            .nav-link { font-size: 10px; opacity: 0.5; }
+            .brand-logo { font-size: 1.875rem; } /* text-3xl equivalent */
+            .nav-link { font-size: 10px; opacity: 0.5; letter-spacing: 0.25em; }
             .nav-pipe { display: none; }
+            .nav-container { gap: 1rem; }
             
-            .director-group { font-size: 1.15rem !important; margin-top: -4px; }
-            .subhead-junior { font-size: 0.65rem !important; margin-top: 2px; }
+            .director-group { font-size: 1.15rem !important; margin-top: -4px; font-family: 'Knockout-Full'; }
+            .subhead-junior { font-size: 0.65rem !important; margin-top: 2px; font-family: 'Knockout-Junior'; }
         }
 
-        /* --- DESKTOP REVISIONS (Full Edge-to-Edge & Large Nav) --- */
+        /* --- DESKTOP ENHANCEMENTS (Edge-to-Edge & Large Nav) --- */
         @media (min-width: 769px) {
-            .hero-container { justify-content: space-between; }
+            .hero-container { 
+                padding: 3rem; 
+                justify-content: space-between; 
+            }
+            .alexander { font-size: 8.5vw; }
+            .vietmeier { font-size: 8.1vw; }
+            .brand-logo { font-size: 2.75rem; } 
+            .nav-container { gap: 3rem; }
             .nav-link { 
+                font-size: 13px; 
                 opacity: 0.5; 
+                letter-spacing: 0.35em;
                 transition: opacity 0.3s; 
-                font-size: 13px !important; /* Larger Nav Font */
-                letter-spacing: 0.35em !important; /* Wider Tracking */
             }
             .nav-link:hover { opacity: 1; }
-            .brand-logo { font-size: 2.75rem !important; } /* Larger AV Logo */
         }
     </style>
 </head>
@@ -139,7 +147,7 @@
                 <span>A</span><span style="font-family: 'Knockout-Junior', sans-serif; margin-left: -2px;">V</span>
             </a>
 
-            <div class="flex items-center gap-6 md:gap-12 font-bold" style="font-family: 'Knockout-Junior', sans-serif;">
+            <div class="nav-container flex items-center font-bold" style="font-family: 'Knockout-Junior', sans-serif;">
                 <a href="portfolio.html" class="nav-link">Portfolio</a>
                 <span class="nav-pipe opacity-40">|</span>
                 <a href="credits.html" class="nav-link">Credits</a>
