@@ -26,14 +26,14 @@
             text-transform: uppercase;
             font-family: 'Knockout-Junior', sans-serif;
             -webkit-font-smoothing: antialiased;
-            overflow-x: hidden;
+            min-height: 100vh;
         }
 
         .page-bg {
             position: fixed;
             top: 0; left: 0; width: 100%; height: 100%;
             z-index: -1;
-            background: radial-gradient(circle at 70% 20%, #161616 0%, #000 80%);
+            background: radial-gradient(circle at 50% -10%, #161616 0%, #000 60%);
         }
 
         .kn-full { 
@@ -41,23 +41,34 @@
             letter-spacing: 0.04em; 
         }
 
-        /* --- SIDEBAR IDENTITY --- */
-        .sidebar-name {
-            writing-mode: vertical-rl;
-            transform: rotate(180deg);
+        /* --- THE LAYERED BACKGROUND NAME --- */
+        .bg-name-container {
             position: fixed;
-            left: 2rem;
-            bottom: 3rem;
-            z-index: 100;
-            font-size: 14px;
-            letter-spacing: 0.8em;
-            color: rgba(255, 255, 255, 0.2);
+            top: 15%;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 0;
             pointer-events: none;
+            width: 100%;
+            text-align: center;
+            opacity: 0.06; /* Very light layering */
+            white-space: nowrap;
+        }
+
+        .bg-name-text {
+            font-size: 15vw; /* Massive responsive size */
+            line-height: 0.8;
+        }
+
+        /* --- CONTENT STYLING --- */
+        main {
+            position: relative;
+            z-index: 10; /* Sits above the background name */
         }
 
         .table-header-text {
             font-family: 'Knockout-Junior', sans-serif;
-            font-size: 14px;
+            font-size: 13px;
             letter-spacing: 0.25em;
             color: rgba(255, 255, 255, 0.4);
         }
@@ -65,12 +76,13 @@
         .credit-row {
             border-bottom: 1px solid rgba(255,255,255,0.08);
             transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+            background: transparent;
         }
 
         @media (min-width: 769px) {
             .credit-row:hover {
-                background: rgba(255,255,255,0.03);
-                padding-left: 2rem; 
+                background: rgba(255,255,255,0.04);
+                padding-left: 1.5rem; 
                 border-bottom-color: rgba(255,255,255,0.2);
             }
         }
@@ -81,13 +93,18 @@
         }
     </style>
 </head>
-<body class="p-6 md:p-12 md:pl-32"> <div class="page-bg"></div>
+<body class="p-6 md:p-12">
 
-    <div class="hidden md:block sidebar-name kn-full">
-        Alexander Vietmeier
+    <div class="page-bg"></div>
+
+    <div class="bg-name-container kn-full">
+        <div class="bg-name-text">
+            <span>ALEXANDER</span> 
+            <span style="font-family: 'Knockout-Junior', sans-serif; margin-left: -0.05em;">VIETMEIER</span>
+        </div>
     </div>
 
-    <nav class="w-full flex justify-between items-center mb-16 md:mb-32 relative z-50">
+    <nav class="w-full flex justify-between items-center mb-16 md:mb-24 relative z-50">
         <a href="index.html" class="tracking-tighter flex items-baseline opacity-80 kn-full text-3xl md:text-5xl">
             <span>A</span><span style="font-family: 'Knockout-Junior', sans-serif; margin-left: -2px;">V</span>
         </a>
@@ -104,52 +121,52 @@
 
     <main class="max-w-7xl mx-auto">
         
-        <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 md:mb-20 border-b border-white/20 pb-10">
-            <h1 class="kn-full text-8xl md:text-9xl tracking-normal leading-none">Credits</h1>
-            <a href="Alexander_Vietmeier_Resume.pdf" target="_blank" class="pb-1 text-[11px] md:text-[13px] tracking-[0.4em] opacity-40 uppercase mt-8 md:mt-0 border-b border-white/10 hover:border-white hover:opacity-100 transition-all">
+        <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 md:mb-16 border-b border-white/20 pb-8">
+            <h1 class="kn-full text-7xl md:text-9xl tracking-normal leading-none">Credits</h1>
+            <a href="Alexander_Vietmeier_Resume.pdf" target="_blank" class="pb-1 text-[10px] md:text-[12px] tracking-[0.3em] opacity-50 uppercase mt-6 md:mt-0 border-b border-white/20 hover:border-white hover:opacity-100 transition-all">
                 Download PDF Resume
             </a>
         </div>
         
-        <div class="hidden md:grid grid-cols-12 gap-4 pb-8 px-2 border-b border-white/5">
+        <div class="hidden md:grid grid-cols-12 gap-4 pb-6 px-2 border-b border-white/5">
             <div class="col-span-5 table-header-text">Project / Title</div>
-            <div class="col-span-3 table-header-text text-center">Network</div>
+            <div class="col-span-3 table-header-text text-center">Network / Client</div>
             <div class="col-span-1 table-header-text text-center">Year</div>
             <div class="col-span-3 table-header-text text-right">Role</div>
         </div>
 
         <div class="flex flex-col">
             
-            <div class="credit-row py-8 md:py-12 flex flex-col md:grid md:grid-cols-12 gap-4 items-baseline px-2">
+            <div class="credit-row py-6 md:py-10 flex flex-col md:grid md:grid-cols-12 gap-4 items-baseline px-2">
                 <div class="w-full md:col-span-5">
-                    <div class="text-3xl md:text-4xl lg:text-5xl kn-full uppercase leading-none whitespace-nowrap">Late Night with Seth Meyers</div>
+                    <div class="text-2xl md:text-3xl lg:text-4xl kn-full uppercase leading-none whitespace-nowrap">Late Night with Seth Meyers</div>
                 </div>
-                <div class="w-full md:col-span-3 md:text-center text-xl text-white/60">NBC</div>
+                <div class="w-full md:col-span-3 md:text-center text-lg md:text-xl text-white/70">NBC</div>
                 <div class="col-span-1 text-center text-lg text-white/40 font-mono">2014—2026</div>
                 <div class="w-full md:col-span-3 md:text-right">
-                    <div class="text-2xl md:text-3xl text-white/90 kn-full leading-none">Director</div>
-                    <div class="text-[10px] emmy-blue tracking-[0.2em] mt-3 font-bold uppercase">2x Emmy Nominee: Directing</div>
+                    <div class="text-xl md:text-2xl text-white/90 kn-full leading-none">Director</div>
+                    <div class="text-[9px] emmy-blue tracking-[0.2em] mt-2 font-bold uppercase">2x Emmy Nominee: Directing</div>
                 </div>
             </div>
 
-            <div class="credit-row py-8 md:py-12 flex flex-col md:grid md:grid-cols-12 gap-4 items-baseline px-2">
+            <div class="credit-row py-6 md:py-10 flex flex-col md:grid md:grid-cols-12 gap-4 items-baseline px-2">
                 <div class="w-full md:col-span-5">
-                    <div class="text-3xl md:text-4xl lg:text-5xl kn-full uppercase leading-none whitespace-nowrap">Macy's Thanksgiving Day Parade</div>
+                    <div class="text-2xl md:text-3xl lg:text-4xl kn-full uppercase leading-none whitespace-nowrap">Macy's Thanksgiving Day Parade</div>
                 </div>
-                <div class="w-full md:col-span-3 md:text-center text-xl text-white/60">NBC</div>
+                <div class="w-full md:col-span-3 md:text-center text-lg md:text-xl text-white/70">NBC</div>
                 <div class="col-span-1 text-center text-lg text-white/40 font-mono">2019—2023</div>
-                <div class="w-full md:col-span-3 md:text-right text-2xl md:text-3xl text-white/90 kn-full leading-none">
+                <div class="w-full md:col-span-3 md:text-right text-xl md:text-2xl text-white/90 kn-full leading-none">
                     Segment Director
                 </div>
             </div>
 
-            <div class="credit-row py-8 md:py-12 flex flex-col md:grid md:grid-cols-12 gap-4 items-baseline px-2">
+            <div class="credit-row py-6 md:py-10 flex flex-col md:grid md:grid-cols-12 gap-4 items-baseline px-2">
                 <div class="w-full md:col-span-5">
-                    <div class="text-3xl md:text-4xl lg:text-5xl kn-full uppercase leading-none whitespace-nowrap">75th Annual Tony Awards</div>
+                    <div class="text-2xl md:text-3xl lg:text-4xl kn-full uppercase leading-none whitespace-nowrap">Saturday Night Live</div>
                 </div>
-                <div class="w-full md:col-span-3 md:text-center text-xl text-white/60">CBS / Paramount+</div>
-                <div class="col-span-1 text-center text-lg text-white/40 font-mono">2022</div>
-                <div class="w-full md:col-span-3 md:text-right text-2xl md:text-3xl text-white/90 kn-full leading-none">
+                <div class="w-full md:col-span-3 md:text-center text-lg md:text-xl text-white/70">NBC</div>
+                <div class="col-span-1 text-center text-lg text-white/40 font-mono">2021—2022</div>
+                <div class="w-full md:col-span-3 md:text-right text-xl md:text-2xl text-white/90 kn-full leading-none">
                     Associate Director
                 </div>
             </div>
