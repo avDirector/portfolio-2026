@@ -46,12 +46,11 @@
             letter-spacing: 0.02em;
         }
 
-        /* --- THE MAGIC OVERLAP --- */
-        .name-watermark {
-            color: #d1d5db; /* A solid light gray (Tailwind gray-300) */
-            mix-blend-mode: difference;
+        /* --- SUBTLE DARK GRAY IDENTITY --- */
+        .name-overlay {
+            color: #333333; /* Sophisticated dark charcoal */
             position: relative;
-            z-index: 30;
+            z-index: 20;
         }
 
         .table-header-text {
@@ -102,7 +101,7 @@
     <main class="max-w-7xl mx-auto">
         
         <div class="relative mb-20">
-            <div class="name-watermark">
+            <div class="name-overlay">
                 <h2 class="text-4xl md:text-6xl kn-brand leading-none">
                     ALEXANDER <span style="font-family: 'Knockout-Junior', sans-serif; margin-left: 2px; letter-spacing: -0.02em;">VIETMEIER</span>
                 </h2>
