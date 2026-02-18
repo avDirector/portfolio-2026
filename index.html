@@ -54,35 +54,47 @@
 
         .alexander {
             font-family: 'Knockout-Full', sans-serif;
-            line-height: 0.8;
-            /* Using a slightly smaller VW to keep it on one line */
+            line-height: 0.85;
             font-size: 13vw;
         }
 
         .vietmeier {
             font-family: 'Knockout-Junior', sans-serif;
-            line-height: 0.75;
-            /* Downsized to 11vw to match Alexander's physical height */
-            font-size: 11vw;
-            margin-top: -0.05em;
+            line-height: 0.8;
+            /* Balanced up to 12vw for optical alignment */
+            font-size: 12vw;
+            margin-top: -0.02em;
         }
 
         .subhead {
             font-family: 'Knockout-Junior', sans-serif;
         }
 
-        /* Animation for the scrolling roles */
-        #role-text {
-            transition: opacity 0.5s ease-in-out;
+        /* Credits Scroll Animation */
+        .role-window {
+            height: 1.2em;
+            overflow: hidden;
+            display: inline-block;
+            vertical-align: bottom;
         }
-        .fade-out { opacity: 0; }
-        .fade-in { opacity: 1; }
+
+        #role-list {
+            transition: transform 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .role-item {
+            height: 1.2em;
+            display: flex;
+            align-items: center;
+        }
     </style>
 </head>
 <body>
 
     <nav class="absolute top-0 left-0 w-full p-10 flex justify-between items-center z-50">
-        <div class="alexander text-3xl tracking-tighter italic">AV</div>
+        <div class="alexander text-3xl tracking-tighter">AV</div>
         <div class="flex gap-8 text-[10px] tracking-[0.2em] font-bold">
             <a href="https://www.imdb.com/name/nm3653860/" target="_blank" class="hover:opacity-50 transition">IMDb</a>
             <a href="https://www.linkedin.com/in/alexvietmeier/" target="_blank" class="hover:opacity-50 transition">LinkedIn</a>
@@ -108,7 +120,16 @@
             
             <div class="flex flex-col md:flex-row justify-between border-t border-white/40 pt-6 gap-4">
                 <div class="subhead text-2xl md:text-4xl tracking-tight">
-                    Director: <span id="role-text" class="text-white">Variety</span>
+                    Director: 
+                    <div class="role-window">
+                        <div id="role-list">
+                            <span class="role-item text-white">Variety</span>
+                            <span class="role-item text-white">Multi-Cam</span>
+                            <span class="role-item text-white">Music</span>
+                            <span class="role-item text-white">Comedy</span>
+                            <span class="role-item text-white">Variety</span>
+                        </div>
+                    </div>
                 </div>
                 <div class="subhead text-2xl md:text-4xl tracking-tight text-white/50 italic">
                     2x Emmy® Nominee
@@ -118,23 +139,28 @@
     </section>
 
     <script>
-        const roles = ["Variety", "Multi-Cam", "Music", "Comedy"];
+        const roleList = document.getElementById("role-list");
+        const rolesCount = 4; // Excluding the repeated one
         let currentIndex = 0;
-        const roleElement = document.getElementById("role-text");
 
-        function updateRole() {
-            roleElement.classList.add("fade-out");
+        function scrollRole() {
+            currentIndex++;
+            // Calculate the height of one item (1.2em translated to pixels)
+            const itemHeight = roleList.querySelector('.role-item').offsetHeight;
             
-            setTimeout(() => {
-                currentIndex = (currentIndex + 1) % roles.length;
-                roleElement.textContent = roles[currentIndex];
-                roleElement.classList.remove("fade-out");
-                roleElement.classList.add("fade-in");
-            }, 500);
+            roleList.style.transition = "transform 0.6s cubic-bezier(0.23, 1, 0.32, 1)";
+            roleList.style.transform = `translateY(-${currentIndex * itemHeight}px)`;
+
+            if (currentIndex === rolesCount) {
+                setTimeout(() => {
+                    roleList.style.transition = "none";
+                    roleList.style.transform = "translateY(0)";
+                    currentIndex = 0;
+                }, 600); // Wait for transition to finish
+            }
         }
 
-        // Change role every 3 seconds
-        setInterval(updateRole, 3000);
+        setInterval(scrollRole, 1500);
     </script>
 
 </body>
