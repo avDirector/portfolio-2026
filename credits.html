@@ -4,136 +4,69 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Credits | Alexander Vietmeier</title>
-    
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22 fill=%22white%22 font-family=%22sans-serif%22 font-weight=%22bold%22>AV</text></svg>">
-
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        @font-face { 
-            font-family: 'Knockout-Full'; 
-            src: url('./fonts/Knockout-HTF70-FullWelterwt.otf') format('opentype'); 
-            font-display: swap;
-        }
-        @font-face { 
-            font-family: 'Knockout-Junior'; 
-            src: url('./fonts/Knockout-HTF30-JuniorWelterwt.otf') format('opentype'); 
-            font-display: swap;
-        }
+        @font-face { font-family: 'Knockout-Full'; src: url('./fonts/Knockout-HTF70-FullWelterwt.otf'); }
+        @font-face { font-family: 'Knockout-Junior'; src: url('./fonts/Knockout-HTF30-JuniorWelterwt.otf'); }
 
-        body {
-            background-color: #000;
-            color: #fff;
-            text-transform: uppercase;
-            font-family: 'Knockout-Junior', sans-serif;
-            -webkit-font-smoothing: antialiased;
-            min-height: 100vh;
-        }
-
-        .page-bg {
-            position: fixed;
-            top: 0; left: 0; width: 100%; height: 100%;
-            z-index: -1;
-            background: radial-gradient(circle at 50% -10%, #161616 0%, #000 60%);
-        }
-
+        body { background-color: #000; color: #fff; text-transform: uppercase; -webkit-font-smoothing: antialiased; }
         .kn-brand { font-family: 'Knockout-Full', sans-serif; letter-spacing: -0.03em; }
-        .kn-credit { font-family: 'Knockout-Full', sans-serif; letter-spacing: 0.02em; }
 
-        /* --- THE TRANSFORM ENGINE --- */
-        .masthead-container {
-            display: flex;
-            flex-direction: column;
-            align-items: flex-start;
-            padding-top: 4rem; /* Added padding to prevent the name from going off-screen */
-        }
-
-        .name-overlay {
-            color: rgba(120, 120, 120, 0.85); 
-            z-index: 20;
+        /* THE STACKING CONTEXT */
+        .header-stack {
             position: relative;
-            /* This will physically force the name UP regardless of other elements */
-            transform: translateY(85%); 
-            line-height: 1;
+            height: 180px; /* Fixed height container to give them a playground */
+            width: 100%;
+            margin-bottom: 4rem;
         }
 
-        .credits-title {
+        .name-layer {
+            position: absolute;
+            /* ADJUST THIS PIXEL VALUE TO MOVE NAME UP/DOWN */
+            bottom: 68px; 
+            left: 0;
+            color: rgba(130, 130, 130, 0.85);
+            z-index: 20;
+            line-height: 1;
+            white-space: nowrap;
+        }
+
+        .credits-layer {
+            position: absolute;
+            bottom: 0;
+            left: 0;
             color: white;
             z-index: 10;
-            position: relative;
-            margin-left: 1.5rem;
+            line-height: 0.8;
+            margin-left: 1.5rem; /* The shift */
         }
 
         @media (min-width: 769px) {
-            .credits-title { margin-left: 4rem; }
-        }
-
-        .table-header-text {
-            font-family: 'Knockout-Junior', sans-serif;
-            font-size: 13px;
-            letter-spacing: 0.25em;
-            color: rgba(255, 255, 255, 0.4);
-        }
-
-        .credit-row {
-            border-bottom: 1px solid rgba(255,255,255,0.08);
-            transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+            .header-stack { height: 240px; }
+            .credits-layer { margin-left: 4rem; }
+            .name-layer { bottom: 92px; } /* Separate desktop adjustment */
         }
     </style>
 </head>
 <body class="p-6 md:p-12">
 
-    <div class="page-bg"></div>
-
-    <nav class="w-full flex justify-between items-center mb-16 md:mb-24 relative z-50">
-        <a href="index.html" class="tracking-tighter flex items-baseline opacity-80 kn-brand text-3xl md:text-5xl">
-            <span>A</span><span style="font-family: 'Knockout-Junior', sans-serif; margin-left: -2px;">V</span>
-        </a>
-        <div class="flex items-center gap-6 md:gap-12 font-bold text-[10px] md:text-[13px] tracking-[0.35em]">
-            <a href="portfolio.html" class="opacity-50 hover:opacity-100 transition-opacity">Portfolio</a>
-            <span class="opacity-20 hidden md:inline">|</span>
-            <a href="credits.html" class="opacity-100">Credits</a>
-            <span class="opacity-20 hidden md:inline">|</span>
-            <a href="about.html" class="opacity-50 hover:opacity-100 transition-opacity">About</a>
-            <span class="opacity-20 hidden md:inline">|</span>
-            <a href="mailto:alex@yourdomain.com" class="opacity-50 hover:opacity-100 transition-opacity">Contact</a>
-        </div>
-    </nav>
-
     <main class="max-w-7xl mx-auto">
-        <div class="masthead-container mb-20 md:mb-32">
-            <div class="name-overlay">
+        <div class="header-stack">
+            <div class="name-layer">
                 <h2 class="text-4xl md:text-6xl kn-brand">
-                    ALEXANDER <span style="font-family: 'Knockout-Junior', sans-serif; margin-left: 2px; letter-spacing: -0.02em;">VIETMEIER</span>
+                    ALEXANDER <span style="font-family: 'Knockout-Junior', sans-serif; margin-left: 2px;">VIETMEIER</span>
                 </h2>
             </div>
 
-            <div class="credits-title w-full flex flex-col md:flex-row md:items-end justify-between border-b border-white/20 pb-8">
-                <h1 class="kn-brand text-7xl md:text-9xl leading-none">Credits</h1>
-                <a href="Alexander_Vietmeier_Resume.pdf" target="_blank" class="pb-1 text-[10px] md:text-[12px] tracking-[0.3em] opacity-40 uppercase mt-6 md:mt-0 border-b border-white/10 hover:border-white hover:opacity-100 transition-all">
-                    Download PDF Resume
-                </a>
+            <div class="credits-layer w-full border-b border-white/20 pb-4">
+                <h1 class="kn-brand text-7xl md:text-9xl">Credits</h1>
             </div>
-        </div>
-        
-        <div class="hidden md:grid grid-cols-12 gap-4 pb-6 px-2 border-b border-white/5">
-            <div class="col-span-5 table-header-text">Project / Title</div>
-            <div class="col-span-3 table-header-text text-center">Network / Client</div>
-            <div class="col-span-1 table-header-text text-center">Year</div>
-            <div class="col-span-3 table-header-text text-right">Role</div>
         </div>
 
-        <div class="flex flex-col">
-            <div class="credit-row py-8 md:py-12 flex flex-col md:grid md:grid-cols-12 gap-4 items-baseline px-2">
-                <div class="w-full md:col-span-5">
-                    <div class="text-2xl md:text-3xl lg:text-4xl kn-credit uppercase leading-none">Late Night with Seth Meyers</div>
-                </div>
-                <div class="w-full md:col-span-3 md:text-center text-lg md:text-xl text-white/70">NBC</div>
-                <div class="col-span-1 text-center text-lg text-white/40 font-mono tracking-tighter">2014—2026</div>
-                <div class="w-full md:col-span-3 md:text-right">
-                    <div class="text-xl md:text-2xl text-white/90 kn-credit leading-none">Director</div>
-                </div>
-            </div>
+        <div class="credit-row py-12 border-b border-white/10">
+            <div class="text-3xl kn-brand">Late Night with Seth Meyers</div>
         </div>
     </main>
+
 </body>
 </html>
