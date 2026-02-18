@@ -3,94 +3,100 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Alexander J. Vietmeier | Director</title>
+    <title>ALEXANDER J. VIETMEIER | DIRECTOR</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;900&display=swap');
-        body { font-family: 'Inter', sans-serif; background-color: #050505; color: #fff; scroll-behavior: smooth; }
-        .scanline-overlay {
-            background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.1) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.02), rgba(0, 255, 0, 0.01), rgba(0, 0, 255, 0.02));
-            background-size: 100% 4px, 4px 100%;
-            pointer-events: none;
+        /* This looks for Knockout on your computer, falls back to a bold sans-serif */
+        @font-face {
+            font-family: 'Knockout';
+            src: local('Knockout HTF'), local('Knockout');
         }
-        .emmy-glow { text-shadow: 0 0 20px rgba(191, 155, 48, 0.4); }
+
+        :root {
+            --knockout: 'Knockout', 'Inter', 'Impact', sans-serif;
+        }
+
+        body { 
+            background-color: #000; 
+            color: #fff; 
+            font-family: var(--knockout);
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .kerning-wide { letter-spacing: 0.15em; }
+        .kerning-tight { letter-spacing: -0.02em; }
+        
+        /* Smooth Video Fade-in */
+        .video-bg {
+            filter: brightness(0.5) contrast(1.1);
+        }
     </style>
 </head>
-<body>
+<body class="bg-black text-white">
 
-    <nav class="fixed w-full z-50 flex justify-between items-center p-8 mix-blend-difference">
-        <div class="w-12 h-12 border-2 border-white flex items-center justify-center font-black text-xl tracking-tighter">
-            AV
-        </div>
-        <div class="hidden md:flex gap-8 uppercase tracking-widest text-xs font-bold">
-            <a href="#work" class="hover:text-blue-400 transition">Work</a>
-            <a href="#about" class="hover:text-blue-400 transition">About</a>
-            <a href="#contact" class="hover:text-blue-400 transition">Contact</a>
+    <nav class="p-10 flex justify-between items-center fixed w-full z-50 mix-blend-difference">
+        <div class="text-2xl font-black kerning-tight uppercase">AV</div>
+        <div class="text-[10px] kerning-wide font-bold uppercase space-x-8">
+            <a href="#work" class="hover:opacity-50 transition">Work</a>
+            <a href="#about" class="hover:opacity-50 transition">About</a>
+            <a href="mailto:your-email@example.com" class="hover:opacity-50 transition">Contact</a>
         </div>
     </nav>
 
-    <section class="relative h-screen flex items-center justify-center overflow-hidden">
-        <div class="absolute inset-0 z-0 opacity-50">
+    <section class="relative h-[90vh] w-full flex items-end p-10 overflow-hidden">
+        <div class="absolute inset-0 z-0">
             <iframe src="https://player.vimeo.com/video/1166002140?background=1&autoplay=1&loop=1&byline=0&title=0" 
-                    class="absolute top-1/2 left-1/2 min-w-full min-h-full -translate-x-1/2 -translate-y-1/2 scale-110" frameborder="0"></iframe>
+                    class="absolute top-1/2 left-1/2 min-w-full min-h-full -translate-x-1/2 -translate-y-1/2 video-bg" 
+                    frameborder="0"></iframe>
         </div>
-        <div class="scanline-overlay absolute inset-0 z-10"></div>
         
-        <div class="relative z-20 text-center px-4">
-            <div class="flex items-center justify-center gap-4 mb-6">
-                <span class="h-px w-8 bg-blue-500"></span>
-                <p class="text-blue-400 uppercase tracking-[0.4em] text-xs font-black">Two-Time Emmy® Nominee</p>
-                <span class="h-px w-8 bg-blue-500"></span>
-            </div>
-            <h1 class="text-5xl md:text-8xl font-black uppercase tracking-tighter italic leading-none mb-4">
-                Alexander J. Vietmeier
+        <div class="relative z-10 w-full">
+            <h1 class="text-[15vw] leading-[0.8] font-black uppercase kerning-tight mb-4">
+                ALEXANDER J. VIETMEIER
             </h1>
-            <p class="text-xl md:text-2xl font-light text-zinc-400 tracking-wide">
-                Director, <span class="text-white">Late Night with Seth Meyers</span>
-            </p>
-        </div>
-    </section>
-
-    <section class="bg-zinc-950 py-12 border-y border-zinc-900">
-        <div class="max-w-6xl mx-auto px-6 flex flex-col md:flex-row justify-around items-center gap-8">
-            <div class="text-center">
-                <p class="text-yellow-500 font-bold emmy-glow">2x EMMY® NOMINEE</p>
-                <p class="text-[10px] text-zinc-500 tracking-widest uppercase">Outstanding Directing For A Variety Series</p>
-            </div>
-            <div class="h-8 w-px bg-zinc-800 hidden md:block"></div>
-            <div class="text-center">
-                <p class="text-white font-bold">2,000+ EPISODES</p>
-                <p class="text-[10px] text-zinc-500 tracking-widest uppercase">Directed at NBCUniversal</p>
-            </div>
-            <div class="h-8 w-px bg-zinc-800 hidden md:block"></div>
-            <div class="text-center">
-                <p class="text-white font-bold">DGA MEMBER</p>
-                <p class="text-[10px] text-zinc-500 tracking-widest uppercase">Directors Guild of America</p>
+            <div class="flex flex-col md:flex-row justify-between items-start md:items-center border-t border-white/20 pt-6">
+                <p class="text-lg uppercase kerning-wide">Director • Multi-Cam Variety</p>
+                <p class="text-lg uppercase kerning-wide text-zinc-400">2x Emmy® Nominee</p>
             </div>
         </div>
     </section>
 
-    <section id="work" class="py-24 px-6 max-w-5xl mx-auto">
-        <h3 class="text-sm font-black text-blue-500 uppercase tracking-widest mb-12">Selected Credits</h3>
-        <div class="space-y-1 text-zinc-300">
-            <div class="grid grid-cols-1 md:grid-cols-3 py-6 border-b border-zinc-900 hover:bg-zinc-900/50 transition px-4">
-                <span class="font-black text-white">Late Night with Seth Meyers</span>
-                <span class="text-zinc-500 uppercase text-sm self-center">Director (2014—Present)</span>
-                <span class="md:text-right text-blue-500 font-bold self-center text-sm">NBC</span>
+    <section id="work" class="py-32 px-10 max-w-7xl mx-auto">
+        <h2 class="text-xs font-bold kerning-wide uppercase text-zinc-500 mb-16 italic">Selected Direction</h2>
+        
+        <div class="space-y-12">
+            <div class="group cursor-default">
+                <div class="flex justify-between items-end border-b border-zinc-800 pb-4 group-hover:border-white transition-colors">
+                    <div>
+                        <h3 class="text-4xl md:text-6xl font-black uppercase kerning-tight">Late Night with Seth Meyers</h3>
+                        <p class="text-zinc-500 uppercase kerning-wide text-sm mt-2">Director • 2014—Present • NBC</p>
+                    </div>
+                    <span class="text-xs mb-2 opacity-0 group-hover:opacity-100 transition-opacity uppercase font-bold">In Production</span>
+                </div>
             </div>
-            <div class="grid grid-cols-1 md:grid-cols-3 py-6 border-b border-zinc-900 hover:bg-zinc-900/50 transition px-4">
-                <span class="font-black text-white">The Amber Ruffin Show</span>
-                <span class="text-zinc-500 uppercase text-sm self-center">Director</span>
-                <span class="md:text-right text-blue-500 font-bold self-center text-sm">PEACOCK</span>
+
+            <div class="group cursor-default">
+                <div class="flex justify-between items-end border-b border-zinc-800 pb-4 group-hover:border-white transition-colors">
+                    <div>
+                        <h3 class="text-4xl md:text-6xl font-black uppercase kerning-tight">The Amber Ruffin Show</h3>
+                        <p class="text-zinc-500 uppercase kerning-wide text-sm mt-2">Director • Peacock</p>
+                    </div>
+                    <span class="text-xs mb-2 opacity-0 group-hover:opacity-100 transition-opacity uppercase font-bold text-zinc-400 italic">2x Emmy® Nominated for Best Directing</span>
+                </div>
             </div>
-            <div class="grid grid-cols-1 md:grid-cols-3 py-6 border-b border-zinc-900 hover:bg-zinc-900/50 transition px-4">
-                <span class="font-black text-white">The Tonight Show</span>
-                <span class="text-zinc-500 uppercase text-sm self-center">Associate Director</span>
-                <span class="md:text-right text-blue-500 font-bold self-center text-sm">NBC</span>
+
+            <div class="group cursor-default">
+                <div class="flex justify-between items-end border-b border-zinc-800 pb-4 group-hover:border-white transition-colors">
+                    <div>
+                        <h3 class="text-4xl md:text-6xl font-black uppercase kerning-tight">The Tonight Show</h3>
+                        <p class="text-zinc-500 uppercase kerning-wide text-sm mt-2">Associate Director • NBC</p>
+                    </div>
+                </div>
             </div>
         </div>
-        <div class="mt-12">
-            <a href="https://www.imdb.com/name/nm3653860/" target="_blank" class="inline-block border border-white px-8 py-3 text-xs font-black uppercase tracking-widest hover:bg-white hover:text-black transition">Full Filmography</a>
+
+        <div class="mt-20">
+            <a href="https://www.imdb.com/name/nm3653860/" target="_blank" class="text-sm border-b-2 border-white pb-1 font-bold uppercase tracking-tighter hover:text-zinc-400 hover:border-zinc-400 transition">View Full Credits on IMDb</a>
         </div>
     </section>
 
