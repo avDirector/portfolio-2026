@@ -33,7 +33,7 @@
             display: flex;
             flex-direction: column;
             justify-content: flex-end;
-            padding: 4rem; /* Standard desktop padding */
+            padding: 4rem;
         }
 
         .video-background {
@@ -56,8 +56,9 @@
             display: flex;
             flex-wrap: wrap;
             align-items: baseline; 
-            gap: 0.4em; /* Increased gap between names */
-            margin-bottom: 2.5rem; /* Increased margin below the name */
+            gap: 0.4em;
+            /* Lessened space below the name */
+            margin-bottom: 1rem; 
         }
 
         .alexander {
@@ -68,14 +69,12 @@
 
         .vietmeier {
             font-family: 'Knockout-Junior', sans-serif;
-            /* Shrunk slightly more to match Alexander's cap-height exactly */
             font-size: 8.1vw; 
             line-height: 1;
         }
 
         .subhead {
             font-family: 'Knockout-Junior', sans-serif;
-            margin-top: 1rem; /* Extra breathing room above subhead */
         }
 
         .role-window {
@@ -101,7 +100,7 @@
             .alexander { font-size: 14vw; }
             .vietmeier { font-size: 13.4vw; }
             .hero-container { padding: 2rem; }
-            .name-container { gap: 0.2em; }
+            .name-container { gap: 0.2em; margin-bottom: 0.5rem; }
         }
     </style>
 </head>
@@ -132,8 +131,8 @@
                 <span class="vietmeier">Vietmeier</span>
             </h1>
             
-            <div class="flex flex-col md:flex-row justify-between border-t border-white/40 pt-10 gap-6">
-                <div class="subhead text-2xl md:text-3xl tracking-tight">
+            <div class="flex flex-col md:flex-row justify-between border-t border-white/40 pt-4 gap-6">
+                <div class="subhead text-2xl md:text-4xl tracking-tight">
                     Director: 
                     <div class="role-window">
                         <div id="role-list">
@@ -145,7 +144,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="subhead text-2xl md:text-3xl tracking-tight text-white/50 italic">
+                <div class="subhead text-2xl md:text-4xl tracking-tight text-white/50 italic">
                     2x Emmy® Nominee
                 </div>
             </div>
