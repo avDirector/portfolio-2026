@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Credits | Alexander Vietmeier</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @font-face {
+            font-family: 'Knockout-Full';
+            src: url('./fonts/Knockout-HTF70-FullWelterwt.otf') format('opentype');
+        }
+        @font-face {
+            font-family: 'Knockout-Junior';
+            src: url('./fonts/Knockout-HTF30-JuniorWelterwt.otf') format('opentype');
+        }
+
+        body {
+            background-color: #000;
+            color: #fff;
+            text-transform: uppercase;
+            font-family: 'Knockout-Junior', sans-serif;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* Keep the background consistent with Home */
+        .page-bg {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            z-index: -1;
+            background: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.9));
+        }
+
+        .credit-row {
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            transition: background 0.3s ease;
+        }
+
+        .credit-row:hover {
+            background: rgba(255,255,255,0.03);
+        }
+
+        .kn-full { font-family: 'Knockout-Full', sans-serif; }
+        
+        /* Custom scrollbar for that clean look */
+        ::-webkit-scrollbar { width: 4px; }
+        ::-webkit-scrollbar-track { background: #000; }
+        ::-webkit-scrollbar-thumb { background: #333; }
+    </style>
+</head>
+<body class="p-6 md:p-12">
+
+    <div class="page-bg"></div>
+
+    <nav class="w-full flex justify-between items-center mb-12 md:mb-20">
+        <a href="index.html" class="tracking-tighter flex items-baseline opacity-80 kn-full text-3xl md:text-5xl">
+            <span>A</span><span style="font-family: 'Knockout-Junior', sans-serif; margin-left: -2px;">V</span>
+        </a>
+        <div class="flex items-center gap-6 md:gap-12 font-bold text-[10px] md:text-[13px] tracking-[0.35em]">
+            <a href="portfolio.html" class="opacity-50 hover:opacity-100 transition-opacity">Portfolio</a>
+            <span class="opacity-20">|</span>
+            <a href="credits.html" class="opacity-100">Credits</a>
+            <span class="opacity-20">|</span>
+            <a href="about.html" class="opacity-50 hover:opacity-100 transition-opacity">About</a>
+            <span class="opacity-20">|</span>
+            <a href="mailto:alex@yourdomain.com" class="opacity-50 hover:opacity-100 transition-opacity">Contact</a>
+        </div>
+    </nav>
+
+    <main class="max-w-6xl mx-auto">
+        <h2 class="kn-full text-5xl md:text-8xl mb-8 md:mb-12 tracking-tighter">Credits</h2>
+        
+        <div class="hidden md:flex kn-full text-white/40 text-xl border-b border-white/20 pb-2 mb-4">
+            <div class="w-1/2">Project / Title</div>
+            <div class="w-1/4">Network / Client</div>
+            <div class="w-1/4 text-right">Role</div>
+        </div>
+
+        <div class="flex flex-col">
+            <div class="credit-row py-4 md:py-6 flex flex-col md:flex-row md:items-baseline">
+                <div class="w-full md:w-1/2 text-2xl md:text-4xl kn-full tracking-tight mb-1 md:mb-0">Late Night with Seth Meyers</div>
+                <div class="w-full md:w-1/4 text-lg md:text-xl text-white/60 mb-1 md:mb-0">NBC</div>
+                <div class="w-full md:w-1/4 text-lg md:text-xl md:text-right text-white/40 italic">Director</div>
+            </div>
+
+            <div class="credit-row py-4 md:py-6 flex flex-col md:flex-row md:items-baseline">
+                <div class="w-full md:w-1/2 text-2xl md:text-4xl kn-full tracking-tight mb-1 md:mb-0">Saturday Night Live (Film Unit)</div>
+                <div class="w-full md:w-1/4 text-lg md:text-xl text-white/60 mb-1 md:mb-0">NBC</div>
+                <div class="w-full md:w-1/4 text-lg md:text-xl md:text-right text-white/40 italic">Director</div>
+            </div>
+
+            <div class="credit-row py-4 md:py-6 flex flex-col md:flex-row md:items-baseline">
+                <div class="w-full md:w-1/2 text-2xl md:text-4xl kn-full tracking-tight mb-1 md:mb-0">The 75th Annual Tony Awards</div>
+                <div class="w-full md:w-1/4 text-lg md:text-xl text-white/60 mb-1 md:mb-0">CBS</div>
+                <div class="w-full md:w-1/4 text-lg md:text-xl md:text-right text-white/40 italic">Associate Director</div>
+            </div>
+
+            <div class="credit-row py-4 md:py-6 flex flex-col md:flex-row md:items-baseline">
+                <div class="w-full md:w-1/2 text-2xl md:text-4xl kn-full tracking-tight mb-1 md:mb-0">VMA's: MTV Video Music Awards</div>
+                <div class="w-full md:w-1/4 text-lg md:text-xl text-white/60 mb-1 md:mb-0">MTV / Paramount</div>
+                <div class="w-full md:w-1/4 text-lg md:text-xl md:text-right text-white/40 italic">Segment Director</div>
+            </div>
+            
+            </div>
+    </main>
+
+    <footer class="h-20"></footer>
+
+</body>
+</html>
