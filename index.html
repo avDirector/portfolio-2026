@@ -55,14 +55,16 @@
             z-index: -1;
         }
 
-        /* LOGO STYLING */
+        /* LOGO STYLING - REVISED */
         .logo-a {
             font-family: 'Knockout-Full', sans-serif;
         }
         .logo-v {
             font-family: 'Knockout-Junior', sans-serif;
-            font-size: 0.9em; /* Scaled down slightly to match cap-height of 'A' */
-            margin-left: -0.05em; /* Tighter kerning between A and V */
+            font-size: 1.05em; /* Increased to fix height issue */
+            margin-left: -0.05em;
+            transform: translateY(0.02em); /* Fine-tuning the baseline sit */
+            display: inline-block;
         }
 
         .name-container {
@@ -161,7 +163,7 @@
                     </div>
                 </div>
                 
-                <div class="subhead text-xl md:text-2xl tracking-tight text-white/60 uppercase">
+                <div class="subhead text-xl md:text-2xl tracking-tight text-white/60">
                     2x Emmy® Nominee: Best Directing For A Variety Series
                 </div>
             </div>
