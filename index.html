@@ -104,11 +104,12 @@
         #role-list { transition: transform 0.7s cubic-bezier(0.23, 1, 0.32, 1); }
         .role-item { height: 1.1em; display: flex; align-items: center; }
 
-        /* --- MOBILE PORTRAIT OVERRIDES --- */
+        /* --- SYMMETRICAL MOBILE LAYOUT --- */
         @media (max-width: 768px) {
             .hero-container {
                 padding: 0;
-                justify-content: flex-start;
+                justify-content: space-between; /* Creates the top/bottom anchor */
+                height: 100vh;
             }
 
             .video-background iframe {
@@ -116,32 +117,36 @@
                 height: 56.25vw !important;
                 min-height: 0 !important;
                 min-width: 0 !important;
-                top: 30% !important; /* Video in Upper 3rd */
+                top: 50% !important; /* Perfectly Centered for equal black space */
                 transform: translate(-50%, -50%) !important;
             }
 
             nav { 
-                height: 18vh; 
+                height: 20vh; /* Dedicated top black space */
                 padding: 0 1.5rem !important;
                 display: flex;
                 align-items: center;
             }
 
             .bottom-info-group {
-                /* Spacing logic to seat name below upper-3rd video */
-                margin-top: calc(8vh + 35vw); 
-                padding: 1.5rem;
+                height: 20vh; /* Dedicated bottom black space */
+                padding: 0 1.5rem 2rem 1.5rem;
                 width: 100%;
+                display: flex;
+                flex-direction: column;
+                justify-content: flex-end;
             }
 
-            /* Refined smaller name for mobile */
-            .alexander { font-size: 11vw; }
-            .vietmeier { font-size: 10.5vw; }
+            /* Further Refined Typography */
+            .alexander { font-size: 9.5vw; }
+            .vietmeier { font-size: 9vw; }
             
             .nav-link { font-size: 10px; }
             .nav-pipe { display: none; }
-            .director-group { font-size: 1.5rem !important; }
-            .subhead-junior { font-size: 0.75rem !important; margin-top: 8px; opacity: 0.6; }
+            
+            /* Smaller scroller to avoid competition with name */
+            .director-group { font-size: 1.1rem !important; opacity: 0.9; }
+            .subhead-junior { font-size: 0.65rem !important; margin-top: 4px; opacity: 0.5; }
         }
     </style>
 </head>
@@ -180,7 +185,7 @@
                 <span class="vietmeier">Vietmeier</span>
             </h1>
             
-            <div class="flex flex-col md:flex-row justify-between border-t border-white/40 pt-3 md:pt-2 gap-2 md:gap-6 items-baseline">
+            <div class="flex flex-col md:flex-row justify-between border-t border-white/20 pt-3 md:pt-2 gap-2 md:gap-6 items-baseline">
                 <div class="director-group flex items-baseline text-2xl md:text-4xl tracking-tight text-white" style="font-family: 'Knockout-Full', sans-serif;">
                     <span>Director</span>
                     <span class="mx-[0.35em] opacity-40">|</span>
