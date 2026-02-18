@@ -55,6 +55,7 @@
             z-index: -1;
         }
 
+        /* LOGO & TYPOGRAPHY */
         .logo-a { font-family: 'Knockout-Full', sans-serif; line-height: 1; }
         .logo-v {
             font-family: 'Knockout-Junior', sans-serif;
@@ -88,6 +89,7 @@
         .subhead-full { font-family: 'Knockout-Full', sans-serif; }
         .subhead-junior { font-family: 'Knockout-Junior', sans-serif; }
 
+        /* DIRECTOR | SCROLL SECTION */
         .director-group {
             display: flex;
             align-items: baseline;
@@ -126,19 +128,23 @@
             .alexander { font-size: 14vw; }
             .vietmeier { font-size: 13.4vw; }
             .name-container { gap: 0.2em; margin-bottom: 0.25rem; margin-left: -0.02em; }
+            nav { padding-left: 1.5rem !important; padding-right: 1.5rem !important; }
         }
     </style>
 </head>
 <body>
 
-    <nav class="absolute top-0 left-0 w-full p-12 px-[3rem] flex justify-between items-center z-50">
-        <div class="text-4xl tracking-tighter flex items-baseline">
+    <nav class="absolute top-0 left-0 w-full p-8 md:p-12 px-[3rem] flex justify-between items-center z-50">
+        <a href="index.html" class="text-4xl tracking-tighter flex items-baseline hover:opacity-70 transition">
             <span class="logo-a">A</span>
             <span class="logo-v">V</span>
-        </div>
-        <div class="flex gap-10 text-[11px] tracking-[0.25em] font-bold">
-            <a href="https://www.imdb.com/name/nm3653860/" target="_blank" class="hover:opacity-50 transition">IMDb</a>
-            <a href="https://www.linkedin.com/in/alexvietmeier/" target="_blank" class="hover:opacity-50 transition">LinkedIn</a>
+        </a>
+
+        <div class="flex items-center gap-6 md:gap-10 text-[10px] md:text-[11px] tracking-[0.25em] font-bold subhead-junior">
+            <a href="portfolio.html" class="hover:text-white/50 transition">Portfolio</a>
+            <a href="credits.html" class="hover:text-white/50 transition">Credits</a>
+            <a href="about.html" class="hover:text-white/50 transition">About</a>
+            <a href="mailto:alex@yourdomain.com" class="bg-white text-black px-4 py-1.5 hover:bg-gray-200 transition rounded-sm">Contact</a>
         </div>
     </nav>
 
