@@ -80,7 +80,7 @@
         /* --- MOBILE LAYOUT LOCK --- */
         @media (max-width: 768px) {
             .hero-container {
-                padding: 1.5rem;
+                padding: 1.5rem 1.5rem 4rem 1.5rem; /* Increased bottom padding for safer scrolling */
                 justify-content: flex-start;
             }
 
@@ -89,14 +89,14 @@
                 height: 56.25vw !important;
                 min-height: 0 !important;
                 min-width: 0 !important;
-                top: 27% !important; /* FIXED AT 27% */
+                top: 27% !important; 
                 transform: translate(-50%, -50%) !important;
             }
 
             .bottom-info-group {
                 width: 100%;
-                /* Calculation adjusted for 27% anchor to prevent overlap */
-                margin-top: calc(27vh + 34vw); 
+                /* Tightened from 34vw to 30vw to scoot text up closer to video bottom */
+                margin-top: calc(27vh + 30vw); 
             }
 
             .alexander { font-size: 9.5vw; }
