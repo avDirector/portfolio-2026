@@ -41,24 +41,35 @@
             letter-spacing: -0.02em; 
         }
 
-        /* --- THE ALIGNMENT & OVERLAP --- */
+        /* --- THE ALIGNMENT --- */
+        /* Removed max-w-7xl to let content breathe across the screen */
+        .content-container {
+            padding-left: 2rem;
+            padding-right: 2rem;
+        }
+        @media (min-width: 1024px) {
+            .content-container {
+                padding-left: 4rem;
+                padding-right: 4rem;
+            }
+        }
+
+        /* --- THE OVERLAPPING HEADER --- */
         .masthead-container {
             position: relative;
             margin-bottom: 5rem;
         }
 
         .masthead-name {
-            font-size: 10vw; 
+            font-size: 11vw; /* Scaled up slightly */
             line-height: 0.8;
-            opacity: 0.1; 
+            opacity: 0.08; 
             white-space: nowrap;
-            /* Negative margin-left to counteract font-kerning and pin the 'A' to the far left edge */
-            margin-left: -0.06em; 
+            margin-left: -0.06em; /* Nudge 'A' to the exact left edge */
         }
 
         .credits-title-wrapper {
-            /* Pulling Credits up to overlap the Name */
-            margin-top: -5vw; 
+            margin-top: -5.5vw; 
             position: relative;
             z-index: 2;
         }
@@ -95,11 +106,11 @@
         .nav-link:hover { opacity: 1; }
     </style>
 </head>
-<body class="p-6 md:p-12">
+<body class="py-6 md:py-12">
 
     <div class="page-bg"></div>
 
-    <div class="max-w-7xl mx-auto">
+    <div class="content-container">
         
         <nav class="w-full flex justify-between items-center mb-16 md:mb-32 relative z-50">
             <a href="index.html" class="tracking-tighter flex items-baseline opacity-80 kn-full text-3xl md:text-5xl -ml-1">
@@ -150,7 +161,15 @@
                         <div class="text-[9px] emmy-blue tracking-[0.2em] mt-2 font-bold uppercase">2x Emmy Nominee: Directing</div>
                     </div>
                 </div>
+                <div class="credit-row py-6 md:py-10 flex flex-col md:grid md:grid-cols-12 gap-4 items-baseline px-2">
+                    <div class="w-full md:col-span-5">
+                        <div class="text-2xl md:text-3xl lg:text-4xl kn-full uppercase leading-none whitespace-nowrap">Macy's Thanksgiving Day Parade</div>
+                    </div>
+                    <div class="w-full md:col-span-3 md:text-center text-lg md:text-xl text-white/70">NBC</div>
+                    <div class="col-span-1 text-center text-lg text-white/40 font-mono">2019—2023</div>
+                    <div class="w-full md:col-span-3 md:text-right text-xl md:text-2xl text-white/90 kn-full leading-none">Segment Director</div>
                 </div>
+            </div>
         </main>
     </div>
 
