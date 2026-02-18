@@ -29,6 +29,36 @@
             -webkit-font-smoothing: antialiased;
         }
 
+        /* NAVIGATION ANIMATIONS */
+        .nav-link {
+            position: relative;
+            transition: letter-spacing 0.4s cubic-bezier(0.165, 0.84, 0.44, 1), opacity 0.3s ease;
+            text-decoration: none;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 1px;
+            bottom: -4px;
+            left: 50%;
+            background-color: #fff;
+            transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+            transform: translateX(-50%);
+            opacity: 0;
+        }
+
+        .nav-link:hover {
+            letter-spacing: 0.35em !important; /* Slight expansion */
+            opacity: 1;
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+            opacity: 0.6;
+        }
+
         .hero-container {
             position: relative;
             height: 100vh;
@@ -55,7 +85,6 @@
             z-index: -1;
         }
 
-        /* LOGO & TYPOGRAPHY */
         .logo-a { font-family: 'Knockout-Full', sans-serif; line-height: 1; }
         .logo-v {
             font-family: 'Knockout-Junior', sans-serif;
@@ -89,16 +118,8 @@
         .subhead-full { font-family: 'Knockout-Full', sans-serif; }
         .subhead-junior { font-family: 'Knockout-Junior', sans-serif; }
 
-        /* DIRECTOR | SCROLL SECTION */
-        .director-group {
-            display: flex;
-            align-items: baseline;
-        }
-
-        .pipe-spacer {
-            margin: 0 0.35em;
-            opacity: 0.4;
-        }
+        .director-group { display: flex; align-items: baseline; }
+        .pipe-spacer { margin: 0 0.35em; opacity: 0.4; }
 
         .role-window {
             font-family: 'Knockout-Junior', sans-serif;
@@ -110,17 +131,8 @@
             transform: translateY(-0.03em); 
         }
 
-        #role-list {
-            transition: transform 0.7s cubic-bezier(0.23, 1, 0.32, 1);
-        }
-
-        .role-item {
-            height: 1.1em;
-            display: flex;
-            align-items: center;
-            white-space: nowrap;
-        }
-
+        #role-list { transition: transform 0.7s cubic-bezier(0.23, 1, 0.32, 1); }
+        .role-item { height: 1.1em; display: flex; align-items: center; white-space: nowrap; }
         .lowercase-x { text-transform: lowercase; }
 
         @media (max-width: 768px) {
@@ -135,16 +147,16 @@
 <body>
 
     <nav class="absolute top-0 left-0 w-full p-8 md:p-12 px-[3rem] flex justify-between items-center z-50">
-        <a href="index.html" class="text-4xl tracking-tighter flex items-baseline hover:opacity-70 transition">
+        <a href="index.html" class="text-4xl tracking-tighter flex items-baseline hover:opacity-70 transition duration-500">
             <span class="logo-a">A</span>
             <span class="logo-v">V</span>
         </a>
 
-        <div class="flex items-center gap-6 md:gap-10 text-[10px] md:text-[11px] tracking-[0.25em] font-bold subhead-junior">
-            <a href="portfolio.html" class="hover:text-white/50 transition">Portfolio</a>
-            <a href="credits.html" class="hover:text-white/50 transition">Credits</a>
-            <a href="about.html" class="hover:text-white/50 transition">About</a>
-            <a href="mailto:alex@yourdomain.com" class="bg-white text-black px-4 py-1.5 hover:bg-gray-200 transition rounded-sm">Contact</a>
+        <div class="flex items-center gap-6 md:gap-10 text-[10px] md:text-[11px] tracking-[0.25em] font-bold subhead-junior text-white/70">
+            <a href="portfolio.html" class="nav-link">Portfolio</a>
+            <a href="credits.html" class="nav-link">Credits</a>
+            <a href="about.html" class="nav-link">About</a>
+            <a href="mailto:alex@yourdomain.com" class="nav-link">Contact</a>
         </div>
     </nav>
 
