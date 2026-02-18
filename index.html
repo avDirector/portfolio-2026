@@ -29,18 +29,17 @@
             -webkit-font-smoothing: antialiased;
         }
 
-        /* NAVIGATION - THE ULTIMATE CENTER FIX */
+        /* NAVIGATION - OPTICAL CENTER CORRECTION */
         .nav-link {
             position: relative;
-            display: inline-flex; /* Shrink-wraps to text only */
+            display: inline-flex;
             flex-direction: column;
-            align-items: center; /* Forces the underline to respect the text center */
+            align-items: center;
             transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
             text-decoration: none;
             opacity: 0.5;
         }
 
-        /* Underline now anchored to the center of the flex-column */
         .nav-link::after {
             content: '';
             position: absolute;
@@ -48,30 +47,35 @@
             height: 1px;
             bottom: -3px;
             background-color: #fff;
-            transition: transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
-            transform: scaleX(0); 
+            /* The Nudge: translateX(-52%) instead of -50% 
+               This pulls the line slightly left to correct the font's right-heavy gap
+            */
+            left: 50%;
+            transform: translate(-52%, 0) scaleX(0); 
             transform-origin: center;
+            transition: transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
             box-shadow: 0 0 10px rgba(255,255,255,0.5);
         }
 
         .nav-link:hover {
             opacity: 1;
-            transform: translateY(-1px); /* Subtler than scale, feels more "pro" */
+            transform: translateY(-1px);
         }
 
         .nav-link:hover::after {
-            transform: scaleX(1);
+            /* Keep the nudge while scaling up */
+            transform: translate(-52%, 0) scaleX(1);
         }
 
         .nav-pipe {
-            opacity: 0.6; /* More visible as requested */
+            opacity: 0.6;
             font-weight: 300;
             pointer-events: none;
             user-select: none;
             padding-bottom: 2px;
         }
 
-        /* HERO LAYOUT */
+        /* REST OF HERO LAYOUT */
         .hero-container {
             position: relative;
             height: 100vh;
