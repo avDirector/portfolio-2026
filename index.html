@@ -29,7 +29,7 @@
             -webkit-font-smoothing: antialiased;
         }
 
-        /* NAVIGATION - OPTICAL CENTER CORRECTION */
+        /* NAVIGATION - THE -53% OPTICAL NUDGE */
         .nav-link {
             position: relative;
             display: inline-flex;
@@ -47,11 +47,9 @@
             height: 1px;
             bottom: -3px;
             background-color: #fff;
-            /* The Nudge: translateX(-52%) instead of -50% 
-               This pulls the line slightly left to correct the font's right-heavy gap
-            */
             left: 50%;
-            transform: translate(-52%, 0) scaleX(0); 
+            /* Nudging to -53% to perfectly center against the font's right-side gap */
+            transform: translate(-53%, 0) scaleX(0); 
             transform-origin: center;
             transition: transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
             box-shadow: 0 0 10px rgba(255,255,255,0.5);
@@ -63,8 +61,7 @@
         }
 
         .nav-link:hover::after {
-            /* Keep the nudge while scaling up */
-            transform: translate(-52%, 0) scaleX(1);
+            transform: translate(-53%, 0) scaleX(1);
         }
 
         .nav-pipe {
@@ -75,7 +72,7 @@
             padding-bottom: 2px;
         }
 
-        /* REST OF HERO LAYOUT */
+        /* HERO LAYOUT */
         .hero-container {
             position: relative;
             height: 100vh;
@@ -183,66 +180,4 @@
 
     <section class="hero-container">
         <div class="video-background">
-            <iframe 
-                src="https://player.vimeo.com/video/1166002140?background=1&autoplay=1&loop=1&byline=0&title=0&muted=1" 
-                style="position:absolute;top:50%;left:50%;width:100vw;height:56.25vw;min-height:100vh;min-width:177.77vh;transform:translate(-50%,-50%);" 
-                frameborder="0" allow="autoplay; fullscreen">
-            </iframe>
-        </div>
-
-        <div class="video-overlay"></div>
-
-        <div class="relative z-10 w-full">
-            <h1 class="name-container tracking-tighter">
-                <span class="alexander">Alexander</span>
-                <span class="vietmeier">Vietmeier</span>
-            </h1>
-            
-            <div class="flex flex-col md:flex-row justify-between border-t border-white/40 pt-2 gap-6 items-baseline">
-                <div class="director-group subhead-full text-2xl md:text-4xl tracking-tight text-white">
-                    <span>Director</span>
-                    <span class="pipe-spacer">|</span>
-                    <div class="role-window">
-                        <div id="role-list">
-                            <span class="role-item">Variety</span>
-                            <span class="role-item">Multi-Cam</span>
-                            <span class="role-item">Music</span>
-                            <span class="role-item">Comedy</span>
-                            <span class="role-item">Variety</span>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="subhead-junior text-xl md:text-2xl tracking-tight text-white/60">
-                    2<span class="lowercase-x">x</span> Emmy<sup class="text-[0.6em] ml-0.5">®</sup> Nominee: Best Directing For A Variety Series
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <script>
-        const roleList = document.getElementById("role-list");
-        const rolesCount = 4;
-        let currentIndex = 0;
-
-        function scrollRole() {
-            currentIndex++;
-            const itemHeight = roleList.querySelector('.role-item').offsetHeight;
-            
-            roleList.style.transition = "transform 0.7s cubic-bezier(0.23, 1, 0.32, 1)";
-            roleList.style.transform = `translateY(-${currentIndex * itemHeight}px)`;
-
-            if (currentIndex === rolesCount) {
-                setTimeout(() => {
-                    roleList.style.transition = "none";
-                    roleList.style.transform = "translateY(0)";
-                    currentIndex = 0;
-                }, 700);
-            }
-        }
-
-        setInterval(scrollRole, 2000);
-    </script>
-
-</body>
-</html>
+            <iframe
