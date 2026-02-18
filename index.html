@@ -33,7 +33,7 @@
             display: flex;
             flex-direction: column;
             justify-content: flex-end;
-            padding: 3rem;
+            padding: 2rem md:padding: 4rem;
         }
 
         .video-background {
@@ -52,18 +52,25 @@
             z-index: -1;
         }
 
+        /* Combined Name Styles */
+        .name-container {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: baseline; /* Key for matching different weights */
+            gap: 0.2em;
+            margin-bottom: 1rem;
+        }
+
         .alexander {
             font-family: 'Knockout-Full', sans-serif;
-            line-height: 0.85;
-            font-size: 13vw;
+            font-size: 8vw; /* Scaled down for single line */
+            line-height: 1;
         }
 
         .vietmeier {
             font-family: 'Knockout-Junior', sans-serif;
-            line-height: 0.8;
-            /* Balanced up to 12vw for optical alignment */
-            font-size: 12vw;
-            margin-top: -0.02em;
+            font-size: 8.5vw; /* Slightly larger to match Alexander's cap-height */
+            line-height: 1;
         }
 
         .subhead {
@@ -79,7 +86,7 @@
         }
 
         #role-list {
-            transition: transform 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+            transition: transform 0.7s cubic-bezier(0.23, 1, 0.32, 1);
             display: flex;
             flex-direction: column;
         }
@@ -89,13 +96,19 @@
             display: flex;
             align-items: center;
         }
+
+        @media (max-width: 768px) {
+            .alexander { font-size: 14vw; }
+            .vietmeier { font-size: 14.5vw; }
+            .hero-container { padding: 1.5rem; }
+        }
     </style>
 </head>
 <body>
 
-    <nav class="absolute top-0 left-0 w-full p-10 flex justify-between items-center z-50">
-        <div class="alexander text-3xl tracking-tighter">AV</div>
-        <div class="flex gap-8 text-[10px] tracking-[0.2em] font-bold">
+    <nav class="absolute top-0 left-0 w-full p-8 md:p-12 flex justify-between items-center z-50">
+        <div class="alexander text-2xl tracking-tighter">AV</div>
+        <div class="flex gap-6 text-[10px] tracking-[0.2em] font-bold">
             <a href="https://www.imdb.com/name/nm3653860/" target="_blank" class="hover:opacity-50 transition">IMDb</a>
             <a href="https://www.linkedin.com/in/alexvietmeier/" target="_blank" class="hover:opacity-50 transition">LinkedIn</a>
         </div>
@@ -112,14 +125,14 @@
 
         <div class="video-overlay"></div>
 
-        <div class="relative z-10 w-full mb-10">
-            <h1 class="flex flex-col tracking-tighter mb-4">
+        <div class="relative z-10 w-full mb-8">
+            <h1 class="name-container tracking-tighter">
                 <span class="alexander">Alexander</span>
                 <span class="vietmeier">Vietmeier</span>
             </h1>
             
             <div class="flex flex-col md:flex-row justify-between border-t border-white/40 pt-6 gap-4">
-                <div class="subhead text-2xl md:text-4xl tracking-tight">
+                <div class="subhead text-2xl md:text-3xl tracking-tight">
                     Director: 
                     <div class="role-window">
                         <div id="role-list">
@@ -131,7 +144,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="subhead text-2xl md:text-4xl tracking-tight text-white/50 italic">
+                <div class="subhead text-2xl md:text-3xl tracking-tight text-white/50 italic">
                     2x Emmy® Nominee
                 </div>
             </div>
@@ -140,15 +153,14 @@
 
     <script>
         const roleList = document.getElementById("role-list");
-        const rolesCount = 4; // Excluding the repeated one
+        const rolesCount = 4;
         let currentIndex = 0;
 
         function scrollRole() {
             currentIndex++;
-            // Calculate the height of one item (1.2em translated to pixels)
             const itemHeight = roleList.querySelector('.role-item').offsetHeight;
             
-            roleList.style.transition = "transform 0.6s cubic-bezier(0.23, 1, 0.32, 1)";
+            roleList.style.transition = "transform 0.7s cubic-bezier(0.23, 1, 0.32, 1)";
             roleList.style.transform = `translateY(-${currentIndex * itemHeight}px)`;
 
             if (currentIndex === rolesCount) {
@@ -156,11 +168,12 @@
                     roleList.style.transition = "none";
                     roleList.style.transform = "translateY(0)";
                     currentIndex = 0;
-                }, 600); // Wait for transition to finish
+                }, 700);
             }
         }
 
-        setInterval(scrollRole, 1500);
+        // Updated to 2 seconds
+        setInterval(scrollRole, 2000);
     </script>
 
 </body>
