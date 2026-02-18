@@ -55,6 +55,7 @@
             z-index: -1;
         }
 
+        /* LOGO STYLING */
         .logo-a { font-family: 'Knockout-Full', sans-serif; line-height: 1; }
         .logo-v {
             font-family: 'Knockout-Junior', sans-serif;
@@ -90,10 +91,13 @@
         .subhead-junior { font-family: 'Knockout-Junior', sans-serif; }
 
         .role-window {
+            /* Shrinking to match the optical height of the Bold "Director" label */
+            font-size: 0.96em;
             height: 1.1em;
             overflow: hidden;
             display: inline-block;
-            vertical-align: bottom;
+            vertical-align: baseline;
+            transform: translateY(0.02em);
         }
 
         #role-list {
