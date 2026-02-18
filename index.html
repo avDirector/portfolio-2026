@@ -28,7 +28,6 @@
             overflow: hidden;
             -webkit-font-smoothing: antialiased;
             height: 100vh;
-            width: 100vw;
         }
 
         /* --- NAVIGATION --- */
@@ -37,7 +36,6 @@
             display: inline-flex;
             flex-direction: column;
             align-items: center;
-            transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
             text-decoration: none;
             opacity: 0.5;
         }
@@ -62,13 +60,13 @@
         .hero-container {
             position: relative;
             height: 100vh;
-            height: -webkit-fill-available; /* Vital for Safari Mobile */
+            height: -webkit-fill-available;
             width: 100vw;
             display: flex;
             flex-direction: column;
-            justify-content: space-between;
             padding: 3rem; 
             box-sizing: border-box;
+            justify-content: space-between;
         }
 
         .video-background {
@@ -106,16 +104,11 @@
         #role-list { transition: transform 0.7s cubic-bezier(0.23, 1, 0.32, 1); }
         .role-item { height: 1.1em; display: flex; align-items: center; }
 
-        /* --- RESPONSIVE FIXES --- */
-        @media (max-width: 1024px) {
-            .alexander { font-size: 11vw; }
-            .vietmeier { font-size: 10.5vw; }
-            .hero-container { padding: 2.5rem; }
-        }
-
+        /* --- MOBILE PORTRAIT OVERRIDES --- */
         @media (max-width: 768px) {
             .hero-container {
-                padding: 12% 1.5rem 8% 1.5rem; /* Percentages adapt better than fixed VH */
+                padding: 10% 1.5rem 0 1.5rem; /* Remove huge bottom padding */
+                justify-content: flex-start; /* Anchor everything to the top/center */
             }
 
             .video-background iframe {
@@ -123,17 +116,23 @@
                 height: 56.25vw !important;
                 min-height: 0 !important;
                 min-width: 0 !important;
+                /* Pull video up slightly from dead center */
+                transform: translate(-50%, -75%) !important; 
+            }
+
+            nav { margin-bottom: 8vh; } /* Distance between Nav and Video */
+
+            .bottom-info-group {
+                margin-top: 15vh; /* This "magnets" the name to the bottom of the video */
             }
 
             .alexander { font-size: 15vw; }
             .vietmeier { font-size: 14.4vw; }
-            
-            nav { margin-bottom: 0; }
             .nav-link { font-size: 10px; opacity: 0.8; }
             .nav-pipe { display: none; }
 
             .director-group { font-size: 1.6rem !important; }
-            .subhead-junior { font-size: 0.8rem !important; margin-top: 4px; }
+            .subhead-junior { font-size: 0.8rem !important; margin-top: 6px; }
         }
     </style>
 </head>
@@ -166,7 +165,7 @@
             </div>
         </nav>
 
-        <div class="w-full">
+        <div class="w-full bottom-info-group">
             <h1 class="flex flex-wrap items-baseline gap-[0.4em] tracking-tighter mb-1">
                 <span class="alexander">Alexander</span>
                 <span class="vietmeier">Vietmeier</span>
