@@ -41,7 +41,6 @@
             letter-spacing: 0.04em; 
         }
 
-        /* --- HOVER & SLIDE ANIMATION --- */
         .credit-row {
             border-bottom: 1px solid rgba(255,255,255,0.08);
             transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
@@ -74,13 +73,18 @@
             opacity: 1;
         }
 
-        /* Nav Link Hover */
         .nav-link {
             opacity: 0.5;
             transition: opacity 0.3s;
         }
         .nav-link:hover {
             opacity: 1;
+        }
+
+        /* The Custom Emmy Blue */
+        .emmy-blue {
+            color: #38bdf8; /* A vibrant, modern Sky Blue */
+            text-shadow: 0 0 15px rgba(56, 189, 248, 0.2);
         }
     </style>
 </head>
@@ -129,14 +133,14 @@
                     <div class="md:hidden label-style">Network</div>
                     <div class="text-lg md:text-xl text-white/70">NBC</div>
                 </div>
-                <div class="w-full md:col-span-1">
+                <div class="col-span-1">
                     <div class="md:hidden label-style">Year</div>
-                    <div class="text-lg md:text-lg text-white/40 font-mono tracking-tighter">2014—2026</div>
+                    <div class="text-lg text-white/40 font-mono tracking-tighter">2014—2026</div>
                 </div>
                 <div class="w-full md:col-span-3 md:text-right">
                     <div class="md:hidden label-style">Role</div>
                     <div class="text-xl md:text-2xl text-white/90 kn-full leading-none">Director</div>
-                    <div class="text-[9px] text-amber-500/80 tracking-[0.2em] mt-2">2x Emmy Nominee: Outstanding Directing</div>
+                    <div class="text-[9px] emmy-blue tracking-[0.2em] mt-2 font-bold">2x Emmy Nominee: Outstanding Directing</div>
                 </div>
             </div>
 
@@ -149,71 +153,13 @@
                     <div class="md:hidden label-style">Network</div>
                     <div class="text-lg md:text-xl text-white/70">NBC</div>
                 </div>
-                <div class="w-full md:col-span-1">
+                <div class="col-span-1">
                     <div class="md:hidden label-style">Year</div>
-                    <div class="text-lg md:text-lg text-white/40 font-mono tracking-tighter">2019—2023</div>
+                    <div class="text-lg text-white/40 font-mono tracking-tighter">2019—2023</div>
                 </div>
                 <div class="w-full md:col-span-3 md:text-right">
                     <div class="md:hidden label-style">Role</div>
                     <div class="text-xl md:text-2xl text-white/90 kn-full leading-none">Segment Director</div>
-                </div>
-            </div>
-
-            <div class="credit-row py-6 md:py-10 flex flex-col md:grid md:grid-cols-12 gap-4 items-baseline px-2">
-                <div class="w-full md:col-span-5">
-                    <div class="md:hidden label-style">Project</div>
-                    <div class="text-2xl md:text-3xl lg:text-4xl kn-full uppercase leading-none whitespace-nowrap">75th Annual Tony Awards</div>
-                </div>
-                <div class="w-full md:col-span-3">
-                    <div class="md:hidden label-style">Network</div>
-                    <div class="text-lg md:text-xl text-white/70">CBS / Paramount+</div>
-                </div>
-                <div class="w-full md:col-span-1">
-                    <div class="md:hidden label-style">Year</div>
-                    <div class="text-lg md:text-lg text-white/40 font-mono tracking-tighter">2022</div>
-                </div>
-                <div class="w-full md:col-span-3 md:text-right">
-                    <div class="md:hidden label-style">Role</div>
-                    <div class="text-xl md:text-2xl text-white/90 kn-full leading-none whitespace-nowrap">Associate Director</div>
-                </div>
-            </div>
-
-            <div class="credit-row py-6 md:py-10 flex flex-col md:grid md:grid-cols-12 gap-4 items-baseline px-2">
-                <div class="w-full md:col-span-5">
-                    <div class="md:hidden label-style">Project</div>
-                    <div class="text-2xl md:text-3xl lg:text-4xl kn-full uppercase leading-none whitespace-nowrap">Saturday Night Live</div>
-                </div>
-                <div class="w-full md:col-span-3">
-                    <div class="md:hidden label-style">Network</div>
-                    <div class="text-lg md:text-xl text-white/70">NBC</div>
-                </div>
-                <div class="w-full md:col-span-1">
-                    <div class="md:hidden label-style">Year</div>
-                    <div class="text-lg md:text-lg text-white/40 font-mono tracking-tighter">2021—2022</div>
-                </div>
-                <div class="w-full md:col-span-3 md:text-right">
-                    <div class="md:hidden label-style">Role</div>
-                    <div class="text-xl md:text-2xl text-white/90 kn-full leading-none whitespace-nowrap">Associate Director</div>
-                    <div class="text-[9px] text-white/30 tracking-[0.2em] mt-2">Film Unit</div>
-                </div>
-            </div>
-
-            <div class="credit-row py-6 md:py-10 flex flex-col md:grid md:grid-cols-12 gap-4 items-baseline px-2">
-                <div class="w-full md:col-span-5">
-                    <div class="md:hidden label-style">Project</div>
-                    <div class="text-2xl md:text-3xl lg:text-4xl kn-full uppercase leading-none whitespace-nowrap">New Year's Eve with Carson Daly</div>
-                </div>
-                <div class="w-full md:col-span-3">
-                    <div class="md:hidden label-style">Network</div>
-                    <div class="text-lg md:text-xl text-white/70">NBC</div>
-                </div>
-                <div class="w-full md:col-span-1">
-                    <div class="md:hidden label-style">Year</div>
-                    <div class="text-lg md:text-lg text-white/40 font-mono tracking-tighter">2020</div>
-                </div>
-                <div class="w-full md:col-span-3 md:text-right">
-                    <div class="md:hidden label-style">Role</div>
-                    <div class="text-xl md:text-2xl text-white/90 kn-full leading-none whitespace-nowrap">Associate Director</div>
                 </div>
             </div>
 
