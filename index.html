@@ -29,13 +29,13 @@
             -webkit-font-smoothing: antialiased;
         }
 
-        /* NAVIGATION ANIMATIONS - NO LAYOUT SHIFT */
+        /* NAVIGATION - SYMMETRICAL ANIMATION */
         .nav-link {
             position: relative;
             display: inline-block;
             transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
             text-decoration: none;
-            opacity: 0.6;
+            opacity: 0.5; /* Dimmer default for higher contrast on hover */
         }
 
         .nav-link::after {
@@ -43,21 +43,28 @@
             position: absolute;
             width: 0;
             height: 1px;
-            bottom: -6px;
-            left: 50%;
+            bottom: -5px;
+            left: 50%; /* Start in middle */
             background-color: #fff;
             transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
-            transform: translateX(-50%);
-            box-shadow: 0 0 8px rgba(255,255,255,0.5); /* Subtle glow */
+            transform: translateX(-50%); /* Pull back by half its width to stay centered */
+            box-shadow: 0 0 8px rgba(255,255,255,0.3);
         }
 
         .nav-link:hover {
             opacity: 1;
-            transform: scale(1.05); /* Grows slightly without pushing neighbors */
+            transform: scale(1.03); /* Slightly reduced scale for more subtlety */
         }
 
         .nav-link:hover::after {
             width: 100%;
+        }
+
+        .nav-pipe {
+            opacity: 0.2;
+            font-weight: 300;
+            pointer-events: none; /* Mouse ignores them */
+            user-select: none;
         }
 
         .hero-container {
@@ -142,6 +149,7 @@
             .vietmeier { font-size: 13.4vw; }
             .name-container { gap: 0.2em; margin-bottom: 0.25rem; margin-left: -0.02em; }
             nav { padding-left: 1.5rem !important; padding-right: 1.5rem !important; }
+            .nav-pipe { display: none; } /* Hide pipes on mobile to save space */
         }
     </style>
 </head>
@@ -153,10 +161,13 @@
             <span class="logo-v">V</span>
         </a>
 
-        <div class="flex items-center gap-8 md:gap-12 text-[10px] md:text-[11px] tracking-[0.25em] font-bold subhead-junior">
+        <div class="flex items-center gap-4 md:gap-6 text-[10px] md:text-[11px] tracking-[0.25em] font-bold subhead-junior">
             <a href="portfolio.html" class="nav-link">Portfolio</a>
+            <span class="nav-pipe">|</span>
             <a href="credits.html" class="nav-link">Credits</a>
+            <span class="nav-pipe">|</span>
             <a href="about.html" class="nav-link">About</a>
+            <span class="nav-pipe">|</span>
             <a href="mailto:alex@yourdomain.com" class="nav-link">Contact</a>
         </div>
     </nav>
