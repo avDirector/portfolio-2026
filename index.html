@@ -104,11 +104,11 @@
         #role-list { transition: transform 0.7s cubic-bezier(0.23, 1, 0.32, 1); }
         .role-item { height: 1.1em; display: flex; align-items: center; }
 
-        /* --- SYMMETRICAL MOBILE LAYOUT --- */
+        /* --- REFINED MOBILE LOGIC --- */
         @media (max-width: 768px) {
             .hero-container {
                 padding: 0;
-                justify-content: space-between; /* Creates the top/bottom anchor */
+                justify-content: space-between;
                 height: 100vh;
             }
 
@@ -117,27 +117,23 @@
                 height: 56.25vw !important;
                 min-height: 0 !important;
                 min-width: 0 !important;
-                top: 50% !important; /* Perfectly Centered for equal black space */
+                top: 30% !important; /* BACK TO UPPER ANCHOR */
                 transform: translate(-50%, -50%) !important;
             }
 
             nav { 
-                height: 20vh; /* Dedicated top black space */
+                height: 15vh; /* Adjusted for better framing */
                 padding: 0 1.5rem !important;
                 display: flex;
                 align-items: center;
             }
 
             .bottom-info-group {
-                height: 20vh; /* Dedicated bottom black space */
-                padding: 0 1.5rem 2rem 1.5rem;
+                padding: 0 1.5rem 3rem 1.5rem; /* Pushes content up slightly from the very bottom */
                 width: 100%;
-                display: flex;
-                flex-direction: column;
-                justify-content: flex-end;
             }
 
-            /* Further Refined Typography */
+            /* LOCKED-IN REFINED TYPOGRAPHY */
             .alexander { font-size: 9.5vw; }
             .vietmeier { font-size: 9vw; }
             
@@ -185,7 +181,7 @@
                 <span class="vietmeier">Vietmeier</span>
             </h1>
             
-            <div class="flex flex-col md:flex-row justify-between border-t border-white/20 pt-3 md:pt-2 gap-2 md:gap-6 items-baseline">
+            <div class="flex flex-col md:flex-row justify-between border-t border-white/40 pt-3 md:pt-2 gap-2 md:gap-6 items-baseline">
                 <div class="director-group flex items-baseline text-2xl md:text-4xl tracking-tight text-white" style="font-family: 'Knockout-Full', sans-serif;">
                     <span>Director</span>
                     <span class="mx-[0.35em] opacity-40">|</span>
