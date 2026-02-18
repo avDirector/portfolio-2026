@@ -55,16 +55,18 @@
             z-index: -1;
         }
 
-        /* LOGO STYLING - THE GOLDEN RATIO UPDATE */
+        /* LOGO STYLING - THE "SCAN LINE" FIX */
         .logo-a {
             font-family: 'Knockout-Full', sans-serif;
+            line-height: 1;
         }
         .logo-v {
             font-family: 'Knockout-Junior', sans-serif;
-            font-size: 1.015em; /* Precisely between too tall and too short */
+            font-size: 0.995em; /* Dropped just below 1.0 to account for condensed overshoot */
             margin-left: -0.05em;
             display: inline-block;
             line-height: 1;
+            vertical-align: baseline;
         }
 
         .name-container {
@@ -150,15 +152,15 @@
             </h1>
             
             <div class="flex flex-col md:flex-row justify-between border-t border-white/40 pt-2 gap-6 items-baseline">
-                <div class="subhead text-2xl md:text-4xl tracking-tight">
+                <div class="subhead text-2xl md:text-4xl tracking-tight text-white">
                     Director: 
                     <div class="role-window">
                         <div id="role-list">
-                            <span class="role-item text-white">Variety</span>
-                            <span class="role-item text-white">Multi-Cam</span>
-                            <span class="role-item text-white">Music</span>
-                            <span class="role-item text-white">Comedy</span>
-                            <span class="role-item text-white">Variety</span>
+                            <span class="role-item">Variety</span>
+                            <span class="role-item">Multi-Cam</span>
+                            <span class="role-item">Music</span>
+                            <span class="role-item">Comedy</span>
+                            <span class="role-item">Variety</span>
                         </div>
                     </div>
                 </div>
@@ -188,11 +190,3 @@
                     roleList.style.transform = "translateY(0)";
                     currentIndex = 0;
                 }, 700);
-            }
-        }
-
-        setInterval(scrollRole, 2000);
-    </script>
-
-</body>
-</html>
