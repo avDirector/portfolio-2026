@@ -36,26 +36,27 @@
             background: radial-gradient(circle at 50% -10%, #161616 0%, #000 60%);
         }
 
+        /* Branding: Tight tracking to match home page */
         .kn-brand { 
             font-family: 'Knockout-Full', sans-serif; 
             letter-spacing: -0.03em; 
         }
 
+        /* Credits: Slightly more readable tracking */
         .kn-credit {
             font-family: 'Knockout-Full', sans-serif;
             letter-spacing: 0.02em;
         }
 
-        /* --- THE LAYERED IDENTITY --- */
+        /* MASTHEAD OVERLAP LOGIC */
         .name-overlay {
-            /* Light charcoal with 85% opacity for subtle bleed-through */
-            color: rgba(85, 85, 85, 0.85); 
+            color: rgba(102, 102, 102, 0.8); /* Refined gray with subtle bleed */
             position: absolute;
-            /* Adjusted to hit the T-bar intersection precisely */
-            bottom: 35%; 
+            bottom: 46%; /* Precise hit for the T-intersection */
             left: -2px; 
             z-index: 20;
             pointer-events: none;
+            line-height: 1;
         }
 
         .table-header-text {
@@ -129,6 +130,7 @@
         </div>
 
         <div class="flex flex-col">
+            
             <div class="credit-row py-8 md:py-12 flex flex-col md:grid md:grid-cols-12 gap-4 items-baseline px-2">
                 <div class="w-full md:col-span-5">
                     <div class="text-2xl md:text-3xl lg:text-4xl kn-credit uppercase leading-none">Late Night with Seth Meyers</div>
@@ -149,6 +151,7 @@
                 <div class="col-span-1 text-center text-lg text-white/40 font-mono tracking-tighter">2019—2023</div>
                 <div class="w-full md:col-span-3 md:text-right text-xl md:text-2xl text-white/90 kn-credit leading-none">Segment Director</div>
             </div>
+
         </div>
     </main>
 
