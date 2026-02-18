@@ -46,7 +46,7 @@
             letter-spacing: 0.02em;
         }
 
-        /* --- REFINED PIXEL-LOCK --- */
+        /* --- THE PIXEL-LOCK --- */
         .masthead-container {
             display: flex;
             flex-direction: column;
@@ -54,7 +54,7 @@
         }
 
         .name-overlay {
-            color: rgba(130, 130, 130, 0.85); /* Slightly brighter gray for overlap clarity */
+            color: rgba(130, 130, 130, 0.85); 
             z-index: 20;
             position: relative;
             line-height: 0.8;
@@ -64,8 +64,8 @@
             color: white;
             z-index: 10;
             position: relative;
-            /* Dropped down from -0.45em to -0.32em to fix the "too high" issue */
-            margin-top: -0.32em; 
+            /* Increased negative margin to pull the name HIGHER */
+            margin-top: -0.58em; 
             margin-left: 1.5rem;
         }
 
