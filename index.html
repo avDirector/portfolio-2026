@@ -33,7 +33,7 @@
             display: flex;
             flex-direction: column;
             justify-content: flex-end;
-            padding: 2rem md:padding: 4rem;
+            padding: 4rem; /* Standard desktop padding */
         }
 
         .video-background {
@@ -52,32 +52,32 @@
             z-index: -1;
         }
 
-        /* Combined Name Styles */
         .name-container {
             display: flex;
             flex-wrap: wrap;
-            align-items: baseline; /* Key for matching different weights */
-            gap: 0.2em;
-            margin-bottom: 1rem;
+            align-items: baseline; 
+            gap: 0.4em; /* Increased gap between names */
+            margin-bottom: 2.5rem; /* Increased margin below the name */
         }
 
         .alexander {
             font-family: 'Knockout-Full', sans-serif;
-            font-size: 8vw; /* Scaled down for single line */
+            font-size: 8.5vw; 
             line-height: 1;
         }
 
         .vietmeier {
             font-family: 'Knockout-Junior', sans-serif;
-            font-size: 8.5vw; /* Slightly larger to match Alexander's cap-height */
+            /* Shrunk slightly more to match Alexander's cap-height exactly */
+            font-size: 8.1vw; 
             line-height: 1;
         }
 
         .subhead {
             font-family: 'Knockout-Junior', sans-serif;
+            margin-top: 1rem; /* Extra breathing room above subhead */
         }
 
-        /* Credits Scroll Animation */
         .role-window {
             height: 1.2em;
             overflow: hidden;
@@ -99,16 +99,17 @@
 
         @media (max-width: 768px) {
             .alexander { font-size: 14vw; }
-            .vietmeier { font-size: 14.5vw; }
-            .hero-container { padding: 1.5rem; }
+            .vietmeier { font-size: 13.4vw; }
+            .hero-container { padding: 2rem; }
+            .name-container { gap: 0.2em; }
         }
     </style>
 </head>
 <body>
 
-    <nav class="absolute top-0 left-0 w-full p-8 md:p-12 flex justify-between items-center z-50">
+    <nav class="absolute top-0 left-0 w-full p-12 flex justify-between items-center z-50">
         <div class="alexander text-2xl tracking-tighter">AV</div>
-        <div class="flex gap-6 text-[10px] tracking-[0.2em] font-bold">
+        <div class="flex gap-10 text-[11px] tracking-[0.25em] font-bold">
             <a href="https://www.imdb.com/name/nm3653860/" target="_blank" class="hover:opacity-50 transition">IMDb</a>
             <a href="https://www.linkedin.com/in/alexvietmeier/" target="_blank" class="hover:opacity-50 transition">LinkedIn</a>
         </div>
@@ -125,13 +126,13 @@
 
         <div class="video-overlay"></div>
 
-        <div class="relative z-10 w-full mb-8">
+        <div class="relative z-10 w-full max-w-[95vw]">
             <h1 class="name-container tracking-tighter">
                 <span class="alexander">Alexander</span>
                 <span class="vietmeier">Vietmeier</span>
             </h1>
             
-            <div class="flex flex-col md:flex-row justify-between border-t border-white/40 pt-6 gap-4">
+            <div class="flex flex-col md:flex-row justify-between border-t border-white/40 pt-10 gap-6">
                 <div class="subhead text-2xl md:text-3xl tracking-tight">
                     Director: 
                     <div class="role-window">
@@ -172,7 +173,6 @@
             }
         }
 
-        // Updated to 2 seconds
         setInterval(scrollRole, 2000);
     </script>
 
