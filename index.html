@@ -6,40 +6,44 @@
     <title>Alexander Vietmeier | Director</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        /* 1. FONT DEFINITIONS */
-        @font-face {
-            font-family: 'Knockout-Full';
-            src: url('/fonts/Knockout-HTF70-FullWelterwt.otf') format('opentype');
-            font-display: swap;
-        }
+    /* 1. FONT DEFINITIONS */
+    /* Check GitHub: is the folder "fonts" or "Fonts"? */
+    @font-face {
+        font-family: 'Knockout-Full';
+        src: url('./fonts/Knockout-HTF70-FullWelterwt.otf') format('opentype');
+        font-weight: normal;
+        font-style: normal;
+        font-display: swap;
+    }
 
-        @font-face {
-            font-family: 'Knockout-Junior';
-            src: url('/fonts/Knockout-HTF30-JuniorWelterwt.otf') format('opentype');
-            font-display: swap;
-        }
+    @font-face {
+        font-family: 'Knockout-Junior';
+        src: url('./fonts/Knockout-HTF30-JuniorWelterwt.otf') format('opentype');
+        font-weight: normal;
+        font-style: normal;
+        font-display: swap;
+    }
 
-        /* 2. CORE STYLES */
-        body {
-            background-color: #000;
-            color: #fff;
-            text-transform: uppercase;
-            -webkit-font-smoothing: antialiased;
-        }
+    /* 2. CORE STYLES */
+    body {
+        background-color: #000;
+        color: #fff;
+        text-transform: uppercase;
+        -webkit-font-smoothing: antialiased;
+        /* Fallback to 'Impact' because it has a similar vibe if fonts fail */
+        font-family: sans-serif; 
+    }
 
-        .alexander {
-            font-family: 'Knockout-Full', sans-serif;
-            line-height: 0.8;
-        }
+    .alexander {
+        font-family: 'Knockout-Full', Impact, sans-serif;
+        line-height: 0.8;
+    }
 
-        .vietmeier {
-            font-family: 'Knockout-Junior', sans-serif;
-            line-height: 0.75;
-        }
-
-        /* Subtle transition for links */
-        a { transition: opacity 0.2s ease-in-out; }
-    </style>
+    .vietmeier {
+        font-family: 'Knockout-Junior', Impact, sans-serif;
+        line-height: 0.75;
+    }
+</style>
 </head>
 <body class="p-6 md:p-12 min-h-screen flex flex-col">
 
