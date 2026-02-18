@@ -36,7 +36,6 @@
             display: flex;
             flex-direction: column;
             justify-content: flex-end;
-            /* Synchronized padding-left: 3rem */
             padding: 3rem; 
         }
 
@@ -56,6 +55,7 @@
             z-index: -1;
         }
 
+        /* LOGO STYLING */
         .logo-a { font-family: 'Knockout-Full', sans-serif; line-height: 1; }
         .logo-v {
             font-family: 'Knockout-Junior', sans-serif;
@@ -72,7 +72,6 @@
             align-items: baseline; 
             gap: 0.4em;
             margin-bottom: 0.25rem;
-            /* Nudge left to align the vertical stem of the 'A' with the logo 'A' */
             margin-left: -0.04em; 
         }
 
@@ -88,10 +87,8 @@
             line-height: 0.9;
         }
 
-        .subhead {
-            font-family: 'Knockout-Junior', sans-serif;
-            line-height: 1;
-        }
+        .subhead-full { font-family: 'Knockout-Full', sans-serif; }
+        .subhead-junior { font-family: 'Knockout-Junior', sans-serif; }
 
         .role-window {
             height: 1.1em;
@@ -111,6 +108,9 @@
             display: flex;
             align-items: center;
         }
+
+        /* Lowercase 'x' utility */
+        .lowercase-x { text-transform: lowercase; }
 
         @media (max-width: 768px) {
             .hero-container { padding: 1.5rem; }
@@ -151,7 +151,7 @@
             </h1>
             
             <div class="flex flex-col md:flex-row justify-between border-t border-white/40 pt-2 gap-6 items-baseline">
-                <div class="subhead text-2xl md:text-4xl tracking-tight text-white">
+                <div class="subhead-full text-2xl md:text-4xl tracking-tight text-white">
                     Director: 
                     <div class="role-window">
                         <div id="role-list">
@@ -164,8 +164,8 @@
                     </div>
                 </div>
                 
-                <div class="subhead text-xl md:text-2xl tracking-tight text-white/60">
-                    2x Emmy® Nominee: Best Directing For A Variety Series
+                <div class="subhead-junior text-xl md:text-2xl tracking-tight text-white/60">
+                    2<span class="lowercase-x">x</span> Emmy<sup class="text-[0.6em] ml-0.5">®</sup> Nominee: Best Directing For A Variety Series
                 </div>
             </div>
         </div>
