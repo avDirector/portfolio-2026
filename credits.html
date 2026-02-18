@@ -38,25 +38,27 @@
 
         .kn-full { 
             font-family: 'Knockout-Full', sans-serif; 
-            letter-spacing: -0.02em; /* Tighter spacing like homepage */
+            letter-spacing: -0.02em; 
         }
 
-        /* --- THE OVERLAPPING HEADER --- */
+        /* --- THE ALIGNMENT & OVERLAP --- */
         .masthead-container {
             position: relative;
-            margin-bottom: 4rem;
+            margin-bottom: 5rem;
         }
 
         .masthead-name {
-            font-size: 9.5vw; 
+            font-size: 10vw; 
             line-height: 0.8;
-            opacity: 0.12; 
+            opacity: 0.1; 
             white-space: nowrap;
-            margin-left: -0.03em; /* Aligns visually with the logo edge */
+            /* Negative margin-left to counteract font-kerning and pin the 'A' to the far left edge */
+            margin-left: -0.06em; 
         }
 
         .credits-title-wrapper {
-            margin-top: -4.5vw; /* This creates the vertical overlap */
+            /* Pulling Credits up to overlap the Name */
+            margin-top: -5vw; 
             position: relative;
             z-index: 2;
         }
@@ -97,71 +99,60 @@
 
     <div class="page-bg"></div>
 
-    <nav class="max-w-7xl mx-auto flex justify-between items-center mb-16 md:mb-24 relative z-50">
-        <a href="index.html" class="tracking-tighter flex items-baseline opacity-80 kn-full text-3xl md:text-5xl">
-            <span>A</span><span style="font-family: 'Knockout-Junior', sans-serif; margin-left: -2px;">V</span>
-        </a>
-        <div class="flex items-center gap-6 md:gap-12 font-bold text-[10px] md:text-[13px] tracking-[0.35em]">
-            <a href="portfolio.html" class="nav-link">Portfolio</a>
-            <span class="opacity-20 hidden md:inline">|</span>
-            <a href="credits.html" class="opacity-100">Credits</a>
-            <span class="opacity-20 hidden md:inline">|</span>
-            <a href="about.html" class="nav-link">About</a>
-            <span class="opacity-20 hidden md:inline">|</span>
-            <a href="mailto:alex@yourdomain.com" class="nav-link">Contact</a>
-        </div>
-    </nav>
-
-    <main class="max-w-7xl mx-auto">
+    <div class="max-w-7xl mx-auto">
         
-        <div class="masthead-container">
-            <div class="masthead-name kn-full">
-                <span>ALEXANDER</span> 
-                <span style="font-family: 'Knockout-Junior', sans-serif; margin-left: -0.02em; letter-spacing: -0.05em;">VIETMEIER</span>
+        <nav class="w-full flex justify-between items-center mb-16 md:mb-32 relative z-50">
+            <a href="index.html" class="tracking-tighter flex items-baseline opacity-80 kn-full text-3xl md:text-5xl -ml-1">
+                <span>A</span><span style="font-family: 'Knockout-Junior', sans-serif; margin-left: -2px;">V</span>
+            </a>
+            <div class="flex items-center gap-6 md:gap-12 font-bold text-[10px] md:text-[13px] tracking-[0.35em]">
+                <a href="portfolio.html" class="nav-link">Portfolio</a>
+                <span class="opacity-20 hidden md:inline">|</span>
+                <a href="credits.html" class="opacity-100">Credits</a>
+                <span class="opacity-20 hidden md:inline">|</span>
+                <a href="about.html" class="nav-link">About</a>
+                <span class="opacity-20 hidden md:inline">|</span>
+                <a href="mailto:alex@yourdomain.com" class="nav-link">Contact</a>
+            </div>
+        </nav>
+
+        <main>
+            <div class="masthead-container">
+                <div class="masthead-name kn-full">
+                    <span>ALEXANDER</span> 
+                    <span style="font-family: 'Knockout-Junior', sans-serif; margin-left: -0.02em; letter-spacing: -0.05em;">VIETMEIER</span>
+                </div>
+                
+                <div class="credits-title-wrapper flex flex-col md:flex-row md:items-end justify-between border-b border-white/20 pb-8">
+                    <h1 class="kn-full text-7xl md:text-9xl tracking-tighter leading-none">Credits</h1>
+                    <a href="Alexander_Vietmeier_Resume.pdf" target="_blank" class="pb-1 text-[10px] md:text-[12px] tracking-[0.3em] opacity-50 uppercase mt-6 md:mt-0 border-b border-white/10 hover:border-white hover:opacity-100 transition-all">
+                        Download PDF Resume
+                    </a>
+                </div>
             </div>
             
-            <div class="credits-title-wrapper flex flex-col md:flex-row md:items-end justify-between border-b border-white/20 pb-8">
-                <h1 class="kn-full text-7xl md:text-9xl tracking-tighter leading-none">Credits</h1>
-                <a href="Alexander_Vietmeier_Resume.pdf" target="_blank" class="pb-1 text-[10px] md:text-[12px] tracking-[0.3em] opacity-50 uppercase mt-6 md:mt-0 border-b border-white/10 hover:border-white hover:opacity-100 transition-all">
-                    Download PDF Resume
-                </a>
-            </div>
-        </div>
-        
-        <div class="hidden md:grid grid-cols-12 gap-4 pb-6 px-2 border-b border-white/5">
-            <div class="col-span-5 table-header-text">Project / Title</div>
-            <div class="col-span-3 table-header-text text-center">Network / Client</div>
-            <div class="col-span-1 table-header-text text-center">Year</div>
-            <div class="col-span-3 table-header-text text-right">Role</div>
-        </div>
-
-        <div class="flex flex-col">
-            
-            <div class="credit-row py-6 md:py-10 flex flex-col md:grid md:grid-cols-12 gap-4 items-baseline px-2">
-                <div class="w-full md:col-span-5">
-                    <div class="text-2xl md:text-3xl lg:text-4xl kn-full uppercase leading-none whitespace-nowrap">Late Night with Seth Meyers</div>
-                </div>
-                <div class="w-full md:col-span-3 md:text-center text-lg md:text-xl text-white/70">NBC</div>
-                <div class="col-span-1 text-center text-lg text-white/40 font-mono">2014—2026</div>
-                <div class="w-full md:col-span-3 md:text-right">
-                    <div class="text-xl md:text-2xl text-white/90 kn-full leading-none">Director</div>
-                    <div class="text-[9px] emmy-blue tracking-[0.2em] mt-2 font-bold uppercase">2x Emmy Nominee: Directing</div>
-                </div>
+            <div class="hidden md:grid grid-cols-12 gap-4 pb-6 px-2 border-b border-white/5">
+                <div class="col-span-5 table-header-text">Project / Title</div>
+                <div class="col-span-3 table-header-text text-center">Network / Client</div>
+                <div class="col-span-1 table-header-text text-center">Year</div>
+                <div class="col-span-3 table-header-text text-right">Role</div>
             </div>
 
-            <div class="credit-row py-6 md:py-10 flex flex-col md:grid md:grid-cols-12 gap-4 items-baseline px-2">
-                <div class="w-full md:col-span-5">
-                    <div class="text-2xl md:text-3xl lg:text-4xl kn-full uppercase leading-none whitespace-nowrap">Macy's Thanksgiving Day Parade</div>
+            <div class="flex flex-col">
+                <div class="credit-row py-6 md:py-10 flex flex-col md:grid md:grid-cols-12 gap-4 items-baseline px-2">
+                    <div class="w-full md:col-span-5">
+                        <div class="text-2xl md:text-3xl lg:text-4xl kn-full uppercase leading-none whitespace-nowrap">Late Night with Seth Meyers</div>
+                    </div>
+                    <div class="w-full md:col-span-3 md:text-center text-lg md:text-xl text-white/70">NBC</div>
+                    <div class="col-span-1 text-center text-lg text-white/40 font-mono">2014—2026</div>
+                    <div class="w-full md:col-span-3 md:text-right">
+                        <div class="text-xl md:text-2xl text-white/90 kn-full leading-none">Director</div>
+                        <div class="text-[9px] emmy-blue tracking-[0.2em] mt-2 font-bold uppercase">2x Emmy Nominee: Directing</div>
+                    </div>
                 </div>
-                <div class="w-full md:col-span-3 md:text-center text-lg md:text-xl text-white/70">NBC</div>
-                <div class="col-span-1 text-center text-lg text-white/40 font-mono">2019—2023</div>
-                <div class="w-full md:col-span-3 md:text-right text-xl md:text-2xl text-white/90 kn-full leading-none">
-                    Segment Director
                 </div>
-            </div>
-
-        </div>
-    </main>
+        </main>
+    </div>
 
     <footer class="h-64"></footer>
 
