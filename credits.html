@@ -42,9 +42,19 @@
             display: flex; align-items: baseline;
         }
         .header-signature span { font-family: 'Knockout-Junior'; margin-left: 1px; opacity: 0.85; }
-        .nav-link { font-size: 13px; font-weight: bold; letter-spacing: 0.35em; color: rgba(255, 255, 255, 0.3); }
-        .nav-link.active { color: #fff; }
-        .nav-pipe { color: rgba(255, 255, 255, 0.2); margin: 0 4px; }
+        .nav-link { 
+    font-size: 13px; 
+    opacity: 0.4; 
+    letter-spacing: 0.35em; 
+    transition: opacity 0.3s; 
+    color: #fff; 
+}
+.nav-link:hover, .nav-link.active { 
+    opacity: 1; 
+}
+.nav-pipe { 
+    color: #fff; 
+}
         .bookend-bar { width: 100%; height: 2px; background: rgba(255, 255, 255, 0.12); }
 
         /* MASTHEAD */
@@ -109,18 +119,21 @@
 
     <div class="page-bg"></div>
 
-    <nav class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center mb-4 gap-8">
-        <a href="index.html" class="header-signature">ALEXANDER<span>VIETMEIER</span></a>
-        <div class="flex items-center gap-4 md:gap-6">
-            <a href="portfolio.html" class="nav-link">Portfolio</a>
-            <span class="nav-pipe">|</span>
-            <a href="credits.html" class="nav-link active">Credits</a>
-            <span class="nav-pipe">|</span>
-            <a href="about.html" class="nav-link">About</a>
-            <span class="nav-pipe">|</span>
-            <a href="mailto:alex@yourdomain.com" class="nav-link">Contact</a>
-        </div>
-    </nav>
+    <nav class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center mb-4 gap-8 relative z-50">
+    <a href="index.html" class="brand-logo tracking-tighter flex items-baseline opacity-80" style="font-family: 'Knockout-Full', sans-serif; font-size: 2.2rem;">
+        <span>A</span><span style="font-family: 'Knockout-Junior', sans-serif; margin-left: -2px;">V</span>
+    </a>
+    
+    <div class="nav-container flex items-center font-bold" style="font-family: 'Knockout-Junior', sans-serif;">
+        <a href="portfolio.html" class="nav-link">Portfolio</a>
+        <span class="nav-pipe opacity-40 mx-4">|</span>
+        <a href="credits.html" class="nav-link active">Credits</a>
+        <span class="nav-pipe opacity-40 mx-4">|</span>
+        <a href="about.html" class="nav-link">About</a>
+        <span class="nav-pipe opacity-40 mx-4">|</span>
+        <a href="mailto:alex@yourdomain.com" class="nav-link">Contact</a>
+    </div>
+</nav>
 
     <div class="max-w-7xl mx-auto bookend-bar"></div>
 

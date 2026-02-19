@@ -38,6 +38,7 @@
             display: flex;
             flex-direction: column;
             box-sizing: border-box;
+            cursor: pointer;
         }
 
         .video-background {
@@ -48,7 +49,6 @@
             overflow: hidden;
         }
 
-        /* Desktop Video Styling (Edge-to-Edge) */
         .video-background iframe {
             position: absolute;
             top: 50%; left: 50%;
@@ -63,6 +63,53 @@
             top: 0; left: 0; width: 100%; height: 100%;
             background: rgba(0, 0, 0, 0.4);
             z-index: -1;
+            transition: background 0.4s ease;
+        }
+
+        .hero-container:hover .video-overlay {
+            background: rgba(0, 0, 0, 0.2);
+        }
+
+        /* --- PLAY INDICATOR --- */
+        .play-indicator {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1rem;
+            pointer-events: none;
+            z-index: 10;
+        }
+
+        .play-circle {
+            width: 80px;
+            height: 80px;
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            backdrop-filter: blur(4px);
+            transition: all 0.4s ease;
+        }
+
+        .play-text {
+            font-family: 'Knockout-Junior', sans-serif;
+            letter-spacing: 0.4em;
+            font-size: 12px;
+            opacity: 0.7;
+        }
+
+        .hero-container:hover .play-circle {
+            background: #fff;
+            transform: scale(1.1);
+        }
+        
+        .hero-container:hover .play-circle svg {
+            fill: #000;
         }
 
         /* --- TYPOGRAPHY BASE --- */
@@ -77,40 +124,21 @@
         #role-list { transition: transform 0.7s cubic-bezier(0.23, 1, 0.32, 1); }
         .role-item { height: 1.1em; display: flex; align-items: center; }
 
-        /* --- MOBILE LAYOUT (With Vertical Video Logic) --- */
+        /* --- MOBILE LAYOUT --- */
         @media (max-width: 768px) {
-            .hero-container {
-                padding: 1rem 1.5rem;
-                justify-content: flex-start;
-            }
-
-            /* Adjusts for a Vertical Video Framing */
-            .video-background iframe {
-                width: 100vw !important;
-                height: 177.77vw !important; /* 9:16 Aspect Ratio */
-                min-height: 0 !important;
-                min-width: 0 !important;
-                top: 35% !important; /* Slightly lower to center a vertical reel */
-                transform: translate(-50%, -50%) !important;
-            }
-
-            .bottom-info-group {
-                width: 100%;
-                margin-top: calc(27vh + 32vw); 
-            }
-
+            .hero-container { padding: 1rem 1.5rem; justify-content: flex-start; }
+            .play-circle { width: 60px; height: 60px; }
+            .bottom-info-group { width: 100%; margin-top: calc(27vh + 32vw); }
             .alexander { font-size: 9.5vw; }
             .vietmeier { font-size: 9vw; }
             .brand-logo { font-size: 1.875rem; }
             .nav-link { font-size: 10px; opacity: 0.5; letter-spacing: 0.25em; }
             .nav-pipe { display: none; }
             .nav-container { gap: 1rem; }
-            
             .director-group { font-size: 1.15rem !important; margin-top: -4px; font-family: 'Knockout-Full'; }
             .subhead-junior { font-size: 0.65rem !important; margin-top: 2px; font-family: 'Knockout-Junior'; }
         }
 
-        /* --- DESKTOP REVISIONS --- */
         @media (min-width: 769px) {
             .hero-container { padding: 3rem; justify-content: space-between; }
             .alexander { font-size: 8.5vw; }
@@ -124,14 +152,24 @@
 </head>
 <body>
 
-    <section class="hero-container">
+    <section class="hero-container" onclick="openModal('https://player.vimeo.com/video/1166002140')">
+        
         <div class="video-background">
-            <iframe id="hero-video" src="" frameborder="0" allow="autoplay; fullscreen"></iframe>
+            <iframe id="bg-video-frame" src="" frameborder="0" allow="autoplay; fullscreen"></iframe>
         </div>
 
         <div class="video-overlay"></div>
 
-        <nav class="w-full flex justify-between items-center relative z-50">
+        <div class="play-indicator">
+            <div class="play-circle">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg" style="margin-left: 4px;">
+                    <path d="M8 5V19L19 12L8 5Z" />
+                </svg>
+            </div>
+            <span class="play-text">Watch Reel</span>
+        </div>
+
+        <nav class="w-full flex justify-between items-center relative z-50" onclick="event.stopPropagation()">
             <a href="index.html" class="brand-logo tracking-tighter flex items-baseline opacity-80" style="font-family: 'Knockout-Full', sans-serif;">
                 <span>A</span><span style="font-family: 'Knockout-Junior', sans-serif; margin-left: -2px;">V</span>
             </a>
@@ -172,17 +210,57 @@
         </div>
     </section>
 
-    <script>
-        // --- SMART VIDEO LOADER ---
-        const videoElement = document.getElementById('hero-video');
-        const desktopID = "1166002140"; // Your wide-screen reel
-        const mobileID = "YOUR_VERTICAL_VIDEO_ID"; // Put your vertical reel ID here
+    <div id="videoModal" class="fixed inset-0 z-[100] hidden flex items-center justify-center bg-black/95 p-4 md:p-10">
+        <button onclick="closeModal(event)" class="absolute top-6 right-6 text-white text-4xl font-light hover:opacity-50 transition-opacity">&times;</button>
+        <div class="w-full max-w-5xl aspect-video bg-black shadow-2xl">
+            <iframe id="modalPlayer" src="" class="w-full h-full" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
+        </div>
+    </div>
 
+    <script>
+        // --- BACKGROUND VIDEO LOADING ---
+        const bgFrame = document.getElementById('bg-video-frame');
+        const desktopID = "1166002140"; 
         const isMobile = window.innerWidth <= 768;
-        const selectedID = isMobile ? mobileID : desktopID;
         
-        // Construct the Vimeo Background URL
-        videoElement.src = `https://player.vimeo.com/video/${selectedID}?background=1&autoplay=1&loop=1&byline=0&title=0&muted=1`;
+        // We only load this once at start
+        bgFrame.src = `https://player.vimeo.com/video/${desktopID}?background=1&autoplay=1&loop=1&byline=0&title=0&muted=1`;
+
+        // --- MODAL LOGIC ---
+        function openModal(videoUrl) {
+            const modal = document.getElementById('videoModal');
+            const player = document.getElementById('modalPlayer');
+            
+            // Set the modal player src to the reel
+            player.src = videoUrl + "?autoplay=1";
+            modal.classList.remove('hidden');
+            
+            // Stop background interactions
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal(e) {
+            if(e) e.stopPropagation(); // Prevent the background click from re-triggering
+            const modal = document.getElementById('videoModal');
+            const player = document.getElementById('modalPlayer');
+            
+            modal.classList.add('hidden');
+            // ONLY clear the modal player, not the background frame
+            player.src = ""; 
+            document.body.style.overflow = 'auto';
+        }
+
+        // --- NAVIGATION & EVENT STOPPAGE ---
+        document.querySelectorAll('nav a').forEach(link => {
+            link.onclick = (e) => e.stopPropagation();
+        });
+
+        window.onclick = function(event) {
+            const modal = document.getElementById('videoModal');
+            if (event.target == modal) {
+                closeModal();
+            }
+        }
 
         // --- SCROLLER LOGIC ---
         const roleList = document.getElementById("role-list");
