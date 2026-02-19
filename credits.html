@@ -41,6 +41,16 @@
             letter-spacing: 0.04em; 
         }
 
+        .section-header {
+            font-family: 'Knockout-Full', sans-serif;
+            font-size: 1.25rem;
+            letter-spacing: 0.15em;
+            color: rgba(255, 255, 255, 0.2);
+            padding-bottom: 1rem;
+            margin-top: 4rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
         .table-header-text {
             font-family: 'Knockout-Junior', sans-serif;
             font-size: 13px;
@@ -60,9 +70,6 @@
                 background: rgba(255,255,255,0.03);
                 padding-left: 1.5rem; 
                 border-bottom-color: rgba(255,255,255,0.2);
-            }
-            .credits-group:hover .table-header-text {
-                opacity: 0.2;
             }
         }
 
@@ -98,7 +105,7 @@
         </div>
     </nav>
 
-    <main class="max-w-7xl mx-auto credits-group">
+    <main class="max-w-7xl mx-auto">
         <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 md:mb-16 border-b border-white/20 pb-8">
             <h1 class="kn-full text-7xl md:text-9xl tracking-normal leading-none">Credits</h1>
             <a href="Alexander_Vietmeier_Resume.pdf" target="_blank" class="pb-1 text-[10px] md:text-[12px] tracking-[0.3em] opacity-50 uppercase mt-6 md:mt-0 border-b border-white/20 hover:border-white hover:opacity-100 transition-all">
@@ -106,6 +113,8 @@
             </a>
         </div>
         
+        <h2 class="section-header mb-8">Talk & Variety</h2>
+
         <div class="hidden md:grid grid-cols-12 gap-4 pb-6 px-2 border-b border-white/5">
             <div class="col-span-5 table-header-text">Project / Title</div>
             <div class="col-span-3 table-header-text text-center">Network / Client</div>
@@ -114,47 +123,56 @@
         </div>
 
         <div class="flex flex-col">
-            
             <div class="credit-row py-6 md:py-10 flex flex-col md:grid md:grid-cols-12 gap-4 items-baseline px-2">
                 <div class="w-full md:col-span-5">
-                    <div class="md:hidden label-style">Project</div>
-                    <div class="text-2xl md:text-3xl lg:text-4xl kn-full uppercase leading-none whitespace-nowrap">Late Night with Seth Meyers</div>
+                    <div class="text-2xl md:text-3xl lg:text-4xl kn-full uppercase leading-none">Late Night with Seth Meyers</div>
                 </div>
-                <div class="w-full md:col-span-3 md:text-center">
-                    <div class="md:hidden label-style">Network</div>
-                    <div class="text-lg md:text-xl text-white/70">NBC</div>
-                </div>
-                <div class="col-span-1 text-center">
-                    <div class="md:hidden label-style">Year</div>
-                    <div class="text-lg text-white/40 font-mono tracking-tighter">2014—2026</div>
-                </div>
+                <div class="w-full md:col-span-3 md:text-center text-lg md:text-xl text-white/70">NBC</div>
+                <div class="col-span-1 text-center text-lg text-white/40 font-mono tracking-tighter">2014—2026</div>
                 <div class="w-full md:col-span-3 md:text-right">
-                    <div class="md:hidden label-style">Role</div>
                     <div class="text-xl md:text-2xl text-white/90 kn-full leading-none">Director</div>
-                    <div class="text-[9px] emmy-blue tracking-[0.2em] mt-2 font-bold uppercase">2x Emmy Nominee: Outstanding Directing</div>
+                    <div class="text-[9px] emmy-blue tracking-[0.2em] mt-2 font-bold uppercase">2x Emmy Nominee: Directing</div>
                 </div>
             </div>
 
             <div class="credit-row py-6 md:py-10 flex flex-col md:grid md:grid-cols-12 gap-4 items-baseline px-2">
                 <div class="w-full md:col-span-5">
-                    <div class="md:hidden label-style">Project</div>
-                    <div class="text-2xl md:text-3xl lg:text-4xl kn-full uppercase leading-none whitespace-nowrap">Macy's Thanksgiving Day Parade</div>
+                    <div class="text-2xl md:text-3xl lg:text-4xl kn-full uppercase leading-none">The Tonight Show Starring Jimmy Fallon</div>
                 </div>
-                <div class="w-full md:col-span-3 md:text-center">
-                    <div class="md:hidden label-style">Network</div>
-                    <div class="text-lg md:text-xl text-white/70">NBC</div>
-                </div>
-                <div class="col-span-1 text-center">
-                    <div class="md:hidden label-style">Year</div>
-                    <div class="text-lg text-white/40 font-mono tracking-tighter">2019—2023</div>
-                </div>
+                <div class="w-full md:col-span-3 md:text-center text-lg md:text-xl text-white/70">NBC</div>
+                <div class="col-span-1 text-center text-lg text-white/40 font-mono tracking-tighter">2014</div>
                 <div class="w-full md:col-span-3 md:text-right">
-                    <div class="md:hidden label-style">Role</div>
+                    <div class="text-xl md:text-2xl text-white/90 kn-full leading-none">Associate Director</div>
+                </div>
+            </div>
+        </div>
+
+        <h2 class="section-header mb-8">Live Events & Awards</h2>
+
+        <div class="flex flex-col">
+            <div class="credit-row py-6 md:py-10 flex flex-col md:grid md:grid-cols-12 gap-4 items-baseline px-2">
+                <div class="w-full md:col-span-5">
+                    <div class="text-2xl md:text-3xl lg:text-4xl kn-full uppercase leading-none">Macy's Thanksgiving Day Parade</div>
+                </div>
+                <div class="w-full md:col-span-3 md:text-center text-lg md:text-xl text-white/70">NBC</div>
+                <div class="col-span-1 text-center text-lg text-white/40 font-mono tracking-tighter">2019—2023</div>
+                <div class="w-full md:col-span-3 md:text-right">
                     <div class="text-xl md:text-2xl text-white/90 kn-full leading-none">Segment Director</div>
                 </div>
             </div>
 
+            <div class="credit-row py-6 md:py-10 flex flex-col md:grid md:grid-cols-12 gap-4 items-baseline px-2">
+                <div class="w-full md:col-span-5">
+                    <div class="text-2xl md:text-3xl lg:text-4xl kn-full uppercase leading-none">The 74th Annual Tony Awards</div>
+                </div>
+                <div class="w-full md:col-span-3 md:text-center text-lg md:text-xl text-white/70">CBS / Paramount+</div>
+                <div class="col-span-1 text-center text-lg text-white/40 font-mono tracking-tighter">2021</div>
+                <div class="w-full md:col-span-3 md:text-right">
+                    <div class="text-xl md:text-2xl text-white/90 kn-full leading-none">Associate Director</div>
+                </div>
+            </div>
         </div>
+
     </main>
 
     <footer class="h-32"></footer>
