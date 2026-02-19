@@ -5,8 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Credits | Alexander Vietmeier</title>
     
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22 fill=%22white%22 font-family=%22sans-serif%22 font-weight=%22bold%22>AV</text></svg>">
-
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         @font-face { 
@@ -22,160 +20,200 @@
 
         body {
             background-color: #000;
-            color: #fff;
+            color: rgba(255, 255, 255, 0.6); 
             text-transform: uppercase;
             font-family: 'Knockout-Junior', sans-serif;
             -webkit-font-smoothing: antialiased;
-            min-height: 100vh;
         }
 
         .page-bg {
             position: fixed;
             top: 0; left: 0; width: 100%; height: 100%;
             z-index: -1;
-            background: radial-gradient(circle at 50% -10%, #161616 0%, #000 60%);
+            background: radial-gradient(circle at 50% 0%, #1a1a1a 0%, #000 80%);
         }
 
-        .kn-full { 
-            font-family: 'Knockout-Full', sans-serif; 
-            letter-spacing: 0.04em; 
-        }
-
-        .section-header {
+        /* NAVIGATION */
+        .header-signature {
             font-family: 'Knockout-Full', sans-serif;
-            font-size: 1.25rem;
-            letter-spacing: 0.15em;
-            color: rgba(255, 255, 255, 0.2);
-            padding-bottom: 1rem;
-            margin-top: 4rem;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 2.2rem;
+            letter-spacing: -0.02em;
+            color: rgba(255, 255, 255, 0.8);
+            display: flex; align-items: baseline;
+        }
+        .header-signature span { font-family: 'Knockout-Junior'; margin-left: 1px; opacity: 0.85; }
+        .nav-link { font-size: 13px; font-weight: bold; letter-spacing: 0.35em; color: rgba(255, 255, 255, 0.3); }
+        .nav-link.active { color: #fff; }
+        .nav-pipe { color: rgba(255, 255, 255, 0.2); margin: 0 4px; }
+        .bookend-bar { width: 100%; height: 2px; background: rgba(255, 255, 255, 0.12); }
+
+        /* MASTHEAD */
+        .masthead-container { display: flex; flex-direction: column; align-items: flex-end; margin-top: 3.5rem; margin-bottom: 0; }
+        .main-title { font-family: 'Knockout-Full', sans-serif; font-size: clamp(4rem, 8vw, 6rem); line-height: 0.7; color: rgba(255, 255, 255, 0.9); text-align: right; }
+        .selected-sub { font-family: 'Knockout-Junior'; font-size: 13px; letter-spacing: 0.38em; color: rgba(255, 255, 255, 0.45); margin-top: 2px; padding-right: 2px; }
+
+        /* SECTION HEADERS */
+        .section-header { 
+            font-family: 'Knockout-Full', sans-serif; 
+            font-size: 1.1rem; 
+            letter-spacing: 0.5em; 
+            color: rgba(255, 255, 255, 0.65); 
+            border-bottom: 2px solid rgba(255, 255, 255, 0.2); 
+            padding-bottom: 0.8rem; 
+            margin-top: 0.75rem; 
+            margin-bottom: 0.1rem;
+            display: flex;
+            align-items: baseline;
         }
 
-        .table-header-text {
-            font-family: 'Knockout-Junior', sans-serif;
-            font-size: 13px;
-            letter-spacing: 0.25em;
-            color: rgba(255, 255, 255, 0.4);
-            transition: opacity 0.4s ease;
-        }
+        .header-number { 
+            width: 4rem; 
+            flex-shrink: 0; 
+            display: inline-flex;
+            justify-content: space-between;
+            padding-right: 0.5rem; 
+            white-space: nowrap;
+        } 
+        .section-pipe { opacity: 0.4; color: #fff; }
 
-        .credit-row {
-            border-bottom: 1px solid rgba(255,255,255,0.08);
-            transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
-            position: relative;
-        }
+        /* CREDIT STACK */
+        .credit-stack { margin-left: 0; }
+        @media (min-width: 768px) { .credit-stack { margin-left: 4rem; } }
+        
+        .credit-entry { padding: 1.1rem 0 1.4rem 0; border-bottom: 1px solid rgba(255, 255, 255, 0.15); }
+        .role-label { font-family: 'Knockout-Full', sans-serif; font-size: 0.85rem; letter-spacing: 0.2em; color: rgba(255, 255, 255, 0.45); margin-bottom: 0.3rem; display: block; }
+        .credit-title { font-family: 'Knockout-Full', sans-serif; font-size: 2.2rem; color: rgba(255, 255, 255, 0.9); line-height: 0.95; transition: color 0.3s; margin-bottom: 0.4rem; }
+        .credit-entry:hover .credit-title { color: #fff; }
+        
+        .emmy-badge { color: #38bdf8; font-family: 'Knockout-Full', sans-serif; font-size: 0.8rem; letter-spacing: 0.12em; margin-bottom: 0.3rem; display: block; }
+        .meta-info { font-family: 'Knockout-Junior', sans-serif; font-size: 1.05rem; color: rgba(255, 255, 255, 0.45); letter-spacing: 0.12em; }
+        .meta-pipe { color: rgba(255, 255, 255, 0.2); margin: 0 10px; }
 
-        @media (min-width: 769px) {
-            .credit-row:hover {
-                background: rgba(255,255,255,0.03);
-                padding-left: 1.5rem; 
-                border-bottom-color: rgba(255,255,255,0.2);
-            }
-        }
+        /* RECURRING LIST */
+        .recurring-list { margin-top: 1.1rem; border-left: 1px solid rgba(255, 255, 255, 0.25); padding-left: 1.5rem; }
+        .recurring-item { margin-bottom: 0.5rem; display: flex; align-items: baseline; gap: 12px; }
+        .rec-year { font-family: ui-monospace, monospace; font-size: 11px; color: rgba(255, 255, 255, 0.4); width: 35px; }
+        .rec-detail { font-family: 'Knockout-Full', sans-serif; font-size: 1rem; color: rgba(255, 255, 255, 0.55); letter-spacing: 0.03em; }
 
-        .label-style {
-            font-size: 0.75rem;
-            letter-spacing: 0.2em;
-            opacity: 0.3;
-            margin-bottom: 4px;
+        /* FOOTER */
+        .footer-logo { 
+            font-family: 'Knockout-Full', sans-serif; 
+            font-size: 3.5rem; 
+            color: rgba(255, 255, 255, 0.8); 
+            line-height: 1; 
         }
-
-        .emmy-blue {
-            color: #38bdf8;
-            text-shadow: 0 0 15px rgba(56, 189, 248, 0.2);
-        }
+        .footer-logo span { font-family: 'Knockout-Junior'; margin-left: -2px; }
     </style>
 </head>
-<body class="p-6 md:p-12">
+<body class="p-6 md:p-12 lg:px-20">
 
     <div class="page-bg"></div>
 
-    <nav class="w-full flex justify-between items-center mb-16 md:mb-24 relative z-50">
-        <a href="index.html" class="tracking-tighter flex items-baseline opacity-80 kn-full text-3xl md:text-5xl">
-            <span>A</span><span style="font-family: 'Knockout-Junior', sans-serif; margin-left: -2px;">V</span>
-        </a>
-        <div class="flex items-center gap-6 md:gap-12 font-bold text-[10px] md:text-[13px] tracking-[0.35em]">
-            <a href="portfolio.html" class="opacity-50 hover:opacity-100 transition-opacity">Portfolio</a>
-            <span class="opacity-20 hidden md:inline">|</span>
-            <a href="credits.html" class="opacity-100">Credits</a>
-            <span class="opacity-20 hidden md:inline">|</span>
-            <a href="about.html" class="opacity-50 hover:opacity-100 transition-opacity">About</a>
-            <span class="opacity-20 hidden md:inline">|</span>
-            <a href="mailto:alex@yourdomain.com" class="opacity-50 hover:opacity-100 transition-opacity">Contact</a>
+    <nav class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center mb-4 gap-8">
+        <a href="index.html" class="header-signature">ALEXANDER<span>VIETMEIER</span></a>
+        <div class="flex items-center gap-4 md:gap-6">
+            <a href="portfolio.html" class="nav-link">Portfolio</a>
+            <span class="nav-pipe">|</span>
+            <a href="credits.html" class="nav-link active">Credits</a>
+            <span class="nav-pipe">|</span>
+            <a href="about.html" class="nav-link">About</a>
+            <span class="nav-pipe">|</span>
+            <a href="mailto:alex@yourdomain.com" class="nav-link">Contact</a>
         </div>
     </nav>
 
-    <main class="max-w-7xl mx-auto">
-        <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 md:mb-16 border-b border-white/20 pb-8">
-            <h1 class="kn-full text-7xl md:text-9xl tracking-normal leading-none">Credits</h1>
-            <a href="Alexander_Vietmeier_Resume.pdf" target="_blank" class="pb-1 text-[10px] md:text-[12px] tracking-[0.3em] opacity-50 uppercase mt-6 md:mt-0 border-b border-white/20 hover:border-white hover:opacity-100 transition-all">
-                Download Full Resume (PDF)
-            </a>
-        </div>
-        
-        <h2 class="section-header mb-8">Talk & Variety</h2>
+    <div class="max-w-7xl mx-auto bookend-bar"></div>
 
-        <div class="hidden md:grid grid-cols-12 gap-4 pb-6 px-2 border-b border-white/5">
-            <div class="col-span-5 table-header-text">Project / Title</div>
-            <div class="col-span-3 table-header-text text-center">Network / Client</div>
-            <div class="col-span-1 table-header-text text-center">Year</div>
-            <div class="col-span-3 table-header-text text-right">Role</div>
+    <main class="max-w-7xl mx-auto px-4 md:px-8 pb-32">
+        <div class="masthead-container">
+            <h1 class="main-title">Credits</h1>
+            <span class="selected-sub">SELECTED WORKS</span>
         </div>
 
-        <div class="flex flex-col">
-            <div class="credit-row py-6 md:py-10 flex flex-col md:grid md:grid-cols-12 gap-4 items-baseline px-2">
-                <div class="w-full md:col-span-5">
-                    <div class="text-2xl md:text-3xl lg:text-4xl kn-full uppercase leading-none">Late Night with Seth Meyers</div>
-                </div>
-                <div class="w-full md:col-span-3 md:text-center text-lg md:text-xl text-white/70">NBC</div>
-                <div class="col-span-1 text-center text-lg text-white/40 font-mono tracking-tighter">2014—2026</div>
-                <div class="w-full md:col-span-3 md:text-right">
-                    <div class="text-xl md:text-2xl text-white/90 kn-full leading-none">Director</div>
-                    <div class="text-[9px] emmy-blue tracking-[0.2em] mt-2 font-bold uppercase">2x Emmy Nominee: Directing</div>
-                </div>
+        <h2 class="section-header">
+            <span class="header-number">01 <span class="section-pipe">|</span></span>
+            <span>Talk & Variety</span>
+        </h2>
+        <div class="credit-stack">
+            <div class="credit-entry">
+                <span class="role-label">DIRECTOR</span>
+                <h3 class="credit-title">Late Night with Seth Meyers</h3>
+                <span class="emmy-badge">2X EMMY NOMINEE <span class="mx-2 opacity-20">|</span> OUTSTANDING DIRECTING</span>
+                <div class="meta-info">NBC <span class="meta-pipe">|</span> 2014—PRESENT</div>
             </div>
-
-            <div class="credit-row py-6 md:py-10 flex flex-col md:grid md:grid-cols-12 gap-4 items-baseline px-2">
-                <div class="w-full md:col-span-5">
-                    <div class="text-2xl md:text-3xl lg:text-4xl kn-full uppercase leading-none">The Tonight Show Starring Jimmy Fallon</div>
-                </div>
-                <div class="w-full md:col-span-3 md:text-center text-lg md:text-xl text-white/70">NBC</div>
-                <div class="col-span-1 text-center text-lg text-white/40 font-mono tracking-tighter">2014</div>
-                <div class="w-full md:col-span-3 md:text-right">
-                    <div class="text-xl md:text-2xl text-white/90 kn-full leading-none">Associate Director</div>
-                </div>
+            <div class="credit-entry">
+                <span class="role-label">DIRECTOR</span>
+                <h3 class="credit-title">The Amber Ruffin Show</h3>
+                <div class="meta-info">PEACOCK <span class="meta-pipe">|</span> 2022</div>
+            </div>
+            <div class="credit-entry">
+                <span class="role-label">DIRECTOR</span>
+                <h3 class="credit-title">Nikki & Sara LIVE</h3>
+                <div class="meta-info">MTV <span class="meta-pipe">|</span> 2013</div>
+            </div>
+            <div class="credit-entry">
+                <span class="role-label">DIRECTOR</span>
+                <h3 class="credit-title">Would You Rather...? with Graham Norton</h3>
+                <div class="meta-info">BBC AMERICA <span class="meta-pipe">|</span> 2011</div>
             </div>
         </div>
 
-        <h2 class="section-header mb-8">Live Events & Awards</h2>
-
-        <div class="flex flex-col">
-            <div class="credit-row py-6 md:py-10 flex flex-col md:grid md:grid-cols-12 gap-4 items-baseline px-2">
-                <div class="w-full md:col-span-5">
-                    <div class="text-2xl md:text-3xl lg:text-4xl kn-full uppercase leading-none">Macy's Thanksgiving Day Parade</div>
-                </div>
-                <div class="w-full md:col-span-3 md:text-center text-lg md:text-xl text-white/70">NBC</div>
-                <div class="col-span-1 text-center text-lg text-white/40 font-mono tracking-tighter">2019—2023</div>
-                <div class="w-full md:col-span-3 md:text-right">
-                    <div class="text-xl md:text-2xl text-white/90 kn-full leading-none">Segment Director</div>
+        <h2 class="section-header">
+            <span class="header-number">02 <span class="section-pipe">|</span></span>
+            <span>Live Events & Specials</span>
+        </h2>
+        <div class="credit-stack">
+            <div class="credit-entry">
+                <span class="role-label">SEGMENT DIRECTOR</span>
+                <h3 class="credit-title">Macy's Thanksgiving Day Parade</h3>
+                <div class="meta-info">NBC <span class="meta-pipe">|</span> ANNUAL LIVE BROADCAST</div>
+                <div class="recurring-list">
+                    <div class="recurring-item"><span class="rec-year">2025</span><span class="rec-detail">Cynthia Erivo Show Open</span></div>
+                    <div class="recurring-item"><span class="rec-year">2024</span><span class="rec-detail">Billy Porter Show Open</span></div>
+                    <div class="recurring-item"><span class="rec-year">2023</span><span class="rec-detail">Jon Batiste Show Open</span></div>
+                    <div class="recurring-item"><span class="rec-year">2022</span><span class="rec-detail">Funny Girl Broadway Open</span></div>
+                    <div class="recurring-item"><span class="rec-year">2019</span><span class="rec-detail">Sesame Street Performance</span></div>
+                    <div class="recurring-item"><span class="rec-year">2018</span><span class="rec-detail">Show Open</span></div>
+                    <div class="recurring-item"><span class="rec-year">2016</span><span class="rec-detail">The Muppets Show Open</span></div>
+                    <div class="recurring-item"><span class="rec-year">2015</span><span class="rec-detail">On Your Feet! Show Open</span></div>
+                    <div class="recurring-item"><span class="rec-year">2014</span><span class="rec-detail">On the Town Show Open</span></div>
                 </div>
             </div>
-
-            <div class="credit-row py-6 md:py-10 flex flex-col md:grid md:grid-cols-12 gap-4 items-baseline px-2">
-                <div class="w-full md:col-span-5">
-                    <div class="text-2xl md:text-3xl lg:text-4xl kn-full uppercase leading-none">The 74th Annual Tony Awards</div>
-                </div>
-                <div class="w-full md:col-span-3 md:text-center text-lg md:text-xl text-white/70">CBS / Paramount+</div>
-                <div class="col-span-1 text-center text-lg text-white/40 font-mono tracking-tighter">2021</div>
-                <div class="w-full md:col-span-3 md:text-right">
-                    <div class="text-xl md:text-2xl text-white/90 kn-full leading-none">Associate Director</div>
+            <div class="credit-entry">
+                <span class="role-label">DIRECTOR</span>
+                <h3 class="credit-title">One Night Only: Best of Broadway</h3>
+                <div class="meta-info">NBC <span class="meta-pipe">|</span> 2020</div>
+            </div>
+            <div class="credit-entry">
+                <span class="role-label">SEGMENT DIRECTOR</span>
+                <h3 class="credit-title">Christmas in Rockefeller Center</h3>
+                <div class="meta-info">NBC <span class="meta-pipe">|</span> PRIMETIME SPECIAL</div>
+                <div class="recurring-list">
+                    <div class="recurring-item"><span class="rec-year">2022</span><span class="rec-detail">Gwen Stefani & Blake Shelton</span></div>
+                    <div class="recurring-item"><span class="rec-year">2019</span><span class="rec-detail">SNL Cast Cold Open</span></div>
                 </div>
             </div>
         </div>
 
+        <h2 class="section-header">
+            <span class="header-number">03 <span class="section-pipe">|</span></span>
+            <span>Digital</span>
+        </h2>
+        <div class="credit-stack">
+            <div class="credit-entry">
+                <span class="role-label">DIRECTOR</span>
+                <h3 class="credit-title">Late Night: Corrections</h3>
+                <span class="emmy-badge">EMMY NOMINEE <span class="mx-2 opacity-20">|</span> OUTSTANDING SHORT FORM SERIES</span>
+                <div class="meta-info">NBC DIGITAL <span class="meta-pipe">|</span> 2022—PRESENT</div>
+            </div>
+        </div>
     </main>
 
-    <footer class="h-32"></footer>
+    <div class="max-w-7xl mx-auto bookend-bar"></div>
+    
+    <footer class="max-w-7xl mx-auto pt-8 flex justify-end items-center px-4 md:px-8 pb-12">
+        <div class="footer-logo">A<span>V</span></div>
+    </footer>
 
 </body>
 </html>

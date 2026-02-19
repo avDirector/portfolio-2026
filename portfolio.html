@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio | Alexander Vietmeier</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @font-face { 
+            font-family: 'Knockout-Full'; 
+            src: url('./fonts/Knockout-HTF70-FullWelterwt.otf') format('opentype'); 
+            font-display: swap;
+        }
+        @font-face { 
+            font-family: 'Knockout-Junior'; 
+            src: url('./fonts/Knockout-HTF30-JuniorWelterwt.otf') format('opentype'); 
+            font-display: swap;
+        }
+
+        body {
+            background-color: #000;
+            color: rgba(255, 255, 255, 0.7); 
+            text-transform: uppercase;
+            font-family: 'Knockout-Junior', sans-serif;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .page-bg {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            z-index: -1;
+            background: radial-gradient(circle at 50% 0%, #1a1a1a 0%, #000 80%);
+        }
+
+        /* NAVIGATION */
+        .nav-logo {
+            font-family: 'Knockout-Full', sans-serif;
+            font-size: 2.2rem;
+            color: rgba(255, 255, 255, 0.9);
+            line-height: 1;
+            display: flex; align-items: baseline;
+        }
+        .nav-logo span { font-family: 'Knockout-Junior'; margin-left: -2px; }
+
+        .nav-link { font-size: 13px; font-weight: bold; letter-spacing: 0.35em; color: rgba(255, 255, 255, 0.3); }
+        .nav-link.active { color: #fff; }
+        .nav-pipe { color: rgba(255, 255, 255, 0.2); margin: 0 4px; }
+        .bookend-bar { width: 100%; height: 2px; background: rgba(255, 255, 255, 0.12); }
+
+        /* MASTHEAD - MATCHING ABOUT PAGE */
+        .masthead-container { 
+            display: flex; 
+            flex-direction: column; 
+            align-items: flex-end; 
+            margin-top: 3.5rem; 
+            margin-bottom: 3rem; 
+        }
+        
+        .main-title { 
+            font-family: 'Knockout-Full', sans-serif; 
+            font-size: clamp(3.5rem, 7vw, 5rem); 
+            line-height: 0.8; 
+            color: rgba(255, 255, 255, 0.9); 
+            text-align: right; 
+            letter-spacing: 0.02em;
+        }
+        .main-title span { font-family: 'Knockout-Junior'; opacity: 0.85; letter-spacing: -0.02em; }
+
+        .selected-sub { 
+            font-family: 'Knockout-Junior'; 
+            font-size: 15px; 
+            letter-spacing: 0.35em; 
+            color: rgba(255, 255, 255, 0.5); 
+            margin-top: 2px; 
+            padding-right: 2px; 
+        }
+        
+        .sub-pipe { color: rgba(255, 255, 255, 0.4); padding: 0 0.5rem; font-weight: bold; }
+
+        .header-rule {
+            width: 100%;
+            height: 1px;
+            background: rgba(255, 255, 255, 0.15);
+            margin-top: 2.5rem; 
+        }
+
+        /* PORTFOLIO GRID */
+        .portfolio-grid {
+            display: grid;
+            grid-template-cols: repeat(1, minmax(0, 1fr));
+            gap: 2rem;
+        }
+        @media (min-width: 768px) {
+            .portfolio-grid { grid-template-cols: repeat(2, minmax(0, 1fr)); }
+        }
+
+        .portfolio-item {
+            position: relative;
+            overflow: hidden;
+            background: #111;
+            aspect-ratio: 16 / 9;
+            cursor: pointer;
+        }
+
+        .portfolio-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: grayscale(100%);
+            transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .portfolio-item:hover img {
+            filter: grayscale(0%);
+            transform: scale(1.03);
+        }
+
+        /* PROJECT OVERLAY */
+        .project-info {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.85) 0%, transparent 60%);
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 1.5rem;
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+
+        .portfolio-item:hover .project-info { opacity: 1; }
+
+        .project-title {
+            font-family: 'Knockout-Full', sans-serif;
+            font-size: 1.75rem;
+            color: #fff;
+            letter-spacing: 0.02em;
+            line-height: 1;
+        }
+
+        .project-category {
+            font-family: 'Knockout-Junior', sans-serif;
+            font-size: 11px;
+            letter-spacing: 0.2em;
+            color: rgba(255, 255, 255, 0.6);
+            margin-top: 6px;
+        }
+
+        /* MODAL STYLES */
+        #videoModal {
+            transition: opacity 0.3s ease;
+        }
+
+        .footer-logo { font-family: 'Knockout-Full', sans-serif; font-size: 3.5rem; color: rgba(255, 255, 255, 0.8); line-height: 1; }
+        .footer-logo span { font-family: 'Knockout-Junior'; margin-left: -2px; }
+    </style>
+</head>
+<body class="p-6 md:p-12 lg:px-20">
+
+    <div class="page-bg"></div>
+
+    <nav class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center mb-4 gap-8">
+        <a href="index.html" class="nav-logo">A<span>V</span></a>
+        
+        <div class="flex items-center gap-4 md:gap-6">
+            <a href="portfolio.html" class="nav-link active">Portfolio</a>
+            <span class="nav-pipe">|</span>
+            <a href="credits.html" class="nav-link">Credits</a>
+            <span class="nav-pipe">|</span>
+            <a href="about.html" class="nav-link">About</a>
+            <span class="nav-pipe">|</span>
+            <a href="mailto:alex@yourdomain.com" class="nav-link">Contact</a>
+        </div>
+    </nav>
+
+    <div class="max-w-7xl mx-auto bookend-bar"></div>
+
+    <main class="max-w-7xl mx-auto px-4 md:px-8 pb-32">
+        
+        <div class="masthead-container">
+            <h1 class="main-title">SELECTED<span>WORKS</span></h1>
+            <span class="selected-sub">BROADCAST <span class="sub-pipe">|</span> VARIETY <span class="sub-pipe">|</span> LIVE</span>
+            <div class="header-rule"></div>
+        </div>
+
+        <div class="portfolio-grid">
+            
+            <div class="portfolio-item md:col-span-2" onclick="openModal('https://player.vimeo.com/video/1166002140')">
+                <img src="images/reel-thumb.jpg" alt="Director Reel">
+                <div class="project-info">
+                    <h3 class="project-title">DIRECTOR REEL</h3>
+                    <p class="project-category">PLAY REEL</p>
+                </div>
+            </div>
+
+            <div class="portfolio-item" onclick="openModal('https://player.vimeo.com/video/YOUR_ID_HERE')">
+                <img src="images/july4th.jpg" alt="Macy's 4th of July">
+                <div class="project-info">
+                    <h3 class="project-title">MACY'S 4TH OF JULY FIREWORKS</h3>
+                    <p class="project-category">NBC | LIVE BROADCAST</p>
+                </div>
+            </div>
+
+            <div class="portfolio-item" onclick="openModal('https://player.vimeo.com/video/YOUR_ID_HERE')">
+                <img src="images/rock-center.jpg" alt="Rockefeller Center Christmas">
+                <div class="project-info">
+                    <h3 class="project-title">CHRISTMAS IN ROCKEFELLER CENTER</h3>
+                    <p class="project-category">NBC | SPECIAL EVENT</p>
+                </div>
+            </div>
+
+            <div class="portfolio-item" onclick="openModal('https://player.vimeo.com/video/YOUR_ID_HERE')">
+                <img src="images/comedy-bits.jpg" alt="Late Night Comedy Bits">
+                <div class="project-info">
+                    <h3 class="project-title">LATE NIGHT COMEDY BITS</h3>
+                    <p class="project-category">LNSM | SKETCH & SPECIALTY SEGMENTS</p>
+                </div>
+            </div>
+
+            <div class="portfolio-item" onclick="openModal('https://player.vimeo.com/video/YOUR_ID_HERE')">
+                <img src="images/live-music.jpg" alt="Live Music">
+                <div class="project-info">
+                    <h3 class="project-title">LIVE MUSIC PERFORMANCE</h3>
+                    <p class="project-category">SELECTED MULTI-CAM SEQUENCES</p>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <div class="max-w-7xl mx-auto bookend-bar"></div>
+    <footer class="max-w-7xl mx-auto pt-8 flex justify-end items-center px-4 md:px-8 pb-12">
+        <div class="footer-logo">A<span>V</span></div>
+    </footer>
+
+    <div id="videoModal" class="fixed inset-0 z-[100] hidden flex items-center justify-center bg-black/95 p-4 md:p-10">
+        <button onclick="closeModal()" class="absolute top-6 right-6 text-white text-4xl font-light hover:opacity-50 transition-opacity">&times;</button>
+        <div class="w-full max-w-5xl aspect-video bg-black shadow-2xl">
+            <iframe id="modalPlayer" src="" class="w-full h-full" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
+        </div>
+    </div>
+
+    <script>
+        function openModal(videoUrl) {
+            const modal = document.getElementById('videoModal');
+            const player = document.getElementById('modalPlayer');
+            player.src = videoUrl + "?autoplay=1";
+            modal.classList.remove('hidden');
+            document.body.style.overflow = 'hidden'; // Stop scrolling
+        }
+
+        function closeModal() {
+            const modal = document.getElementById('videoModal');
+            const player = document.getElementById('modalPlayer');
+            modal.classList.add('hidden');
+            player.src = ""; // Stop video
+            document.body.style.overflow = 'auto'; // Resume scrolling
+        }
+
+        // Close modal if user clicks outside the video frame
+        window.onclick = function(event) {
+            const modal = document.getElementById('videoModal');
+            if (event.target == modal) {
+                closeModal();
+            }
+        }
+    </script>
+
+</body>
+</html>
