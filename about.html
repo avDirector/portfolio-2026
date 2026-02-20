@@ -24,6 +24,7 @@
             text-transform: uppercase;
             font-family: 'Knockout-Junior', sans-serif;
             -webkit-font-smoothing: antialiased;
+            overflow-x: hidden;
         }
 
         .page-bg {
@@ -33,163 +34,137 @@
             background: radial-gradient(circle at 50% 0%, #1a1a1a 0%, #000 80%);
         }
 
-        /* NAVIGATION */
-        .nav-logo {
-            font-family: 'Knockout-Full', sans-serif;
-            font-size: 2.2rem;
-            color: rgba(255, 255, 255, 0.9);
-            line-height: 1;
-            display: flex; align-items: baseline;
-        }
-        .nav-logo span { font-family: 'Knockout-Junior'; margin-left: -2px; }
-
+        /* GLOBAL NAVIGATION - MOBILE OPTIMIZED */
+        .brand-logo { font-family: 'Knockout-Full', sans-serif; }
         .nav-link { 
-    font-size: 13px; 
-    opacity: 0.4; 
-    letter-spacing: 0.35em; 
-    transition: opacity 0.3s; 
-    color: #fff; 
-}
-.nav-link:hover, .nav-link.active { 
-    opacity: 1; 
-}
-.nav-pipe { 
-    color: #fff; 
-}
+            font-size: 11px; 
+            opacity: 0.4; 
+            letter-spacing: 0.2em; 
+            transition: opacity 0.3s; 
+            color: #fff; 
+        }
+        @media (min-width: 768px) {
+            .nav-link { font-size: 13px; letter-spacing: 0.35em; }
+        }
+        .nav-link:hover, .nav-link.active { opacity: 1; }
+        .nav-pipe { color: #fff; }
         .bookend-bar { width: 100%; height: 2px; background: rgba(255, 255, 255, 0.12); }
 
-        /* MASTHEAD - EXPANSIVE SPACING */
+        /* MASTHEAD - FLUID DESIGN */
         .masthead-container { 
             display: flex; 
             flex-direction: column; 
-            align-items: flex-end; 
-            margin-top: 3.5rem; 
-            margin-bottom: 3rem; 
+            align-items: center; /* Centered for mobile */
+            margin-top: 2.5rem; 
+            margin-bottom: 2rem; 
+        }
+        @media (min-width: 768px) {
+            .masthead-container { align-items: flex-end; margin-top: 3.5rem; margin-bottom: 3rem; }
         }
         
         .main-title { 
             font-family: 'Knockout-Full', sans-serif; 
-            font-size: clamp(3.5rem, 7vw, 5rem); 
+            font-size: clamp(2.5rem, 10vw, 5rem); 
             line-height: 0.8; 
             color: rgba(255, 255, 255, 0.9); 
-            text-align: right; 
+            text-align: center; 
             letter-spacing: 0.02em;
         }
-        .main-title span { 
-            font-family: 'Knockout-Junior'; 
-            opacity: 0.85; 
-            letter-spacing: -0.02em; 
+        @media (min-width: 768px) {
+            .main-title { text-align: right; }
         }
+        .main-title span { font-family: 'Knockout-Junior'; opacity: 0.85; letter-spacing: -0.02em; }
 
         .selected-sub { 
             font-family: 'Knockout-Junior'; 
-            font-size: 15px; 
-            letter-spacing: 0.35em; 
+            font-size: 13px; 
+            letter-spacing: 0.2em; 
             color: rgba(255, 255, 255, 0.5); 
-            margin-top: 2px; 
-            padding-right: 2px; 
+            margin-top: 6px; 
+        }
+        @media (min-width: 768px) {
+            .selected-sub { font-size: 15px; letter-spacing: 0.35em; margin-top: 2px; }
         }
         
-        .sub-pipe {
-            color: rgba(255, 255, 255, 0.4); 
-            padding: 0 0.5rem;
-            font-weight: bold;
-        }
-
-        /* HORIZONTAL RULE - MAXIMUM BREATHING ROOM */
-        .header-rule {
-            width: 100%;
-            height: 1px;
-            background: rgba(255, 255, 255, 0.15);
-            margin-top: 2.5rem; 
-        }
+        .sub-pipe { color: rgba(255, 255, 255, 0.4); padding: 0 0.5rem; font-weight: bold; }
+        .header-rule { width: 100%; height: 1px; background: rgba(255, 255, 255, 0.15); margin-top: 1.5rem; }
+        @media (min-width: 768px) { .header-rule { margin-top: 2.5rem; } }
 
         /* BIO TEXT */
         .bio-text {
-            font-size: 1.15rem;
-            line-height: 1.65;
+            font-size: 1.1rem;
+            line-height: 1.5;
             letter-spacing: 0.02em;
             color: rgba(255, 255, 255, 0.6);
-            text-align: justify;
-            text-justify: inter-word;
-            hyphens: auto;
-            text-align-last: left;
+            text-align: center; /* Centered for mobile */
         }
-        .bio-text strong {
-            color: #fff;
-            font-family: 'Knockout-Full', sans-serif;
-            font-weight: normal;
+        @media (min-width: 1024px) {
+            .bio-text { font-size: 1.15rem; line-height: 1.65; text-align: left; }
         }
+        .bio-text strong { color: #fff; font-family: 'Knockout-Full', sans-serif; font-weight: normal; }
 
         /* IMAGE STYLING */
-        .image-container {
-            position: relative;
-            overflow: hidden;
-            background: #111;
-        }
+        .image-container { position: relative; overflow: hidden; background: #111; }
         .image-container img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            filter: grayscale(100%);
-            transition: all 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+            width: 100%; height: 100%; object-fit: cover;
+            filter: grayscale(100%); transition: all 0.7s cubic-bezier(0.4, 0, 0.2, 1);
         }
         .image-container:hover img { filter: grayscale(0%); }
 
         .photo-credit {
-            position: absolute;
-            bottom: 12px; left: 12px;
-            font-family: 'Knockout-Junior', sans-serif;
-            font-size: 10px; letter-spacing: 0.15em; color: #fff;
-            background: rgba(0, 0, 0, 0.6); padding: 4px 8px;
-            opacity: 0; transition: opacity 0.4s ease; pointer-events: none; z-index: 10;
+            position: absolute; bottom: 8px; left: 8px;
+            font-family: 'Knockout-Junior', sans-serif; font-size: 8px; 
+            letter-spacing: 0.1em; color: #fff; background: rgba(0, 0, 0, 0.6); 
+            padding: 2px 6px; opacity: 0; transition: opacity 0.4s ease; z-index: 10;
+        }
+        @media (min-width: 768px) {
+            .photo-credit { font-size: 10px; bottom: 12px; left: 12px; padding: 4px 8px; }
         }
         .image-container:hover .photo-credit { opacity: 1; }
 
-        .footer-logo { font-family: 'Knockout-Full', sans-serif; font-size: 3.5rem; color: rgba(255, 255, 255, 0.8); line-height: 1; }
+        .footer-logo { font-family: 'Knockout-Full', sans-serif; font-size: 2.5rem; color: rgba(255, 255, 255, 0.8); line-height: 1; }
+        @media (min-width: 768px) { .footer-logo { font-size: 3.5rem; } }
         .footer-logo span { font-family: 'Knockout-Junior'; margin-left: -2px; }
     </style>
 </head>
-<body class="p-6 md:p-12 lg:px-20">
+<body class="p-4 md:p-12 lg:px-20">
 
     <div class="page-bg"></div>
 
-    <nav class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center mb-4 gap-8 relative z-50">
-    <a href="index.html" class="brand-logo tracking-tighter flex items-baseline opacity-80" style="font-family: 'Knockout-Full', sans-serif; font-size: 2.2rem;">
-        <span>A</span><span style="font-family: 'Knockout-Junior', sans-serif; margin-left: -2px;">V</span>
-    </a>
-    
-    <div class="nav-container flex items-center font-bold" style="font-family: 'Knockout-Junior', sans-serif;">
-        <a href="portfolio.html" class="nav-link">Portfolio</a>
-        <span class="nav-pipe opacity-40 mx-4">|</span>
-        <a href="credits.html" class="nav-link">Credits</a>
-        <span class="nav-pipe opacity-40 mx-4">|</span>
-        <a href="about.html" class="nav-link active">About</a>
-        <span class="nav-pipe opacity-40 mx-4">|</span>
-        <a href="mailto:alex@yourdomain.com" class="nav-link">Contact</a>
-    </div>
-</nav>
+    <nav class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center mb-6 gap-6 relative z-50">
+        <a href="index.html" class="brand-logo tracking-tighter flex items-baseline opacity-80" style="font-size: 1.8rem; md:font-size: 2.2rem;">
+            <span>A</span><span style="font-family: 'Knockout-Junior', sans-serif; margin-left: -2px;">V</span>
+        </a>
+        
+        <div class="nav-container flex flex-wrap justify-center items-center font-bold" style="font-family: 'Knockout-Junior', sans-serif;">
+            <a href="portfolio.html" class="nav-link">Portfolio</a>
+            <span class="nav-pipe opacity-40 mx-2 md:mx-4">|</span>
+            <a href="credits.html" class="nav-link">Credits</a>
+            <span class="nav-pipe opacity-40 mx-2 md:mx-4">|</span>
+            <a href="about.html" class="nav-link active">About</a>
+            <span class="nav-pipe opacity-40 mx-2 md:mx-4">|</span>
+            <a href="mailto:alex@yourdomain.com" class="nav-link">Contact</a>
+        </div>
+    </nav>
 
     <div class="max-w-7xl mx-auto bookend-bar"></div>
 
-    <main class="max-w-7xl mx-auto px-4 md:px-8 pb-32">
-        
+    <main class="max-w-7xl mx-auto px-2 md:px-8 pb-32">
         <div class="masthead-container">
             <h1 class="main-title">ALEXANDER<span>VIETMEIER</span></h1>
             <span class="selected-sub">DIRECTOR <span class="sub-pipe">|</span> NEW YORK CITY</span>
             <div class="header-rule"></div>
         </div>
 
-        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
-            
-            <div class="lg:col-span-6 space-y-6">
-                <div class="grid grid-cols-10 gap-6">
-                    <div class="col-span-6 image-container aspect-[3/4]">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
+            <div class="lg:col-span-6 space-y-4 md:space-y-6">
+                <div class="grid grid-cols-10 gap-4 md:gap-6">
+                    <div class="col-span-10 md:col-span-6 image-container aspect-[3/4]">
                         <img src="images/avHeadShot.png" alt="Alexander Vietmeier">
                         <div class="photo-credit">PHOTO: LLOYD BISHOP</div>
                     </div>
                     
-                    <div class="col-span-4 flex flex-col gap-6">
+                    <div class="hidden md:flex col-span-4 flex-col gap-6">
                         <div class="image-container flex-1">
                             <img src="images/36.Week_09_02_15_select_0189.jpg" alt="Control Room">
                             <div class="photo-credit">PHOTO: LLOYD BISHOP</div>
@@ -206,7 +181,7 @@
                 </div>
             </div>
 
-            <div class="lg:col-span-6 bio-text space-y-8">
+            <div class="lg:col-span-6 bio-text space-y-6 md:space-y-8 mt-4 lg:mt-0">
                 <p>
                     <strong>Alexander Vietmeier</strong> is an Emmy-nominated television director based in New York City. For over 15 years, he has specialized in the unique intersection of late-night comedy, live music, and large-scale variety broadcast.
                 </p>
@@ -224,7 +199,7 @@
     </main>
 
     <div class="max-w-7xl mx-auto bookend-bar"></div>
-    <footer class="max-w-7xl mx-auto pt-8 flex justify-end items-center px-4 md:px-8 pb-12">
+    <footer class="max-w-7xl mx-auto pt-8 flex justify-center md:justify-end items-center px-4 md:px-8 pb-12">
         <div class="footer-logo">A<span>V</span></div>
     </footer>
 
