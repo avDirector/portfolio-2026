@@ -24,6 +24,7 @@
             text-transform: uppercase;
             font-family: 'Knockout-Junior', sans-serif;
             -webkit-font-smoothing: antialiased;
+            overflow-x: hidden;
         }
 
         .page-bg {
@@ -33,75 +34,114 @@
             background: radial-gradient(circle at 50% 0%, #1a1a1a 0%, #000 80%);
         }
 
-        /* NAVIGATION - UPDATED TO FULL NAME LOGO */
-        .nav-logo {
-            font-family: 'Knockout-Full', sans-serif;
-            font-size: 1.5rem;
-            letter-spacing: 0.05em;
-            color: rgba(255, 255, 255, 0.9);
-            line-height: 1;
-        }
-        .nav-logo span { font-family: 'Knockout-Junior'; opacity: 0.7; }
+        /* NAVIGATION - LOGO & LINKS ON ONE LINE */
+        /* FLUID LOGO SCALING */
+/* UNIFIED LOGO SCALING - MATCHES HOME PAGE */
+.brand-logo {
+    font-family: 'Knockout-Full', sans-serif;
+    /* 1.5rem on mobile, scales up to 3.25rem on desktop */
+    font-size: clamp(2.5rem, 5vw, 3.25rem); 
+    line-height: 0.9;
+    letter-spacing: -0.01em;
+    transition: opacity 0.3s ease;
+}
 
+@media (min-width: 768px) {
+    .brand-logo {
+        letter-spacing: -0.02em; /* Keeps it tight and bold on desktop */
+    }
+}
         .nav-link { 
-    font-size: 13px; 
-    opacity: 0.4; 
-    letter-spacing: 0.35em; 
-    transition: opacity 0.3s; 
-    color: #fff; 
-}
-.nav-link:hover, .nav-link.active { 
-    opacity: 1; 
-}
-.nav-pipe { 
-    color: #fff; 
-}
+            font-size: 11px; 
+            opacity: 0.4; 
+            letter-spacing: 0.2em; 
+            transition: opacity 0.3s; 
+            color: #fff; 
+        }
+        @media (min-width: 768px) {
+            .nav-link { font-size: 13px; letter-spacing: 0.35em; }
+        }
+        .nav-link:hover, .nav-link.active { opacity: 1; }
+        .nav-pipe { color: #fff; }
         .bookend-bar { width: 100%; height: 2px; background: rgba(255, 255, 255, 0.12); }
 
-        /* MASTHEAD - TIGHTENED & UPDATED TO "PORTFOLIO" */
-        .masthead-container { 
-            display: flex; 
-            flex-direction: column; 
-            align-items: flex-end; 
-            margin-top: 3.5rem; 
-            margin-bottom: 3rem; 
-        }
-        
-        .main-title { 
-            font-family: 'Knockout-Full', sans-serif; 
-            font-size: clamp(3.5rem, 7vw, 5rem); 
-            line-height: 0.8; 
-            color: rgba(255, 255, 255, 0.9); 
-            text-align: right; 
-            letter-spacing: 0.02em;
-        }
+        /* UPDATED UNIFIED MASTHEAD */
+.masthead-container { 
+    display: flex; 
+    flex-direction: column; 
+    align-items: flex-start; 
+    margin-top: 2.5rem; 
+    margin-bottom: 2rem; 
+}
 
-        .selected-sub { 
+@media (min-width: 768px) {
+    .masthead-container { 
+        align-items: flex-end; 
+        margin-top: 3.5rem; 
+        margin-bottom: 3rem; 
+    }
+}
+
+.main-title { 
+    font-family: 'Knockout-Full', sans-serif; 
+    /* Slightly reduced size to accommodate the long name on mobile */
+    font-size: clamp(2.6rem, 9vw, 5.5rem); 
+    line-height: 0.8; 
+    color: rgba(255, 255, 255, 0.9); 
+    text-align: left;
+    letter-spacing: 0.01em; /* Tightened slightly for fit */
+}
+
+@media (min-width: 768px) {
+    .main-title { text-align: right; }
+}
+
+/* Specifically for the About page name span */
+.main-title span { 
+    font-family: 'Knockout-Junior'; 
+    opacity: 0.85; 
+    letter-spacing: -0.01em; 
+}
+
+.selected-sub { 
             font-family: 'Knockout-Junior'; 
-            font-size: 15px; 
-            letter-spacing: 0.35em; 
-            color: rgba(255, 255, 255, 0.5); 
+            font-size: 14px; 
+            letter-spacing: 0.11em; 
+            color: rgba(255, 255, 255, 0.45); 
             margin-top: 2px; 
-            padding-right: 2px; 
+            text-align: left;
+        }
+
+        @media (min-width: 768px) {
+            .selected-sub { 
+                font-size: 18px; 
+                letter-spacing: 0.2em; 
+                margin-top: 2px; 
+                text-align: right;
+                padding-right: 2px; 
+            }
         }
         
-        .sub-pipe { color: rgba(255, 255, 255, 0.4); padding: 0 0.5rem; font-weight: bold; }
+        .sub-pipe { color: rgba(255, 255, 255, 0.3); padding: 0 0.3rem; }
 
-        .header-rule {
-            width: 100%;
-            height: 1px;
-            background: rgba(255, 255, 255, 0.15);
-            margin-top: 2.5rem; 
-        }
+        .header-rule { 
+    width: 100%; 
+    height: 1px; 
+    background: rgba(255, 255, 255, 0.15); 
+    margin-top: 1.5rem; 
+}
+@media (min-width: 768px) { 
+    .header-rule { margin-top: 2.5rem; } 
+}
 
         /* PORTFOLIO GRID */
         .portfolio-grid {
             display: grid;
-            grid-template-cols: repeat(1, minmax(0, 1fr));
-            gap: 2rem;
+            grid-template-cols: 1fr;
+            gap: 1.5rem;
         }
         @media (min-width: 768px) {
-            .portfolio-grid { grid-template-cols: repeat(2, minmax(0, 1fr)); }
+            .portfolio-grid { grid-template-cols: repeat(2, 1fr); gap: 2rem; }
         }
 
         .portfolio-item {
@@ -113,76 +153,74 @@
         }
 
         .portfolio-item img {
-            width: 100%;
-            height: 100%;
+            width: 100%; height: 100%;
             object-fit: cover;
             filter: grayscale(100%);
             transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
-        .portfolio-item:hover img {
-            filter: grayscale(0%);
-            transform: scale(1.03);
-        }
+        .portfolio-item:hover img { filter: grayscale(0%); transform: scale(1.03); }
 
-        /* PROJECT OVERLAY */
+        /* PROJECT OVERLAY - VISIBLE ON MOBILE FOR BETTER UX */
         .project-info {
             position: absolute;
             inset: 0;
-            background: linear-gradient(to top, rgba(0,0,0,0.85) 0%, transparent 60%);
+            background: linear-gradient(to top, rgba(0,0,0,0.9) 0%, transparent 70%);
             display: flex;
             flex-direction: column;
             justify-content: flex-end;
-            padding: 1.5rem;
-            opacity: 0;
+            padding: 1.2rem;
+            opacity: 1; /* Always visible on mobile so users know what they are tapping */
             transition: opacity 0.4s ease;
         }
-
-        .portfolio-item:hover .project-info { opacity: 1; }
+        @media (min-width: 1024px) { .project-info { opacity: 0; } .portfolio-item:hover .project-info { opacity: 1; } }
 
         .project-title {
-            font-family: 'Knockout-Full', sans-serif;
-            font-size: 1.75rem;
-            color: #fff;
-            letter-spacing: 0.02em;
-            line-height: 1;
-        }
+    font-family: 'Knockout-Full', sans-serif;
+    font-size: 1.4rem;
+    color: #fff;
+    letter-spacing: 0.04em;
+    line-height: 1.1; /* Increased from 1.0 for better legibility on wrap */
+    text-transform: uppercase;
+}
+}
+        @media (min-width: 768px) { .project-title { font-size: 1.75rem; } }
 
         .project-category {
             font-family: 'Knockout-Junior', sans-serif;
-            font-size: 11px;
-            letter-spacing: 0.2em;
+            font-size: 10px;
+            letter-spacing: 0.15em;
             color: rgba(255, 255, 255, 0.6);
-            margin-top: 6px;
+            margin-top: 4px;
         }
 
-        .footer-logo { font-family: 'Knockout-Full', sans-serif; font-size: 3.5rem; color: rgba(255, 255, 255, 0.8); line-height: 1; }
-        .footer-logo span { font-family: 'Knockout-Junior'; margin-left: -2px; }
+        .footer-logo { font-family: 'Knockout-Full', sans-serif; font-size: 2.5rem; color: rgba(255, 255, 255, 0.8); line-height: 1; }
+        @media (min-width: 768px) { .footer-logo { font-size: 3.5rem; } }
     </style>
 </head>
-<body class="p-6 md:p-12 lg:px-20">
+<body class="p-4 md:p-12 lg:px-20">
 
     <div class="page-bg"></div>
 
-   <nav class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center mb-4 gap-8 relative z-50">
-    <a href="index.html" class="brand-logo tracking-tighter flex items-baseline opacity-80" style="font-family: 'Knockout-Full', sans-serif; font-size: 2.2rem;">
-        <span>A</span><span style="font-family: 'Knockout-Junior', sans-serif; margin-left: -2px;">V</span>
-    </a>
-    
-    <div class="nav-container flex items-center font-bold" style="font-family: 'Knockout-Junior', sans-serif;">
-        <a href="portfolio.html" class="nav-link active">Portfolio</a>
-        <span class="nav-pipe opacity-40 mx-4">|</span>
-        <a href="credits.html" class="nav-link">Credits</a>
-        <span class="nav-pipe opacity-40 mx-4">|</span>
-        <a href="about.html" class="nav-link">About</a>
-        <span class="nav-pipe opacity-40 mx-4">|</span>
-        <a href="mailto:alex@yourdomain.com" class="nav-link">Contact</a>
-    </div>
-</nav>
+    <nav class="max-w-7xl mx-auto flex flex-row justify-between items-center mb-4 gap-2 relative z-50">
+        <a href="index.html" class="brand-logo tracking-tighter flex items-baseline opacity-80">
+    <span>A</span><span style="font-family: 'Knockout-Junior', sans-serif; margin-left: -2px;">V</span>
+</a>
+        
+        <div class="nav-container flex flex-row items-center font-bold" style="font-family: 'Knockout-Junior', sans-serif;">
+            <a href="portfolio.html" class="nav-link active">Portfolio</a>
+            <span class="nav-pipe opacity-40 mx-2 md:mx-4">|</span>
+            <a href="credits.html" class="nav-link">Credits</a>
+            <span class="nav-pipe opacity-40 mx-2 md:mx-4">|</span>
+            <a href="about.html" class="nav-link">About</a>
+            <span class="nav-pipe opacity-40 mx-2 md:mx-4">|</span>
+            <a href="mailto:info@alexvietmeier.com" class="nav-link">Contact</a>
+        </div>
+    </nav>
 
     <div class="max-w-7xl mx-auto bookend-bar"></div>
 
-    <main class="max-w-7xl mx-auto px-4 md:px-8 pb-32">
+    <main class="max-w-7xl mx-auto px-2 md:px-8 pb-10">
         
         <div class="masthead-container">
             <h1 class="main-title">PORTFOLIO</h1>
@@ -190,55 +228,107 @@
             <div class="header-rule"></div>
         </div>
 
-        <div class="portfolio-grid">
-            
-            <div class="portfolio-item md:col-span-2" onclick="openModal('https://player.vimeo.com/video/1166002140')">
-                <img src="images/reel-thumb.jpg" alt="Director Reel">
-                <div class="project-info">
-                    <h3 class="project-title">DIRECTOR REEL</h3>
-                    <p class="project-category">PLAY REEL</p>
-                </div>
-            </div>
-
-            <div class="portfolio-item" onclick="openModal('https://player.vimeo.com/video/YOUR_ID_HERE')">
-                <img src="images/july4th.jpg" alt="Macy's 4th of July">
-                <div class="project-info">
-                    <h3 class="project-title">MACY'S 4TH OF JULY FIREWORKS</h3>
-                    <p class="project-category">NBC | LIVE BROADCAST</p>
-                </div>
-            </div>
-
-            <div class="portfolio-item" onclick="openModal('https://player.vimeo.com/video/YOUR_ID_HERE')">
-                <img src="images/rock-center.jpg" alt="Rockefeller Center Christmas">
-                <div class="project-info">
-                    <h3 class="project-title">CHRISTMAS IN ROCKEFELLER CENTER</h3>
-                    <p class="project-category">NBC | SPECIAL EVENT</p>
-                </div>
-            </div>
-
-            <div class="portfolio-item" onclick="openModal('https://player.vimeo.com/video/YOUR_ID_HERE')">
-                <img src="images/comedy-bits.jpg" alt="Late Night Comedy Bits">
-                <div class="project-info">
-                    <h3 class="project-title">LATE NIGHT COMEDY BITS</h3>
-                    <p class="project-category">LNSM | SKETCH & SPECIALTY SEGMENTS</p>
-                </div>
-            </div>
-
-            <div class="portfolio-item" onclick="openModal('https://player.vimeo.com/video/YOUR_ID_HERE')">
-                <img src="images/live-music.jpg" alt="Live Music">
-                <div class="project-info">
-                    <h3 class="project-title">LIVE MUSIC PERFORMANCE</h3>
-                    <p class="project-category">SELECTED MULTI-CAM SEQUENCES</p>
-                </div>
-            </div>
-
+       <div class="portfolio-grid">
+    <div class="portfolio-item md:col-span-2" onclick="openModal('https://player.vimeo.com/video/1166002140')">
+        <img src="images/avReel_thumb.png" alt="Director Reel">
+        <div class="project-info">
+            <h3 class="project-title">DIRECTOR REEL</h3>
+            <p class="project-category">2026 SHOWREEL | SELECTED WORKS</p>
         </div>
+    </div>
+
+    <div class="portfolio-item" onclick="openModal('https://player.vimeo.com/video/LNSM_REEL_ID')">
+        <img src="images/avJuly4th_KC.png" alt="Late Night with Seth Meyers">
+        <div class="project-info">
+            <h3 class="project-title">MACY'S 4TH OF JULY</h3>
+            <p class="project-category">NBC | 2018 - KELLY CLARKSON</p>
+        </div>
+    </div>
+
+    <div class="portfolio-item" onclick="openModal('https://player.vimeo.com/video/1166807103')">
+    <img src="images/avThanksgiving2025_thumb.png" alt="2025 Macy's Parade Open">
+    <div class="project-info">
+        <h3 class="project-title">2025 MACY'S THANKSGIVING DAY PARADE OPEN</h3>
+        <p class="project-category">NBC | FEATURING CYNTHIA ERIVO</p>
+    </div>
+</div>
+
+    <div class="portfolio-item" onclick="openModal('https://www.youtube.com/watch?v=uWoKJErAP6g')">
+    <img src="images/avSecondChance_Cotter.png" alt="Second Chance Theatre">
+    <div class="project-info">
+        <h3 class="project-title">LATE NIGHT WITH SETH MEYERS</h3>
+        <p class="project-category">SKETCH COMEDY | MR. COTTER</p>
+    </div>
+</div>
+
+    <div class="portfolio-item" onclick="openModal('https://player.vimeo.com/video/1166002140')">
+        <img src="images/avChristmas_2022.png" alt="Christmas in Rockefeller Center">
+        <div class="project-info">
+            <h3 class="project-title">CHRISTMAS IN ROCKEFELLER CENTER</h3>
+            <p class="project-category">NBC | 2022 - BLAKE SHELTON AND GWEN STEFANI</p>
+        </div>
+    </div>
+</div>
     </main>
 
-    <div class="max-w-7xl mx-auto bookend-bar"></div>
-    <footer class="max-w-7xl mx-auto pt-8 flex justify-end items-center px-4 md:px-8 pb-12">
-        <div class="footer-logo">A<span>V</span></div>
-    </footer>
+   <footer class="w-full pb-12 mt-5">
+    <div class="max-w-7xl mx-auto bookend-bar mb-8"></div>
+    
+    <div class="w-full flex flex-col gap-6">
+        <div class="flex flex-row justify-between items-center w-full">
+            
+            <div class="footer-brand">
+                <div class="flex items-baseline">
+                    <span class="alex-footer">Alexander</span><span class="viet-footer">Vietmeier</span>
+                </div>
+                <p class="text-[9px] md:text-[12px] tracking-[0.11em] opacity-50 mt-0 font-bold">
+                    Director | New York City
+                </p>
+            </div>
+
+            <div class="flex items-center gap-3 md:gap-8">
+                <a href="https://www.imdb.com/name/nm3653860/" target="_blank" class="opacity-70 hover:opacity-100 transition-opacity" title="IMDb">
+                    <svg width="18" height="18" class="md:w-6 md:h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2H2v10h10V2z"/><path d="M18 12h4"/><path d="M18 16h4"/><path d="M18 20h4"/><path d="M18 4h4"/><path d="M18 8h4"/><path d="M2 12h10"/><path d="M2 16h10"/><path d="M2 20h10"/><path d="M2 4h10"/><path d="M2 8h10"/></svg>
+                </a>
+                <a href="http://www.linkedin.com/in/alexvietmeier" target="_blank" class="opacity-70 hover:opacity-100 transition-opacity" title="LinkedIn">
+                    <svg width="18" height="18" class="md:w-6 md:h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg>
+                </a>
+                <a href="mailto:info@alexvietmeier.com" class="opacity-70 hover:opacity-100 transition-opacity" title="Email">
+                    <svg width="18" height="18" class="md:w-6 md:h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+                </a>
+            </div>
+        </div>
+
+        <div class="w-full text-center border-t-2 border-white/10 pt-6">
+            <p class="text-[11px] tracking-widest opacity-40">
+                © 2026 Alexander Vietmeier. All Rights Reserved.
+            </p>
+        </div>
+    </div>
+</footer>
+
+<style>
+   /* FOOTER TYPOGRAPHY - RE-TUNED FOR ONE LINE */
+.alex-footer { 
+    font-family: 'Knockout-Full', sans-serif; 
+    font-size: 1.15rem; /* Slightly smaller for mobile flow */
+    color: #fff; 
+    letter-spacing: -0.01em;
+    line-height: 1;
+}
+.viet-footer { 
+    font-family: 'Knockout-Junior', sans-serif; 
+    font-size: 1.1rem; 
+    color: rgba(255,255,255,0.7); 
+    margin-left: 0.15em; 
+    line-height: 1;
+}
+
+@media (min-width: 768px) {
+    .alex-footer { font-size: 2.5rem; letter-spacing: -0.02em; }
+    .viet-footer { font-size: 2.45rem; margin-left: 0.2em; }
+}
+</style>
 
     <div id="videoModal" class="fixed inset-0 z-[100] hidden flex items-center justify-center bg-black/95 p-4 md:p-10">
         <button onclick="closeModal()" class="absolute top-6 right-6 text-white text-4xl font-light hover:opacity-50 transition-opacity">&times;</button>
@@ -248,13 +338,31 @@
     </div>
 
     <script>
-        function openModal(videoUrl) {
-            const modal = document.getElementById('videoModal');
-            const player = document.getElementById('modalPlayer');
-            player.src = videoUrl + "?autoplay=1";
-            modal.classList.remove('hidden');
-            document.body.style.overflow = 'hidden';
-        }
+       function openModal(videoUrl) {
+    const modal = document.getElementById('videoModal');
+    const player = document.getElementById('modalPlayer');
+    
+    let finalUrl = videoUrl;
+
+    // Convert standard YouTube 'watch' links to 'embed' links
+    if (videoUrl.includes('youtube.com/watch?v=')) {
+        const videoId = videoUrl.split('v=')[1].split('&')[0];
+        finalUrl = `https://www.youtube.com/embed/${videoId}?autoplay=1`;
+    } 
+    // Convert shortened 'youtu.be' links to 'embed' links
+    else if (videoUrl.includes('youtu.be/')) {
+        const videoId = videoUrl.split('be/')[1].split('?')[0];
+        finalUrl = `https://www.youtube.com/embed/${videoId}?autoplay=1`;
+    } 
+    // Default for Vimeo and other properly formatted links
+    else {
+        finalUrl = videoUrl + (videoUrl.includes('?') ? '&' : '?') + "autoplay=1";
+    }
+
+    player.src = finalUrl;
+    modal.classList.remove('hidden');
+    document.body.style.overflow = 'hidden';
+}
 
         function closeModal() {
             const modal = document.getElementById('videoModal');

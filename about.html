@@ -34,8 +34,18 @@
             background: radial-gradient(circle at 50% 0%, #1a1a1a 0%, #000 80%);
         }
 
-        /* GLOBAL NAVIGATION - MOBILE OPTIMIZED */
-        .brand-logo { font-family: 'Knockout-Full', sans-serif; }
+        .brand-logo {
+            font-family: 'Knockout-Full', sans-serif;
+            font-size: clamp(2.5rem, 5vw, 3.25rem); 
+            line-height: 0.9;
+            letter-spacing: -0.01em;
+            transition: opacity 0.3s ease;
+        }
+
+        @media (min-width: 768px) {
+            .brand-logo { letter-spacing: -0.02em; }
+        }
+
         .nav-link { 
             font-size: 11px; 
             opacity: 0.4; 
@@ -50,56 +60,81 @@
         .nav-pipe { color: #fff; }
         .bookend-bar { width: 100%; height: 2px; background: rgba(255, 255, 255, 0.12); }
 
-        /* MASTHEAD - FLUID DESIGN */
         .masthead-container { 
             display: flex; 
             flex-direction: column; 
-            align-items: center; /* Centered for mobile */
+            align-items: flex-start; 
             margin-top: 2.5rem; 
             margin-bottom: 2rem; 
         }
+
         @media (min-width: 768px) {
-            .masthead-container { align-items: flex-end; margin-top: 3.5rem; margin-bottom: 3rem; }
+            .masthead-container { 
+                align-items: flex-end; 
+                margin-top: 3.5rem; 
+                margin-bottom: 3rem; 
+            }
         }
-        
+
         .main-title { 
             font-family: 'Knockout-Full', sans-serif; 
-            font-size: clamp(2.5rem, 10vw, 5rem); 
+            font-size: clamp(2.6rem, 9vw, 5.5rem); 
             line-height: 0.8; 
             color: rgba(255, 255, 255, 0.9); 
-            text-align: center; 
-            letter-spacing: 0.02em;
+            text-align: left;
+            letter-spacing: 0.01em; 
         }
+
         @media (min-width: 768px) {
             .main-title { text-align: right; }
         }
-        .main-title span { font-family: 'Knockout-Junior'; opacity: 0.85; letter-spacing: -0.02em; }
+
+        .main-title span { 
+            font-family: 'Knockout-Junior'; 
+            opacity: 0.85; 
+            letter-spacing: -0.01em; 
+        }
 
         .selected-sub { 
             font-family: 'Knockout-Junior'; 
-            font-size: 13px; 
-            letter-spacing: 0.2em; 
-            color: rgba(255, 255, 255, 0.5); 
-            margin-top: 6px; 
+            font-size: 14px; 
+            letter-spacing: 0.11em; 
+            color: rgba(255, 255, 255, 0.45); 
+            margin-top: 2px; 
+            text-align: left;
         }
+
         @media (min-width: 768px) {
-            .selected-sub { font-size: 15px; letter-spacing: 0.35em; margin-top: 2px; }
+            .selected-sub { 
+                font-size: 18px; 
+                letter-spacing: 0.2em; 
+                margin-top: 2px; 
+                text-align: right;
+                padding-right: 2px; 
+            }
         }
         
-        .sub-pipe { color: rgba(255, 255, 255, 0.4); padding: 0 0.5rem; font-weight: bold; }
-        .header-rule { width: 100%; height: 1px; background: rgba(255, 255, 255, 0.15); margin-top: 1.5rem; }
-        @media (min-width: 768px) { .header-rule { margin-top: 2.5rem; } }
+        .header-rule { 
+            width: 100%; 
+            height: 1px; 
+            background: rgba(255, 255, 255, 0.15); 
+            margin-top: 1.5rem; 
+        }
+        @media (min-width: 768px) { 
+            .header-rule { margin-top: 2.5rem; } 
+        }
 
-        /* BIO TEXT */
+        /* BIO TEXT - UPDATED FOR FULL JUSTIFICATION */
         .bio-text {
             font-size: 1.1rem;
             line-height: 1.5;
             letter-spacing: 0.02em;
             color: rgba(255, 255, 255, 0.6);
-            text-align: center; /* Centered for mobile */
+            text-align: justify;
+            text-justify: inter-word;
         }
         @media (min-width: 1024px) {
-            .bio-text { font-size: 1.15rem; line-height: 1.65; text-align: left; }
+            .bio-text { font-size: 1.15rem; line-height: 1.65; }
         }
         .bio-text strong { color: #fff; font-family: 'Knockout-Full', sans-serif; font-weight: normal; }
 
@@ -131,28 +166,27 @@
 
     <div class="page-bg"></div>
 
-    <nav class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center mb-6 gap-6 relative z-50">
-        <a href="index.html" class="brand-logo tracking-tighter flex items-baseline opacity-80" style="font-size: 1.8rem; md:font-size: 2.2rem;">
+    <nav class="max-w-7xl mx-auto flex flex-row justify-between items-center mb-4 gap-2 relative z-50">
+        <a href="index.html" class="brand-logo tracking-tighter flex items-baseline opacity-80">
             <span>A</span><span style="font-family: 'Knockout-Junior', sans-serif; margin-left: -2px;">V</span>
         </a>
-        
-        <div class="nav-container flex flex-wrap justify-center items-center font-bold" style="font-family: 'Knockout-Junior', sans-serif;">
+        <div class="nav-container flex flex-row items-center font-bold" style="font-family: 'Knockout-Junior', sans-serif;">
             <a href="portfolio.html" class="nav-link">Portfolio</a>
             <span class="nav-pipe opacity-40 mx-2 md:mx-4">|</span>
             <a href="credits.html" class="nav-link">Credits</a>
             <span class="nav-pipe opacity-40 mx-2 md:mx-4">|</span>
             <a href="about.html" class="nav-link active">About</a>
             <span class="nav-pipe opacity-40 mx-2 md:mx-4">|</span>
-            <a href="mailto:alex@yourdomain.com" class="nav-link">Contact</a>
+            <a href="mailto:info@alexvietmeier.com" class="nav-link">Contact</a>
         </div>
     </nav>
 
     <div class="max-w-7xl mx-auto bookend-bar"></div>
 
-    <main class="max-w-7xl mx-auto px-2 md:px-8 pb-32">
+    <main class="max-w-7xl mx-auto px-2 md:px-8 pb-10">
         <div class="masthead-container">
             <h1 class="main-title">ALEXANDER<span>VIETMEIER</span></h1>
-            <span class="selected-sub">DIRECTOR <span class="sub-pipe">|</span> NEW YORK CITY</span>
+            <span class="selected-sub">DIRECTOR <span class="sub-pipe opacity-40">|</span> NEW YORK CITY</span>
             <div class="header-rule"></div>
         </div>
 
@@ -164,44 +198,103 @@
                         <div class="photo-credit">PHOTO: LLOYD BISHOP</div>
                     </div>
                     
-                    <div class="hidden md:flex col-span-4 flex-col gap-6">
-                        <div class="image-container flex-1">
+                    <div class="col-span-10 md:col-span-4 flex flex-row md:flex-col gap-4 md:gap-6">
+                        <div class="image-container flex-1 aspect-square md:aspect-auto">
                             <img src="images/36.Week_09_02_15_select_0189.jpg" alt="Control Room">
                             <div class="photo-credit">PHOTO: LLOYD BISHOP</div>
                         </div>
-                        <div class="image-container flex-1">
+                        <div class="image-container flex-1 aspect-square md:aspect-auto">
                             <img src="images/7.Week_12_05_14_select-145.jpg" alt="Switcher">
                             <div class="photo-credit">PHOTO: LLOYD BISHOP</div>
                         </div>
                     </div>
                 </div>
 
-                <div class="image-container w-full aspect-video">
+                <div class="hidden lg:block image-container w-full aspect-video">
                     <img src="images/IMG_2688.jpg" alt="Macy's Parade">
                 </div>
             </div>
 
-            <div class="lg:col-span-6 bio-text space-y-6 md:space-y-8 mt-4 lg:mt-0">
-                <p>
-                    <strong>Alexander Vietmeier</strong> is an Emmy-nominated television director based in New York City. For over 15 years, he has specialized in the unique intersection of late-night comedy, live music, and large-scale variety broadcast.
-                </p>
-                <p>
-                    Since 2014, he has served as the Director of <strong>Late Night with Seth Meyers</strong> at NBC, helming over 1,500 episodes and overseeing the award-winning digital series <em>Corrections</em>. 
-                </p>
-                <p>
-                    Alex is a fast thinker who remains <strong>calm, cool, and collected</strong> in the chair. He thrives on the high-stakes challenge of managing a crew to create great television in real-time. Whether it's the precision of a scripted comedy block or the unpredictability of a live event like the <strong>Macy’s Thanksgiving Day Parade</strong>, his focus remains on timing, rhythm, and the common goal of the production.
-                </p>
-                <p>
-                    A graduate of Webster University’s School of Communications, Alex balances his deep technical experience with a relentless drive to keep learning.
-                </p>
-            </div>
+           <div class="lg:col-span-6 bio-text space-y-6 md:space-y-8 mt-4 lg:mt-0">
+    <p>
+        <strong>Alex Vietmeier</strong> is an Emmy-nominated television director who has spent the last 15 years navigating the high-speed environment of late-night comedy, live music, and variety broadcast.
+    </p>
+    <p>
+        Since 2014, Alex has been the Director of <strong>Late Night with Seth Meyers</strong> at NBC, where he has helmed over 1,750 episodes and directs the Emmy-nominated digital series <em>Corrections</em>. His work is defined by a <strong>sharp creative eye</strong> and the timing and accuracy required to execute complex storytelling at the highest level.
+    </p>
+    <p>
+        Alex’s approach is rooted in <strong>creative planning and precision execution</strong>—the ability to map out complicated shots and sequences with clarity and intent, and then deliver with flawless execution. Whether he is developing the look of a comedy sketch or calling the shots for a massive live moment like the opening number of the <strong>Macy’s Thanksgiving Day Parade</strong>, he remains <strong>calm, cool, and collected</strong>. He takes pride in ensuring his crew is fully prepared and locked in, enabling them to bring his vision to life with precision and confidence.
+    </p>
+    <p>
+        A graduate of Webster University’s School of Communications, Alex balances a decade and a half of directing experience with a relentless drive to keep learning—approaching every project with a student’s curiosity and a director’s vision.
+    </p>
+
+    <div class="lg:hidden image-container w-full aspect-video mt-8">
+        <img src="images/IMG_2688.jpg" alt="Macy's Parade">
+    </div>
+</div>
         </div>
     </main>
 
-    <div class="max-w-7xl mx-auto bookend-bar"></div>
-    <footer class="max-w-7xl mx-auto pt-8 flex justify-center md:justify-end items-center px-4 md:px-8 pb-12">
-        <div class="footer-logo">A<span>V</span></div>
-    </footer>
+    
+  <footer class="w-full pb-12 mt-5">
+    <div class="max-w-7xl mx-auto bookend-bar mb-8"></div>
+    
+    <div class="w-full flex flex-col gap-6">
+        <div class="flex flex-row justify-between items-center w-full">
+            
+            <div class="footer-brand">
+                <div class="flex items-baseline">
+                    <span class="alex-footer">Alexander</span><span class="viet-footer">Vietmeier</span>
+                </div>
+                <p class="text-[9px] md:text-[12px] tracking-[0.11em] opacity-50 mt-0 font-bold">
+                    Director | New York City
+                </p>
+            </div>
+
+            <div class="flex items-center gap-3 md:gap-8">
+                <a href="https://www.imdb.com/name/nm3653860/" target="_blank" class="opacity-70 hover:opacity-100 transition-opacity" title="IMDb">
+                    <svg width="18" height="18" class="md:w-6 md:h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2H2v10h10V2z"/><path d="M18 12h4"/><path d="M18 16h4"/><path d="M18 20h4"/><path d="M18 4h4"/><path d="M18 8h4"/><path d="M2 12h10"/><path d="M2 16h10"/><path d="M2 20h10"/><path d="M2 4h10"/><path d="M2 8h10"/></svg>
+                </a>
+                <a href="http://www.linkedin.com/in/alexvietmeier" target="_blank" class="opacity-70 hover:opacity-100 transition-opacity" title="LinkedIn">
+                    <svg width="18" height="18" class="md:w-6 md:h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg>
+                </a>
+                <a href="mailto:info@alexvietmeier.com" class="opacity-70 hover:opacity-100 transition-opacity" title="Email">
+                    <svg width="18" height="18" class="md:w-6 md:h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+                </a>
+            </div>
+        </div>
+
+        <div class="w-full text-center border-t-2 border-white/10 pt-6">
+            <p class="text-[11px] tracking-widest opacity-40">
+                © 2026 Alexander Vietmeier. All Rights Reserved.
+            </p>
+        </div>
+    </div>
+</footer>
+
+<style>
+   /* FOOTER TYPOGRAPHY - RE-TUNED FOR ONE LINE */
+.alex-footer { 
+    font-family: 'Knockout-Full', sans-serif; 
+    font-size: 1.15rem; /* Slightly smaller for mobile flow */
+    color: #fff; 
+    letter-spacing: -0.01em;
+    line-height: 1;
+}
+.viet-footer { 
+    font-family: 'Knockout-Junior', sans-serif; 
+    font-size: 1.1rem; 
+    color: rgba(255,255,255,0.7); 
+    margin-left: 0.15em; 
+    line-height: 1;
+}
+
+@media (min-width: 768px) {
+    .alex-footer { font-size: 2.5rem; letter-spacing: -0.02em; }
+    .viet-footer { font-size: 2.45rem; margin-left: 0.2em; }
+}
+</style>
 
 </body>
 </html>
