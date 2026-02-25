@@ -3,24 +3,46 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Credits | Alexander Vietmeier</title>
-    
-    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Credits | Alexander Vietmeier — Emmy-Nominated TV Director</title>
+    <meta name="description" content="Director credits for Alexander Vietmeier: Late Night with Seth Meyers (NBC), Macy's Thanksgiving Day Parade, Christmas in Rockefeller Center, SNL 40th Anniversary, and more.">
+    <meta name="author" content="Alexander Vietmeier">
+    <meta name="robots" content="index, follow">
+    <meta name="theme-color" content="#000000">
+    <link rel="canonical" href="https://www.alexvietmeier.com/credits.html" />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.alexvietmeier.com/credits.html">
+    <meta property="og:title" content="Credits | Alexander Vietmeier — Emmy-Nominated TV Director">
+    <meta property="og:description" content="Director credits for Alexander Vietmeier: Late Night with Seth Meyers, Macy's Thanksgiving Day Parade, Christmas in Rockefeller Center, and more.">
+    <meta property="og:image" content="https://www.alexvietmeier.com/images/avHome-og.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:site_name" content="Alexander Vietmeier">
+    <meta property="og:locale" content="en_US">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Credits | Alexander Vietmeier — Emmy-Nominated TV Director">
+    <meta name="twitter:description" content="Director credits: Late Night with Seth Meyers, Macy's Thanksgiving Day Parade, Christmas in Rockefeller Center, and more.">
+    <meta name="twitter:image" content="https://www.alexvietmeier.com/images/avHome-og.jpg">
+
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22 fill=%22white%22 font-family=%22sans-serif%22 font-weight=%22bold%22>AV</text></svg>">
+
+    <!-- Preload critical assets -->
+    <link rel="preload" href="./fonts/Knockout-HTF70-FullWelterwt.otf" as="font" type="font/otf" crossorigin>
+    <link rel="preload" href="./fonts/Knockout-HTF30-JuniorWelterwt.otf" as="font" type="font/otf" crossorigin>
+
+    <!-- Local Tailwind (purged) -->
+    <link rel="stylesheet" href="styles.css">
+
     <style>
-        @font-face { 
-            font-family: 'Knockout-Full'; 
-            src: url('./fonts/Knockout-HTF70-FullWelterwt.otf') format('opentype'); 
-            font-display: swap;
-        }
-        @font-face { 
-            font-family: 'Knockout-Junior'; 
-            src: url('./fonts/Knockout-HTF30-JuniorWelterwt.otf') format('opentype'); 
-            font-display: swap;
-        }
+        @font-face { font-family: 'Knockout-Full'; src: url('./fonts/Knockout-HTF70-FullWelterwt.otf') format('opentype'); font-display: swap; }
+        @font-face { font-family: 'Knockout-Junior'; src: url('./fonts/Knockout-HTF30-JuniorWelterwt.otf') format('opentype'); font-display: swap; }
 
         body {
             background-color: #000;
-            color: rgba(255, 255, 255, 0.6); 
+            color: rgba(255, 255, 255, 0.6);
             text-transform: uppercase;
             font-family: 'Knockout-Junior', sans-serif;
             -webkit-font-smoothing: antialiased;
@@ -34,168 +56,89 @@
             background: radial-gradient(circle at 50% 0%, #1a1a1a 0%, #000 80%);
         }
 
-        /* GLOBAL NAVIGATION */
-        /* FLUID LOGO SCALING */
-/* UNIFIED LOGO SCALING - MATCHES HOME PAGE */
-.brand-logo {
-    font-family: 'Knockout-Full', sans-serif;
-    /* 1.5rem on mobile, scales up to 3.25rem on desktop */
-    font-size: clamp(2.5rem, 5vw, 3.25rem); 
-    line-height: 0.9;
-    letter-spacing: -0.01em;
-    transition: opacity 0.3s ease;
-}
+        .brand-logo {
+            font-family: 'Knockout-Full', sans-serif;
+            font-size: clamp(2.5rem, 5vw, 3.25rem);
+            line-height: 0.9; letter-spacing: -0.01em;
+            transition: opacity 0.3s ease;
+        }
+        @media (min-width: 768px) { .brand-logo { letter-spacing: -0.02em; } }
 
-@media (min-width: 768px) {
-    .brand-logo {
-        letter-spacing: -0.02em; /* Keeps it tight and bold on desktop */
-    }
-}
-        .nav-link { 
-            font-size: 11px; 
-            opacity: 0.4; 
-            letter-spacing: 0.2em; 
-            transition: opacity 0.3s; 
-            color: #fff; 
-        }
-        @media (min-width: 768px) {
-            .nav-link { font-size: 13px; letter-spacing: 0.35em; }
-        }
+        .nav-link { font-size: 11px; opacity: 0.4; letter-spacing: 0.2em; transition: opacity 0.3s; color: #fff; }
+        @media (min-width: 768px) { .nav-link { font-size: 13px; letter-spacing: 0.35em; } }
         .nav-link:hover, .nav-link.active { opacity: 1; }
         .nav-pipe { color: #fff; }
         .bookend-bar { width: 100%; height: 2px; background: rgba(255, 255, 255, 0.12); }
 
-        /* UPDATED UNIFIED MASTHEAD */
-.masthead-container { 
-    display: flex; 
-    flex-direction: column; 
-    align-items: flex-start; 
-    margin-top: 2.5rem; 
-    margin-bottom: 2rem; 
-}
+        .masthead-container {
+            display: flex; flex-direction: column; align-items: flex-start;
+            margin-top: 2.5rem; margin-bottom: 2rem;
+        }
+        @media (min-width: 768px) {
+            .masthead-container { align-items: flex-end; margin-top: 3.5rem; margin-bottom: 3rem; }
+        }
 
-@media (min-width: 768px) {
-    .masthead-container { 
-        align-items: flex-end; 
-        margin-top: 3.5rem; 
-        margin-bottom: 3rem; 
-    }
-}
+        .main-title {
+            font-family: 'Knockout-Full', sans-serif;
+            font-size: clamp(2.6rem, 9vw, 5.5rem);
+            line-height: 0.8; color: rgba(255, 255, 255, 0.9);
+            text-align: left; letter-spacing: 0.01em;
+        }
+        @media (min-width: 768px) { .main-title { text-align: right; } }
+        .main-title span { font-family: 'Knockout-Junior'; opacity: 0.85; letter-spacing: -0.01em; }
 
-.main-title { 
-    font-family: 'Knockout-Full', sans-serif; 
-    /* Slightly reduced size to accommodate the long name on mobile */
-    font-size: clamp(2.6rem, 9vw, 5.5rem); 
-    line-height: 0.8; 
-    color: rgba(255, 255, 255, 0.9); 
-    text-align: left;
-    letter-spacing: 0.01em; /* Tightened slightly for fit */
-}
+        .selected-sub {
+            font-family: 'Knockout-Junior'; font-size: 14px; letter-spacing: 0.11em;
+            color: rgba(255, 255, 255, 0.45); margin-top: 2px; text-align: left;
+        }
+        @media (min-width: 768px) {
+            .selected-sub { font-size: 18px; letter-spacing: 0.2em; text-align: right; padding-right: 4px; }
+        }
 
-@media (min-width: 768px) {
-    .main-title { text-align: right; }
-}
-/* HEADER RULE STYLE */
-.header-rule { 
-    width: 100%; 
-    height: 1px; 
-    background: rgba(255, 255, 255, 0.15); 
-    margin-top: 1.5rem; 
-}
-@media (min-width: 768px) { 
-    .header-rule { margin-top: 2.5rem; } 
-}
-/* Specifically for the About page name span */
-.main-title span { 
-    font-family: 'Knockout-Junior'; 
-    opacity: 0.85; 
-    letter-spacing: -0.01em; 
-}
+        .header-rule { width: 100%; height: 1px; background: rgba(255, 255, 255, 0.15); margin-top: 1.5rem; }
+        @media (min-width: 768px) { .header-rule { margin-top: 2.5rem; } }
 
-.selected-sub { 
-    font-family: 'Knockout-Junior'; 
-    font-size: 14px; 
-    letter-spacing: 0.11em; 
-    color: rgba(255, 255, 255, 0.45); 
-    margin-top: 2px; 
-    text-align: left;
-}
+        .section-header {
+            font-family: 'Knockout-Full', sans-serif;
+            font-size: 0.9rem; letter-spacing: 0.3em;
+            color: rgba(56, 189, 248, 0.65);
+            border-bottom: 2px solid rgba(255, 255, 255, 0.2);
+            padding-bottom: 0.6rem; margin-top: 2rem;
+            display: flex; align-items: baseline; white-space: nowrap;
+        }
+        @media (min-width: 768px) { .section-header { font-size: 1.1rem; letter-spacing: 0.5em; padding-bottom: 0.8rem; } }
 
-@media (min-width: 768px) {
-    .selected-sub { 
-        font-size: 18px; 
-        letter-spacing: 0.2em; 
-        margin-top: 2px; 
-        text-align: right;
-        padding-right: 4px; 
-    }
-}
+        .header-number { display: inline-flex; align-items: center; margin-right: 0.5rem; flex-shrink: 0; color: #38bdf8; }
+        .section-pipe { opacity: 0.4; color: #fff; margin-left: 0.5rem; margin-right: 0.5rem; }
 
-        /* UPDATED SECTION HEADERS */
-.section-header { 
-    font-family: 'Knockout-Full', sans-serif; 
-    font-size: 0.9rem; 
-    letter-spacing: 0.3em; 
-    color: rgba(56, 189, 248, 0.65);
-    border-bottom: 2px solid rgba(255, 255, 255, 0.2); 
-    padding-bottom: 0.6rem; 
-    margin-top: 2rem; 
-    display: flex;
-    align-items: baseline;
-    white-space: nowrap; /* Prevents the header from breaking into two lines */
-}
-
-@media (min-width: 768px) {
-    .section-header { 
-        font-size: 1.1rem; 
-        letter-spacing: 0.5em; 
-        padding-bottom: 0.8rem; 
-    }
-}
-
-.header-number { 
-    display: inline-flex;
-    align-items: center;
-    margin-right: 0.5rem; /* Adds space after the pipe before the text starts */
-    flex-shrink: 0; 
-    color: #38bdf8; /* Vibrant Sky Blue */
-} 
-
-.section-pipe { 
-    opacity: 0.4; 
-    color: #fff; 
-    margin-left: 0.5rem; 
-    margin-right: 0.5rem; 
-}
-
-        /* CREDIT STACK */
         .credit-stack { margin-left: 0; }
         @media (min-width: 768px) { .credit-stack { margin-left: 4rem; } }
-        
+
         .credit-entry { padding: 1.2rem 0 1.5rem 0; border-bottom: 1px solid rgba(255, 255, 255, 0.15); }
         .role-label { font-family: 'Knockout-Full', sans-serif; font-size: 0.75rem; letter-spacing: 0.15em; color: rgba(255, 255, 255, 0.45); margin-bottom: 0.2rem; display: block; }
-        
-        .credit-title { 
-            font-family: 'Knockout-Full', sans-serif; 
-            font-size: clamp(1.6rem, 6vw, 2.2rem); 
-            color: rgba(255, 255, 255, 0.9); 
-            line-height: 1; 
-            margin-bottom: 0.4rem; 
+
+        .credit-title {
+            font-family: 'Knockout-Full', sans-serif;
+            font-size: clamp(1.6rem, 6vw, 2.2rem);
+            color: rgba(255, 255, 255, 0.9); line-height: 1; margin-bottom: 0.4rem;
         }
-        
+
         .emmy-badge { color: #38bdf8; font-family: 'Knockout-Full', sans-serif; font-size: 0.75rem; letter-spacing: 0.1em; margin-bottom: 0.3rem; display: block; }
         .meta-info { font-family: 'Knockout-Junior', sans-serif; font-size: 0.95rem; color: rgba(255, 255, 255, 0.45); letter-spacing: 0.1em; }
         .meta-pipe { color: rgba(255, 255, 255, 0.2); margin: 0 8px; }
 
-        /* RECURRING BREAKOUT LISTS */
         .recurring-list { margin-top: 1.1rem; border-left: 1px solid rgba(255, 255, 255, 0.2); padding-left: 1.2rem; }
         .recurring-item { margin-bottom: 0.5rem; display: flex; align-items: baseline; gap: 10px; }
         .rec-year { font-family: ui-monospace, monospace; font-size: 12px; color: rgba(255, 255, 255, 0.4); width: 32px; flex-shrink: 0; }
         .rec-detail { font-family: 'Knockout-Full', sans-serif; font-size: 0.95rem; color: rgba(255, 255, 255, 0.55); letter-spacing: 0.03em; }
 
-        /* FOOTER */
-        .footer-logo { font-family: 'Knockout-Full', sans-serif; font-size: 2.5rem; color: rgba(255, 255, 255, 0.8); line-height: 1; }
-        @media (min-width: 768px) { .footer-logo { font-size: 3.5rem; } }
+        /* Footer */
+        .alex-footer { font-family: 'Knockout-Full', sans-serif; font-size: 1.15rem; color: #fff; letter-spacing: -0.01em; line-height: 1; }
+        .viet-footer { font-family: 'Knockout-Junior', sans-serif; font-size: 1.1rem; color: rgba(255,255,255,0.7); margin-left: 0.15em; line-height: 1; }
+        @media (min-width: 768px) {
+            .alex-footer { font-size: 2.5rem; letter-spacing: -0.02em; }
+            .viet-footer { font-size: 2.45rem; margin-left: 0.2em; }
+        }
     </style>
 </head>
 <body class="p-4 md:p-12 lg:px-20">
@@ -203,20 +146,19 @@
     <div class="page-bg"></div>
 
     <nav class="max-w-7xl mx-auto flex flex-row justify-between items-center mb-4 gap-2 relative z-50">
-    <a href="index.html" class="brand-logo tracking-tighter flex items-baseline opacity-80">
-    <span>A</span><span style="font-family: 'Knockout-Junior', sans-serif; margin-left: -2px;">V</span>
-</a>
-    
-    <div class="nav-container flex flex-row items-center font-bold" style="font-family: 'Knockout-Junior', sans-serif;">
-        <a href="portfolio.html" class="nav-link">Portfolio</a>
-        <span class="nav-pipe opacity-40 mx-2 md:mx-4">|</span>
-        <a href="credits.html" class="nav-link active">Credits</a>
-        <span class="nav-pipe opacity-40 mx-2 md:mx-4">|</span>
-        <a href="about.html" class="nav-link">About</a>
-        <span class="nav-pipe opacity-40 mx-2 md:mx-4">|</span>
-        <a href="mailto:info@alexvietmeier.com" class="nav-link">Contact</a>
-    </div>
-</nav>
+        <a href="index.html" class="brand-logo tracking-tighter flex items-baseline opacity-80">
+            <span>A</span><span style="font-family: 'Knockout-Junior', sans-serif; margin-left: -2px;">V</span>
+        </a>
+        <div class="flex flex-row items-center font-bold" style="font-family: 'Knockout-Junior', sans-serif;">
+            <a href="portfolio.html" class="nav-link">Portfolio</a>
+            <span class="nav-pipe opacity-40 mx-2 md:mx-4">|</span>
+            <a href="credits.html" class="nav-link active">Credits</a>
+            <span class="nav-pipe opacity-40 mx-2 md:mx-4">|</span>
+            <a href="about.html" class="nav-link">About</a>
+            <span class="nav-pipe opacity-40 mx-2 md:mx-4">|</span>
+            <a href="mailto:info@alexvietmeier.com" class="nav-link">Contact</a>
+        </div>
+    </nav>
 
     <div class="max-w-7xl mx-auto bookend-bar"></div>
 
@@ -326,63 +268,39 @@
     </main>
 
     <footer class="w-full pb-12 mt-5">
-    <div class="max-w-7xl mx-auto bookend-bar mb-8"></div>
-    
-    <div class="w-full flex flex-col gap-6">
-        <div class="flex flex-row justify-between items-center w-full">
-            
-            <div class="footer-brand">
-                <div class="flex items-baseline">
-                    <span class="alex-footer">Alexander</span><span class="viet-footer">Vietmeier</span>
+        <div class="max-w-7xl mx-auto bookend-bar mb-8"></div>
+
+        <div class="w-full flex flex-col gap-6">
+            <div class="flex flex-row justify-between items-center w-full">
+                <div>
+                    <div class="flex items-baseline">
+                        <span class="alex-footer">Alexander</span><span class="viet-footer">Vietmeier</span>
+                    </div>
+                    <p class="text-[9px] md:text-[12px] tracking-[0.11em] opacity-50 mt-0 font-bold">
+                        Director | New York City
+                    </p>
                 </div>
-                <p class="text-[9px] md:text-[12px] tracking-[0.11em] opacity-50 mt-0 font-bold">
-                    Director | New York City
+
+                <div class="flex items-center gap-3 md:gap-8">
+                    <a href="https://www.imdb.com/name/nm3653860/" target="_blank" rel="noopener noreferrer" class="opacity-70 hover:opacity-100 transition-opacity" title="IMDb" aria-label="IMDb profile">
+                        <svg width="18" height="18" class="md:w-6 md:h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2H2v10h10V2z"/><path d="M18 12h4"/><path d="M18 16h4"/><path d="M18 20h4"/><path d="M18 4h4"/><path d="M18 8h4"/><path d="M2 12h10"/><path d="M2 16h10"/><path d="M2 20h10"/><path d="M2 4h10"/><path d="M2 8h10"/></svg>
+                    </a>
+                    <a href="https://www.linkedin.com/in/alexvietmeier" target="_blank" rel="noopener noreferrer" class="opacity-70 hover:opacity-100 transition-opacity" title="LinkedIn" aria-label="LinkedIn profile">
+                        <svg width="18" height="18" class="md:w-6 md:h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg>
+                    </a>
+                    <a href="mailto:info@alexvietmeier.com" class="opacity-70 hover:opacity-100 transition-opacity" title="Email" aria-label="Send email">
+                        <svg width="18" height="18" class="md:w-6 md:h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+                    </a>
+                </div>
+            </div>
+
+            <div class="w-full text-center border-t-2 border-white/10 pt-6">
+                <p class="text-[11px] tracking-widest opacity-40">
+                    © 2026 Alexander Vietmeier. All Rights Reserved.
                 </p>
             </div>
-
-            <div class="flex items-center gap-3 md:gap-8">
-                <a href="https://www.imdb.com/name/nm3653860/" target="_blank" class="opacity-70 hover:opacity-100 transition-opacity" title="IMDb">
-                    <svg width="18" height="18" class="md:w-6 md:h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2H2v10h10V2z"/><path d="M18 12h4"/><path d="M18 16h4"/><path d="M18 20h4"/><path d="M18 4h4"/><path d="M18 8h4"/><path d="M2 12h10"/><path d="M2 16h10"/><path d="M2 20h10"/><path d="M2 4h10"/><path d="M2 8h10"/></svg>
-                </a>
-                <a href="http://www.linkedin.com/in/alexvietmeier" target="_blank" class="opacity-70 hover:opacity-100 transition-opacity" title="LinkedIn">
-                    <svg width="18" height="18" class="md:w-6 md:h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg>
-                </a>
-                <a href="mailto:info@alexvietmeier.com" class="opacity-70 hover:opacity-100 transition-opacity" title="Email">
-                    <svg width="18" height="18" class="md:w-6 md:h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
-                </a>
-            </div>
         </div>
-
-        <div class="w-full text-center border-t-2 border-white/10 pt-6">
-            <p class="text-[11px] tracking-widest opacity-40">
-                © 2026 Alexander Vietmeier. All Rights Reserved.
-            </p>
-        </div>
-    </div>
-</footer>
-
-<style>
-   /* FOOTER TYPOGRAPHY - RE-TUNED FOR ONE LINE */
-.alex-footer { 
-    font-family: 'Knockout-Full', sans-serif; 
-    font-size: 1.15rem; /* Slightly smaller for mobile flow */
-    color: #fff; 
-    letter-spacing: -0.01em;
-    line-height: 1;
-}
-.viet-footer { 
-    font-family: 'Knockout-Junior', sans-serif; 
-    font-size: 1.1rem; 
-    color: rgba(255,255,255,0.7); 
-    margin-left: 0.15em; 
-    line-height: 1;
-}
-
-@media (min-width: 768px) {
-    .alex-footer { font-size: 2.5rem; letter-spacing: -0.02em; }
-    .viet-footer { font-size: 2.45rem; margin-left: 0.2em; }
-}
-</style>
+    </footer>
 
 </body>
 </html>

@@ -2,54 +2,105 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Alexander Vietmeier | Director</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alexander Vietmeier | Emmy-Nominated TV Director</title>
+    <meta name="description" content="Alexander Vietmeier is a 2x Emmy-nominated TV director specializing in variety, multi-cam, music, and comedy. Watch his reel and explore his portfolio.">
+    <meta name="author" content="Alexander Vietmeier">
+    <meta name="robots" content="index, follow">
+    <meta name="theme-color" content="#000000">
     <link rel="canonical" href="https://www.alexvietmeier.com/" />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.alexvietmeier.com/">
+    <meta property="og:title" content="Alexander Vietmeier | Emmy-Nominated TV Director">
+    <meta property="og:description" content="Alexander Vietmeier is a 2x Emmy-nominated TV director specializing in variety, multi-cam, music, and comedy. Watch his reel and explore his portfolio.">
+    <meta property="og:image" content="https://www.alexvietmeier.com/images/avHome-og.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:site_name" content="Alexander Vietmeier">
+    <meta property="og:locale" content="en_US">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Alexander Vietmeier | Emmy-Nominated TV Director">
+    <meta name="twitter:description" content="Alexander Vietmeier is a 2x Emmy-nominated TV director specializing in variety, multi-cam, music, and comedy.">
+    <meta name="twitter:image" content="https://www.alexvietmeier.com/images/avHome-og.jpg">
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Alexander Vietmeier",
+      "url": "https://www.alexvietmeier.com",
+      "image": "https://www.alexvietmeier.com/images/avHome-og.jpg",
+      "jobTitle": "Director",
+      "description": "2x Emmy-nominated TV director specializing in variety, multi-cam, music, and comedy.",
+      "email": "info@alexvietmeier.com",
+      "award": "2x Emmy Nominee — Outstanding Directing For A Variety Series",
+      "knowsAbout": ["Television Direction", "Variety Television", "Multi-Camera Direction", "Music Television", "Comedy Direction"],
+      "sameAs": [
+        "https://www.imdb.com/name/nm3653860/",
+        "https://www.linkedin.com/in/alexvietmeier"
+      ]
+    }
+    </script>
+
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22 fill=%22white%22 font-family=%22sans-serif%22 font-weight=%22bold%22>AV</text></svg>">
-    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Preconnect to Vimeo -->
+    <link rel="preconnect" href="https://player.vimeo.com">
+    <link rel="preconnect" href="https://i.vimeocdn.com">
+    <link rel="preconnect" href="https://f.vimeocdn.com">
+    <link rel="dns-prefetch" href="https://player.vimeo.com">
+
+    <!-- Preload critical assets -->
+    <link rel="preload" href="./fonts/Knockout-HTF70-FullWelterwt.otf" as="font" type="font/otf" crossorigin>
+    <link rel="preload" href="./fonts/Knockout-HTF30-JuniorWelterwt.otf" as="font" type="font/otf" crossorigin>
+    <link rel="preload" href="./images/avHome.jpg" as="image">
+
+    <!-- Local Tailwind (purged) -->
+    <link rel="stylesheet" href="styles.css">
+
     <style>
         @font-face { font-family: 'Knockout-Full'; src: url('./fonts/Knockout-HTF70-FullWelterwt.otf') format('opentype'); font-display: swap; }
         @font-face { font-family: 'Knockout-Junior'; src: url('./fonts/Knockout-HTF30-JuniorWelterwt.otf') format('opentype'); font-display: swap; }
 
-        /* dvh ensures 100% height accounts for mobile browser bars */
         body { background-color: #000; color: #fff; text-transform: uppercase; overflow: hidden; -webkit-font-smoothing: antialiased; height: 100vh; height: 100dvh; margin: 0; }
-        
+
         .hero-container { position: relative; height: 100vh; height: 100dvh; width: 100vw; display: flex; flex-direction: column; cursor: pointer; }
-        
-        /* FULL-SCREEN VIDEO (Always edge-to-edge) */
+
+        /* FULL-SCREEN VIDEO */
         .video-background { position: absolute; inset: 0; z-index: -2; background: #000; display: flex; align-items: center; justify-content: center; overflow: hidden; }
-        .video-poster { position: absolute; inset: 0; background-image: url('images/avHome.png'); background-size: cover; background-position: center; z-index: -1; }
-        
-        .video-background iframe { 
-            position: absolute; top: 50%; left: 50%; width: 100vw; height: 56.25vw; 
-            min-height: 100vh; min-width: 177.77vh; transform: translate(-50%,-50%); 
-            pointer-events: none; opacity: 0; transition: opacity 1s ease; 
+        .video-poster { position: absolute; inset: 0; background-image: url('images/avHome.jpg'); background-size: cover; background-position: center; z-index: -1; }
+
+        .video-background iframe {
+            position: absolute; top: 50%; left: 50%; width: 100vw; height: 56.25vw;
+            min-height: 100vh; min-width: 177.77vh; transform: translate(-50%,-50%);
+            pointer-events: none; opacity: 0; transition: opacity 1s ease;
         }
 
         @media (max-width: 767px) {
             .video-background iframe { width: 177.77vh; height: 100vh; min-width: 100vw; min-height: 56.25vw; }
         }
-        
-        .video-overlay { position: absolute; inset: 0; background: rgba(0, 0, 0, 0.4); z-index: -1; transition: background 0.4s ease; }
-        
-        /* NAV STYLING - COORDINATED WITH ABOUT.HTML */
-        /* UNIFIED LOGO SCALING - MATCHES HOME PAGE */
-.brand-logo {
-    font-family: 'Knockout-Full', sans-serif;
-    /* 1.5rem on mobile, scales up to 3.25rem on desktop */
-    font-size: clamp(2.5rem, 5vw, 3.25rem); 
-    line-height: 0.9;
-    letter-spacing: -0.01em;
-    transition: opacity 0.3s ease;
-}
 
-@media (min-width: 768px) {
-    .brand-logo {
-        letter-spacing: -0.02em; /* Keeps it tight and bold on desktop */
-    }
-}
+        .video-overlay { position: absolute; inset: 0; background: rgba(0, 0, 0, 0.4); z-index: -1; transition: background 0.4s ease; }
+
+        /* NAV */
+        .brand-logo {
+            font-family: 'Knockout-Full', sans-serif;
+            font-size: clamp(2.5rem, 5vw, 3.25rem);
+            line-height: 0.9;
+            letter-spacing: -0.01em;
+            transition: opacity 0.3s ease;
+        }
+        @media (min-width: 768px) {
+            .brand-logo { letter-spacing: -0.02em; }
+        }
+
         .nav-link { font-size: 11px; opacity: 0.5; letter-spacing: 0.2em; transition: opacity 0.3s; color: #fff; font-family: 'Knockout-Junior', sans-serif; }
-        @media (min-width: 768px) { .nav-link { font-size: 13px; letter-spacing: 0.35em; } .brand-logo { letter-spacing: -0.02em; } }
+        @media (min-width: 768px) { .nav-link { font-size: 13px; letter-spacing: 0.35em; } }
         .nav-pipe { color: #fff; opacity: 0.4; }
         .bookend-bar { width: 100%; height: 2px; background: rgba(255, 255, 255, 0.12); }
 
@@ -66,7 +117,16 @@
 
         .role-window { font-family: 'Knockout-Junior', sans-serif; font-size: 0.96em; height: 1.1em; overflow: hidden; display: inline-flex; flex-direction: column; transform: translateY(-0.03em); }
         #role-list { transition: transform 0.7s cubic-bezier(0.23, 1, 0.32, 1); }
-        .role-item { height: 1.1em; display: flex; align-items: center; }
+        .role-item { height: 1.1em; display: flex; align-items: center; white-space: nowrap; }
+
+        /* LANDSCAPE MOBILE */
+        @media (max-height: 500px) and (orientation: landscape) {
+            .alexander { font-size: 7vh; }
+            .vietmeier { font-size: 6.5vh; }
+            .play-circle { width: 56px; height: 56px; }
+            .play-indicator { gap: 0.5rem; }
+            .play-indicator span { display: none; }
+        }
     </style>
 </head>
 <body>
@@ -77,13 +137,13 @@
             <iframe id="bg-video-frame" src="" frameborder="0" allow="autoplay; fullscreen"></iframe>
         </div>
         <div class="video-overlay"></div>
-        
+
         <div class="w-full p-4 md:p-12 lg:px-20 h-full flex flex-col">
-            
+
             <nav class="max-w-7xl mx-auto w-full flex flex-row justify-between items-center mb-4 gap-2 relative z-50" onclick="event.stopPropagation()">
                 <a href="index.html" class="brand-logo tracking-tighter flex items-baseline opacity-80">
-    <span>A</span><span style="font-family: 'Knockout-Junior', sans-serif; margin-left: -2px;">V</span>
-</a>
+                    <span>A</span><span style="font-family: 'Knockout-Junior', sans-serif; margin-left: -2px;">V</span>
+                </a>
                 <div class="flex flex-row items-center font-bold">
                     <a href="portfolio.html" class="nav-link">Portfolio</a>
                     <span class="nav-pipe mx-2 md:mx-4">|</span>
@@ -97,52 +157,60 @@
 
             <div class="max-w-7xl mx-auto w-full bookend-bar"></div>
 
-            <div class="play-indicator">
+            <div class="play-indicator" aria-hidden="true">
                 <div class="play-circle"><svg width="24" height="24" viewBox="0 0 24 24" fill="white"><path d="M8 5V19L19 12L8 5Z" /></svg></div>
                 <span class="font-bold tracking-[0.4em] text-[12px] opacity-70" style="font-family: 'Knockout-Junior';">Watch Reel</span>
             </div>
 
             <div class="max-w-7xl mx-auto w-full pb-8 md:pb-12 mt-auto relative z-50">
-    <h1 class="flex flex-wrap items-baseline gap-[0.3em] tracking-tighter mb-1">
-        <span class="alexander">Alexander</span>
-        <span class="vietmeier">Vietmeier</span>
-    </h1>
-    
-    <div class="flex flex-col lg:flex-row justify-between border-t border-white/40 pt-4 items-baseline gap-y-4">
-        
-        <div class="flex items-baseline text-2xl md:text-4xl tracking-tight" style="font-family: 'Knockout-Full';">
-            <span>Director</span><span class="mx-[0.35em] opacity-40">|</span>
-            <div class="role-window" style="min-width: 4em;">
-                <div id="role-list">
-                    <span class="role-item">Variety</span>
-                    <span class="role-item">Multi-Cam</span>
-                    <span class="role-item">Music</span>
-                    <span class="role-item">Comedy</span>
-                    <span class="role-item">Variety</span>
+                <h1 class="flex flex-wrap items-baseline gap-[0.3em] tracking-tighter mb-1">
+                    <span class="alexander">Alexander</span>
+                    <span class="vietmeier">Vietmeier</span>
+                </h1>
+
+                <div class="flex flex-col lg:flex-row justify-between border-t border-white/40 pt-4 items-baseline gap-y-4">
+
+                    <div class="flex items-baseline text-2xl md:text-4xl tracking-tight" style="font-family: 'Knockout-Full';">
+                        <span>Director</span><span class="mx-[0.35em] opacity-40">|</span>
+                        <div class="role-window" style="min-width: 6em;">
+                            <div id="role-list">
+                                <span class="role-item">Variety</span>
+                                <span class="role-item">Multi-Cam</span>
+                                <span class="role-item">Music</span>
+                                <span class="role-item">Comedy</span>
+                                <span class="role-item">Variety</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="text-[13px] md:text-xl lg:text-2xl opacity-70 leading-tight" style="font-family: 'Knockout-Junior';">
+                        2x Emmy Nominee <span class="hidden md:inline">|</span><br class="md:hidden"> Outstanding Directing For A Variety Series
+                    </div>
                 </div>
             </div>
         </div>
-
-        <div class="text-[13px] md:text-xl lg:text-2xl opacity-70 leading-tight" style="font-family: 'Knockout-Junior';">
-            2x Emmy Nominee  <span class="hidden md:inline">|</span> <br class="md:hidden"> Outstanding Directing For A Variety Series
-        </div>
-    </div>
-</div>
     </section>
 
-    <div id="videoModal" class="fixed inset-0 z-[100] hidden flex items-center justify-center bg-black/95 p-4 md:p-10">
-        <button onclick="closeModal(event)" class="absolute top-6 right-6 text-white text-4xl font-light hover:opacity-50 transition-opacity">&times;</button>
+    <div id="videoModal" class="fixed inset-0 z-[100] hidden flex items-center justify-center bg-black/95 p-4 md:p-10" role="dialog" aria-modal="true" aria-label="Reel video player">
+        <button onclick="closeModal(event)" class="absolute top-6 right-6 text-white text-4xl font-light hover:opacity-50 transition-opacity" aria-label="Close video">&times;</button>
         <div class="w-full max-w-5xl aspect-video bg-black shadow-2xl">
             <iframe id="modalPlayer" src="" class="w-full h-full" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
         </div>
     </div>
+
+    <noscript>
+        <style>.play-indicator { display: none; }</style>
+        <div style="position:fixed;bottom:1rem;left:50%;transform:translateX(-50%);color:#fff;font-family:sans-serif;font-size:12px;opacity:0.6;text-align:center;">
+            Enable JavaScript to watch the reel.
+        </div>
+    </noscript>
 
     <script src="https://player.vimeo.com/api/player.js"></script>
     <script>
         const videoFrame = document.getElementById('bg-video-frame');
         const modal = document.getElementById('videoModal');
         const modalPlayer = document.getElementById('modalPlayer');
-        
+
         const isMobile = window.innerWidth < 768;
         const videoId = isMobile ? "1166711702" : "1166711676";
         videoFrame.src = `https://player.vimeo.com/video/${videoId}?background=1&autoplay=1&loop=1&muted=1&quality=1080p`;
@@ -150,36 +218,37 @@
         const bgPlayer = new Vimeo.Player(videoFrame);
         bgPlayer.on('play', () => { videoFrame.style.opacity = "1"; });
 
-        function openModal(url) { 
-            modalPlayer.src = url + "?autoplay=1"; 
-            modal.classList.remove('hidden'); 
+        function openModal(url) {
+            modalPlayer.src = url + "?autoplay=1";
+            modal.classList.remove('hidden');
             document.body.style.overflow = 'hidden';
-            bgPlayer.pause(); 
+            bgPlayer.pause();
         }
-        
-        function closeModal(e) { 
-            if(e) e.stopPropagation(); 
-            modal.classList.add('hidden'); 
-            modalPlayer.src = ""; 
-            document.body.style.overflow = 'auto'; 
-            bgPlayer.play().catch(() => {}); 
+
+        function closeModal(e) {
+            if(e) e.stopPropagation();
+            modal.classList.add('hidden');
+            modalPlayer.src = "";
+            document.body.style.overflow = 'auto';
+            bgPlayer.play().catch(() => {});
         }
 
         window.onclick = (e) => { if (e.target == modal) closeModal(); }
+        window.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeModal(); });
 
-        const roleList = document.getElementById("role-list"); 
+        const roleList = document.getElementById("role-list");
         let currentIndex = 0;
-        setInterval(() => { 
-            currentIndex++; 
-            roleList.style.transition = "transform 0.7s cubic-bezier(0.23, 1, 0.32, 1)"; 
-            roleList.style.transform = `translateY(-${currentIndex * roleList.children[0].offsetHeight}px)`; 
-            if (currentIndex === 4) { 
-                setTimeout(() => { 
-                    roleList.style.transition = "none"; 
-                    roleList.style.transform = "translateY(0)"; 
-                    currentIndex = 0; 
-                }, 700); 
-            } 
+        setInterval(() => {
+            currentIndex++;
+            roleList.style.transition = "transform 0.7s cubic-bezier(0.23, 1, 0.32, 1)";
+            roleList.style.transform = `translateY(-${currentIndex * roleList.children[0].offsetHeight}px)`;
+            if (currentIndex === 4) {
+                setTimeout(() => {
+                    roleList.style.transition = "none";
+                    roleList.style.transform = "translateY(0)";
+                    currentIndex = 0;
+                }, 700);
+            }
         }, 2000);
     </script>
 </body>

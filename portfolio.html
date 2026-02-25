@@ -3,24 +3,53 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio | Alexander Vietmeier</title>
-    
-    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Portfolio | Alexander Vietmeier — Emmy-Nominated TV Director</title>
+    <meta name="description" content="Selected works from Alexander Vietmeier — director of Late Night with Seth Meyers, Macy's Thanksgiving Day Parade, Christmas in Rockefeller Center, and more.">
+    <meta name="author" content="Alexander Vietmeier">
+    <meta name="robots" content="index, follow">
+    <meta name="theme-color" content="#000000">
+    <link rel="canonical" href="https://www.alexvietmeier.com/portfolio.html" />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.alexvietmeier.com/portfolio.html">
+    <meta property="og:title" content="Portfolio | Alexander Vietmeier — Emmy-Nominated TV Director">
+    <meta property="og:description" content="Selected works from Alexander Vietmeier — director of Late Night with Seth Meyers, Macy's Thanksgiving Day Parade, Christmas in Rockefeller Center, and more.">
+    <meta property="og:image" content="https://www.alexvietmeier.com/images/avHome-og.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:site_name" content="Alexander Vietmeier">
+    <meta property="og:locale" content="en_US">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Portfolio | Alexander Vietmeier — Emmy-Nominated TV Director">
+    <meta name="twitter:description" content="Selected works from Alexander Vietmeier — director of Late Night with Seth Meyers, Macy's Thanksgiving Day Parade, and more.">
+    <meta name="twitter:image" content="https://www.alexvietmeier.com/images/avHome-og.jpg">
+
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22 fill=%22white%22 font-family=%22sans-serif%22 font-weight=%22bold%22>AV</text></svg>">
+
+    <!-- Preload critical assets -->
+    <link rel="preload" href="./fonts/Knockout-HTF70-FullWelterwt.otf" as="font" type="font/otf" crossorigin>
+    <link rel="preload" href="./fonts/Knockout-HTF30-JuniorWelterwt.otf" as="font" type="font/otf" crossorigin>
+    <link rel="preload" href="./images/avReel_thumb.jpg" as="image">
+
+    <!-- Preconnect for video embeds -->
+    <link rel="preconnect" href="https://player.vimeo.com">
+    <link rel="preconnect" href="https://www.youtube.com">
+    <link rel="dns-prefetch" href="https://player.vimeo.com">
+    <link rel="dns-prefetch" href="https://www.youtube.com">
+
+    <!-- Local Tailwind (purged) -->
+    <link rel="stylesheet" href="styles.css">
+
     <style>
-        @font-face { 
-            font-family: 'Knockout-Full'; 
-            src: url('./fonts/Knockout-HTF70-FullWelterwt.otf') format('opentype'); 
-            font-display: swap;
-        }
-        @font-face { 
-            font-family: 'Knockout-Junior'; 
-            src: url('./fonts/Knockout-HTF30-JuniorWelterwt.otf') format('opentype'); 
-            font-display: swap;
-        }
+        @font-face { font-family: 'Knockout-Full'; src: url('./fonts/Knockout-HTF70-FullWelterwt.otf') format('opentype'); font-display: swap; }
+        @font-face { font-family: 'Knockout-Junior'; src: url('./fonts/Knockout-HTF30-JuniorWelterwt.otf') format('opentype'); font-display: swap; }
 
         body {
             background-color: #000;
-            color: rgba(255, 255, 255, 0.7); 
+            color: rgba(255, 255, 255, 0.7);
             text-transform: uppercase;
             font-family: 'Knockout-Junior', sans-serif;
             -webkit-font-smoothing: antialiased;
@@ -34,258 +63,124 @@
             background: radial-gradient(circle at 50% 0%, #1a1a1a 0%, #000 80%);
         }
 
-        /* NAVIGATION */
         .brand-logo {
             font-family: 'Knockout-Full', sans-serif;
-            font-size: clamp(2.5rem, 5vw, 3.25rem); 
-            line-height: 0.9;
-            letter-spacing: -0.01em;
+            font-size: clamp(2.5rem, 5vw, 3.25rem);
+            line-height: 0.9; letter-spacing: -0.01em;
             transition: opacity 0.3s ease;
         }
-        @media (min-width: 768px) {
-            .brand-logo { letter-spacing: -0.02em; }
-        }
+        @media (min-width: 768px) { .brand-logo { letter-spacing: -0.02em; } }
 
-        .nav-link { 
-            font-size: 11px; 
-            opacity: 0.4; 
-            letter-spacing: 0.2em; 
-            transition: opacity 0.3s; 
-            color: #fff; 
-        }
-        @media (min-width: 768px) {
-            .nav-link { font-size: 13px; letter-spacing: 0.35em; }
-        }
+        .nav-link { font-size: 11px; opacity: 0.4; letter-spacing: 0.2em; transition: opacity 0.3s; color: #fff; }
+        @media (min-width: 768px) { .nav-link { font-size: 13px; letter-spacing: 0.35em; } }
         .nav-link:hover, .nav-link.active { opacity: 1; }
         .nav-pipe { color: #fff; }
         .bookend-bar { width: 100%; height: 2px; background: rgba(255, 255, 255, 0.12); }
 
-        /* MASTHEAD */
-        .masthead-container { 
-            display: flex; 
-            flex-direction: column; 
-            align-items: flex-start; 
-            margin-top: 2.5rem; 
-            margin-bottom: 2rem; 
+        .masthead-container {
+            display: flex; flex-direction: column; align-items: flex-start;
+            margin-top: 2.5rem; margin-bottom: 2rem;
         }
         @media (min-width: 768px) {
-            .masthead-container { 
-                align-items: flex-end; 
-                margin-top: 3.5rem; 
-                margin-bottom: 3rem; 
-            }
+            .masthead-container { align-items: flex-end; margin-top: 3.5rem; margin-bottom: 3rem; }
         }
 
-        .main-title { 
-            font-family: 'Knockout-Full', sans-serif; 
-            font-size: clamp(2.6rem, 9vw, 5.5rem); 
-            line-height: 0.8; 
-            color: rgba(255, 255, 255, 0.9); 
-            text-align: left;
-            letter-spacing: 0.01em;
+        .main-title {
+            font-family: 'Knockout-Full', sans-serif;
+            font-size: clamp(2.6rem, 9vw, 5.5rem);
+            line-height: 0.8; color: rgba(255, 255, 255, 0.9);
+            text-align: left; letter-spacing: 0.01em;
+        }
+        @media (min-width: 768px) { .main-title { text-align: right; } }
+        .main-title span { font-family: 'Knockout-Junior'; opacity: 0.85; letter-spacing: -0.01em; }
+
+        .selected-sub {
+            font-family: 'Knockout-Junior'; font-size: 14px; letter-spacing: 0.11em;
+            color: rgba(255, 255, 255, 0.45); margin-top: 2px; text-align: left;
         }
         @media (min-width: 768px) {
-            .main-title { text-align: right; }
+            .selected-sub { font-size: 18px; letter-spacing: 0.2em; text-align: right; padding-right: 2px; }
         }
 
-        .main-title span { 
-            font-family: 'Knockout-Junior'; 
-            opacity: 0.85; 
-            letter-spacing: -0.01em; 
-        }
-
-        .selected-sub { 
-            font-family: 'Knockout-Junior'; 
-            font-size: 14px; 
-            letter-spacing: 0.11em; 
-            color: rgba(255, 255, 255, 0.45); 
-            margin-top: 2px; 
-            text-align: left;
-        }
-        @media (min-width: 768px) {
-            .selected-sub { 
-                font-size: 18px; 
-                letter-spacing: 0.2em; 
-                margin-top: 2px; 
-                text-align: right;
-                padding-right: 2px; 
-            }
-        }
-        
         .sub-pipe { color: rgba(255, 255, 255, 0.3); padding: 0 0.3rem; }
 
-        .header-rule { 
-            width: 100%; 
-            height: 1px; 
-            background: rgba(255, 255, 255, 0.15); 
-            margin-top: 1.5rem; 
-        }
-        @media (min-width: 768px) { 
-            .header-rule { margin-top: 2.5rem; } 
-        }
+        .header-rule { width: 100%; height: 1px; background: rgba(255, 255, 255, 0.15); margin-top: 1.5rem; }
+        @media (min-width: 768px) { .header-rule { margin-top: 2.5rem; } }
 
-        /* SECTION HEADERS - matches Credits page */
-        .section-header { 
-            font-family: 'Knockout-Full', sans-serif; 
-            font-size: 0.9rem; 
-            letter-spacing: 0.3em; 
+        .section-header {
+            font-family: 'Knockout-Full', sans-serif;
+            font-size: 0.9rem; letter-spacing: 0.3em;
             color: rgba(56, 189, 248, 0.65);
-            border-bottom: 2px solid rgba(255, 255, 255, 0.2); 
-            padding-bottom: 0.6rem; 
-            margin-top: 3rem;
-            margin-bottom: 1.5rem;
-            display: flex;
-            align-items: baseline;
-            white-space: nowrap;
+            border-bottom: 2px solid rgba(255, 255, 255, 0.2);
+            padding-bottom: 0.6rem; margin-top: 3rem; margin-bottom: 1.5rem;
+            display: flex; align-items: baseline; white-space: nowrap;
         }
-        @media (min-width: 768px) {
-            .section-header { 
-                font-size: 1.1rem; 
-                letter-spacing: 0.5em; 
-                padding-bottom: 0.8rem; 
-            }
-        }
+        @media (min-width: 768px) { .section-header { font-size: 1.1rem; letter-spacing: 0.5em; padding-bottom: 0.8rem; } }
 
-        .header-number { 
-            display: inline-flex;
-            align-items: center;
-            margin-right: 0.5rem;
-            flex-shrink: 0; 
-            color: #38bdf8;
-        } 
+        .header-number { display: inline-flex; align-items: center; margin-right: 0.5rem; flex-shrink: 0; color: #38bdf8; }
+        .section-pipe { opacity: 0.4; color: #fff; margin-left: 0.5rem; margin-right: 0.5rem; }
 
-        .section-pipe { 
-            opacity: 0.4; 
-            color: #fff; 
-            margin-left: 0.5rem; 
-            margin-right: 0.5rem; 
-        }
-
-        /* REEL ITEM - full width hero */
+        /* Reel hero item */
         .reel-item {
-            position: relative;
-            overflow: hidden;
-            background: #111;
-            aspect-ratio: 16 / 9;
-            cursor: pointer;
-            -webkit-tap-highlight-color: transparent;
-            margin-bottom: 1rem;
+            position: relative; overflow: hidden; background: #111;
+            aspect-ratio: 16 / 9; cursor: pointer;
+            -webkit-tap-highlight-color: transparent; margin-bottom: 1rem;
         }
-
         .reel-item img {
-            width: 100%; height: 100%;
-            object-fit: cover;
+            width: 100%; height: 100%; object-fit: cover;
             filter: grayscale(100%);
-            -webkit-filter: grayscale(100%);
-            transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+            transition: filter 0.8s cubic-bezier(0.4, 0, 0.2, 1), transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
         }
+        .reel-item:hover img, .reel-item.touch-active img { filter: grayscale(0%); transform: scale(1.03); }
 
-        .reel-item:hover img,
-        .reel-item.touch-active img {
-            filter: grayscale(0%);
-            -webkit-filter: grayscale(0%);
-            transform: scale(1.03);
-        }
+        /* Portfolio grid */
+        .portfolio-grid { display: grid; grid-template-columns: 1fr; gap: 1.5rem; }
+        @media (min-width: 768px) { .portfolio-grid { grid-template-columns: repeat(2, 1fr); gap: 2rem; } }
 
-        /* PORTFOLIO GRID */
-        .portfolio-grid {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 1.5rem;
-        }
-        @media (min-width: 768px) {
-            .portfolio-grid { grid-template-columns: repeat(2, 1fr); gap: 2rem; }
-        }
-
-        /* PORTFOLIO ITEMS */
         .portfolio-item {
-            position: relative;
-            overflow: hidden;
-            background: #111;
-            aspect-ratio: 16 / 9;
-            cursor: pointer;
-            -webkit-tap-highlight-color: transparent; 
+            position: relative; overflow: hidden; background: #111;
+            aspect-ratio: 16 / 9; cursor: pointer;
+            -webkit-tap-highlight-color: transparent;
         }
-
         .portfolio-item img {
-            width: 100%; height: 100%;
-            object-fit: cover;
+            width: 100%; height: 100%; object-fit: cover;
             filter: grayscale(100%);
-            -webkit-filter: grayscale(100%);
-            transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+            transition: filter 0.8s cubic-bezier(0.4, 0, 0.2, 1), transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
         }
+        .portfolio-item:hover img, .portfolio-item.touch-active img { filter: grayscale(0%); transform: scale(1.03); }
 
-        .portfolio-item:hover img, 
-        .portfolio-item.touch-active img { 
-            filter: grayscale(0%); 
-            -webkit-filter: grayscale(0%);
-            transform: scale(1.03); 
-        }
-
-        /* PROJECT OVERLAY */
         .project-info {
-            position: absolute;
-            inset: 0;
+            position: absolute; inset: 0;
             background: linear-gradient(to top, rgba(0,0,0,0.9) 0%, transparent 70%);
-            display: flex;
-            flex-direction: column;
-            justify-content: flex-end;
-            padding: 1.2rem;
-            opacity: 1;
-            transition: opacity 0.4s ease;
+            display: flex; flex-direction: column; justify-content: flex-end;
+            padding: 1.2rem; opacity: 1; transition: opacity 0.4s ease;
         }
-        @media (min-width: 1024px) { 
-            .project-info { opacity: 0; } 
-            .portfolio-item:hover .project-info,
-            .reel-item:hover .project-info { opacity: 1; } 
+        @media (min-width: 1024px) {
+            .project-info { opacity: 0; }
+            .portfolio-item:hover .project-info, .reel-item:hover .project-info { opacity: 1; }
         }
 
         .project-title {
             font-family: 'Knockout-Full', sans-serif;
-            font-size: 1.4rem;
-            color: #fff;
-            letter-spacing: 0.04em;
-            line-height: 1.1;
-            text-transform: uppercase;
+            font-size: 1.4rem; color: #fff; letter-spacing: 0.04em; line-height: 1.1; text-transform: uppercase;
         }
         @media (min-width: 768px) { .project-title { font-size: 1.75rem; } }
-
-        /* Slightly larger title treatment for the reel */
-        .reel-item .project-title {
-            font-size: 1.6rem;
-        }
+        .reel-item .project-title { font-size: 1.6rem; }
         @media (min-width: 768px) { .reel-item .project-title { font-size: 2.2rem; } }
 
-        .project-category {
-            font-family: 'Knockout-Junior', sans-serif;
-            font-size: 10px;
-            letter-spacing: 0.15em;
-            color: rgba(255, 255, 255, 0.6);
-            margin-top: 4px;
-        }
+        .project-category { font-family: 'Knockout-Junior', sans-serif; font-size: 10px; letter-spacing: 0.15em; color: rgba(255, 255, 255, 0.6); margin-top: 4px; }
 
-        /* FOOTER */
-        .footer-logo { font-family: 'Knockout-Full', sans-serif; font-size: 2.5rem; color: rgba(255, 255, 255, 0.8); line-height: 1; }
-        @media (min-width: 768px) { .footer-logo { font-size: 3.5rem; } }
-
-        .alex-footer { 
-            font-family: 'Knockout-Full', sans-serif; 
-            font-size: 1.15rem;
-            color: #fff; 
-            letter-spacing: -0.01em;
-            line-height: 1;
-        }
-        .viet-footer { 
-            font-family: 'Knockout-Junior', sans-serif; 
-            font-size: 1.1rem; 
-            color: rgba(255,255,255,0.7); 
-            margin-left: 0.15em; 
-            line-height: 1;
-        }
+        /* Footer */
+        .alex-footer { font-family: 'Knockout-Full', sans-serif; font-size: 1.15rem; color: #fff; letter-spacing: -0.01em; line-height: 1; }
+        .viet-footer { font-family: 'Knockout-Junior', sans-serif; font-size: 1.1rem; color: rgba(255,255,255,0.7); margin-left: 0.15em; line-height: 1; }
         @media (min-width: 768px) {
             .alex-footer { font-size: 2.5rem; letter-spacing: -0.02em; }
             .viet-footer { font-size: 2.45rem; margin-left: 0.2em; }
         }
+
+        /* Modal */
+        #videoModal { display: none; }
+        #videoModal.is-open { display: flex; }
     </style>
 </head>
 <body class="p-4 md:p-12 lg:px-20">
@@ -296,7 +191,7 @@
         <a href="index.html" class="brand-logo tracking-tighter flex items-baseline opacity-80">
             <span>A</span><span style="font-family: 'Knockout-Junior', sans-serif; margin-left: -2px;">V</span>
         </a>
-        <div class="nav-container flex flex-row items-center font-bold" style="font-family: 'Knockout-Junior', sans-serif;">
+        <div class="flex flex-row items-center font-bold" style="font-family: 'Knockout-Junior', sans-serif;">
             <a href="portfolio.html" class="nav-link active">Portfolio</a>
             <span class="nav-pipe opacity-40 mx-2 md:mx-4">|</span>
             <a href="credits.html" class="nav-link">Credits</a>
@@ -310,18 +205,18 @@
     <div class="max-w-7xl mx-auto bookend-bar"></div>
 
     <main class="max-w-7xl mx-auto px-2 md:px-8 pb-10">
-        
+
         <div class="masthead-container">
             <h1 class="main-title">PORTFOLIO</h1>
             <span class="selected-sub">BROADCAST <span class="sub-pipe">|</span> VARIETY <span class="sub-pipe">|</span> LIVE</span>
             <div class="header-rule"></div>
         </div>
 
-        <!-- DIRECTOR REEL - Full width hero -->
-        <div class="reel-item" onclick="openModal('https://player.vimeo.com/video/1166002140')">
-            <img src="images/avReel_thumb.png" alt="Director Reel">
+        <!-- DIRECTOR REEL -->
+        <div class="reel-item" onclick="openModal('https://player.vimeo.com/video/1166002140')" role="button" aria-label="Play Director Reel">
+            <img src="images/avReel_thumb.jpg" alt="Alexander Vietmeier Director Reel 2026">
             <div class="project-info">
-                <h3 class="project-title">DIRECTOR REEL</h3>
+                <h2 class="project-title">DIRECTOR REEL</h2>
                 <p class="project-category">2026 SHOWREEL | SELECTED WORKS</p>
             </div>
         </div>
@@ -332,29 +227,27 @@
             <span>Music</span>
         </h2>
         <div class="portfolio-grid">
-            <div class="portfolio-item" onclick="openModal('https://player.vimeo.com/video/MUSIC_VIDEO_ID_1')">
-                <img src="images/avJuly4th_KC.png" alt="Macy's 4th of July - Kelly Clarkson">
+            <div class="portfolio-item" onclick="openModal('https://player.vimeo.com/video/MUSIC_VIDEO_ID_1')" role="button" aria-label="Play Macy's 4th of July">
+                <img src="images/avJuly4th_KC.jpg" alt="Macy's 4th of July — Kelly Clarkson, NBC 2018" loading="lazy">
                 <div class="project-info">
                     <h3 class="project-title">MACY'S 4TH OF JULY</h3>
                     <p class="project-category">NBC | 2018 — KELLY CLARKSON</p>
                 </div>
             </div>
-            <div class="portfolio-item" onclick="openModal('https://player.vimeo.com/video/MUSIC_VIDEO_ID_2')">
-                <img src="images/PLACEHOLDER.png" alt="Music Item 2">
+            <div class="portfolio-item" onclick="openModal('https://player.vimeo.com/video/MUSIC_VIDEO_ID_2')" role="button" aria-label="Play Show Title">
                 <div class="project-info">
                     <h3 class="project-title">SHOW TITLE</h3>
                     <p class="project-category">NETWORK | YEAR — ARTIST</p>
                 </div>
             </div>
-            <div class="portfolio-item" onclick="openModal('https://player.vimeo.com/video/MUSIC_VIDEO_ID_3')">
-                <img src="images/PLACEHOLDER.png" alt="Music Item 3">
+            <div class="portfolio-item" onclick="openModal('https://player.vimeo.com/video/MUSIC_VIDEO_ID_3')" role="button" aria-label="Play Show Title">
                 <div class="project-info">
                     <h3 class="project-title">SHOW TITLE</h3>
                     <p class="project-category">NETWORK | YEAR — ARTIST</p>
                 </div>
             </div>
-            <div class="portfolio-item" onclick="openModal('https://player.vimeo.com/video/MUSIC_VIDEO_ID_4')">
-                <img src="images/avChristmas_2022.png" alt="Christmas in Rockefeller Center">
+            <div class="portfolio-item" onclick="openModal('https://player.vimeo.com/video/MUSIC_VIDEO_ID_4')" role="button" aria-label="Play Christmas in Rockefeller Center">
+                <img src="images/avChristmas_2022.jpg" alt="Christmas in Rockefeller Center — Blake Shelton and Gwen Stefani, NBC 2022" loading="lazy">
                 <div class="project-info">
                     <h3 class="project-title">CHRISTMAS IN ROCKEFELLER CENTER</h3>
                     <p class="project-category">NBC | 2022 — BLAKE SHELTON & GWEN STEFANI</p>
@@ -368,29 +261,26 @@
             <span>Comedy</span>
         </h2>
         <div class="portfolio-grid">
-            <div class="portfolio-item" onclick="openModal('https://www.youtube.com/watch?v=uWoKJErAP6g')">
-                <img src="images/avSecondChance_Cotter.png" alt="Second Chance Theatre - Mr. Cotter">
+            <div class="portfolio-item" onclick="openModal('https://www.youtube.com/watch?v=uWoKJErAP6g')" role="button" aria-label="Play Late Night with Seth Meyers — Second Chance Theatre">
+                <img src="images/avSecondChance_Cotter.jpg" alt="Late Night with Seth Meyers — Second Chance Theatre: Mr. Cotter" loading="lazy">
                 <div class="project-info">
                     <h3 class="project-title">LATE NIGHT WITH SETH MEYERS</h3>
                     <p class="project-category">SKETCH COMEDY | MR. COTTER</p>
                 </div>
             </div>
-            <div class="portfolio-item" onclick="openModal('https://player.vimeo.com/video/COMEDY_VIDEO_ID_2')">
-                <img src="images/PLACEHOLDER.png" alt="Comedy Item 2">
+            <div class="portfolio-item" onclick="openModal('https://player.vimeo.com/video/COMEDY_VIDEO_ID_2')" role="button" aria-label="Play Show Title">
                 <div class="project-info">
                     <h3 class="project-title">SHOW TITLE</h3>
                     <p class="project-category">NETWORK | YEAR</p>
                 </div>
             </div>
-            <div class="portfolio-item" onclick="openModal('https://player.vimeo.com/video/COMEDY_VIDEO_ID_3')">
-                <img src="images/PLACEHOLDER.png" alt="Comedy Item 3">
+            <div class="portfolio-item" onclick="openModal('https://player.vimeo.com/video/COMEDY_VIDEO_ID_3')" role="button" aria-label="Play Show Title">
                 <div class="project-info">
                     <h3 class="project-title">SHOW TITLE</h3>
                     <p class="project-category">NETWORK | YEAR</p>
                 </div>
             </div>
-            <div class="portfolio-item" onclick="openModal('https://player.vimeo.com/video/COMEDY_VIDEO_ID_4')">
-                <img src="images/PLACEHOLDER.png" alt="Comedy Item 4">
+            <div class="portfolio-item" onclick="openModal('https://player.vimeo.com/video/COMEDY_VIDEO_ID_4')" role="button" aria-label="Play Show Title">
                 <div class="project-info">
                     <h3 class="project-title">SHOW TITLE</h3>
                     <p class="project-category">NETWORK | YEAR</p>
@@ -404,29 +294,26 @@
             <span>Events</span>
         </h2>
         <div class="portfolio-grid">
-            <div class="portfolio-item" onclick="openModal('https://player.vimeo.com/video/1166807103')">
-                <img src="images/avThanksgiving2025_thumb.png" alt="2025 Macy's Thanksgiving Day Parade Open">
+            <div class="portfolio-item" onclick="openModal('https://player.vimeo.com/video/1166807103')" role="button" aria-label="Play 2025 Macy's Thanksgiving Day Parade Open">
+                <img src="images/avThanksgiving2025_thumb.jpg" alt="2025 Macy's Thanksgiving Day Parade Open — Cynthia Erivo, NBC" loading="lazy">
                 <div class="project-info">
                     <h3 class="project-title">2025 MACY'S THANKSGIVING DAY PARADE OPEN</h3>
                     <p class="project-category">NBC | FEATURING CYNTHIA ERIVO</p>
                 </div>
             </div>
-            <div class="portfolio-item" onclick="openModal('https://player.vimeo.com/video/EVENTS_VIDEO_ID_2')">
-                <img src="images/PLACEHOLDER.png" alt="Events Item 2">
+            <div class="portfolio-item" onclick="openModal('https://player.vimeo.com/video/EVENTS_VIDEO_ID_2')" role="button" aria-label="Play Show Title">
                 <div class="project-info">
                     <h3 class="project-title">SHOW TITLE</h3>
                     <p class="project-category">NETWORK | YEAR</p>
                 </div>
             </div>
-            <div class="portfolio-item" onclick="openModal('https://player.vimeo.com/video/EVENTS_VIDEO_ID_3')">
-                <img src="images/PLACEHOLDER.png" alt="Events Item 3">
+            <div class="portfolio-item" onclick="openModal('https://player.vimeo.com/video/EVENTS_VIDEO_ID_3')" role="button" aria-label="Play Show Title">
                 <div class="project-info">
                     <h3 class="project-title">SHOW TITLE</h3>
                     <p class="project-category">NETWORK | YEAR</p>
                 </div>
             </div>
-            <div class="portfolio-item" onclick="openModal('https://player.vimeo.com/video/EVENTS_VIDEO_ID_4')">
-                <img src="images/PLACEHOLDER.png" alt="Events Item 4">
+            <div class="portfolio-item" onclick="openModal('https://player.vimeo.com/video/EVENTS_VIDEO_ID_4')" role="button" aria-label="Play Show Title">
                 <div class="project-info">
                     <h3 class="project-title">SHOW TITLE</h3>
                     <p class="project-category">NETWORK | YEAR</p>
@@ -438,10 +325,10 @@
 
     <footer class="w-full pb-12 mt-5">
         <div class="max-w-7xl mx-auto bookend-bar mb-8"></div>
-        
+
         <div class="w-full flex flex-col gap-6">
             <div class="flex flex-row justify-between items-center w-full">
-                <div class="footer-brand">
+                <div>
                     <div class="flex items-baseline">
                         <span class="alex-footer">Alexander</span><span class="viet-footer">Vietmeier</span>
                     </div>
@@ -451,13 +338,13 @@
                 </div>
 
                 <div class="flex items-center gap-3 md:gap-8">
-                    <a href="https://www.imdb.com/name/nm3653860/" target="_blank" class="opacity-70 hover:opacity-100 transition-opacity" title="IMDb">
+                    <a href="https://www.imdb.com/name/nm3653860/" target="_blank" rel="noopener noreferrer" class="opacity-70 hover:opacity-100 transition-opacity" title="IMDb" aria-label="IMDb profile">
                         <svg width="18" height="18" class="md:w-6 md:h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2H2v10h10V2z"/><path d="M18 12h4"/><path d="M18 16h4"/><path d="M18 20h4"/><path d="M18 4h4"/><path d="M18 8h4"/><path d="M2 12h10"/><path d="M2 16h10"/><path d="M2 20h10"/><path d="M2 4h10"/><path d="M2 8h10"/></svg>
                     </a>
-                    <a href="http://www.linkedin.com/in/alexvietmeier" target="_blank" class="opacity-70 hover:opacity-100 transition-opacity" title="LinkedIn">
+                    <a href="https://www.linkedin.com/in/alexvietmeier" target="_blank" rel="noopener noreferrer" class="opacity-70 hover:opacity-100 transition-opacity" title="LinkedIn" aria-label="LinkedIn profile">
                         <svg width="18" height="18" class="md:w-6 md:h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg>
                     </a>
-                    <a href="mailto:info@alexvietmeier.com" class="opacity-70 hover:opacity-100 transition-opacity" title="Email">
+                    <a href="mailto:info@alexvietmeier.com" class="opacity-70 hover:opacity-100 transition-opacity" title="Email" aria-label="Send email">
                         <svg width="18" height="18" class="md:w-6 md:h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
                     </a>
                 </div>
@@ -472,8 +359,8 @@
     </footer>
 
     <!-- VIDEO MODAL -->
-    <div id="videoModal" class="fixed inset-0 z-[100] hidden flex items-center justify-center bg-black/95 p-4 md:p-10">
-        <button onclick="closeModal()" class="absolute top-6 right-6 text-white text-4xl font-light hover:opacity-50 transition-opacity">&times;</button>
+    <div id="videoModal" class="fixed inset-0 z-[100] items-center justify-center bg-black/95 p-4 md:p-10" role="dialog" aria-modal="true" aria-label="Video player">
+        <button onclick="closeModal()" class="absolute top-6 right-6 text-white text-4xl font-light hover:opacity-50 transition-opacity" aria-label="Close video">&times;</button>
         <div class="w-full max-w-5xl aspect-video bg-black shadow-2xl">
             <iframe id="modalPlayer" src="" class="w-full h-full" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
         </div>
@@ -483,47 +370,36 @@
         function openModal(videoUrl) {
             const modal = document.getElementById('videoModal');
             const player = document.getElementById('modalPlayer');
-            
             let finalUrl = videoUrl;
-
             if (videoUrl.includes('youtube.com/watch?v=')) {
                 const videoId = videoUrl.split('v=')[1].split('&')[0];
-                finalUrl = `https://www.youtube.com/embed/${videoId}?autoplay=1`;
+                finalUrl = `https://www.youtube.com/embed/${videoId}?autoplay=1&rel=0`;
             } else if (videoUrl.includes('youtu.be/')) {
                 const videoId = videoUrl.split('be/')[1].split('?')[0];
-                finalUrl = `https://www.youtube.com/embed/${videoId}?autoplay=1`;
+                finalUrl = `https://www.youtube.com/embed/${videoId}?autoplay=1&rel=0`;
             } else {
                 finalUrl = videoUrl + (videoUrl.includes('?') ? '&' : '?') + "autoplay=1";
             }
-
             player.src = finalUrl;
-            modal.classList.remove('hidden');
+            modal.classList.add('is-open');
             document.body.style.overflow = 'hidden';
         }
 
         function closeModal() {
             const modal = document.getElementById('videoModal');
             const player = document.getElementById('modalPlayer');
-            modal.classList.add('hidden');
+            modal.classList.remove('is-open');
             player.src = "";
-            document.body.style.overflow = 'auto';
+            document.body.style.overflow = '';
         }
 
-        window.onclick = function(event) {
-            const modal = document.getElementById('videoModal');
-            if (event.target == modal) { closeModal(); }
-        }
+        window.addEventListener('click', (e) => { if (e.target === document.getElementById('videoModal')) closeModal(); });
+        window.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeModal(); });
 
-        // Touch support for mobile
         document.addEventListener("DOMContentLoaded", function() {
-            const allItems = document.querySelectorAll('.portfolio-item, .reel-item');
-            allItems.forEach(item => {
-                item.addEventListener('touchstart', function() {
-                    this.classList.add('touch-active');
-                }, {passive: true});
-                item.addEventListener('touchend', function() {
-                    setTimeout(() => { this.classList.remove('touch-active'); }, 300);
-                }, {passive: true});
+            document.querySelectorAll('.portfolio-item, .reel-item').forEach(item => {
+                item.addEventListener('touchstart', function() { this.classList.add('touch-active'); }, {passive: true});
+                item.addEventListener('touchend', function() { setTimeout(() => this.classList.remove('touch-active'), 300); }, {passive: true});
             });
         });
     </script>

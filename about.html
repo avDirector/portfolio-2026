@@ -3,24 +3,46 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About | Alexander Vietmeier</title>
-    
-    <script src="https://cdn.tailwindcss.com"></script>
+    <title>About | Alexander Vietmeier — Emmy-Nominated TV Director</title>
+    <meta name="description" content="Alexander Vietmeier is a 2x Emmy-nominated TV director of Late Night with Seth Meyers at NBC, Macy's Thanksgiving Day Parade, and more. Based in New York City.">
+    <meta name="author" content="Alexander Vietmeier">
+    <meta name="robots" content="index, follow">
+    <meta name="theme-color" content="#000000">
+    <link rel="canonical" href="https://www.alexvietmeier.com/about.html" />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="profile">
+    <meta property="og:url" content="https://www.alexvietmeier.com/about.html">
+    <meta property="og:title" content="About | Alexander Vietmeier — Emmy-Nominated TV Director">
+    <meta property="og:description" content="Alexander Vietmeier is a 2x Emmy-nominated TV director of Late Night with Seth Meyers at NBC, Macy's Thanksgiving Day Parade, and more. Based in New York City.">
+    <meta property="og:image" content="https://www.alexvietmeier.com/images/avHome-og.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:site_name" content="Alexander Vietmeier">
+    <meta property="og:locale" content="en_US">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="About | Alexander Vietmeier — Emmy-Nominated TV Director">
+    <meta name="twitter:description" content="2x Emmy-nominated TV director of Late Night with Seth Meyers, Macy's Thanksgiving Day Parade, and more.">
+    <meta name="twitter:image" content="https://www.alexvietmeier.com/images/avHome-og.jpg">
+
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22 fill=%22white%22 font-family=%22sans-serif%22 font-weight=%22bold%22>AV</text></svg>">
+
+    <!-- Preload critical assets -->
+    <link rel="preload" href="./fonts/Knockout-HTF70-FullWelterwt.otf" as="font" type="font/otf" crossorigin>
+    <link rel="preload" href="./fonts/Knockout-HTF30-JuniorWelterwt.otf" as="font" type="font/otf" crossorigin>
+
+    <!-- Local Tailwind (purged) -->
+    <link rel="stylesheet" href="styles.css">
+
     <style>
-        @font-face { 
-            font-family: 'Knockout-Full'; 
-            src: url('./fonts/Knockout-HTF70-FullWelterwt.otf') format('opentype'); 
-            font-display: swap;
-        }
-        @font-face { 
-            font-family: 'Knockout-Junior'; 
-            src: url('./fonts/Knockout-HTF30-JuniorWelterwt.otf') format('opentype'); 
-            font-display: swap;
-        }
+        @font-face { font-family: 'Knockout-Full'; src: url('./fonts/Knockout-HTF70-FullWelterwt.otf') format('opentype'); font-display: swap; }
+        @font-face { font-family: 'Knockout-Junior'; src: url('./fonts/Knockout-HTF30-JuniorWelterwt.otf') format('opentype'); font-display: swap; }
 
         body {
             background-color: #000;
-            color: rgba(255, 255, 255, 0.7); 
+            color: rgba(255, 255, 255, 0.7);
             text-transform: uppercase;
             font-family: 'Knockout-Junior', sans-serif;
             -webkit-font-smoothing: antialiased;
@@ -36,130 +58,84 @@
 
         .brand-logo {
             font-family: 'Knockout-Full', sans-serif;
-            font-size: clamp(2.5rem, 5vw, 3.25rem); 
+            font-size: clamp(2.5rem, 5vw, 3.25rem);
             line-height: 0.9;
             letter-spacing: -0.01em;
             transition: opacity 0.3s ease;
         }
+        @media (min-width: 768px) { .brand-logo { letter-spacing: -0.02em; } }
 
-        @media (min-width: 768px) {
-            .brand-logo { letter-spacing: -0.02em; }
-        }
-
-        .nav-link { 
-            font-size: 11px; 
-            opacity: 0.4; 
-            letter-spacing: 0.2em; 
-            transition: opacity 0.3s; 
-            color: #fff; 
-        }
-        @media (min-width: 768px) {
-            .nav-link { font-size: 13px; letter-spacing: 0.35em; }
-        }
+        .nav-link { font-size: 11px; opacity: 0.4; letter-spacing: 0.2em; transition: opacity 0.3s; color: #fff; }
+        @media (min-width: 768px) { .nav-link { font-size: 13px; letter-spacing: 0.35em; } }
         .nav-link:hover, .nav-link.active { opacity: 1; }
         .nav-pipe { color: #fff; }
         .bookend-bar { width: 100%; height: 2px; background: rgba(255, 255, 255, 0.12); }
 
-        .masthead-container { 
-            display: flex; 
-            flex-direction: column; 
-            align-items: flex-start; 
-            margin-top: 2.5rem; 
-            margin-bottom: 2rem; 
+        .masthead-container {
+            display: flex; flex-direction: column; align-items: flex-start;
+            margin-top: 2.5rem; margin-bottom: 2rem;
         }
-
         @media (min-width: 768px) {
-            .masthead-container { 
-                align-items: flex-end; 
-                margin-top: 3.5rem; 
-                margin-bottom: 3rem; 
-            }
+            .masthead-container { align-items: flex-end; margin-top: 3.5rem; margin-bottom: 3rem; }
         }
 
-        .main-title { 
-            font-family: 'Knockout-Full', sans-serif; 
-            font-size: clamp(2.6rem, 9vw, 5.5rem); 
-            line-height: 0.8; 
-            color: rgba(255, 255, 255, 0.9); 
-            text-align: left;
-            letter-spacing: 0.01em; 
+        .main-title {
+            font-family: 'Knockout-Full', sans-serif;
+            font-size: clamp(2.6rem, 9vw, 5.5rem);
+            line-height: 0.8; color: rgba(255, 255, 255, 0.9);
+            text-align: left; letter-spacing: 0.01em;
         }
+        @media (min-width: 768px) { .main-title { text-align: right; } }
 
+        .main-title span { font-family: 'Knockout-Junior'; opacity: 0.85; letter-spacing: -0.01em; }
+
+        .selected-sub {
+            font-family: 'Knockout-Junior'; font-size: 14px; letter-spacing: 0.11em;
+            color: rgba(255, 255, 255, 0.45); margin-top: 2px; text-align: left;
+        }
         @media (min-width: 768px) {
-            .main-title { text-align: right; }
+            .selected-sub { font-size: 18px; letter-spacing: 0.2em; text-align: right; padding-right: 2px; }
         }
 
-        .main-title span { 
-            font-family: 'Knockout-Junior'; 
-            opacity: 0.85; 
-            letter-spacing: -0.01em; 
-        }
+        .header-rule { width: 100%; height: 1px; background: rgba(255, 255, 255, 0.15); margin-top: 1.5rem; }
+        @media (min-width: 768px) { .header-rule { margin-top: 2.5rem; } }
 
-        .selected-sub { 
-            font-family: 'Knockout-Junior'; 
-            font-size: 14px; 
-            letter-spacing: 0.11em; 
-            color: rgba(255, 255, 255, 0.45); 
-            margin-top: 2px; 
-            text-align: left;
-        }
-
-        @media (min-width: 768px) {
-            .selected-sub { 
-                font-size: 18px; 
-                letter-spacing: 0.2em; 
-                margin-top: 2px; 
-                text-align: right;
-                padding-right: 2px; 
-            }
-        }
-        
-        .header-rule { 
-            width: 100%; 
-            height: 1px; 
-            background: rgba(255, 255, 255, 0.15); 
-            margin-top: 1.5rem; 
-        }
-        @media (min-width: 768px) { 
-            .header-rule { margin-top: 2.5rem; } 
-        }
-
-        /* BIO TEXT - UPDATED FOR FULL JUSTIFICATION */
         .bio-text {
-            font-size: 1.1rem;
-            line-height: 1.5;
-            letter-spacing: 0.02em;
-            color: rgba(255, 255, 255, 0.6);
-            text-align: justify;
-            text-justify: inter-word;
+            font-size: 1.1rem; line-height: 1.5; letter-spacing: 0.02em;
+            color: rgba(255, 255, 255, 0.6); text-align: justify; text-justify: inter-word;
         }
-        @media (min-width: 1024px) {
-            .bio-text { font-size: 1.15rem; line-height: 1.65; }
-        }
+        @media (min-width: 1024px) { .bio-text { font-size: 1.15rem; line-height: 1.65; } }
         .bio-text strong { color: #fff; font-family: 'Knockout-Full', sans-serif; font-weight: normal; }
 
-        /* IMAGE STYLING */
         .image-container { position: relative; overflow: hidden; background: #111; }
         .image-container img {
             width: 100%; height: 100%; object-fit: cover;
-            filter: grayscale(100%); transition: all 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+            filter: grayscale(100%); transition: filter 0.7s cubic-bezier(0.4, 0, 0.2, 1), transform 0.7s cubic-bezier(0.4, 0, 0.2, 1);
         }
         .image-container:hover img { filter: grayscale(0%); }
 
         .photo-credit {
             position: absolute; bottom: 8px; left: 8px;
-            font-family: 'Knockout-Junior', sans-serif; font-size: 8px; 
-            letter-spacing: 0.1em; color: #fff; background: rgba(0, 0, 0, 0.6); 
+            font-family: 'Knockout-Junior', sans-serif; font-size: 8px;
+            letter-spacing: 0.1em; color: #fff; background: rgba(0, 0, 0, 0.6);
             padding: 2px 6px; opacity: 0; transition: opacity 0.4s ease; z-index: 10;
         }
-        @media (min-width: 768px) {
-            .photo-credit { font-size: 10px; bottom: 12px; left: 12px; padding: 4px 8px; }
-        }
+        @media (min-width: 768px) { .photo-credit { font-size: 10px; bottom: 12px; left: 12px; padding: 4px 8px; } }
         .image-container:hover .photo-credit { opacity: 1; }
 
-        .footer-logo { font-family: 'Knockout-Full', sans-serif; font-size: 2.5rem; color: rgba(255, 255, 255, 0.8); line-height: 1; }
-        @media (min-width: 768px) { .footer-logo { font-size: 3.5rem; } }
-        .footer-logo span { font-family: 'Knockout-Junior'; margin-left: -2px; }
+        /* Footer */
+        .alex-footer {
+            font-family: 'Knockout-Full', sans-serif;
+            font-size: 1.15rem; color: #fff; letter-spacing: -0.01em; line-height: 1;
+        }
+        .viet-footer {
+            font-family: 'Knockout-Junior', sans-serif;
+            font-size: 1.1rem; color: rgba(255,255,255,0.7); margin-left: 0.15em; line-height: 1;
+        }
+        @media (min-width: 768px) {
+            .alex-footer { font-size: 2.5rem; letter-spacing: -0.02em; }
+            .viet-footer { font-size: 2.45rem; margin-left: 0.2em; }
+        }
     </style>
 </head>
 <body class="p-4 md:p-12 lg:px-20">
@@ -170,7 +146,7 @@
         <a href="index.html" class="brand-logo tracking-tighter flex items-baseline opacity-80">
             <span>A</span><span style="font-family: 'Knockout-Junior', sans-serif; margin-left: -2px;">V</span>
         </a>
-        <div class="nav-container flex flex-row items-center font-bold" style="font-family: 'Knockout-Junior', sans-serif;">
+        <div class="flex flex-row items-center font-bold" style="font-family: 'Knockout-Junior', sans-serif;">
             <a href="portfolio.html" class="nav-link">Portfolio</a>
             <span class="nav-pipe opacity-40 mx-2 md:mx-4">|</span>
             <a href="credits.html" class="nav-link">Credits</a>
@@ -186,7 +162,7 @@
     <main class="max-w-7xl mx-auto px-2 md:px-8 pb-10">
         <div class="masthead-container">
             <h1 class="main-title">ALEXANDER<span>VIETMEIER</span></h1>
-            <span class="selected-sub">DIRECTOR <span class="sub-pipe opacity-40">|</span> NEW YORK CITY</span>
+            <span class="selected-sub">DIRECTOR <span class="opacity-40">|</span> NEW YORK CITY</span>
             <div class="header-rule"></div>
         </div>
 
@@ -194,107 +170,82 @@
             <div class="lg:col-span-6 space-y-4 md:space-y-6">
                 <div class="grid grid-cols-10 gap-4 md:gap-6">
                     <div class="col-span-10 md:col-span-6 image-container aspect-[3/4]">
-                        <img src="images/avHeadShot.png" alt="Alexander Vietmeier">
+                        <img src="images/avHeadShot.jpg" alt="Alexander Vietmeier — TV Director" loading="lazy">
                         <div class="photo-credit">PHOTO: LLOYD BISHOP</div>
                     </div>
-                    
+
                     <div class="col-span-10 md:col-span-4 flex flex-row md:flex-col gap-4 md:gap-6">
                         <div class="image-container flex-1 aspect-square md:aspect-auto">
-                            <img src="images/36.Week_09_02_15_select_0189.jpg" alt="Control Room">
+                            <img src="images/36.Week_09_02_15_select_0189.jpg" alt="Control Room" loading="lazy">
                             <div class="photo-credit">PHOTO: LLOYD BISHOP</div>
                         </div>
                         <div class="image-container flex-1 aspect-square md:aspect-auto">
-                            <img src="images/7.Week_12_05_14_select-145.jpg" alt="Switcher">
+                            <img src="images/7.Week_12_05_14_select-145.jpg" alt="Switcher" loading="lazy">
                             <div class="photo-credit">PHOTO: LLOYD BISHOP</div>
                         </div>
                     </div>
                 </div>
 
                 <div class="hidden lg:block image-container w-full aspect-video">
-                    <img src="images/IMG_2688.jpg" alt="Macy's Parade">
+                    <img src="images/IMG_2688.jpg" alt="Macy's Thanksgiving Day Parade" loading="lazy">
                 </div>
             </div>
 
-           <div class="lg:col-span-6 bio-text space-y-6 md:space-y-8 mt-4 lg:mt-0">
-    <p>
-        <strong>Alex Vietmeier</strong> is an Emmy-nominated television director who has spent the last 15 years navigating the high-speed environment of late-night comedy, live music, and variety broadcast.
-    </p>
-    <p>
-        Since 2014, Alex has been the Director of <strong>Late Night with Seth Meyers</strong> at NBC, where he has helmed over 1,750 episodes and directs the Emmy-nominated digital series <em>Corrections</em>. His work is defined by a <strong>sharp creative eye</strong> and the timing and accuracy required to execute complex storytelling at the highest level.
-    </p>
-    <p>
-        Alex’s approach is rooted in <strong>creative planning and precision execution</strong>—the ability to map out complicated shots and sequences with clarity and intent, and then deliver with flawless execution. Whether he is developing the look of a comedy sketch or calling the shots for a massive live moment like the opening number of the <strong>Macy’s Thanksgiving Day Parade</strong>, he remains <strong>calm, cool, and collected</strong>. He takes pride in ensuring his crew is fully prepared and locked in, enabling them to bring his vision to life with precision and confidence.
-    </p>
-    <p>
-        A graduate of Webster University’s School of Communications, Alex balances a decade and a half of directing experience with a relentless drive to keep learning—approaching every project with a student’s curiosity and a director’s vision.
-    </p>
+            <div class="lg:col-span-6 bio-text space-y-6 md:space-y-8 mt-4 lg:mt-0">
+                <p>
+                    <strong>Alex Vietmeier</strong> is an Emmy-nominated television director who has spent the last 15 years navigating the high-speed environment of late-night comedy, live music, and variety broadcast.
+                </p>
+                <p>
+                    Since 2014, Alex has been the Director of <strong>Late Night with Seth Meyers</strong> at NBC, where he has helmed over 1,750 episodes and directs the Emmy-nominated digital series <em>Corrections</em>. His work is defined by a <strong>sharp creative eye</strong> and the timing and accuracy required to execute complex storytelling at the highest level.
+                </p>
+                <p>
+                    Alex's approach is rooted in <strong>creative planning and precision execution</strong>—the ability to map out complicated shots and sequences with clarity and intent, and then deliver with flawless execution. Whether he is developing the look of a comedy sketch or calling the shots for a massive live moment like the opening number of the <strong>Macy's Thanksgiving Day Parade</strong>, he remains <strong>calm, cool, and collected</strong>. He takes pride in ensuring his crew is fully prepared and locked in, enabling them to bring his vision to life with precision and confidence.
+                </p>
+                <p>
+                    A graduate of Webster University's School of Communications, Alex balances a decade and a half of directing experience with a relentless drive to keep learning—approaching every project with a student's curiosity and a director's vision.
+                </p>
 
-    <div class="lg:hidden image-container w-full aspect-video mt-8">
-        <img src="images/IMG_2688.jpg" alt="Macy's Parade">
-    </div>
-</div>
+                <div class="lg:hidden image-container w-full aspect-video mt-8">
+                    <img src="images/IMG_2688.jpg" alt="Macy's Thanksgiving Day Parade" loading="lazy">
+                </div>
+            </div>
         </div>
     </main>
 
-    
-  <footer class="w-full pb-12 mt-5">
-    <div class="max-w-7xl mx-auto bookend-bar mb-8"></div>
-    
-    <div class="w-full flex flex-col gap-6">
-        <div class="flex flex-row justify-between items-center w-full">
-            
-            <div class="footer-brand">
-                <div class="flex items-baseline">
-                    <span class="alex-footer">Alexander</span><span class="viet-footer">Vietmeier</span>
+    <footer class="w-full pb-12 mt-5">
+        <div class="max-w-7xl mx-auto bookend-bar mb-8"></div>
+
+        <div class="w-full flex flex-col gap-6">
+            <div class="flex flex-row justify-between items-center w-full">
+                <div>
+                    <div class="flex items-baseline">
+                        <span class="alex-footer">Alexander</span><span class="viet-footer">Vietmeier</span>
+                    </div>
+                    <p class="text-[9px] md:text-[12px] tracking-[0.11em] opacity-50 mt-0 font-bold">
+                        Director | New York City
+                    </p>
                 </div>
-                <p class="text-[9px] md:text-[12px] tracking-[0.11em] opacity-50 mt-0 font-bold">
-                    Director | New York City
+
+                <div class="flex items-center gap-3 md:gap-8">
+                    <a href="https://www.imdb.com/name/nm3653860/" target="_blank" rel="noopener noreferrer" class="opacity-70 hover:opacity-100 transition-opacity" title="IMDb" aria-label="IMDb profile">
+                        <svg width="18" height="18" class="md:w-6 md:h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2H2v10h10V2z"/><path d="M18 12h4"/><path d="M18 16h4"/><path d="M18 20h4"/><path d="M18 4h4"/><path d="M18 8h4"/><path d="M2 12h10"/><path d="M2 16h10"/><path d="M2 20h10"/><path d="M2 4h10"/><path d="M2 8h10"/></svg>
+                    </a>
+                    <a href="https://www.linkedin.com/in/alexvietmeier" target="_blank" rel="noopener noreferrer" class="opacity-70 hover:opacity-100 transition-opacity" title="LinkedIn" aria-label="LinkedIn profile">
+                        <svg width="18" height="18" class="md:w-6 md:h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg>
+                    </a>
+                    <a href="mailto:info@alexvietmeier.com" class="opacity-70 hover:opacity-100 transition-opacity" title="Email" aria-label="Send email">
+                        <svg width="18" height="18" class="md:w-6 md:h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+                    </a>
+                </div>
+            </div>
+
+            <div class="w-full text-center border-t-2 border-white/10 pt-6">
+                <p class="text-[11px] tracking-widest opacity-40">
+                    © 2026 Alexander Vietmeier. All Rights Reserved.
                 </p>
             </div>
-
-            <div class="flex items-center gap-3 md:gap-8">
-                <a href="https://www.imdb.com/name/nm3653860/" target="_blank" class="opacity-70 hover:opacity-100 transition-opacity" title="IMDb">
-                    <svg width="18" height="18" class="md:w-6 md:h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2H2v10h10V2z"/><path d="M18 12h4"/><path d="M18 16h4"/><path d="M18 20h4"/><path d="M18 4h4"/><path d="M18 8h4"/><path d="M2 12h10"/><path d="M2 16h10"/><path d="M2 20h10"/><path d="M2 4h10"/><path d="M2 8h10"/></svg>
-                </a>
-                <a href="http://www.linkedin.com/in/alexvietmeier" target="_blank" class="opacity-70 hover:opacity-100 transition-opacity" title="LinkedIn">
-                    <svg width="18" height="18" class="md:w-6 md:h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg>
-                </a>
-                <a href="mailto:info@alexvietmeier.com" class="opacity-70 hover:opacity-100 transition-opacity" title="Email">
-                    <svg width="18" height="18" class="md:w-6 md:h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
-                </a>
-            </div>
         </div>
-
-        <div class="w-full text-center border-t-2 border-white/10 pt-6">
-            <p class="text-[11px] tracking-widest opacity-40">
-                © 2026 Alexander Vietmeier. All Rights Reserved.
-            </p>
-        </div>
-    </div>
-</footer>
-
-<style>
-   /* FOOTER TYPOGRAPHY - RE-TUNED FOR ONE LINE */
-.alex-footer { 
-    font-family: 'Knockout-Full', sans-serif; 
-    font-size: 1.15rem; /* Slightly smaller for mobile flow */
-    color: #fff; 
-    letter-spacing: -0.01em;
-    line-height: 1;
-}
-.viet-footer { 
-    font-family: 'Knockout-Junior', sans-serif; 
-    font-size: 1.1rem; 
-    color: rgba(255,255,255,0.7); 
-    margin-left: 0.15em; 
-    line-height: 1;
-}
-
-@media (min-width: 768px) {
-    .alex-footer { font-size: 2.5rem; letter-spacing: -0.02em; }
-    .viet-footer { font-size: 2.45rem; margin-left: 0.2em; }
-}
-</style>
+    </footer>
 
 </body>
 </html>
